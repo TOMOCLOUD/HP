@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "./Header"; // 既存のヘッダーコンポーネントを利用
 
 export const metadata = {
-  title: "My Company",
+  title: "TOMOCLOUD",
   description: "TOMOCLOUDプロジェクト",
 };
 
