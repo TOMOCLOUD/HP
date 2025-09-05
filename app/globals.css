@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+html, body { background:#fff; }
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== Hero スライドショー ===== */
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slideshow .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  will-change: opacity;
+  backface-visibility: hidden;
+
+  /* 1枚あたり6s（= 24s / 4枚）の枠を共有する“グローバル時間” */
+  animation-name: slideFadeGlobal;
+  animation-duration: 24s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both; /* 負のdelayの初期フレーム保持に有効 */
+}
+
+/* 各スライドの位相を “負のdelay” でずらす（ロード直後から均一）*/
+.slideshow .slide:nth-child(1) { animation-delay: -0s;  }
+.slideshow .slide:nth-child(2) { animation-delay: -6s;  }
+.slideshow .slide:nth-child(3) { animation-delay: -12s; }
+.slideshow .slide:nth-child(4) { animation-delay: -18s; }
+
+/* 可視窓：0%→2%でIN、2%→23%キープ、23%→25%でOUT、残りは非表示 */
+@keyframes slideFadeGlobal {
+  0%   { opacity: 0; }
+  2%   { opacity: 1; }
+  23%  { opacity: 1; }
+  25%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ===== Hero 文字アニメーション（毎回発火） ===== */
+.fade-in-left,
+.fade-in-up {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* 初期位置 */
+.fade-in-left { transform: translateX(-40px); }
+.fade-in-up   { transform: translateY(40px); }
+
+/* 画面に入った瞬間に付与する状態 */
+.fade-in-left.show,
+.fade-in-up.show {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ===== 共通：スクロール時フェード ===== */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+.reveal-on-scroll.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== h2 下線アニメ（デフォルト：要素幅%） ===== */
+h2::after {
+  content: "";
+  display: block;
+  margin: 0.5rem auto 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(to right, #38bdf8, #1c69de);
+  transition: width 0.4s ease;
+}
+h2:hover::after {
+  width: 88%;
+}
+
+/* 開発中の製品など、下線を消したい場合 */
+.no-underline::after {
+  content: none !important;
+}
+
+/* 会社概要(#about) の見出しだけ特別ルール */
+/* ===== 会社概要(#about) だけ：中央から左右対称に伸びる下線 ===== */
+#about h2 {
+  position: relative; /* 擬似要素の基準 */
+}
+
+#about h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;                 /* h2の直下に配置 */
+  margin-top: 0.5rem;
+  height: 3px;
+
+  /* 下線の実サイズ（中央に固定） */
+  width: min(75vw, 1100px);  /* 画面幅の85%、最大1100pxなど任意 */
+
+  background: linear-gradient(to right, #38bdf8, #1c69de);
+
+  /* 中央起点で伸縮（幅は固定） */
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center center;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+/* ホバー時に“中央から”左右対称にスッと伸びる */
+#about h2:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* 他所の h2 の下線アニメは従来どおりでOK */
+
+
+/* ===== ボタン グラデーション hover ===== */
+.btn-gradient {
+  background: linear-gradient(to right, #38bdf8, #1c69de);
+}
+.btn-gradient:hover {
+  background: linear-gradient(to right, #55a8f0, #2548a7);
+}
+
+
+/* アニメーションを控えるユーザー設定に配慮 */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-left,
+  .fade-in-up,
+  .reveal-on-scroll {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease forwards;
+}
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s ease forwards;
+}

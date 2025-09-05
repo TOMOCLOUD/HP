@@ -1,0 +1,19 @@
+# プロジェクトのフォルダに移動
+cd C:\Users\A_Kohta\Documents\my-website
+
+# 開発サーバーを起動
+npm run dev
+
+#Versalでとりあえず公開(問い合わせ機能なし、毎回リンク更新)
+vercel --prod
+
+
+http://localhost:3000
+
+
+http://tomocloud.co.jpの権利はお名前.comで取得済み
+→このドメインで公開する方法について調べる
+
+
+API Keys
+re_gUJd43gV_BqPyrXAqXWHyQvKcahcoZubj
