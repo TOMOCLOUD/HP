@@ -1,0 +1,69 @@
+{
+  "news": {
+    "title": "News",
+    "more": "Read more",
+    "moreAria": "Open external link",
+    "newer": "‹ Newer posts",
+    "older": "Older posts ›",
+    "pagerAria": "News pager",
+    "pageXofY": "Page {x} / {y}",
+    "items": [
+      {
+        "id": 7,
+        "title": "CEO Ryoma Ogawa to speak in the Excellent Presentation session at the 9th JSLS Lymphedema Treatment Annual Meeting: \"EIT for Lymphedema Evaluation—Past and Future\"",
+        "date": "2025-08-23",
+        "image": "/Image/news_7_2.png",
+        "text": "September 6–7, 2025 · Act City Hamamatsu, Congress Center",
+        "url": "https://www.graffiti97.com/9jslt/index.html"
+      },
+      {
+        "id": 6,
+        "title": "CEO Ryoma Ogawa will talk at the Special Event of the 19th Lymphedema Seminar",
+        "date": "2025-08-23",
+        "image": "/Image/news_6_2.png",
+        "text": "10:00–12:00 (JST), Online",
+        "url": "https://www.mukumi-seminar.org/event/"
+      },
+      {
+        "id": 5,
+        "title": "CEO Ryoma Ogawa selected as a finalist for Beyond JAPAN Zero to X Program (Deep Tech – San Diego course)",
+        "date": "2025-08-20",
+        "image": "/Image/news_5_2.png",
+        "text": "A dispatch-style program to develop next-generation innovators and entrepreneurs.",
+        "url": "https://www.b4d-jp.com/news/2025-8"
+      },
+      {
+        "id": 4,
+        "title": "CEO Ryoma Ogawa accepted into the GTIE-GAP Fund (Entry Course)",
+        "date": "2025-07-30",
+        "image": "/Image/news_4_2.png",
+        "text": "Theme: Commercialization of a muscle mass/quality imaging wearable to help prevent sarcopenia.",
+        "url": "https://gtie.jp/news/43810/"
+      },
+      {
+        "id": 3,
+        "title": "Presentation at the 33rd Annual Meeting of the Japanese Breast Cancer Society: \"A New Breast Cancer Evaluation Method Using EIT\"",
+        "date": "2025-08-12",
+        "image": "/Image/news_3_2.png",
+        "text": "Held July 10–12, 2025.",
+        "url": "https://www.congre.co.jp/jbcs2025/"
+      },
+      {
+        "id": 2,
+        "title": "Research presentation at JSME 37th Bioengineering Conference",
+        "date": "2025-05-24",
+        "image": "/Image/news_2_2.png",
+        "text": "Held May 24–25, 2025.",
+        "url": "https://www.jsme.or.jp/conference/bioconf25/index.html"
+      },
+      {
+        "id": 1,
+        "title": "Talk at the 49th Annual Meeting of the Japanese Society of Lymphology",
+        "date": "2025-05-23",
+        "image": "/Image/news_1_2.png",
+        "text": "Held May 23–24, 2025.",
+        "url": "https://square.umin.ac.jp/jsl49/"
+      }
+    ]
+  }
+}

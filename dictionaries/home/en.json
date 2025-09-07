@@ -1,0 +1,93 @@
+{
+  "home": {
+    "hero": {
+      "title": "TOMOCLOUD",
+      "leadJa": "新しい自分が視える世界へ",
+      "leadEn": "Visualize the New Self"
+    },
+    "vision": {
+      "heading": "Our Vision",
+      "subtitleJa": "視える化技術により全ての人が自分らしく生きることのできる社会を創造する",
+      "subtitleEn": "Enabling authentic lives through the power of visualization.",
+      "p1": "For many people, continuously understanding their health in daily life is not easy.",
+      "p2": "There have also been limited means to easily monitor the body and tissues.",
+      "p3Strong": "From “invisible” to “visible”.",
+      "p4": "We aim to solve these challenges so everyone can live as their authentic selves.",
+      "cta": "View product"
+    },
+    "team": {
+      "heading": "Our Team",
+      "modal": { "achievementsTitle": "Key achievements" },
+      "members": {
+        "ogawa": {
+          "positionNote": "Project Assistant Professor, Takei Lab, Graduate School of Engineering, Chiba University\nEntrepreneur-in-Residence (EIR), IMO, Chiba University",
+          "title": "Project Assistant Professor, Takei Lab, Graduate School of Engineering, Chiba University\nAlso EIR at IMO, Chiba University",
+          "subtitle": "Ph.D. (Engineering), Graduate School of Science and Engineering, Chiba University",
+          "bio": "Studied at the University of Edinburgh as a representative of Tobitate! Study Abroad JAPAN. Driving social implementation at the intersection of medicine and engineering, developing EIT-based devices to address lymphedema after gynecologic cancer treatment. Selected for JST START (2022) with Prof. Takei and team.",
+          "achievements": [
+            "2019: Selected as a Japan representative, World Youth Forum (under UN auspices)",
+            "2021: METI Japan Healthcare Business Contest – Excellence Award",
+            "2022: NEDO TCP Grand Prize; JSPS DC1; Chiba Univ. President/Dean/Chair Awards",
+            "2023: Early Ph.D. completion (5 papers); Best Presentation Award (Lymphedema Society); Research Studio; JSPS PD",
+            "2024: KAKENHI (Young Researcher)",
+            "2025: AMED Bridge (Tsukuba hub) S0; GTIE GAP Fund (Entry Course); Beyond Japan Zero to X"
+          ]
+        },
+        "takei": {
+          "positionNote": "Professor, Graduate School of Engineering (Frontier Medical Engineering Center), Chiba University",
+          "title": "Professor, Graduate School of Engineering (Frontier Medical Engineering Center), Chiba University",
+          "subtitle": "Ph.D. in Engineering, Waseda University",
+          "bio": "Formerly at Nihon University (Assistant–Professor). Led research on electrical measurement and mechanics of multiphase flow, and advanced EIT fundamentals and applications (industrial/biomedical). At Chiba Univ., expanding to plant and biomedical measurement, visualizing thrombi in blood flow (KAKENHI A). Also selected for NEDO advanced IoT project (EIT & AI for lymphedema).",
+          "achievements": [
+            "PI of JST A-STEP and multiple KAKENHI (A/B/C) grants",
+            "NEDO Advanced IoT Project (EIT×AI for lymphedema)",
+            "Invited talks at Lymphedema Society / JCS meetings",
+            "Multiple awards incl. NEDO special jury prize; NEDO TCP finalist"
+          ]
+        }
+      }
+    },
+    "message": {
+      "heading": "Message",
+      "title": "“Visualize the New Self”",
+      "p1": "Even while in an engineering lab, I visited hospital wards from my student days, listening directly to patients and clinicians. A patient once said, “Not knowing what’s going on in my body is the scariest part.” That stayed with me and drove my desire to build technology that eases the anxiety of the unseen.",
+      "p2": "We are all more than patients—we are people with lives that continue before and after illness: as family, friends, and members of society. We want to support every version of “you,” not just treat conditions. That is why we shape technology not merely as a tool, but as a companion to daily life.",
+      "p3": "We focus on Electrical Impedance Tomography (EIT)—a visualization technology leveraging the body’s electrical properties, which vary across tissues and with fluid composition.",
+      "p4": "This opens possibilities for affordable, low-burden examinations and even at-home monitoring—for example, early detection and tracking of lymphedema and other chronic conditions.",
+      "p5": "This is not just visualization—it is a compass to see, understand, and take the next step. We aim to support that moment across healthcare, nursing care, and daily life, and to implement this Japan-born model globally.",
+      "signature": "Ryoma Ogawa, CEO, TOMOCLOUD Inc."
+    },
+    "news": {
+      "heading": "Recent News",
+      "cta": "View all news",
+      "items": {
+        "n7": "CEO Ryoma Ogawa to speak in the Excellence Session at the 9th Academic Meeting of the Japanese Society of Lymphedema Treatment.",
+        "n6": "CEO Ryoma Ogawa to appear at the special event of the 19th Mukumi Seminar on Aug 24.",
+        "n5": "CEO Ryoma Ogawa selected as a finalist for the Beyond Japan Zero to X Program.",
+        "n4": "CEO Ryoma Ogawa selected for the GTIE GAP Fund (Entry Course).",
+        "n3": "CEO Ryoma Ogawa presented at the 33rd Annual Meeting of the Japan Breast Cancer Society.",
+        "n2": "CEO Ryoma Ogawa presented research at the 37th Bioengineering Conference (JSME).",
+        "n1": "CEO Ryoma Ogawa gave a lecture at the 49th Annual Meeting of the Japanese Society of Lymphology."
+      }
+    },
+    "recruit": {
+      "heading": "Recruit",
+      "p1": "Join us.",
+      "p2": "If you’re interested, feel free to reach out first.",
+      "cta": "Contact us"
+    },
+    "about": {
+      "heading": "About us",
+      "companyLabel": "Company",
+      "businessLabel": "Business",
+      "foundedLabel": "Founded",
+      "addressLabel": "Address",
+      "repLabel": "Representative",
+      "company": "TOMOCLOUD Inc.",
+      "business": "Development and sales of non-invasive bio-imaging devices",
+      "founded": "Aug 18, 2025",
+      "address": "260-0015\nFujimi Building #609, 2-7-9 Fujimi, Chuo-ku, Chiba, Japan",
+      "rep": "Ryoma Ogawa"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "news": {
+    "title": "ニュース",
+    "more": "詳しく見る",
+    "moreAria": "詳しく見る（外部サイトへ）",
+    "newer": "‹ 新しい記事へ",
+    "older": "以前の記事へ ›",
+    "pagerAria": "ニュースページャー",
+    "pageXofY": "Page {x} / {y}",
+    "items": [
+      {
+        "id": 7,
+        "title": "CEOの小川良磨さんが、第9回日本リンパ浮腫治療学会学術総会の優秀演題セッションにて「電気インピーダンス・トモグラフィ（EIT）によるリンパ浮腫評価のこれまでとこれから」の講演を行います。",
+        "date": "2025-08-23",
+        "image": "/Image/news_7_2.png",
+        "text": "2025年9月6日・7日　アクトシティ浜松 コングレスセンター",
+        "url": "https://www.graffiti97.com/9jslt/index.html"
+      },
+      {
+        "id": 6,
+        "title": "CEOの小川良磨さんが、8月24日の第19回むくみゼミナール特別イベントで登壇します。",
+        "date": "2025-08-23",
+        "image": "/Image/news_6_2.png",
+        "text": "10:00~12:00 オンライン開催",
+        "url": "https://www.mukumi-seminar.org/event/"
+      },
+      {
+        "id": 5,
+        "title": "CEOの小川良磨さんが、Beyond Japan Zero to X Programの最終採択者に決定しました！【Deep Tech – San Diegoコース】に参加します。",
+        "date": "2025-08-20",
+        "image": "/Image/news_5_2.png",
+        "text": "Beyond JAPAN Zero to Xは、次世代のイノベーションを担う人材を育成する現地派遣型プログラムです。",
+        "url": "https://www.b4d-jp.com/news/2025-8"
+      },
+      {
+        "id": 4,
+        "title": "CEOの小川良磨さんが、GTIEｰGAPファンド エントリーコースに採択されました。おめでとうございます！",
+        "date": "2025-07-30",
+        "image": "/Image/news_4_2.png",
+        "text": "テーマ：サルコペニア予防のための筋量・筋質イメージング・ウェアの事業化",
+        "url": "https://gtie.jp/news/43810/"
+      },
+      {
+        "id": 3,
+        "title": "CEOの小川良磨さんが、第33回日本乳癌学会学術総会で「電気インピーダンス・トモグラフィ(EIT)による新たな乳がん評価法の検討」を発表しました。",
+        "date": "2025-08-12",
+        "image": "/Image/news_3_2.png",
+        "text": "開催：2025年7月10日~12日",
+        "url": "https://www.congre.co.jp/jbcs2025/"
+      },
+      {
+        "id": 2,
+        "title": "CEOの小川良磨さんが、日本機械学会 第37回バイオエンジニアリング講演会で研究成果発表を行いました。",
+        "date": "2025-05-24",
+        "image": "/Image/news_2_2.png",
+        "text": "開催：2025年5月24日・25日",
+        "url": "https://www.jsme.or.jp/conference/bioconf25/index.html"
+      },
+      {
+        "id": 1,
+        "title": "CEOの小川良磨さんが、第49回日本リンパ学会総会で講演を行いました。",
+        "date": "2025-05-23",
+        "image": "/Image/news_1_2.png",
+        "text": "開催：2025年5月23日・24日",
+        "url": "https://square.umin.ac.jp/jsl49/"
+      }
+    ]
+  }
+}
