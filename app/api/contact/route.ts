@@ -36,6 +36,7 @@ export async function POST(req: Request) {
     const FROM = process.env.CONTACT_FROM?.replace(/^"|"$/g, '');
     const TO = process.env.CONTACT_TO?.replace(/^"|"$/g, '');
     
+    
     if (!FROM) {
       return NextResponse.json({ ok: false, error: 'CONTACT_FROM が未設定です。' }, { status: 500 });
     }
