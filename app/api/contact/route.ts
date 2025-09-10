@@ -32,11 +32,20 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: 'RESEND_API_KEY が未設定です。' }, { status: 500 });
     }
 
-    // 送信元／送信先（from は未設定なら Resend のデフォルトドメインで送信）
-    const FROM = process.env.CONTACT_FROM || 'onboarding@resend.dev';
-    const TO = process.env.CONTACT_TO;
+    // 送信元／送信先の設定（ダブルクォートを除去）
+    const FROM = process.env.CONTACT_FROM?.replace(/^"|"$/g, '');
+    const TO = process.env.CONTACT_TO?.replace(/^"|"$/g, '');
+    
+    if (!FROM) {
+      return NextResponse.json({ ok: false, error: 'CONTACT_FROM が未設定です。' }, { status: 500 });
+    }
     if (!TO) {
       return NextResponse.json({ ok: false, error: 'CONTACT_TO が未設定です。' }, { status: 500 });
+    }
+    
+    // メールアドレス形式の検証
+    if (!isValidEmail(FROM.includes('<') ? FROM.split('<')[1].split('>')[0] : FROM)) {
+      return NextResponse.json({ ok: false, error: 'CONTACT_FROM の形式が正しくありません。' }, { status: 500 });
     }
 
     // 会社宛て

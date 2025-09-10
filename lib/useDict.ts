@@ -2,7 +2,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 
 type Dict = Record<string, any>;
 
@@ -56,24 +56,53 @@ export function useDict() {
   const [, loc, seg] = pathname.split('/');
   const locale: 'ja'|'en' = loc === 'en' ? 'en' : 'ja';
   const page = (seg || 'home') as keyof typeof PAGE_MAP;
+  
+  const [dict, setDict] = useState<Dict | undefined>();
+  const [isLoading, setIsLoading] = useState(true);
 
-  if (typeof window !== 'undefined') {
-    const key = `__dict_${locale}_${page}`;
-    if (!(window as any)[key]) {
-      (async () => {
+  useEffect(() => {
+    let isCancelled = false;
+    
+    const loadDict = async () => {
+      const key = `__dict_${locale}_${page}`;
+      
+      // キャッシュから読み込み
+      if (typeof window !== 'undefined' && (window as any)[key]) {
+        if (!isCancelled) {
+          setDict((window as any)[key]);
+          setIsLoading(false);
+        }
+        return;
+      }
+
+      // 辞書データを非同期で読み込み
+      try {
         const common = await COMMON[locale]();
         const pageDict = PAGE_MAP[page]?.[locale] ? await PAGE_MAP[page][locale]() : {};
-        (window as any)[key] = deepMerge(common, pageDict);
-        window.dispatchEvent(new Event('dict:ready'));
-      })();
-    }
-  }
+        const mergedDict = deepMerge(common, pageDict);
+        
+        if (!isCancelled) {
+          // ウィンドウにキャッシュ
+          if (typeof window !== 'undefined') {
+            (window as any)[key] = mergedDict;
+          }
+          setDict(mergedDict);
+          setIsLoading(false);
+        }
+      } catch (error) {
+        console.error('Failed to load dictionary:', error);
+        if (!isCancelled) {
+          setIsLoading(false);
+        }
+      }
+    };
 
-  let dict: Dict | undefined;
-  if (typeof window !== 'undefined') {
-    const key = `__dict_${locale}_${page}`;
-    dict = (window as any)[key];
-  }
+    loadDict();
 
-  return { dict, locale };
+    return () => {
+      isCancelled = true;
+    };
+  }, [locale, page]);
+
+  return { dict, locale, isLoading };
 }
