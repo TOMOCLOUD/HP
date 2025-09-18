@@ -9,6 +9,22 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 9,
+        "title": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program.。",
+        "date": "2025-09-08",
+        "image": "/Image/news_5_2.png",
+        "text": "September 8–26, 2025
+        "url": "https://www.b4d-jp.com/news/2025-8"
+      },
+      {
+        "id": 7,
+        "title": "Mr. Ryoma Ogawa, CEO, received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!",
+        "date": "2025-09-06",
+        "image": "/Image/news_7_2.png",
+        "text": "September 6–7, 2025 · Act City Hamamatsu, Congress Center",
+        "url": "https://www.graffiti97.com/9jslt/index.html"
+      },
+      {
         "id": 7,
         "title": "CEO Ryoma Ogawa to speak in the Excellent Presentation session at the 9th JSLS Lymphedema Treatment Annual Meeting: \"EIT for Lymphedema Evaluation—Past and Future\"",
         "date": "2025-08-23",
