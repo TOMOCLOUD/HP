@@ -567,6 +567,8 @@ function MessageSection({
 
 /* === 6) News（横スクロール：タイトルを辞書で切替）=== */
 const NEWS_BASE = [
+  { id: 'n9', date: '2025-09-08', img: '/Image/news_9.png' },
+  { id: 'n8', date: '2025-09-06', img: '/Image/news_8.png' },
   { id: 'n7', date: '2025-08-23', img: '/Image/news_7.png' },
   { id: 'n6', date: '2025-08-23', img: '/Image/news_6.png' },
   { id: 'n5', date: '2025-08-20', img: '/Image/news_5.png' },
