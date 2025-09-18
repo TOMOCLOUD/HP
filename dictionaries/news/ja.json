@@ -9,6 +9,22 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 9,
+        "title": "CEOの小川良磨さんが、Beyond Japan Zero to X Programに参加しています。",
+        "date": "2025-09-08",
+        "image": "/Image/news_5_2.png",
+        "text": "2025年9月8日~26日",
+        "url": "https://www.b4d-jp.com/news/2025-8"
+      },
+      {
+        "id": 7,
+        "title": "CEOの小川良磨さんが、第9回日本リンパ浮腫治療学会学術総会で最優秀演題賞を受賞しました。おめでとうございます！",
+        "date": "2025-09-06",
+        "image": "/Image/news_7_2.png",
+        "text": "2025年9月6日・7日　アクトシティ浜松 コングレスセンター",
+        "url": "https://www.graffiti97.com/9jslt/index.html"
+      },
+      {
         "id": 7,
         "title": "CEOの小川良磨さんが、第9回日本リンパ浮腫治療学会学術総会の優秀演題セッションにて「電気インピーダンス・トモグラフィ（EIT）によるリンパ浮腫評価のこれまでとこれから」の講演を行います。",
         "date": "2025-08-23",
