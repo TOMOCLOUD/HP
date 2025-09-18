@@ -23,17 +23,17 @@
       "taglineEn": "Enabling authentic lives through the power of visualization.",
       "p1": "For most of us, tracking our health day-to-day isn’t easy. Simple, continuous ways to monitor the body remain limited.",
       "p2": "Tools to easily monitor the body and tissues are still limited.",
-      "p3Strong": "From “invisible” to “visible.”",
-      "p4": "At TOMOCLOUD, we visualize the invisible.",
+      "p3Strong": "At TOMOCLOUD, we visualize the invisible",
+      "p4": "With visualization technology, we turn complex biosignals into clear, intuitive insights so everyone can live more authentically.",
       "cta": "See products"
     },
     "values": {
       "heading": "Values",
       "items": [
-        { "title": "Act like an owner", "text": "一人ひとりが自分事として課題に向き合い、責任を持って最後までやり抜く" },
-        { "title": "Act on innovation", "text": "最先端の技術を追求し、それを実用的なソリューションに変える" },
-        { "title": "Act from zero", "text": "前例のない挑戦を恐れず、小さな一歩から大きな変革を生み出す" },
-        { "title": "Act as one", "text": "多様な専門性を持つメンバーが協働し、個人では成し得ない価値を創出する" }
+        { "title": "Act like an owner", "text": "Own the problem alongside the user; take responsibility and see it through." },
+        { "title": "Act on innovation", "text": "Relentlessly explore the frontier—and turn it into practical solutions." },
+        { "title": "Act from zero", "text": "Be unafraid of unprecedented challenges; create major change by taking the first small step." },
+        { "title": "Act as one", "text": "People with diverse expertise eagerly collaborate to create value that no individual could achieve alone." }
       ]
     }
   },
@@ -77,11 +77,11 @@
     "imageAlt": "Message from the representative",
     "title": "“Visualize the New Self”",
     "paragraphs": [
-      "While belonging to an engineering lab, I visited hospital wards from my student days to hear directly from patients and clinicians. One patient’s words—“Not seeing my body’s condition is what scares me most”—stayed with me, and I strongly wished to develop technologies that ease such unseen anxieties. The issues I witnessed felt not like someone else’s problems, but ones I should solve.",
-      "I also realized, deeply, that a patient is a person with everyday life. Everyone has had a life and will continue to have one—with roles as a patient, a family member, a friend, and a professional. I want to support all of those “selves.” That is why we shape technology not merely as a tool, but as a companion that stays close to daily life.",
-      "What we have honed is the power of visualization—Electrical Impedance Tomography (EIT). Each human tissue has unique electrical properties, which also vary with the body’s fluid composition (about 60% water). EIT is an innovative technology that visualizes these properties simply and with high fidelity.",
-      "This makes it possible to replace costly, burdensome examinations and to enable at-home monitoring that was previously difficult, with promising use cases for chronic diseases such as early detection and monitoring of lymphedema.",
-      "EIT is not just for visualization; it is a compass to see, understand, and take the next step. When the unseen becomes visible, people can move forward. By supporting that moment as a common language across medical, nursing, and healthcare domains, we will create a society where everyone can live authentically—and implement this Japan-originated model globally."
+      "Even while working in an engineering lab, I spent my student years on hospital wards, listening directly to patients and clinicians. One patient said, “What frightens me most is that I can’t visualize what’s happening inside my body.” That stayed with me—and made me determined to build technology that eases that invisible anxiety. The more I listened, the more I felt these were not someone else’s problems, but challenges I should help solve.",
+      "I also learned a simple, profound truth: patients are people leading full lives. Each person is at once a patient, a family member, a friend, a professional—many versions of “self” that existed before illness and will continue after. I want to support all of those selves. That’s why we shape technology not as a mere tool, but as a companion woven into everyday life.",
+      "What we’ve established is the power of visualization through Electrical Impedance Tomography (EIT). Human tissues have distinct electrical properties, and those properties shift with fluid composition. EIT makes it possible to visualize the invisible—to render these properties clearly and non-invasively, with practical precision.",
+      "With this, we can replace some costly, burdensome tools and enable at-home monitoring that used to be impossible to visualize—opening new possibilities for early detection and ongoing monitoring of conditions like lymphedema and other chronic diseases.",
+      "But our aim isn’t visualization for its own sake. It’s to provide a compass: to visualize the invisible, make sense of it, and help you take the next step. When the invisible is visualized, people can move forward. We want to support that moment—using visualization as a shared language that gently connects medicine, caregiving, and everyday health—so everyone can live more authentically. And we will expand this model, born in Japan, to the world."
     ],
     "signaturePrefix": "CEO, TOMOCLOUD Inc.",
     "signatureName": "Ryoma Ogawa"
