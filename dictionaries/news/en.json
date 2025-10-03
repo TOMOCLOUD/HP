@@ -9,6 +9,14 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 10,
+        "title": "CEO Ryoma Ogawa participated in SPARK-BIH VC Day and delivered a pitch presentation. SPARK is an accelerator-style translation program originating from Stanford University.",
+        "date": "2025-10-03",
+        "image": "/Image/news_10.png",
+        "text": "October 1, 2025",
+        "url": "https://www.spark-bih.de/news-events/venture-capital-day"
+      },
+      {
         "id": 9,
         "title": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program.。",
         "date": "2025-09-08",
