@@ -215,6 +215,9 @@ function ValuesSection() {
   );
 }
 
+export default ValuesSection;
+
+
 
 /* === 4) Team（モーダル含む） === */
 type Member = {
