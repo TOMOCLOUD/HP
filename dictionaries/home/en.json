@@ -16,23 +16,23 @@
       "cta": "View product"
     },
     "values": [
-  {
-    "title": "Act like an owner",
-    "text": "Own the problem alongside the user; take responsibility and see it through."
-  },
-  {
-    "title": "Act on innovation",
-    "text": "Relentlessly explore the frontier—and turn it into practical solutions."
-  },
-  {
-    "title": "Act from zero",
-    "text": "Be unafraid of unprecedented challenges; create major change by taking the first small step."
-  },
-  {
-    "title": "Act as one",
-    "text": "People with diverse expertise eagerly collaborate to create value that no individual could achieve alone."
-  }
-]
+      {
+        "title": "Act like an owner",
+        "text": "Own the problem alongside the user; take responsibility and see it through."
+      },
+      {
+        "title": "Act on innovation",
+        "text": "Relentlessly explore the frontier—and turn it into practical solutions."
+      },
+      {
+        "title": "Act from zero",
+        "text": "Be unafraid of unprecedented challenges; create major change by taking the first small step."
+      },
+      {
+        "title": "Act as one",
+        "text": "People with diverse expertise eagerly collaborate to create value that no individual could achieve alone."
+      }
+    ],
     "team": {
       "heading": "Our Team",
       "modal": { "achievementsTitle": "Key achievements" },
@@ -67,7 +67,7 @@
     },
     "message": {
       "heading": "Message",
-      "title": "“Visualize the New Self”",
+      "title": "Visualize the New Self",
       "p1": "Even while working in an engineering lab, I spent my student years on hospital wards, listening directly to patients and clinicians. One patient said, “What frightens me most is that I can’t visualize what’s happening inside my body.” That stayed with me—and made me determined to build technology that eases that invisible anxiety. The more I listened, the more I felt these were not someone else’s problems, but challenges I should help solve.",
       "p2": "I also learned a simple, profound truth: patients are people leading full lives. Each person is at once a patient, a family member, a friend, a professional—many versions of “self” that existed before illness and will continue after. I want to support all of those selves. That’s why we shape technology not as a mere tool, but as a companion woven into everyday life.",
       "p3": "What we’ve established is the power of visualization through Electrical Impedance Tomography (EIT). Human tissues have distinct electrical properties, and those properties shift with fluid composition. EIT makes it possible to visualize the invisible—to render these properties clearly and non-invasively, with practical precision.",
@@ -78,20 +78,17 @@
     "news": {
       "heading": "Recent News",
       "cta": "View all news",
-      {
-  "items": {
-    "n9": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program.",
-    "n8": "CEO Ryoma Ogawa, received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!",
-    "n7": "CEO Ryoma Ogawa to speak in the Excellence Session at the 9th Academic Meeting of the Japanese Society of Lymphedema Treatment.",
-    "n6": "CEO Ryoma Ogawa to appear at the special event of the 19th Mukumi Seminar on Aug 24.",
-    "n5": "CEO Ryoma Ogawa selected as a finalist for the Beyond Japan Zero to X Program.",
-    "n4": "CEO Ryoma Ogawa selected for the GTIE GAP Fund (Entry Course).",
-    "n3": "CEO Ryoma Ogawa presented at the 33rd Annual Meeting of the Japan Breast Cancer Society.",
-    "n2": "CEO Ryoma Ogawa presented research at the 37th Bioengineering Conference (JSME).",
-    "n1": "CEO Ryoma Ogawa gave a lecture at the 49th Annual Meeting of the Japanese Society of Lymphology."
-  }
-}
-
+      "items": {
+        "n9": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program.",
+        "n8": "CEO Ryoma Ogawa, received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!",
+        "n7": "CEO Ryoma Ogawa to speak in the Excellence Session at the 9th Academic Meeting of the Japanese Society of Lymphedema Treatment.",
+        "n6": "CEO Ryoma Ogawa to appear at the special event of the 19th Mukumi Seminar on Aug 24.",
+        "n5": "CEO Ryoma Ogawa selected as a finalist for the Beyond Japan Zero to X Program.",
+        "n4": "CEO Ryoma Ogawa selected for the GTIE GAP Fund (Entry Course).",
+        "n3": "CEO Ryoma Ogawa presented at the 33rd Annual Meeting of the Japan Breast Cancer Society.",
+        "n2": "CEO Ryoma Ogawa presented research at the 37th Bioengineering Conference (JSME).",
+        "n1": "CEO Ryoma Ogawa gave a lecture at the 49th Annual Meeting of the Japanese Society of Lymphology."
+      }
     },
     "recruit": {
       "heading": "Recruit",
