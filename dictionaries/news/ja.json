@@ -9,6 +9,14 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 10,
+        "title": "CEOの小川良磨さんが、SPARK-BIH VC Dayに参加しピッチ登壇しました。SPARKはStanford大学発のアクセラレーター的トランスレーションプログラムです。",
+        "date": "2025-10-03",
+        "image": "/Image/news_10.png",
+        "text": "2025年10月1日",
+        "url": "https://www.spark-bih.de/news-events/venture-capital-day"
+      },
+      {
         "id": 9,
         "title": "CEOの小川良磨さんが、Beyond Japan Zero to X Programに参加しています。",
         "date": "2025-09-08",
