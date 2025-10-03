@@ -3,7 +3,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useDict } from '@/lib/useDict';
 
-/* === 0) 共通ユーティリティ === */
+/* =========================================
+   0) 共通ユーティリティ
+========================================= */
 const fallbackDataUrl =
   'data:image/svg+xml;utf8,' +
   encodeURIComponent(
@@ -42,7 +44,8 @@ function featherRectMask(edge: string = '6%') {
     WebkitMaskImage: `${horiz}, ${vert}`,
     maskImage: `${horiz}, ${vert}`,
     WebkitMaskComposite: 'source-in',
-    maskComposite: 'intersect' as any,
+    // @ts-expect-error: maskComposite 型回避
+    maskComposite: 'intersect',
     WebkitMaskRepeat: 'no-repeat',
     maskRepeat: 'no-repeat',
     WebkitMaskPosition: 'center',
@@ -50,7 +53,34 @@ function featherRectMask(edge: string = '6%') {
   } as React.CSSProperties;
 }
 
-/* === 1) Hero === */
+/* =========================================
+   0.5) スクロールで可視化（今回の修正ポイント）
+========================================= */
+function useRevealOnScroll() {
+  useEffect(() => {
+    const els = Array.from(document.querySelectorAll<HTMLElement>('.reveal-on-scroll'));
+    if (els.length === 0) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('ros-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+    );
+
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+}
+
+/* =========================================
+   1) Hero
+========================================= */
 function Hero() {
   const { dict } = useDict();
 
@@ -100,7 +130,9 @@ function Hero() {
   );
 }
 
-/* === 2) Vision（黒い本文も辞書化） === */
+/* =========================================
+   2) Vision
+========================================= */
 function VisionSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTMLImageElement>) => void }) {
   const { dict, locale } = useDict();
   const t = dict?.home?.vision;
@@ -120,7 +152,6 @@ function VisionSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HT
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6 text-center">
           {t?.heading ?? 'Our Vision'}
         </h2>
-        {/* 青いサブタイトル（日英併記のまま） */}
         <p className="text-xl md:text-2xl font-semibold text-sky-600">
           {t?.subtitleJa}
         </p>
@@ -128,7 +159,6 @@ function VisionSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HT
           {t?.subtitleEn}
         </p>
 
-        {/* 黒文字の説明（完全切替） */}
         <p className="text-gray-700 text-base sm:text-lg">{t?.p1}</p>
         <p className="text-gray-700 mb-2 text-base sm:text-lg">{t?.p2}</p>
         <p className="text-gray-700 mb-2 font-bold text-base md:text-xl">{t?.p3Strong}</p>
@@ -150,13 +180,14 @@ function VisionSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HT
   );
 }
 
-/* === 3) Values（据え置き） === */
+/* =========================================
+   3) Values
+========================================= */
 export function ValuesSection() {
   const { dict, locale } = useDict();
   const values: { title: string; text: string }[] = dict?.home?.values || [];
 
   if (!values || !values.length) {
-    // dict がまだロードされていない場合にプレースホルダ表示
     return (
       <section className="reveal-on-scroll bg-sky-100 py-16 md:py-5">
         <div className="max-w-6xl mx-auto px-6 text-center text-gray-700">
@@ -188,14 +219,15 @@ export function ValuesSection() {
   );
 }
 
-/* === 4) Team（モーダル含む） === */
+/* =========================================
+   4) Team（モーダルあり）
+========================================= */
 type Member = {
   id: string;
   name: string;
   nameEn?: string;
   role: string;
   image?: string;
-  // 日本語デフォルト（辞書で上書き）
   title?: string;
   subtitle?: string;
   bio?: string;
@@ -246,7 +278,7 @@ const MEMBERS: Member[] = [
   },
 ];
 
-/* === Bodyスクロールロック === */
+/* Body スクロールロック（モーダル用） */
 function useBodyScrollLock(locked: boolean) {
   useEffect(() => {
     if (!locked) return;
@@ -279,7 +311,7 @@ function useBodyScrollLock(locked: boolean) {
   }, [locked]);
 }
 
-/* === モーダル === */
+/* モーダル */
 function Modal({
   open,
   onClose,
@@ -346,18 +378,13 @@ function Modal({
   );
 }
 
-/* === Team Section（辞書で英語に切替） === */
-function TeamSection({
-  onImgError,
-}: {
-  onImgError: (e: React.SyntheticEvent<HTMLImageElement>) => void;
-}) {
+/* Team Section */
+function TeamSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTMLImageElement>) => void }) {
   const [active, setActive] = useState<Member | null>(null);
   const { dict, locale } = useDict();
   const closeLabel = dict?.common?.actions?.close ?? (locale === 'en' ? 'Close' : '閉じる');
   const t = dict?.home?.team;
 
-  // メンバー辞書（存在すれば日本語データを上書き）
   const members = MEMBERS.map((m) => {
     const patch = dict?.home?.team?.members?.[m.id] || {};
     return { ...m, ...patch };
@@ -419,13 +446,7 @@ function TeamSection({
       <Modal
         open={!!active}
         onClose={() => setActive(null)}
-        title={
-          active
-            ? locale === 'en'
-              ? active.nameEn || active.name
-              : active.name
-            : ''
-        }
+        title={active ? (locale === 'en' ? active.nameEn || active.name : active.name) : ''}
         closeLabel={closeLabel}
       >
         {active && (
@@ -450,12 +471,10 @@ function TeamSection({
   );
 }
 
-/* === 5) Representative Message（SPで見切れないように調整） === */
-function MessageSection({
-  onImgError,
-}: {
-  onImgError: (e: React.SyntheticEvent<HTMLImageElement>) => void;
-}) {
+/* =========================================
+   5) 代表メッセージ
+========================================= */
+function MessageSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTMLImageElement>) => void }) {
   const { dict } = useDict();
   const t = dict?.home?.message;
   const HEADER_PX = 128;
@@ -470,7 +489,7 @@ function MessageSection({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-2 gap-6 md:gap-0 items-start">
-          {/* SP 画像（はみ出し防止） */}
+          {/* SP 画像 */}
           <div className="md:hidden mb-6">
             <div className="relative w-full overflow-hidden rounded-none">
               <img
@@ -480,20 +499,13 @@ function MessageSection({
                 onError={onImgError}
                 loading="lazy"
               />
-              {/* オーバーレイは幅を%指定のままでOK（overflow-clipで安全） */}
               <div className="pointer-events-none absolute inset-y-0 left-0 w-[10%] bg-gradient-to-r from-white to-transparent" />
             </div>
           </div>
 
-          {/* PC 画像 sticky（SPでは非表示） */}
-          <div
-            className="hidden md:block md:sticky md:self-start"
-            style={{ top: HEADER_PX }}
-          >
-            <div
-              className="relative"
-              style={{ height: `calc(100svh - ${HEADER_PX}px)` }}
-            >
+          {/* PC 画像 sticky */}
+          <div className="hidden md:block md:sticky md:self-start" style={{ top: HEADER_PX }}>
+            <div className="relative" style={{ height: `calc(100svh - ${HEADER_PX}px)` }}>
               <img
                 src="/Image/Message_2.png"
                 alt="代表者メッセージ"
@@ -505,7 +517,7 @@ function MessageSection({
             </div>
           </div>
 
-          {/* テキスト（横幅は親に追従・下線を可変に） */}
+          {/* テキスト */}
           <article className="relative bg-white/95 backdrop-blur-sm border-0 shadow-none px-4 sm:px-6 md:px-10 py-6 md:py-8 rounded-none md:rounded-none">
             <div className="pointer-events-none absolute inset-y-0 right-0 w-[6%] bg-gradient-to-l from-white to-transparent" />
 
@@ -513,7 +525,6 @@ function MessageSection({
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
                 {t?.title}
               </h3>
-              {/* 固定 500px をやめ、画面幅に応じて縮む */}
               <span className="mt-3 block h-1 w-full max-w-[320px] sm:max-w-[420px] md:max-w-[500px] bg-sky-500 rounded-full mx-auto md:mx-0" />
             </header>
 
@@ -537,7 +548,9 @@ function MessageSection({
   );
 }
 
-/* === 6) News（横スクロール：タイトルを辞書で切替）=== */
+/* =========================================
+   6) News
+========================================= */
 const NEWS_BASE = [
   { id: 'n9', date: '2025-09-08', img: '/Image/news_5.png' },
   { id: 'n8', date: '2025-09-06', img: '/Image/news_7.png' },
@@ -649,7 +662,9 @@ function NewsSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTML
   );
 }
 
-/* === 7) Recruit（辞書化） === */
+/* =========================================
+   7) Recruit
+========================================= */
 function RecruitSection() {
   const { dict, locale } = useDict();
   const t = dict?.home?.recruit;
@@ -675,7 +690,9 @@ function RecruitSection() {
   );
 }
 
-/* === 8) About（辞書化） === */
+/* =========================================
+   8) About
+========================================= */
 function AboutSection() {
   const { dict } = useDict();
   const t = dict?.home?.about;
@@ -720,7 +737,9 @@ function AboutSection() {
   );
 }
 
-/* === 9) Footer（共通辞書） === */
+/* =========================================
+   9) Footer
+========================================= */
 function Footer() {
   const { dict, locale } = useDict();
   const f = dict?.footer;
@@ -771,9 +790,11 @@ function Footer() {
   );
 }
 
-/* === 10) HomePage === */
+/* =========================================
+   10) HomePage
+========================================= */
 function HomePage() {
-  useRevealOnScroll();
+  useRevealOnScroll(); // ← これを有効化（今回の修正ポイント）
   const onImgError = useImageFallback();
 
   return (
@@ -787,6 +808,19 @@ function HomePage() {
       <RecruitSection />
       <AboutSection />
       <Footer />
+
+      {/* reveal-on-scroll 用の軽量CSS（ここに入れておくと単体で動きます） */}
+      <style jsx global>{`
+        .reveal-on-scroll {
+          opacity: 0;
+          transform: translateY(8px);
+          transition: opacity 600ms ease, transform 600ms ease;
+        }
+        .reveal-on-scroll.ros-visible {
+          opacity: 1;
+          transform: none;
+        }
+      `}</style>
     </div>
   );
 }
