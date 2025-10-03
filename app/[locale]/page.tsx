@@ -773,7 +773,7 @@ function Footer() {
 
 /* === 10) HomePage === */
 function HomePage() {
-  //useRevealOnScroll();
+  useRevealOnScroll();
   const onImgError = useImageFallback();
 
   return (
