@@ -550,6 +550,7 @@ function MessageSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<H
 
 /* ============ 6) News ============ */
 const NEWS_BASE = [
+  { id: 'n10', date: '2025-10-03', img: '/Image/news_10.png' },
   { id: 'n9', date: '2025-09-08', img: '/Image/news_5.png' },
   { id: 'n8', date: '2025-09-06', img: '/Image/news_7.png' },
   { id: 'n7', date: '2025-08-23', img: '/Image/news_7.png' },
