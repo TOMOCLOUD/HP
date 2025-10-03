@@ -15,6 +15,24 @@
       "p4": "私たちTOMOCLOUDはこうした課題を解決し、一人ひとりが自分らしく生きられる社会の実現を目指しています。",
       "cta": "プロダクト紹介へ"
     },
+    "values": [
+      {
+        "title": "Act like an owner",
+        "text": "一人ひとりが自分事として課題に向き合い、責任を持って最後までやり抜く"
+      },
+      {
+        "title": "Act on innovation",
+        "text": "最先端の技術を追求し、それを実用的なソリューションに変える"
+      },
+      {
+        "title": "Act from zero",
+        "text": "前例のない挑戦を恐れず、小さな一歩から大きな変革を生み出す"
+      },
+      {
+        "title": "Act as one",
+        "text": "多様な専門性を持つメンバーが協働し、個人では成し得ない価値を創出する"
+      }
+    ]
     "team": {
       "heading": "Our Team",
       "modal": { "achievementsTitle": "主な実績" },
