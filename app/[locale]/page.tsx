@@ -3,9 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useDict } from '@/lib/useDict';
 
-/* =========================================
-   0) 共通ユーティリティ
-========================================= */
+/* ============ 0) 共通ユーティリティ ============ */
 const fallbackDataUrl =
   'data:image/svg+xml;utf8,' +
   encodeURIComponent(
@@ -44,7 +42,7 @@ function featherRectMask(edge: string = '6%') {
     WebkitMaskImage: `${horiz}, ${vert}`,
     maskImage: `${horiz}, ${vert}`,
     WebkitMaskComposite: 'source-in',
-    // @ts-expect-error: maskComposite 型回避
+    // @ts-expect-error: non-standard type
     maskComposite: 'intersect',
     WebkitMaskRepeat: 'no-repeat',
     maskRepeat: 'no-repeat',
@@ -53,19 +51,28 @@ function featherRectMask(edge: string = '6%') {
   } as React.CSSProperties;
 }
 
-/* =========================================
-   0.5) スクロールで可視化（今回の修正ポイント）
-========================================= */
+/* ============ 0.5) スクロール可視化：インラインCSS版（依存なし） ============ */
 function useRevealOnScroll() {
   useEffect(() => {
     const els = Array.from(document.querySelectorAll<HTMLElement>('.reveal-on-scroll'));
-    if (els.length === 0) return;
+    if (!els.length) return;
 
+    // ① 初期スタイル（非表示＋トランジション）をインラインで付与
+    els.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(8px)';
+      el.style.transition = 'opacity 600ms ease, transform 600ms ease';
+      // 念のため will-change
+      (el.style as any).willChange = 'opacity, transform';
+    });
+
+    // ② 交差時に表示
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('ros-visible');
+            (entry.target as HTMLElement).style.opacity = '1';
+            (entry.target as HTMLElement).style.transform = 'none';
             io.unobserve(entry.target);
           }
         });
@@ -78,9 +85,7 @@ function useRevealOnScroll() {
   }, []);
 }
 
-/* =========================================
-   1) Hero
-========================================= */
+/* ============ 1) Hero ============ */
 function Hero() {
   const { dict } = useDict();
 
@@ -130,9 +135,7 @@ function Hero() {
   );
 }
 
-/* =========================================
-   2) Vision
-========================================= */
+/* ============ 2) Vision ============ */
 function VisionSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTMLImageElement>) => void }) {
   const { dict, locale } = useDict();
   const t = dict?.home?.vision;
@@ -180,9 +183,7 @@ function VisionSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HT
   );
 }
 
-/* =========================================
-   3) Values
-========================================= */
+/* ============ 3) Values ============ */
 export function ValuesSection() {
   const { dict, locale } = useDict();
   const values: { title: string; text: string }[] = dict?.home?.values || [];
@@ -219,9 +220,7 @@ export function ValuesSection() {
   );
 }
 
-/* =========================================
-   4) Team（モーダルあり）
-========================================= */
+/* ============ 4) Team（モーダル） ============ */
 type Member = {
   id: string;
   name: string;
@@ -278,7 +277,7 @@ const MEMBERS: Member[] = [
   },
 ];
 
-/* Body スクロールロック（モーダル用） */
+/* Bodyスクロールロック（モーダル用） */
 function useBodyScrollLock(locked: boolean) {
   useEffect(() => {
     if (!locked) return;
@@ -378,7 +377,7 @@ function Modal({
   );
 }
 
-/* Team Section */
+/* Team */
 function TeamSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTMLImageElement>) => void }) {
   const [active, setActive] = useState<Member | null>(null);
   const { dict, locale } = useDict();
@@ -471,9 +470,7 @@ function TeamSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTML
   );
 }
 
-/* =========================================
-   5) 代表メッセージ
-========================================= */
+/* ============ 5) 代表メッセージ ============ */
 function MessageSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTMLImageElement>) => void }) {
   const { dict } = useDict();
   const t = dict?.home?.message;
@@ -548,9 +545,7 @@ function MessageSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<H
   );
 }
 
-/* =========================================
-   6) News
-========================================= */
+/* ============ 6) News ============ */
 const NEWS_BASE = [
   { id: 'n9', date: '2025-09-08', img: '/Image/news_5.png' },
   { id: 'n8', date: '2025-09-06', img: '/Image/news_7.png' },
@@ -662,9 +657,7 @@ function NewsSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTML
   );
 }
 
-/* =========================================
-   7) Recruit
-========================================= */
+/* ============ 7) Recruit ============ */
 function RecruitSection() {
   const { dict, locale } = useDict();
   const t = dict?.home?.recruit;
@@ -690,9 +683,7 @@ function RecruitSection() {
   );
 }
 
-/* =========================================
-   8) About
-========================================= */
+/* ============ 8) About ============ */
 function AboutSection() {
   const { dict } = useDict();
   const t = dict?.home?.about;
@@ -737,9 +728,7 @@ function AboutSection() {
   );
 }
 
-/* =========================================
-   9) Footer
-========================================= */
+/* ============ 9) Footer ============ */
 function Footer() {
   const { dict, locale } = useDict();
   const f = dict?.footer;
@@ -790,11 +779,9 @@ function Footer() {
   );
 }
 
-/* =========================================
-   10) HomePage
-========================================= */
+/* ============ 10) HomePage ============ */
 function HomePage() {
-  useRevealOnScroll(); // ← これを有効化（今回の修正ポイント）
+  useRevealOnScroll(); // ← これで “真っ白” 問題を根本修正
   const onImgError = useImageFallback();
 
   return (
@@ -808,19 +795,6 @@ function HomePage() {
       <RecruitSection />
       <AboutSection />
       <Footer />
-
-      {/* reveal-on-scroll 用の軽量CSS（ここに入れておくと単体で動きます） */}
-      <style jsx global>{`
-        .reveal-on-scroll {
-          opacity: 0;
-          transform: translateY(8px);
-          transition: opacity 600ms ease, transform 600ms ease;
-        }
-        .reveal-on-scroll.ros-visible {
-          opacity: 1;
-          transform: none;
-        }
-      `}</style>
     </div>
   );
 }
