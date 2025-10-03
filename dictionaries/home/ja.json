@@ -35,7 +35,9 @@
     ],
     "team": {
       "heading": "Our Team",
-      "modal": { "achievementsTitle": "主な実績" },
+      "modal": {
+        "achievementsTitle": "主な実績"
+      },
       "members": {
         "ogawa": {
           "positionNote": "千葉大学 大学院工学研究院 武居研究室 特任助教\n千葉大学 学術研究・イノベーション推進機構（IMO） 客員起業家（EIR）",
@@ -109,5 +111,8 @@
       "address": "〒260-0015\n千葉県千葉市中央区富士見二丁目7番9号 富士見ビル609号",
       "rep": "小川 良磨"
     }
+  }
+}
+
   }
 }
