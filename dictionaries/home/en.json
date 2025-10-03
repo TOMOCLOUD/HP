@@ -15,6 +15,24 @@
       "p4": "With visualization technology, we turn complex biosignals into clear, intuitive insights so everyone can live more authentically.",
       "cta": "View product"
     },
+    "values": {
+      {
+        "title": "Act like an owner",
+        "text": "Own the problem alongside the user; take responsibility and see it through."
+      },
+      {
+        "title": "Act on innovation",
+        "text": "Relentlessly explore the frontier—and turn it into practical solutions."
+      },
+      {
+        "title": "Act from zero",
+        "text": "Be unafraid of unprecedented challenges; create major change by taking the first small step."
+      },
+      {
+        "title": "Act as one",
+        "text": "People with diverse expertise eagerly collaborate to create value that no individual could achieve alone."
+      }
+}
     "team": {
       "heading": "Our Team",
       "modal": { "achievementsTitle": "Key achievements" },
