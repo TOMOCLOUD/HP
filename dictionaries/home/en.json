@@ -60,17 +60,20 @@
     "news": {
       "heading": "Recent News",
       "cta": "View all news",
-      "items": {
-        "n9": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program." ,
-   　   "n8": "CEO Ryoma Ogawa received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!",
-        "n7": "CEO Ryoma Ogawa to speak in the Excellence Session at the 9th Academic Meeting of the Japanese Society of Lymphedema Treatment.",
-        "n6": "CEO Ryoma Ogawa to appear at the special event of the 19th Mukumi Seminar on Aug 24.",
-        "n5": "CEO Ryoma Ogawa selected as a finalist for the Beyond Japan Zero to X Program.",
-        "n4": "CEO Ryoma Ogawa selected for the GTIE GAP Fund (Entry Course).",
-        "n3": "CEO Ryoma Ogawa presented at the 33rd Annual Meeting of the Japan Breast Cancer Society.",
-        "n2": "CEO Ryoma Ogawa presented research at the 37th Bioengineering Conference (JSME).",
-        "n1": "CEO Ryoma Ogawa gave a lecture at the 49th Annual Meeting of the Japanese Society of Lymphology."
-      }
+      {
+  "items": {
+    "n9": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program.",
+    "n8": "CEO Ryoma Ogawa, received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!",
+    "n7": "CEO Ryoma Ogawa to speak in the Excellence Session at the 9th Academic Meeting of the Japanese Society of Lymphedema Treatment.",
+    "n6": "CEO Ryoma Ogawa to appear at the special event of the 19th Mukumi Seminar on Aug 24.",
+    "n5": "CEO Ryoma Ogawa selected as a finalist for the Beyond Japan Zero to X Program.",
+    "n4": "CEO Ryoma Ogawa selected for the GTIE GAP Fund (Entry Course).",
+    "n3": "CEO Ryoma Ogawa presented at the 33rd Annual Meeting of the Japan Breast Cancer Society.",
+    "n2": "CEO Ryoma Ogawa presented research at the 37th Bioengineering Conference (JSME).",
+    "n1": "CEO Ryoma Ogawa gave a lecture at the 49th Annual Meeting of the Japanese Society of Lymphology."
+  }
+}
+
     },
     "recruit": {
       "heading": "Recruit",
