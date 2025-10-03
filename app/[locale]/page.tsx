@@ -50,77 +50,6 @@ function featherRectMask(edge: string = '6%') {
   } as React.CSSProperties;
 }
 
-/* === Hero Section === */
-export function Hero() {
-  const { dict } = useDict();
-  const title = dict?.home?.hero?.title ?? 'TOMOCLOUD';
-  const leadJa = dict?.home?.hero?.leadJa ?? '新しい自分が視える世界へ';
-  const leadEn = dict?.home?.hero?.leadEn ?? 'Visualize the New Self';
-
-  return (
-    <section className="relative w-full h-[420px] sm:h-[520px] md:h-[600px] bg-white overflow-hidden [isolation:isolate]">
-      <img
-        src="/Image/HeroImage.png"
-        alt="TOMOCLOUD Hero"
-        className="absolute inset-0 w-full h-full object-cover bg-white"
-        loading="eager"
-        fetchPriority="high"
-      />
-      <div className="relative z-10 h-full flex items-center pl-10 sm:pl-16 md:pl-24 lg:pl-32 max-w-[95%]">
-        <div>
-          <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 md:mb-8 drop-shadow-[0_3px_14px_rgba(0,0,0,0.45)] whitespace-nowrap">
-            {title}
-          </h1>
-          <p className="text-white text-2xl sm:text-3xl md:text-6xl mb-2 md:mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] whitespace-nowrap">
-            {leadJa}
-          </p>
-          <p className="text-white text-lg sm:text-xl md:text-4xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] whitespace-nowrap">
-            {leadEn}
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* === Values Section === */
-export function ValuesSection() {
-  const { dict, locale } = useDict();
-  const values: { title: string; text: string }[] = dict?.home?.values || [];
-
-  if (!values || !values.length) {
-    // dict がまだロードされていない場合にプレースホルダ表示
-    return (
-      <section className="reveal-on-scroll bg-sky-100 py-16 md:py-5">
-        <div className="max-w-6xl mx-auto px-6 text-center text-gray-700">
-          Loading values...
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className="reveal-on-scroll bg-sky-100 py-16 md:py-5">
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-gray-900">
-          {locale === 'en' ? 'Values' : '価値観'}
-        </h2>
-        <div className="grid gap-6 md:gap-8 md:grid-cols-2">
-          {values.map((v, idx) => (
-            <div
-              key={idx}
-              className="w-full max-w-[560px] mx-auto p-5 md:p-6 bg-white rounded-xl shadow-lg border-l-4 border-sky-400 transition-none"
-            >
-              <h3 className="font-semibold text-xl md:text-2xl mb-2 text-gray-900">{v.title}</h3>
-              <p className="text-sm sm:text-base text-gray-600 whitespace-pre-line">{v.text}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* === 1) Hero === */
 function Hero() {
   const { dict } = useDict();
@@ -222,23 +151,31 @@ function VisionSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HT
 }
 
 /* === 3) Values（据え置き） === */
-function ValuesSection() {
+export function ValuesSection() {
   const { dict, locale } = useDict();
   const values: { title: string; text: string }[] = dict?.home?.values || [];
 
-  if (!values.length) return null;
+  if (!values || !values.length) {
+    // dict がまだロードされていない場合にプレースホルダ表示
+    return (
+      <section className="reveal-on-scroll bg-sky-100 py-16 md:py-5">
+        <div className="max-w-6xl mx-auto px-6 text-center text-gray-700">
+          Loading values...
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="reveal-on-scroll bg-sky-100 py-16 md:py-5">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-gray-900">
-          {locale === "en" ? "Values" : "価値観"}
+          {locale === 'en' ? 'Values' : '価値観'}
         </h2>
-
         <div className="grid gap-6 md:gap-8 md:grid-cols-2">
-          {values.map((v) => (
+          {values.map((v, idx) => (
             <div
-              key={v.title}
+              key={idx}
               className="w-full max-w-[560px] mx-auto p-5 md:p-6 bg-white rounded-xl shadow-lg border-l-4 border-sky-400 transition-none"
             >
               <h3 className="font-semibold text-xl md:text-2xl mb-2 text-gray-900">{v.title}</h3>
@@ -250,9 +187,6 @@ function ValuesSection() {
     </section>
   );
 }
-
-export default ValuesSection;
-
 
 /* === 4) Team（モーダル含む） === */
 type Member = {
