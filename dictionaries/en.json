@@ -91,8 +91,9 @@
     "cta": "View all news",
     "aria": { "prev": "Previous (scroll)", "next": "Next (scroll)" },
     "items": {
+      "n10": { "title": "CEO Ryoma Ogawa participated in SPARK-BIH VC Day and delivered a pitch presentation." },
       "n9": { "title": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program." },
-      "n8": { "title": "CEO Ryoma Ogawa, received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!" },
+      "n8": { "title": "CEO Ryoma Ogawa received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!" },
       "n7": { "title": "CEO Ryoma Ogawa to speak in the Outstanding Presentation Session at the 9th Japan Society of Lymphedema Treatment Annual Meeting." },
       "n6": { "title": "CEO Ryoma Ogawa will appear at the special event of the 19th Edema Seminar on Aug 24." },
       "n5": { "title": "CEO Ryoma Ogawa selected as a final awardee of the Beyond Japan Zero to X Program." },
