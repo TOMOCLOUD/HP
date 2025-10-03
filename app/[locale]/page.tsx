@@ -187,17 +187,18 @@ function VisionSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HT
 
 /* === 3) Values（据え置き） === */
 function ValuesSection() {
-  const { locale } = useDict();
-  const values = [
-    { title: 'Act like an owner', text_ja: '一人ひとりが自分事として課題に向き合い、責任を持って最後までやり抜く', text_en: '一人ひとりが自分事として課題に向き合い、責任を持って最後までやり抜く' },
-    { title: 'Act on innovation', text_ja: '最先端の技術を追求し、それを実用的なソリューションに変える', text_en: '最先端の技術を追求し、それを実用的なソリューションに変える' },
-    { title: 'Act from zero', text_ja: '前例のない挑戦を恐れず、小さな一歩から大きな変革を生み出す', text_en: '前例のない挑戦を恐れず、小さな一歩から大きな変革を生み出す' },
-    { title: 'Act as one', text_ja: '多様な専門性を持つメンバーが協働し、個人では成し得ない価値を創出する', text_en: '多様な専門性を持つメンバーが協働し、個人では成し得ない価値を創出する' },
-  ];
+  const { dict, locale } = useDict();
+  const values: { title: string; text: string }[] = dict?.home?.values || [];
+
+  if (!values.length) return null; // データがまだロードされていない場合
+
   return (
     <section className="reveal-on-scroll bg-sky-100 py-16 md:py-5">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-gray-900">Values</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-gray-900">
+          {locale === 'en' ? 'Values' : '価値観'}
+        </h2>
+
         <div className="grid gap-6 md:gap-8 md:grid-cols-2">
           {values.map((v) => (
             <div
@@ -205,9 +206,7 @@ function ValuesSection() {
               className="w-full max-w-[560px] mx-auto p-5 md:p-6 bg-white rounded-xl shadow-lg border-l-4 border-sky-400 transition-none"
             >
               <h3 className="font-semibold text-xl md:text-2xl mb-2 text-gray-900">{v.title}</h3>
-              <p className="text-sm sm:text-base text-gray-600 whitespace-pre-line">
-                {locale === 'en' ? v.text_en : v.text_ja}
-              </p>
+              <p className="text-sm sm:text-base text-gray-600 whitespace-pre-line">{v.text}</p>
             </div>
           ))}
         </div>
@@ -215,6 +214,7 @@ function ValuesSection() {
     </section>
   );
 }
+
 
 /* === 4) Team（モーダル含む） === */
 type Member = {
