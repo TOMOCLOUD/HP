@@ -38,18 +38,21 @@ function featherRectMask(edge: string = '6%') {
     rgba(0,0,0,1) calc(100% - ${edge}),
     rgba(0,0,0,0.2) calc(100% - (${edge} * 0.5)),
     rgba(0,0,0,0) 100%)`;
-  return {
+
+  const style: React.CSSProperties & { maskComposite?: string } = {
     WebkitMaskImage: `${horiz}, ${vert}`,
     maskImage: `${horiz}, ${vert}`,
-    WebkitMaskComposite: 'source-in',
-    // @ts-expect-error: non-standard type
-    maskComposite: 'intersect',
+    WebkitMaskComposite: 'source-in' as any, // 型差異がある環境向け
+    maskComposite: 'intersect',              // 非標準プロパティだが一部ブラウザで有効
     WebkitMaskRepeat: 'no-repeat',
     maskRepeat: 'no-repeat',
     WebkitMaskPosition: 'center',
     maskPosition: 'center',
-  } as React.CSSProperties;
+  };
+
+  return style;
 }
+
 
 /* ============ 0.5) スクロール可視化：インラインCSS版（依存なし） ============ */
 function useRevealOnScroll() {
