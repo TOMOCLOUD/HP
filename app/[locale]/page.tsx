@@ -190,13 +190,13 @@ function ValuesSection() {
   const { dict, locale } = useDict();
   const values: { title: string; text: string }[] = dict?.home?.values || [];
 
-  if (!values.length) return null; // データがまだロードされていない場合
+  if (!values.length) return null;
 
   return (
     <section className="reveal-on-scroll bg-sky-100 py-16 md:py-5">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-gray-900">
-          {locale === 'en' ? 'Values' : '価値観'}
+          {locale === "en" ? "Values" : "価値観"}
         </h2>
 
         <div className="grid gap-6 md:gap-8 md:grid-cols-2">
@@ -216,7 +216,6 @@ function ValuesSection() {
 }
 
 export default ValuesSection;
-
 
 
 /* === 4) Team（モーダル含む） === */
