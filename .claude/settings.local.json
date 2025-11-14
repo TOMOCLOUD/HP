@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.nikkan.co.jp)",
+      "WebFetch(domain:imo.chiba-u.jp)",
+      "WebFetch(domain:www.cfme.chiba-u.jp)",
+      "Bash(npm run build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
