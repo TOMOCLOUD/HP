@@ -67,12 +67,22 @@ export async function POST(req: Request) {
         `---\n${message}\n---\n\n※本メールは送信専用です。`,
     });
 
-    // 失敗時の詳細
+    // 失敗時の詳細（デバッグ情報を追加）
     if (ownerRes.error) {
-      return NextResponse.json({ ok: false, error: ownerRes.error.message || '送信に失敗しました（会社宛）。' }, { status: 500 });
+      console.error('Resend error (owner):', ownerRes.error);
+      return NextResponse.json({ 
+        ok: false, 
+        error: `送信に失敗しました（会社宛）: ${ownerRes.error.message || 'Unknown error'}`,
+        debug: process.env.NODE_ENV === 'development' ? ownerRes.error : undefined
+      }, { status: 500 });
     }
     if (userRes.error) {
-      return NextResponse.json({ ok: false, error: userRes.error.message || '送信に失敗しました（自動返信）。' }, { status: 500 });
+      console.error('Resend error (user):', userRes.error);
+      return NextResponse.json({ 
+        ok: false, 
+        error: `送信に失敗しました（自動返信）: ${userRes.error.message || 'Unknown error'}`,
+        debug: process.env.NODE_ENV === 'development' ? userRes.error : undefined
+      }, { status: 500 });
     }
 
     return NextResponse.json({
@@ -80,9 +90,11 @@ export async function POST(req: Request) {
       ownerId: ownerRes.data?.id ?? null,
       userId: userRes.data?.id ?? null,
     });
-  } catch (e: any) {
+  } catch (e: unknown) {
+    const errorMessage = e instanceof Error ? e.message : 'Unknown error';
+    console.error('Contact API error:', e);
     return NextResponse.json(
-      { ok: false, error: '処理中にエラーが発生しました。', details: e?.message },
+      { ok: false, error: '処理中にエラーが発生しました。', details: errorMessage },
       { status: 500 }
     );
   }

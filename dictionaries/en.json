@@ -4,11 +4,23 @@
       "home": "Home",
       "product": "Product",
       "news": "News",
+      "achievement": "Achievement",
       "recruit": "Recruit",
       "contact": "Contact"
     },
-    "actions": { "close": "Close" },
-    "aria": { "toProducts": "Go to products" }
+    "actions": {
+      "close": "Close"
+    }
+  },
+  "footer": {
+    "company": "TOMOCLOUD Inc.",
+    "zip": "260-0015",
+    "address": "Fujimi Building #609, 2-7-9 Fujimi, Chuo-ku, Chiba, Japan",
+    "tel": "TEL +81-43-290-2957",
+    "email": "Email info@tomocloud.co.jp",
+    "pages": "Pages",
+    "links": "Links",
+    "externalLab": "Takei Lab (External)"
   },
   "home": {
     "hero": {
@@ -18,119 +30,329 @@
     },
     "vision": {
       "heading": "Our Vision",
-      "imageAlt": "Problem illustration",
-      "taglineJa": "視える化技術により全ての人が自分らしく生きることのできる社会を創造する",
-      "taglineEn": "Enabling authentic lives through the power of visualization.",
-      "p1": "For most of us, tracking our health day-to-day isn’t easy. Simple, continuous ways to monitor the body remain limited.",
-      "p2": "Tools to easily monitor the body and tissues are still limited.",
+      "subtitleJa": "視える化技術により全ての人が自分らしく生きることのできる社会を創造する",
+      "subtitleEn": "Enabling authentic lives through the power of visualization.",
+      "p1": "For most of us, tracking our health day-to-day isn't easy. Simple, continuous ways to monitor the body remain limited.",
+      "p2": "There have also been limited means to easily monitor the body and tissues.",
       "p3Strong": "At TOMOCLOUD, we visualize the invisible",
       "p4": "With visualization technology, we turn complex biosignals into clear, intuitive insights so everyone can live more authentically.",
-      "cta": "See products"
+      "cta": "View product"
     },
-    "values": {
-      "heading": "Values",
-      "items": [
-        { "title": "Act like an owner", "text": "Own the problem alongside the user; take responsibility and see it through." },
-        { "title": "Act on innovation", "text": "Relentlessly explore the frontier—and turn it into practical solutions." },
-        { "title": "Act from zero", "text": "Be unafraid of unprecedented challenges; create major change by taking the first small step." },
-        { "title": "Act as one", "text": "People with diverse expertise eagerly collaborate to create value that no individual could achieve alone." }
-      ]
-    }
-  },
-  "team": {
-    "heading": "Our Team",
-    "achievements": "Selected achievements",
-    "aria": { "detail": "details" },
-    "members": {
-      "ogawa": {
-        "role": "CEO / Founder",
-        "title": "Project Assistant Professor, Takei Lab, Graduate School of Engineering, Chiba University\nAlso: Entrepreneur in Residence (EIR), Institute for Research Promotion (IMO), Chiba University",
-        "subtitle": "Ph.D. in Engineering, Graduate School of Science and Engineering, Chiba University",
-        "positionNote": "Project Assistant Professor, Takei Lab, Graduate School of Engineering, Chiba University\nEntrepreneur in Residence (EIR), IMO, Chiba University",
-        "bio": "Selected as a Tobitate! (Leap for Tomorrow) Japan representative; studied at the Centre for Regenerative Medicine, University of Edinburgh for one year (MSc period). Driving social implementation under the theme of “Medicine × Engineering,” developing a medical device using Electrical Impedance Tomography (EIT) to address lymphedema after gynecologic cancer treatment. Aiming for “a world where you can see your new self,” advancing commercialization across medical, nursing, and healthcare fields. Selected for JST START (Project Promoting Startups) with Prof. Takei and colleagues.",
-        "achievements": [
-          "2019: Selected as Japan representative, World Youth Forum",
-          "2021: METI Japan Healthcare Business Contest – Excellence Award (and others)",
-          "2022: NEDO TCP Grand Prize; JSPS DC1; Chiba Univ. President/Dean/Chair Awards",
-          "2023: Early Ph.D. completion (5 papers), Best Presentation Award (Lymphedema Treatment Society), Research Studio finalist, JSPS PD",
-          "2024: JSPS KAKENHI (Young Researcher) grant",
-          "2025: AMED BRIDGE (Univ. of Tsukuba) S0; GTIE GAP Fund 2025 Entry Course; Beyond Japan Zero to X Program"
-        ]
+    "values": [
+      {
+        "title": "Act like an owner",
+        "text": "Own the problem alongside the user; take responsibility and see it through."
       },
-      "takei": {
-        "role": "Technical Adviser",
-        "title": "Professor, Graduate School of Engineering (also with Frontier Center for Biomedical Engineering), Chiba University",
-        "subtitle": "Ph.D. in Engineering, Waseda University",
-        "positionNote": "Professor, Graduate School of Engineering (Frontier Center for Biomedical Engineering), Chiba University",
-        "bio": "From 1995 to 2011, served at Nihon University (Dept. of Mechanical Engineering) as Research Associate, Lecturer, Associate Professor, and Professor, working on electrical measurement and multiphase flow dynamics. Led projects including JST programs and KAKENHI (C/B). Since 2011, Professor at Chiba University continuing research on bio/multiphase-flow electrical measurement. Expanded into plant and biomedical measurement via JST A-STEP projects; KAKENHI (A) advanced to thrombus visualization in blood flow. In 2018, selected for NEDO Advanced IoT project on AI-based early lymphedema detection using IoT EIT monitoring.",
-        "achievements": [
-          "PI on multiple JST A-STEP and KAKENHI (A/B/C) projects",
-          "2018: NEDO Advanced IoT project (AI × lymphedema)",
-          "Invited talks at Lymphedema Society and JCS annual meetings",
-          "Multiple awards incl. NEDO Special Jury Prize & NEDO TCP 2017 Finalist"
-        ]
+      {
+        "title": "Act on innovation",
+        "text": "Relentlessly explore the frontier—and turn it into practical solutions."
+      },
+      {
+        "title": "Act from zero",
+        "text": "Be unafraid of unprecedented challenges; create major change by taking the first small step."
+      },
+      {
+        "title": "Act as one",
+        "text": "People with diverse expertise eagerly collaborate to create value that no individual could achieve alone."
       }
+    ],
+    "team": {
+      "heading": "Our Team",
+      "modal": { "achievementsTitle": "Key achievements" },
+      "members": {
+        "ogawa": {
+          "positionNote": "Project Assistant Professor, Takei Lab, Graduate School of Engineering, Chiba University\nEntrepreneur-in-Residence (EIR), IMO, Chiba University",
+          "title": "Project Assistant Professor, Takei Lab, Graduate School of Engineering, Chiba University\nAlso EIR at IMO, Chiba University",
+          "subtitle": "Ph.D. (Engineering), Graduate School of Science and Engineering, Chiba University",
+          "bio": "Studied at the University of Edinburgh as a representative of Tobitate! Study Abroad JAPAN. Driving social implementation at the intersection of medicine and engineering, developing EIT-based devices to address lymphedema after gynecologic cancer treatment. Selected for JST START (2022) with Prof. Takei and team.",
+          "achievements": [
+            "2019: Selected as a Japan representative, World Youth Forum (under UN auspices)",
+            "2021: METI Japan Healthcare Business Contest – Excellence Award",
+            "2022: NEDO TCP Grand Prize; JSPS DC1; Chiba Univ. President/Dean/Chair Awards",
+            "2023: Early Ph.D. completion (5 papers); Best Presentation Award (Lymphedema Society); Research Studio; JSPS PD",
+            "2024: KAKENHI (Young Researcher)",
+            "2025: AMED Bridge (Tsukuba hub) S0; GTIE GAP Fund (Entry Course); Beyond Japan Zero to X"
+          ]
+        },
+        "takei": {
+          "positionNote": "Professor, Graduate School of Engineering (Frontier Medical Engineering Center), Chiba University",
+          "title": "Professor, Graduate School of Engineering (Frontier Medical Engineering Center), Chiba University",
+          "subtitle": "Ph.D. in Engineering, Waseda University",
+          "bio": "Formerly at Nihon University (Assistant–Professor). Led research on electrical measurement and mechanics of multiphase flow, and advanced EIT fundamentals and applications (industrial/biomedical). At Chiba Univ., expanding to plant and biomedical measurement, visualizing thrombi in blood flow (KAKENHI A). Also selected for NEDO advanced IoT project (EIT & AI for lymphedema).",
+          "achievements": [
+            "PI of JST A-STEP and multiple KAKENHI (A/B/C) grants",
+            "NEDO Advanced IoT Project (EIT×AI for lymphedema)",
+            "Invited talks at Lymphedema Society / JCS meetings",
+            "Multiple awards incl. NEDO special jury prize; NEDO TCP finalist"
+          ]
+        }
+      }
+    },
+    "message": {
+      "heading": "Message",
+      "title": "Visualize the New Self",
+      "p1": "Even while working in an engineering lab, I spent my student years on hospital wards, listening directly to patients and clinicians. One patient said, \"What frightens me most is that I can't visualize what's happening inside my body.\" That stayed with me—and made me determined to build technology that eases that invisible anxiety. The more I listened, the more I felt these were not someone else's problems, but challenges I should help solve.",
+      "p2": "I also learned a simple, profound truth: patients are people leading full lives. Each person is at once a patient, a family member, a friend, a professional—many versions of \"self\" that existed before illness and will continue after. I want to support all of those selves. That's why we shape technology not as a mere tool, but as a companion woven into everyday life.",
+      "p3": "What we've established is the power of visualization through Electrical Impedance Tomography (EIT). Human tissues have distinct electrical properties, and those properties shift with fluid composition. EIT makes it possible to visualize the invisible—to render these properties clearly and non-invasively, with practical precision.",
+      "p4": "With this, we can replace some costly, burdensome tools and enable at-home monitoring that used to be impossible to visualize—opening new possibilities for early detection and ongoing monitoring of conditions like lymphedema and other chronic diseases.",
+      "p5": "But our aim isn't visualization for its own sake. It's to provide a compass: to visualize the invisible, make sense of it, and help you take the next step. When the invisible is visualized, people can move forward. We want to support that moment—using visualization as a shared language that gently connects medicine, caregiving, and everyday health—so everyone can live more authentically. And we will expand this model, born in Japan, to the world.",
+      "signature": "Ryoma Ogawa, CEO, TOMOCLOUD Inc."
+    },
+    "news": {
+      "heading": "Recent News",
+      "cta": "View all news",
+      "items": {
+        "n13": "CEO Ryoma Ogawa will speak at the 23rd Chiba University Biomedical Engineering Symposium.",
+        "n12": "TOMOCLOUD Inc. was featured in Nikkan Kogyo Shimbun.",
+        "n11": "The US FDA Center for Devices and Radiological Health visited Chiba University IMO, and CEO Ryoma Ogawa had a meeting.",
+        "n10": "CEO Ryoma Ogawa participated in SPARK-BIH VC Day and delivered a pitch presentation.",
+        "n9": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program.",
+        "n8": "CEO Ryoma Ogawa, received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!",
+        "n7": "CEO Ryoma Ogawa to speak in the Excellence Session at the 9th Academic Meeting of the Japanese Society of Lymphedema Treatment.",
+        "n6": "CEO Ryoma Ogawa to appear at the special event of the 19th Mukumi Seminar on Aug 24.",
+        "n5": "CEO Ryoma Ogawa selected as a finalist for the Beyond Japan Zero to X Program.",
+        "n4": "CEO Ryoma Ogawa selected for the GTIE GAP Fund (Entry Course).",
+        "n3": "CEO Ryoma Ogawa presented at the 33rd Annual Meeting of the Japan Breast Cancer Society.",
+        "n2": "CEO Ryoma Ogawa presented research at the 37th Bioengineering Conference (JSME).",
+        "n1": "CEO Ryoma Ogawa gave a lecture at the 49th Annual Meeting of the Japanese Society of Lymphology."
+      }
+    },
+    "recruit": {
+      "heading": "Recruit",
+      "p1": "Join us.",
+      "p2": "If you're interested, feel free to reach out first.",
+      "cta": "Contact us"
+    },
+    "about": {
+      "heading": "About us",
+      "companyLabel": "Company",
+      "businessLabel": "Business",
+      "foundedLabel": "Founded",
+      "addressLabel": "Address",
+      "repLabel": "Representative",
+      "company": "TOMOCLOUD Inc.",
+      "business": "Development and sales of non-invasive bio-imaging devices",
+      "founded": "Aug 18, 2025",
+      "address": "260-0015\nFujimi Building #609, 2-7-9 Fujimi, Chuo-ku, Chiba, Japan",
+      "rep": "Ryoma Ogawa"
     }
   },
-  "message": {
-    "heading": "Message",
-    "imageAlt": "Message from the representative",
-    "title": "“Visualize the New Self”",
-    "paragraphs": [
-      "Even while working in an engineering lab, I spent my student years on hospital wards, listening directly to patients and clinicians. One patient said, “What frightens me most is that I can’t visualize what’s happening inside my body.” That stayed with me—and made me determined to build technology that eases that invisible anxiety. The more I listened, the more I felt these were not someone else’s problems, but challenges I should help solve.",
-      "I also learned a simple, profound truth: patients are people leading full lives. Each person is at once a patient, a family member, a friend, a professional—many versions of “self” that existed before illness and will continue after. I want to support all of those selves. That’s why we shape technology not as a mere tool, but as a companion woven into everyday life.",
-      "What we’ve established is the power of visualization through Electrical Impedance Tomography (EIT). Human tissues have distinct electrical properties, and those properties shift with fluid composition. EIT makes it possible to visualize the invisible—to render these properties clearly and non-invasively, with practical precision.",
-      "With this, we can replace some costly, burdensome tools and enable at-home monitoring that used to be impossible to visualize—opening new possibilities for early detection and ongoing monitoring of conditions like lymphedema and other chronic diseases.",
-      "But our aim isn’t visualization for its own sake. It’s to provide a compass: to visualize the invisible, make sense of it, and help you take the next step. When the invisible is visualized, people can move forward. We want to support that moment—using visualization as a shared language that gently connects medicine, caregiving, and everyday health—so everyone can live more authentically. And we will expand this model, born in Japan, to the world."
-    ],
-    "signaturePrefix": "CEO, TOMOCLOUD Inc.",
-    "signatureName": "Ryoma Ogawa"
+  "services": {
+    "title": "Product",
+    "eit": {
+      "heading": "Core Technology: EIT",
+      "imageAlt": "Illustration of EIT (Electrical Impedance Tomography)",
+      "p1": "Electrical Impedance Tomography (EIT) reconstructs images of impedance distribution using multiple electrodes.",
+      "p2": "It literally turns the \\\"unseen\\\" into something visible.",
+      "p3": "By applying small currents via surface electrodes and measuring potentials, EIT visualizes internal states non-invasively and in real time.",
+      "p4_prefix": "TOMOCLOUD Inc. was founded based on research conducted at ",
+      "p4_bold": "Chiba University Takei Laboratory",
+      "p4_suffix": ".",
+      "cta": "Visit Takei Lab"
+    },
+    "lymphedema": {
+      "heading": "What is Lymphedema?",
+      "imageAlt": "Schematic image of lymphedema",
+      "p1": "Lymphedema is a condition in which swelling occurs in the limbs due to impaired lymphatic flow.",
+      "p2": "Beyond appearance changes, it can cause pain and heaviness, affecting quality of life and work.",
+      "p3": "Early detection and continuous observation are important, yet truly simple and non-invasive methods have been limited.",
+      "p4": "We aim to realize an EIT-based monitoring method that can be performed routinely with minimal burden."
+    },
+    "product": {
+      "badge": "Prototype",
+      "subheading": "In Development",
+      "title": "LT monitor",
+      "lead1": "An EIT-based lymphedema monitoring device.",
+      "lead2": "It aims to visualize internal states in real time and enable daily, continuous assessment.",
+      "b1": "Real-time internal visualization",
+      "b2": "Simple, intuitive UI to reduce user burden",
+      "b3": "Clinical validation in progress",
+      "image1Alt": "LT monitor photo 1",
+      "image2Alt": "LT monitor photo 2"
+    }
   },
   "news": {
-    "heading": "Recent News",
-    "cta": "View all news",
-    "aria": { "prev": "Previous (scroll)", "next": "Next (scroll)" },
-    "items": {
-      "n10": { "title": "CEO Ryoma Ogawa participated in SPARK-BIH VC Day and delivered a pitch presentation." },
-      "n9": { "title": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program." },
-      "n8": { "title": "CEO Ryoma Ogawa received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!" },
-      "n7": { "title": "CEO Ryoma Ogawa to speak in the Outstanding Presentation Session at the 9th Japan Society of Lymphedema Treatment Annual Meeting." },
-      "n6": { "title": "CEO Ryoma Ogawa will appear at the special event of the 19th Edema Seminar on Aug 24." },
-      "n5": { "title": "CEO Ryoma Ogawa selected as a final awardee of the Beyond Japan Zero to X Program." },
-      "n4": { "title": "CEO Ryoma Ogawa selected for the GTIE GAP Fund 2025 (Entry Course)." },
-      "n3": { "title": "CEO Ryoma Ogawa presented at the 33rd Annual Meeting of the Japanese Breast Cancer Society." },
-      "n2": { "title": "CEO Ryoma Ogawa presented research at JSME Bioengineering 2025." },
-      "n1": { "title": "CEO Ryoma Ogawa gave a talk at the 49th Annual Meeting of the Japanese Society of Lymphology." }
-    }
+    "title": "News",
+    "more": "Read more",
+    "moreAria": "Open external link",
+    "newer": "‹ Newer posts",
+    "older": "Older posts ›",
+    "pagerAria": "News pager",
+    "pageXofY": "Page {x} / {y}",
+    "items": [
+      {
+        "id": 13,
+        "title": "CEO Ryoma Ogawa will speak at the 23rd Chiba University Biomedical Engineering Symposium.",
+        "date": "2025-11-25",
+        "image": "/Image/logo.png",
+        "text": "November 25, 2025 (Tue) 13:00-17:30, Chiba University Keyaki Hall",
+        "url": "https://www.cfme.chiba-u.jp/event/symposium2025/"
+      },
+      {
+        "id": 12,
+        "title": "TOMOCLOUD Inc. was featured in Nikkan Kogyo Shimbun.",
+        "date": "2025-10-31",
+        "image": "/Image/logo.png",
+        "text": "Regarding lymphedema early diagnostic system development",
+        "url": "https://www.nikkan.co.jp/articles/view/00764749"
+      },
+      {
+        "id": 11,
+        "title": "The US FDA Center for Devices and Radiological Health visited Chiba University IMO, and CEO Ryoma Ogawa had a meeting.",
+        "date": "2025-10-29",
+        "image": "/Image/news.png",
+        "text": "October 29, 2025 (Wed)",
+        "url": "https://imo.chiba-u.jp/news/news/1029FDA_jetro.html"
+      },
+      {
+        "id": 10,
+        "title": "CEO Ryoma Ogawa participated in SPARK-BIH VC Day and delivered a pitch presentation. SPARK is an accelerator-style translation program originating from Stanford University.",
+        "date": "2025-10-03",
+        "image": "/Image/news_10.png",
+        "text": "October 1, 2025",
+        "url": "https://www.spark-bih.de/news-events/venture-capital-day"
+      },
+      {
+        "id": 9,
+        "title": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program.",
+        "date": "2025-09-08",
+        "image": "/Image/news_5_2.png",
+        "text": "September 8–26, 2025",
+        "url": "https://www.b4d-jp.com/news/2025-8"
+      },
+      {
+        "id": 7,
+        "title": "Mr. Ryoma Ogawa, CEO, received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!",
+        "date": "2025-09-06",
+        "image": "/Image/news_7_2.png",
+        "text": "September 6–7, 2025 · Act City Hamamatsu, Congress Center",
+        "url": "https://www.graffiti97.com/9jslt/index.html"
+      },
+      {
+        "id": 7,
+        "title": "CEO Ryoma Ogawa to speak in the Excellent Presentation session at the 9th JSLS Lymphedema Treatment Annual Meeting: \"EIT for Lymphedema Evaluation—Past and Future\"",
+        "date": "2025-08-23",
+        "image": "/Image/news_7_2.png",
+        "text": "September 6–7, 2025 · Act City Hamamatsu, Congress Center",
+        "url": "https://www.graffiti97.com/9jslt/index.html"
+      },
+      {
+        "id": 6,
+        "title": "CEO Ryoma Ogawa will talk at the Special Event of the 19th Lymphedema Seminar",
+        "date": "2025-08-23",
+        "image": "/Image/news_6_2.png",
+        "text": "10:00–12:00 (JST), Online",
+        "url": "https://www.mukumi-seminar.org/event/"
+      },
+      {
+        "id": 5,
+        "title": "CEO Ryoma Ogawa selected as a finalist for Beyond JAPAN Zero to X Program (Deep Tech – San Diego course)",
+        "date": "2025-08-20",
+        "image": "/Image/news_5_2.png",
+        "text": "A dispatch-style program to develop next-generation innovators and entrepreneurs.",
+        "url": "https://www.b4d-jp.com/news/2025-8"
+      },
+      {
+        "id": 4,
+        "title": "CEO Ryoma Ogawa accepted into the GTIE-GAP Fund (Entry Course)",
+        "date": "2025-07-30",
+        "image": "/Image/news_4_2.png",
+        "text": "Theme: Commercialization of a muscle mass/quality imaging wearable to help prevent sarcopenia.",
+        "url": "https://gtie.jp/news/43810/"
+      },
+      {
+        "id": 3,
+        "title": "Presentation at the 33rd Annual Meeting of the Japanese Breast Cancer Society: \"A New Breast Cancer Evaluation Method Using EIT\"",
+        "date": "2025-08-12",
+        "image": "/Image/news_3_2.png",
+        "text": "Held July 10–12, 2025.",
+        "url": "https://www.congre.co.jp/jbcs2025/"
+      },
+      {
+        "id": 2,
+        "title": "Research presentation at JSME 37th Bioengineering Conference",
+        "date": "2025-05-24",
+        "image": "/Image/news_2_2.png",
+        "text": "Held May 24–25, 2025.",
+        "url": "https://www.jsme.or.jp/conference/bioconf25/index.html"
+      },
+      {
+        "id": 1,
+        "title": "Talk at the 49th Annual Meeting of the Japanese Society of Lymphology",
+        "date": "2025-05-23",
+        "image": "/Image/news_1_2.png",
+        "text": "Held May 23–24, 2025.",
+        "url": "https://square.umin.ac.jp/jsl49/"
+      }
+    ]
+  },
+  "achievements": {
+    "title": "Achievements",
+    "lead": "Our publications, conference presentations, and awards.",
+    "lead2": "Each item links to the original paper or conference page.",
+    "labelPaper": "Publication",
+    "labelPresentation": "Presentation",
+    "labelAward": "Award",
+    "labelComingSoon": "Coming soon",
+    "openLink": "Open link",
+    "linkPending": "Coming soon",
+    "items": [
+      {
+        "id": "coming-soon",
+        "type": "comingSoon",
+        "title": "Coming soon"
+      },
+      {
+        "id": "pres-2025-lymph",
+        "type": "presentation",
+        "title": "EIT for Lymphedema Evaluation: Past and Future",
+        "date": "2025-09-06",
+        "journalOrConf": "9th Annual Meeting of the Japanese Society for Lymphedema Treatment",
+        "authors": "R. Ogawa, Y. Kinouchi, S. Akita and M. Takei",
+        "externalUrl": "https://www.graffiti97.com/9jslt/index.html"
+      }
+    ]
   },
   "recruit": {
-    "heading": "Recruit",
-    "p1": "Join us.",
-    "p2": "If you’re interested, feel free to contact us first.",
-    "cta": "Contact us"
+    "title": "Careers",
+    "vision": "From \\\"invisible\\\" to \\\"visible\\\".",
+    "paragraphs": [
+      "TOMOCLOUD is a startup spun out of a diverse, interdisciplinary research lab.",
+      "We value each other's cultures and expertise, and challenge one another to grow.",
+      "Breakthroughs are created by professionals with diverse backgrounds.",
+      "By fusing foundational and new technologies around noninvasive \\\"visualization,\\\" we deliver value to medical, nursing, and healthcare settings.",
+      "If you see the potential and are eager to turn it into reality, we'd love to work with you."
+    ],
+    "contactBtn": "Contact us",
+    "contactAria": "Go to contact page",
+    "note": "Job descriptions will be published in due course."
   },
-  "about": {
-    "heading": "About us",
-    "companyLabel": "Company",
-    "businessLabel": "Business",
-    "foundedLabel": "Founded",
-    "addressLabel": "Address",
-    "representativeLabel": "Representative",
-    "company": "TOMOCLOUD Inc.",
-    "business": "Development, manufacture, and sales of non-invasive bio-imaging devices",
-    "founded": "Aug 18, 2025",
-    "addressLine1": "260-0015",
-    "addressLine2": "Fujimi Bldg. #609, 2-7-9 Fujimi, Chuo-ku, Chiba, Japan",
-    "representative": "Ryoma Ogawa"
-  },
-  "footer": {
-    "company": "TOMOCLOUD Inc.",
-    "zip": "260-0015",
-    "address": "Fujimi Bldg. #609, 2-7-9 Fujimi, Chuo-ku, Chiba, Japan",
-    "tel": "TEL +81-43-290-2957",
-    "email": "Email info@tomocloud.co.jp",
-    "pages": "Pages",
-    "links": "Links",
-    "externalLab": "Takei Laboratory (external)"
+  "contact": {
+    "title": "Contact",
+    "lead": "For inquiries or consultation, please use the contact details below.",
+    "infoTitle": "Contact information",
+    "addressLabel": "Address:",
+    "address": "Fujimi Building #609, 2-7-9 Fujimi, Chuo-ku, Chiba 260-0015, Japan",
+    "telLabel": "Phone:",
+    "tel": "043-290-2957",
+    "emailLabel": "Email:",
+    "email": "info@tomocloud.co.jp",
+    "formTitle": "Contact form",
+    "form": {
+      "namePlaceholder": "Name",
+      "emailPlaceholder": "Email address",
+      "messagePlaceholder": "Message (please be as specific as possible)",
+      "nameAria": "Name",
+      "emailAria": "Email address",
+      "messageAria": "Message",
+      "sending": "Sending…",
+      "submit": "Send"
+    },
+    "success": "Your inquiry has been received. Please check the auto-reply email.",
+    "errors": {
+      "missing": "Please fill in all required fields.",
+      "invalidEmail": "Please enter a valid email address.",
+      "sendFail": "Failed to send. Please try again later."
+    }
   }
 }
