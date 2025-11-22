@@ -344,36 +344,35 @@ function Modal({
   };
 
   return (
-    <div className="fixed inset-0 z-[100]" role="dialog" aria-modal="true" aria-label={title}>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label={title}>
       <div
-        className={`absolute inset-0 bg-black/40 transition-opacity duration-500 ease-out
+        className={`fixed inset-0 bg-black/40 transition-opacity duration-500 ease-out
                     ${entered ? 'opacity-100' : 'opacity-0'}`}
         onClick={handleClose}
         aria-hidden="true"
       />
       <div
-        className={`absolute inset-0 grid place-items-center p-4
-                    transition-all duration-500 ease-out
+        className={`relative transition-all duration-500 ease-out w-full max-w-3xl
                     ${entered ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-2 scale-95'}`}
       >
         <div
           ref={dialogRef}
-          className="w-full max-w-3xl rounded-2xl bg-white shadow-2xl outline-none
-                     max-h-[90vh] overflow-y-auto overscroll-contain"
+          className="w-full rounded-2xl bg-white shadow-2xl outline-none
+                     max-h-[90vh] flex flex-col overflow-hidden"
           style={{ WebkitOverflowScrolling: 'touch' }}
           onWheel={(e) => e.stopPropagation()}
           onTouchMove={(e) => e.stopPropagation()}
         >
-          <div className="sticky top-0 z-10 bg-white p-6 border-b border-zinc-200 flex items-start gap-4">
+          <div className="flex-shrink-0 bg-white p-6 border-b border-zinc-200 flex items-start gap-4">
             <h2 className="text-xl font-semibold leading-tight">{title}</h2>
             <button
               onClick={handleClose}
-              className="ml-auto rounded-lg px-3 py-2 text-sm ring-1 ring-zinc-300 hover:bg-zinc-50 focus:outline-none focus:ring-2"
+              className="ml-auto flex-shrink-0 rounded-lg px-3 py-2 text-sm ring-1 ring-zinc-300 hover:bg-zinc-50 focus:outline-none focus:ring-2"
             >
               {closeLabel}
             </button>
           </div>
-          <div className="p-6">{children}</div>
+          <div className="flex-1 overflow-y-auto overscroll-contain p-6">{children}</div>
         </div>
       </div>
     </div>
@@ -550,6 +549,9 @@ function MessageSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<H
 
 /* ============ 6) News ============ */
 const NEWS_BASE = [
+  { id: 'n13', date: '2025-11-25', img: '/Image/logo.png' },
+  { id: 'n12', date: '2025-10-31', img: '/Image/logo.png' },
+  { id: 'n11', date: '2025-10-29', img: '/Image/news_11.jpg' },
   { id: 'n10', date: '2025-10-03', img: '/Image/news_10.png' },
   { id: 'n9', date: '2025-09-08', img: '/Image/news_5.png' },
   { id: 'n8', date: '2025-09-06', img: '/Image/news_7.png' },
@@ -630,7 +632,7 @@ function NewsSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTML
                   <img
                     src={item.img}
                     alt={getTitle(item.id)}
-                    className="w-full h-40 md:h-44 lg:h-48 object-cover"
+                    className="w-full h-40 md:h-44 lg:h-48 object-contain bg-gray-50"
                     onError={onImgError}
                     loading="lazy"
                   />
