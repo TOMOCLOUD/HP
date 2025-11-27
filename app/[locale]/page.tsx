@@ -567,7 +567,7 @@ function NewsSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTML
     // まず home.news.items から取得を試みる
     if (titles?.[id]) return titles[id];
     // なければ NEWS_BASE から取得
-    const item = NEWS_BASE.find(n => n.id === id);
+    const item = NEWS_BASE.find((n: { id: string; date: string; img: string; title?: string }) => n.id === id);
     return item?.title ?? '';
   };
 
@@ -623,7 +623,7 @@ function NewsSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTML
             style={{ scrollBehavior: 'smooth' }}
           >
             <div className="flex gap-4">
-              {NEWS_BASE.map((item) => (
+              {NEWS_BASE.map((item: { id: string; date: string; img: string; title?: string }) => (
                 <article
                   key={item.id}
                   className="shrink-0 w-[260px] sm:w-[280px] md:w-[320px] lg:w-[360px] snap-start bg-white shadow rounded overflow-hidden border border-gray-200"
