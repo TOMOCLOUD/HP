@@ -121,7 +121,7 @@
       "heading": "Recruit",
       "p1": "Join us.",
       "p2": "If you're interested, feel free to reach out first.",
-      "cta": "Contact us"
+      "cta": "View Careers"
     },
     "about": {
       "heading": "About us",
@@ -323,8 +323,8 @@
       "By fusing foundational and new technologies around noninvasive \\\"visualization,\\\" we deliver value to medical, nursing, and healthcare settings.",
       "If you see the potential and are eager to turn it into reality, we'd love to work with you."
     ],
-    "contactBtn": "Contact us",
-    "contactAria": "Go to contact page",
+    "contactBtn": "View Careers",
+    "contactAria": "Go to careers site",
     "note": "Job descriptions will be published in due course."
   },
   "contact": {
