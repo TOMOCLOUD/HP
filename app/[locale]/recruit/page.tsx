@@ -1,7 +1,6 @@
 // app/[locale]/recruit/page.tsx
 'use client';
 
-import Link from "next/link";
 import { useDict } from "@/lib/useDict";
 
 const FALLBACK = {
@@ -124,9 +123,15 @@ export default function RecruitPage(){
             ))}
 
             <div className="mt-8 md:mt-12 text-left">
-              <Link href={`/${locale}/contact`} className="inline-block text-white font-semibold px-6 md:px-8 py-3 md:py-4 rounded-lg shadow transition btn-gradient hover:shadow-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300/40" aria-label={t.contactAria}>
+              <a
+                href="https://www.wantedly.com/companies/tomocloud"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-white font-semibold px-6 md:px-8 py-3 md:py-4 rounded-lg shadow transition btn-gradient hover:shadow-lg focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-blue-300/40"
+                aria-label={t.contactAria}
+              >
                 {t.contactBtn}
-              </Link>
+              </a>
             </div>
 
             <div className="mt-8 sm:hidden">
