@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
 import { useDict } from '@/lib/useDict';
+import React, { useEffect, useRef, useState } from 'react';
 
 /* ============ 0) 共通ユーティリティ ============ */
 const fallbackDataUrl =
@@ -548,29 +548,28 @@ function MessageSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<H
 }
 
 /* ============ 6) News ============ */
-const NEWS_BASE = [
-  { id: 'n13', date: '2025-11-25', img: '/Image/logo.png' },
-  { id: 'n12', date: '2025-10-31', img: '/Image/logo.png' },
-  { id: 'n11', date: '2025-10-29', img: '/Image/news_11.jpg' },
-  { id: 'n10', date: '2025-10-03', img: '/Image/news_10.png' },
-  { id: 'n9', date: '2025-09-08', img: '/Image/news_5.png' },
-  { id: 'n8', date: '2025-09-06', img: '/Image/news_7.png' },
-  { id: 'n7', date: '2025-08-23', img: '/Image/news_7.png' },
-  { id: 'n6', date: '2025-08-23', img: '/Image/news_6.png' },
-  { id: 'n5', date: '2025-08-20', img: '/Image/news_5.png' },
-  { id: 'n4', date: '2025-07-30', img: '/Image/news_4.png' },
-  { id: 'n3', date: '2025-07-12', img: '/Image/news_3.png' },
-  { id: 'n2', date: '2025-05-24', img: '/Image/news_2.png' },
-  { id: 'n1', date: '2025-05-23', img: '/Image/news_1.png' },
-];
-
 function NewsSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTMLImageElement>) => void }) {
   const { dict, locale } = useDict();
   const scrollerRef = React.useRef<HTMLDivElement | null>(null);
   const t = dict?.home?.news;
+  const newsItems = dict?.news?.items || [];
+
+  // ニュースページのデータから最新10件を取得
+  const NEWS_BASE = newsItems.slice(0, 10).map((item: any) => ({
+    id: `n${item.id}`,
+    date: item.date,
+    img: item.image,
+    title: item.title,
+  }));
 
   const titles: Record<string, string> = t?.items || {};
-  const getTitle = (id: string) => titles?.[id] ?? '';
+  const getTitle = (id: string) => {
+    // まず home.news.items から取得を試みる
+    if (titles?.[id]) return titles[id];
+    // なければ NEWS_BASE から取得
+    const item = NEWS_BASE.find(n => n.id === id);
+    return item?.title ?? '';
+  };
 
   const getStep = React.useCallback(() => {
     const el = scrollerRef.current;
@@ -665,7 +664,7 @@ function NewsSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTML
 
 /* ============ 7) Recruit ============ */
 function RecruitSection() {
-  const { dict, locale } = useDict();
+  const { dict } = useDict();
   const t = dict?.home?.recruit;
 
   return (
@@ -676,7 +675,9 @@ function RecruitSection() {
         <p className="mt-4 text-base sm:text-lg text-gray-700">{t?.p2}</p>
         <div className="mt-8">
           <a
-            href={`/${locale}/contact`}
+            href="https://www.wantedly.com/companies/tomocloud"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block text-white font-semibold px-6 md:px-8 py-3 md:py-4 rounded-lg shadow
                        btn-gradient transition-colors duration-300
                        hover:from-sky-600 hover:to-sky-700 focus:outline-none focus:ring-2 focus:ring-sky-300"
