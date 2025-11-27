@@ -14,9 +14,8 @@ const FALLBACK = {
       "だからこそ、私たちは非侵襲の“可視化”を核に、基盤技術と新技術の融合を通して革新的な技術を創出し、医療・介護・ヘルスケアの現場へ価値を届けます。",
       "可能性を感じ、その可能性を具体化すべく前に突き進んでいける仲間をお待ちしています。"
     ],
-    contactBtn: "お問い合わせへ",
-    contactAria: "お問い合わせページへ",
-    note: "※ 募集要項は順次公開予定です。"
+    contactBtn: "採用サイトへ",
+    contactAria: "採用サイトへ移動"
   },
   en: {
     title: "Careers",
@@ -28,9 +27,8 @@ const FALLBACK = {
       "By fusing foundational and new technologies around noninvasive “visualization,” we deliver value to medical, nursing, and healthcare settings.",
       "If you see the potential and are eager to turn it into reality, we'd love to work with you."
     ],
-    contactBtn: "Contact us",
-    contactAria: "Go to contact page",
-    note: "Job descriptions will be published in due course."
+    contactBtn: "View Careers",
+    contactAria: "Go to careers site"
   }
 };
 
@@ -137,8 +135,6 @@ export default function RecruitPage(){
             <div className="mt-8 sm:hidden">
               <FullBleedImageStrip images={mobileImages.slice(2,4)} colsClass="grid-cols-2" itemHeights="h-32 xs:h-36" />
             </div>
-
-            <p className="mt-4 text-sm text-gray-500 text-left">{t.note}</p>
           </div>
         </section>
       </main>
