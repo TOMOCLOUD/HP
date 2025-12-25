@@ -5,7 +5,10 @@
       "WebFetch(domain:imo.chiba-u.jp)",
       "WebFetch(domain:www.cfme.chiba-u.jp)",
       "Bash(npm run build:*)",
-      "Bash(git reset:*)"
+      "Bash(git reset:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)"
     ],
     "deny": [],
     "ask": []

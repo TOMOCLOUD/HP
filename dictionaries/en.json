@@ -38,6 +38,12 @@
       "p4": "With visualization technology, we turn complex biosignals into clear, intuitive insights so everyone can live more authentically.",
       "cta": "View product"
     },
+    "questionnaire": {
+      "heading": "Survey Request",
+      "p1": "TOMOCLOUD Inc. is developing \\\"LT monitor Lite,\\\" a device that allows you to monitor edema (swelling) at home.",
+      "p2": "Please help us improve our product by sharing your daily challenges and desired features in our survey.",
+      "cta": "Take the Survey"
+    },
     "values": [
       {
         "title": "Act like an owner",
@@ -169,6 +175,15 @@
       "b3": "Clinical validation in progress",
       "image1Alt": "LT monitor photo 1",
       "image2Alt": "LT monitor photo 2"
+    },
+    "questionnaire": {
+      "heading": "Survey Request",
+      "p1": "Thank you for your continued support.",
+      "p2": "TOMOCLOUD Inc. is developing \\\"LT monitor Lite,\\\" a device that allows you to monitor edema (swelling) at home.",
+      "p3": "This survey aims to gather feedback on your daily challenges, desired features, and any concerns about purchasing the product to help us improve our development.",
+      "p4": "Your responses will be collected anonymously and used solely for product improvement and quality enhancement. By submitting your response, you agree to these terms.",
+      "p5": "We appreciate your valuable time and cooperation.",
+      "cta": "Take the Survey"
     }
   },
   "news": {
