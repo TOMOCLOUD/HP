@@ -251,6 +251,59 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ===== アンケートご協力のお願い ===== */}
+      <section className="reveal-on-scroll bg-gradient-to-br from-sky-50 to-white py-12 md:py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 md:p-10 border-t-4 border-sky-500">
+            <div className="text-center mb-6 md:mb-8">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-sky-100 rounded-full mb-4">
+                <svg
+                  className="w-8 h-8 text-sky-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+                {dict?.services?.questionnaire?.heading}
+              </h2>
+            </div>
+
+            <div className="space-y-4 text-gray-700 text-base sm:text-lg leading-relaxed mb-8">
+              <p>{dict?.services?.questionnaire?.p1}</p>
+              <p className="font-semibold text-gray-900">{dict?.services?.questionnaire?.p2}</p>
+              <p>{dict?.services?.questionnaire?.p3}</p>
+              <p className="text-sm sm:text-base text-gray-600 italic">
+                {dict?.services?.questionnaire?.p4}
+              </p>
+              <p>{dict?.services?.questionnaire?.p5}</p>
+            </div>
+
+            <div className="text-center">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfFu_lqgdpk9YYOmXUPX3wjZk-J9r7dfIeR52NSEcB0zb2oPQ/viewform?usp=dialog"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-gradient-to-r from-sky-500 to-sky-600 text-white font-semibold
+                           px-8 md:px-12 py-4 md:py-5 rounded-xl shadow-lg
+                           hover:from-sky-600 hover:to-sky-700 hover:shadow-xl
+                           transform hover:-translate-y-0.5 transition-all duration-300
+                           focus:outline-none focus:ring-2 focus:ring-sky-300 focus:ring-offset-2"
+              >
+                {dict?.services?.questionnaire?.cta}
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
