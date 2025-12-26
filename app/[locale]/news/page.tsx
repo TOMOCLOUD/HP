@@ -169,7 +169,7 @@ function NewsPageInner() {
                       </h2>
                       <p className="mt-2 text-[13.5px] sm:text-sm text-gray-700">{news.text}</p>
 
-                      {news.url && (
+                      {news.url && news.url.trim() !== '' && (
                         <div className="mt-3 sm:mt-4">
                           <a
                             href={news.url}

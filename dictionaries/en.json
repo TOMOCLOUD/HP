@@ -108,6 +108,7 @@
       "heading": "Recent News",
       "cta": "View all news",
       "items": {
+        "n14": "TOMOCLOUD Inc. has completed a seed round fundraising of 50 million yen.",
         "n13": "CEO Ryoma Ogawa spoke at the 23rd Chiba University Biomedical Engineering Symposium.",
         "n12": "TOMOCLOUD Inc. was featured in Nikkan Kogyo Shimbun.",
         "n11": "The US FDA Center for Devices and Radiological Health visited Chiba University IMO, and CEO Ryoma Ogawa had a meeting.",
@@ -195,6 +196,14 @@
     "pagerAria": "News pager",
     "pageXofY": "Page {x} / {y}",
     "items": [
+      {
+        "id": 14,
+        "title": "TOMOCLOUD Inc. has completed a seed round fundraising of 50 million yen.",
+        "date": "2025-12-26",
+        "image": "/Image/logo.png",
+        "text": "TOMOCLOUD Inc. is pleased to announce that we have completed a seed round fundraising totaling 50 million yen.",
+        "url": "https://prtimes.jp/main/html/rd/p/000000001.000175448.html"
+      },
       {
         "id": 13,
         "title": "CEO Ryoma Ogawa spoke at the 23rd Chiba University Biomedical Engineering Symposium.",
