@@ -8,7 +8,10 @@
       "Bash(git reset:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(git branch:*)"
+      "Bash(git branch:*)",
+      "WebFetch(domain:prtimes.jp)",
+      "WebFetch(domain:kanto-lymph.kenkyuukai.jp)",
+      "Bash(ls:*)"
     ],
     "deny": [],
     "ask": []
