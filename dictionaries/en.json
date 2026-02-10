@@ -197,6 +197,22 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 18,
+        "title": "TOMOCLOUD Inc. will exhibit at NEDO NEP-Lab 2026.",
+        "date": "2026-02-10",
+        "image": "/Image/logo.png",
+        "text": "TOMOCLOUD will exhibit at NEP-Lab 2026, a pitch event for deep-tech startups supported by NEDO NEP program, held on March 10, 2026 at Tokyo Midtown Hall.",
+        "url": "https://prtimes.jp/main/html/rd/p/000000004.000157480.html"
+      },
+      {
+        "id": 17,
+        "title": "CEO Ryoma Ogawa will deliver a special lecture at the Kanto Lymphedema Research Society.",
+        "date": "2026-02-10",
+        "image": "/Image/logo.png",
+        "text": "February 21, 2026 (Sat) Keio University Shinanomachi Campus",
+        "url": "http://kanto-lymph.kenkyuukai.jp/special/?id=40074"
+      },
+      {
         "id": 14,
         "title": "TOMOCLOUD Inc. has completed a seed round fundraising of 50 million yen.",
         "date": "2025-12-26",
