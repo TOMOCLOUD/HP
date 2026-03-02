@@ -197,6 +197,14 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 19,
+        "title": "TOMOCLOUD featured in Forbes JAPAN \"30 EMERGING DEEPTECH.\"",
+        "date": "2026-03-02",
+        "image": "/Image/news_19.jpg",
+        "text": "TOMOCLOUD Inc., a Chiba University-backed startup, has been selected and featured in Forbes JAPAN April 2026 issue as one of \"30 EMERGING DEEPTECH from Regional Japan.\"",
+        "url": "https://prtimes.jp/main/html/rd/p/000000002.000175448.html"
+      },
+      {
         "id": 18,
         "title": "TOMOCLOUD Inc. will exhibit at NEDO NEP-Lab 2026.",
         "date": "2026-02-10",
