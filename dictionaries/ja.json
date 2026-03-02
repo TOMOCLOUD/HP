@@ -199,6 +199,14 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 19,
+        "title": "Forbes Japan「30 EMERGING DEEPTECH」に掲載されました",
+        "date": "2026-03-02",
+        "image": "/Image/news_19.jpg",
+        "text": "千葉大学発スタートアップの株式会社TOMOCLOUDが、Forbes JAPAN 2026年4月号「地方から世界へ 30 EMERGING DEEPTECH」に選出・掲載されました。",
+        "url": "https://prtimes.jp/main/html/rd/p/000000002.000175448.html"
+      },
+      {
         "id": 18,
         "title": "NEDO主催「NEP-Lab 2026」に株式会社TOMOCLOUDが出展します。",
         "date": "2026-02-10",

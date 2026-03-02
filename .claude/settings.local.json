@@ -11,7 +11,10 @@
       "Bash(git branch:*)",
       "WebFetch(domain:prtimes.jp)",
       "WebFetch(domain:kanto-lymph.kenkyuukai.jp)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(xargs grep -l -i \"news\")",
+      "Bash(wc -l /c/Users/takeilabc-112/Downloads/Tomocloud_general/11_HP/HP/dictionaries/*.json)",
+      "Bash(curl -L -o \"c:/Users/takeilabc-112/Downloads/Tomocloud_general/11_HP/HP/public/Image/news_19.jpg\" \"https://prcdn.freetls.fastly.net/release_image/175448/2/175448-2-44745b86ebf222e0abc07711944668d0-319x425.jpg\")"
     ],
     "deny": [],
     "ask": []
