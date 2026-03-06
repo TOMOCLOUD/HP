@@ -199,6 +199,14 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 20,
+        "title": "知っておきたい「むくみの構造」工学の力で支える、これからのセルフモニタリング に小川良磨CEOが登壇します。",
+        "date": "2026-03-09",
+        "image": "/Image/logo.png",
+        "text": "2026年3月9日（月）オンラインセミナーにて小川良磨CEOが登壇します。",
+        "url": "https://cancerfit0309.peatix.com/view"
+      },
+      {
         "id": 19,
         "title": "Forbes Japan「30 EMERGING DEEPTECH」に掲載されました",
         "date": "2026-03-02",

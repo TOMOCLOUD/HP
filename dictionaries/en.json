@@ -197,6 +197,14 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 20,
+        "title": "CEO Ryoma Ogawa will speak at the seminar: Understanding \"Edema Structure\" — Supporting Future Self-Monitoring with Engineering.",
+        "date": "2026-03-09",
+        "image": "/Image/logo.png",
+        "text": "CEO Ryoma Ogawa will speak at an online seminar on March 9, 2026 (Mon).",
+        "url": "https://cancerfit0309.peatix.com/view"
+      },
+      {
         "id": 19,
         "title": "TOMOCLOUD featured in Forbes JAPAN \"30 EMERGING DEEPTECH.\"",
         "date": "2026-03-02",
