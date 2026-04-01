@@ -199,6 +199,14 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 21,
+        "title": "【April Dream Project】TOMOCLOUDの夢を発信します",
+        "date": "2026-04-01",
+        "image": "/Image/news_21.png",
+        "text": "株式会社TOMOCLOUDは、独自の生体イメージング技術「電気インピーダンストモグラフィ（EIT）」を活用し、リンパ浮腫患者さんやがんサバイバーの方々のQOL向上に貢献することを目指しています。",
+        "url": "https://prtimes.jp/main/html/rd/p/000000003.000175448.html"
+      },
+      {
         "id": 20,
         "title": "キャンサーフィットネス主催 知っておきたい「むくみの構造」工学の力で支える、これからのセルフモニタリング に小川良磨CEOが登壇します。",
         "date": "2026-03-09",

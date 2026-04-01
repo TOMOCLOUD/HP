@@ -197,6 +197,14 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 21,
+        "title": "[April Dream Project] TOMOCLOUD shares its dream",
+        "date": "2026-04-01",
+        "image": "/Image/news_21.png",
+        "text": "TOMOCLOUD Inc. uses its proprietary bioelectrical imaging technology \"Electrical Impedance Tomography (EIT)\" to contribute to improving the QOL of lymphedema patients and cancer survivors.",
+        "url": "https://prtimes.jp/main/html/rd/p/000000003.000175448.html"
+      },
+      {
         "id": 20,
         "title": "CEO Ryoma Ogawa will speak at a Cancer Fitness seminar: Understanding \"Edema Structure\" — Supporting Future Self-Monitoring with Engineering.",
         "date": "2026-03-09",
