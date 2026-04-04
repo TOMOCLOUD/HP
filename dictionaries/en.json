@@ -197,6 +197,14 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 22,
+        "title": "CEO Ryoma Ogawa spoke at \"Chiba Global Entrepreneur Salon\" — From Tokatsu to the World: A Startup Hub Creating the Future.",
+        "date": "2026-04-04",
+        "image": "/Image/logo.png",
+        "text": "CEO Ryoma Ogawa spoke at \"Chiba Global Entrepreneur Salon\" — From Tokatsu to the World: A Startup Hub Creating the Future.",
+        "url": "https://startup-lab.chiba-u.jp/p/7916/"
+      },
+      {
         "id": 21,
         "title": "[April Dream Project] TOMOCLOUD shares its dream",
         "date": "2026-04-01",

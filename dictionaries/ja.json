@@ -199,6 +199,14 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 22,
+        "title": "「Chiba Global Entrepreneur Salon」 東葛から世界へ ～未来を創るスタートアップ拠点～ に小川良磨CEOが登壇しました。",
+        "date": "2026-04-04",
+        "image": "/Image/logo.png",
+        "text": "「Chiba Global Entrepreneur Salon」 東葛から世界へ ～未来を創るスタートアップ拠点～ に小川良磨CEOが登壇しました。",
+        "url": "https://startup-lab.chiba-u.jp/p/7916/"
+      },
+      {
         "id": 21,
         "title": "【April Dream Project】TOMOCLOUDの夢を発信します",
         "date": "2026-04-01",
