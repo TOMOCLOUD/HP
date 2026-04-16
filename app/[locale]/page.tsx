@@ -302,11 +302,9 @@ const MEMBERS: Member[] = [
     nameEn: 'Ryoma Ogawa',
     role: 'CEO / Founder',
     image: '/Image/Ogawa_image.png',
-    title:
-      '千葉大学 大学院工学研究院 武居研究室 特任助教\n兼）千葉大学 学術研究・イノベーション推進機構（IMO）客員起業家（EIR）',
+    title: '千葉大学 学術研究・イノベーション推進機構（IMO）客員准教授',
     subtitle: '千葉大学大学院融合理工学府博士後期課程修了(工学博士)',
-    positionNote:
-      '千葉大学 大学院工学研究院 武居研究室 特任助教\n千葉大学 学術研究・イノベーション推進機構（IMO） 客員起業家（EIR）',
+    positionNote: '千葉大学 学術研究・イノベーション推進機構（IMO）客員准教授',
     bio:
       'トビタテ！留学JAPAN日本代表としてエジンバラ大学再生医療研究所に1年間研究留学（博士前期課程時）。『医療×工学』をキーワードに社会実装を推進し、婦人科系がん治療後のリンパ浮腫課題解決に向け、電気インピーダンス・トモグラフィー（EIT）を用いた医療機器を開発中。「新しい自分が視える世界」を目指し、医療・介護・ヘルスケア領域での事業化に邁進。所属研究室の武居教授らと共に2022年度JST START「プロジェクト推進型起業実証支援」に採択。',
     achievements: [
@@ -335,6 +333,13 @@ const MEMBERS: Member[] = [
       '第4回リンパ浮腫学会総会／第84回日本循環器学会学術集会 招待講演',
       'NEDO審査員特別賞、NEDO TCP2017ファイナリスト賞 ほか受賞多数',
     ],
+  },
+  {
+    id: 'kinouchi',
+    name: '木内 悠太',
+    nameEn: 'Yuta Kinouchi',
+    role: 'Co-Founder',
+    image: '/Image/Kinouchi_image.jpg',
   },
 ];
 
@@ -455,7 +460,7 @@ function TeamSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTML
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-gray-900">
           {t?.heading ?? 'Our Team'}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
           {members.map((m) => (
             <button
               key={m.id}
@@ -479,19 +484,19 @@ function TeamSection({ onImgError }: { onImgError: (e: React.SyntheticEvent<HTML
                   width={192}
                   height={192}
                   onError={onImgError}
-                  className="block w-48 h-48 md:w-72 md:h-72 object-cover mb-6 border border-gray-300 bg-gray-100 rounded"
+                  className="block w-36 h-36 md:w-48 md:h-48 object-cover mb-4 border border-gray-300 bg-gray-100 rounded"
                   loading="lazy"
                 />
               ) : (
-                <div className="w-48 h-48 md:w-72 md:h-72 mb-6 grid place-items-center bg-gray-100 border border-gray-300 rounded">
+                <div className="w-36 h-36 md:w-48 md:h-48 mb-4 grid place-items-center bg-gray-100 border border-gray-300 rounded">
                   <span className="text-gray-500">{m.name}</span>
                 </div>
               )}
-              <h3 className="text-2xl md:text-3xl font-semibold mb-1 text-gray-900 leading-snug">
+              <h3 className="text-xl md:text-2xl font-semibold mb-1 text-gray-900 leading-snug">
                 {locale === 'en' ? m.nameEn || m.name : m.name}
               </h3>
               {m.nameEn && locale === 'ja' && <p className="text-gray-500 italic mb-1 md:mb-2">{m.nameEn}</p>}
-              <p className="text-lg md:text-xl text-sky-700 font-medium">{m.role}</p>
+              <p className="text-base md:text-lg text-sky-700 font-medium">{m.role}</p>
               {m.positionNote && (
                 <p className="mt-2 text-sm text-slate-600 leading-relaxed whitespace-pre-line line-clamp-3">
                   {m.positionNote}

@@ -67,8 +67,8 @@
       "modal": { "achievementsTitle": "Key achievements" },
       "members": {
         "ogawa": {
-          "positionNote": "Project Assistant Professor, Takei Lab, Graduate School of Engineering, Chiba University\nEntrepreneur-in-Residence (EIR), IMO, Chiba University",
-          "title": "Project Assistant Professor, Takei Lab, Graduate School of Engineering, Chiba University\nAlso EIR at IMO, Chiba University",
+          "positionNote": "Visiting Associate Professor, IMO, Chiba University",
+          "title": "Visiting Associate Professor, IMO, Chiba University",
           "subtitle": "Ph.D. (Engineering), Graduate School of Science and Engineering, Chiba University",
           "bio": "Studied at the University of Edinburgh as a representative of Tobitate! Study Abroad JAPAN. Driving social implementation at the intersection of medicine and engineering, developing EIT-based devices to address lymphedema after gynecologic cancer treatment. Selected for JST START (2022) with Prof. Takei and team.",
           "achievements": [
@@ -80,6 +80,7 @@
             "2025: AMED Bridge (Tsukuba hub) S0; GTIE GAP Fund (Entry Course); Beyond Japan Zero to X"
           ]
         },
+        "kinouchi": {},
         "takei": {
           "positionNote": "Professor, Graduate School of Engineering (Frontier Medical Engineering Center), Chiba University",
           "title": "Professor, Graduate School of Engineering (Frontier Medical Engineering Center), Chiba University",
@@ -196,6 +197,14 @@
     "pagerAria": "News pager",
     "pageXofY": "Page {x} / {y}",
     "items": [
+      {
+        "id": 23,
+        "title": "TOMOCLOUD Inc. will exhibit at MedTech Japan 2026.",
+        "date": "2026-04-16",
+        "image": "/Image/news_23.jpg",
+        "text": "We will be exhibiting at MedTech Japan 2026, held at Tokyo Big Sight from April 21–23, 2026.",
+        "url": "https://medtecjapan.com/"
+      },
       {
         "id": 22,
         "title": "CEO Ryoma Ogawa spoke at \"Chiba Global Entrepreneur Salon\" — From Tokatsu to the World: A Startup Hub Creating the Future.",
