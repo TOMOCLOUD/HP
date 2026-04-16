@@ -1,5 +1,6 @@
 // app/[locale]/layout.tsx
 import Header from '@/app/Header';
+import Footer from '@/components/Footer';
 import LocaleToggle from '@/components/LocaleToggle';
 
 export default function LocaleLayout({
@@ -11,6 +12,7 @@ export default function LocaleLayout({
     <>
       <Header />
       <main className="flex-1 pt-20">{children}</main>
+      <Footer />
       <LocaleToggle />
     </>
   );

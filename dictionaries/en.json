@@ -80,7 +80,14 @@
             "2025: AMED Bridge (Tsukuba hub) S0; GTIE GAP Fund (Entry Course); Beyond Japan Zero to X"
           ]
         },
-        "kinouchi": {},
+        "kinouchi": {
+          "subtitle": "M.Eng., Graduate School of Science and Engineering, Chiba University",
+          "bio": "Completed an M.Eng. at Chiba University, proposing a CNN-based adaptive traffic signal control method using reinforcement learning. After graduating, gained experience as a PL and full-stack engineer at a web/mobile app company, then worked independently. From 2023, joined the JST START 'LT Monitor' project, leading software development end-to-end and spearheading compliance with medical device standards (ISO 13485, IEC 14971, IEC 62304). Also mentored graduate students on medical device software development and quality management. In AY2025, served as a Project Researcher at Chiba University under the NEDO NEP program, supporting product commercialization.",
+          "achievements": [
+            "Led software development and medical device standards compliance for JST START 'LT Monitor' (ISO 13485, IEC 62304, etc.)",
+            "Participant in NEDO NEP Program (AY2025)"
+          ]
+        },
         "takei": {
           "positionNote": "Professor, Graduate School of Engineering (Frontier Medical Engineering Center), Chiba University",
           "title": "Professor, Graduate School of Engineering (Frontier Medical Engineering Center), Chiba University",

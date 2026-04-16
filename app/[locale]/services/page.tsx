@@ -1,7 +1,9 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDict } from '@/lib/useDict';
+import { useImageFallback } from '@/lib/imageUtils';
+import { useRevealOnScroll } from '@/lib/useRevealOnScroll';
 
 /** 画像の四辺を Home と同じ方法（オーバーレイ）でフェードさせる */
 function FeatherImage({
@@ -46,98 +48,12 @@ function FeatherImage({
 }
 
 // ==========================================
-// Footer セクション
-// ==========================================
-function Footer() {
-  const { dict, locale } = useDict();
-  const f = dict?.footer;
-  const nav = dict?.common?.nav;
-
-  return (
-    <section className="reveal-on-scroll bg-gray-900 text-white py-14 md:py-16">
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
-        <div className="space-y-3 md:space-y-4">
-          <p className="text-2xl md:text-3xl font-semibold">{f?.company}</p>
-          <div>
-            <p className="text-base md:text-lg font-semibold">{f?.zip}</p>
-            <p className="text-base md:text-lg font-semibold">{f?.address}</p>
-          </div>
-          <div><h3 className="text-base md:text-lg font-semibold">{f?.tel}</h3></div>
-          <div><h3 className="text-base md:text-lg font-semibold">{f?.email}</h3></div>
-        </div>
-
-        <div className="grid grid-cols-[max-content_max-content] gap-3 md:gap-5 md:justify-self-end md:mr-6">
-          <div>
-            <h4 className="text-xl font-semibold mb-3">{f?.pages}</h4>
-            <ul className="space-y-2 text-slate-100">
-              <li><a href={`/${locale}/`} className="hover:underline">{nav?.home}</a></li>
-              <li><a href={`/${locale}/services`} className="hover:underline">{nav?.product}</a></li>
-              <li><a href={`/${locale}/news`} className="hover:underline">{nav?.news}</a></li>
-              <li><a href={`/${locale}/recruit`} className="hover:underline">{nav?.recruit}</a></li>
-              <li><a href={`/${locale}/contact`} className="hover:underline">{nav?.contact}</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-xl font-semibold mb-3">{f?.links}</h4>
-            <ul className="space-y-2 text-slate-100">
-              <li>
-                <a
-                  href="https://tomocloud.xsrv.jp/takei-lab/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:underline"
-                >
-                  {f?.externalLab}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ==========================================
 // Services ページ
 // ==========================================
 export default function ServicesPage() {
   const { dict } = useDict();
-
-  const fallbackDataUrl =
-    'data:image/svg+xml;utf8,' +
-    encodeURIComponent(
-      `<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192">
-         <rect width="100%" height="100%" fill="#e5e7eb"/>
-         <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
-               font-family="Arial, sans-serif" font-size="14" fill="#6b7280">No Image</text>
-       </svg>`
-    );
-
-  const onImgError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = e.currentTarget as HTMLImageElement;
-    if (img.src !== fallbackDataUrl) img.src = fallbackDataUrl;
-  };
-
-  useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>('.reveal-on-scroll');
-    if (!('IntersectionObserver' in window)) {
-      els.forEach((el) => el.classList.add('reveal-visible'));
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((en) =>
-          en.isIntersecting
-            ? en.target.classList.add('reveal-visible')
-            : en.target.classList.remove('reveal-visible')
-        );
-      },
-      { threshold: 0.2, rootMargin: '0px 0px -5% 0px' }
-    );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
+  const onImgError = useImageFallback();
+  useRevealOnScroll();
 
   return (
     <div className="bg-white min-h-screen text-gray-900">
@@ -304,7 +220,6 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 }
