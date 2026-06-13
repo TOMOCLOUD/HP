@@ -16,4 +16,5 @@ http://tomocloud.co.jpの権利はお名前.comで取得済み
 
 
 API Keys
-re_gUJd43gV_BqPyrXAqXWHyQvKcahcoZubj
+※Resend の APIキーはここに書かない。Vercel の環境変数 RESEND_API_KEY、
+　またはローカルの .env.local（.gitignore 済み）にのみ設定すること。
