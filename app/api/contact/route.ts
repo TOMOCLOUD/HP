@@ -20,11 +20,20 @@ export async function GET() {
 /* ===== 本体 ===== */
 export async function POST(req: Request) {
   try {
-    const { name, email, message } = await req.json();
+    const { name, email, message, company } = await req.json();
+
+    // honeypot: 通常のユーザーには見えない company フィールドに値が入っていれば bot とみなす。
+    // 成功レスポンスを返して bot に検知させない。
+    if (company) {
+      return NextResponse.json({ ok: true });
+    }
 
     if (!name || !email || !message) {
       return NextResponse.json({ ok: false, error: '必須項目が不足しています。' }, { status: 400 });
     }
+
+    // 件名・本文に入る name から改行を除去し、メールヘッダ injection を防ぐ。
+    const safeName = String(name).replace(/[\r\n]+/g, ' ').trim();
     if (!isValidEmail(email)) {
       return NextResponse.json({ ok: false, error: 'メールアドレスの形式が正しくありません。' }, { status: 400 });
     }
@@ -52,9 +61,9 @@ export async function POST(req: Request) {
     const ownerRes = await resend.emails.send({
       from: FROM,
       to: TO,
-      subject: `【お問い合わせ】${name} さんより`,
+      subject: `【お問い合わせ】${safeName} さんより`,
       replyTo: email, // ← ここが正しいキー名
-      text: `お名前: ${name}\nメール: ${email}\n\n${message}`,
+      text: `お名前: ${safeName}\nメール: ${email}\n\n${message}`,
     });
 
     // 自動返信（ユーザー宛て）
@@ -63,24 +72,24 @@ export async function POST(req: Request) {
       to: email,
       subject: '【自動返信】お問い合わせを受け付けました',
       text:
-        `${name} 様\n\nこの度はお問い合わせありがとうございます。以下の内容で受け付けました。\n\n` +
+        `${safeName} 様\n\nこの度はお問い合わせありがとうございます。以下の内容で受け付けました。\n\n` +
         `---\n${message}\n---\n\n※本メールは送信専用です。`,
     });
 
     // 失敗時の詳細（デバッグ情報を追加）
     if (ownerRes.error) {
       console.error('Resend error (owner):', ownerRes.error);
-      return NextResponse.json({ 
-        ok: false, 
-        error: `送信に失敗しました（会社宛）: ${ownerRes.error.message || 'Unknown error'}`,
+      return NextResponse.json({
+        ok: false,
+        error: '送信に失敗しました。時間をおいて再度お試しください。',
         debug: process.env.NODE_ENV === 'development' ? ownerRes.error : undefined
       }, { status: 500 });
     }
     if (userRes.error) {
       console.error('Resend error (user):', userRes.error);
-      return NextResponse.json({ 
-        ok: false, 
-        error: `送信に失敗しました（自動返信）: ${userRes.error.message || 'Unknown error'}`,
+      return NextResponse.json({
+        ok: false,
+        error: '送信に失敗しました。時間をおいて再度お試しください。',
         debug: process.env.NODE_ENV === 'development' ? userRes.error : undefined
       }, { status: 500 });
     }
@@ -91,10 +100,15 @@ export async function POST(req: Request) {
       userId: userRes.data?.id ?? null,
     });
   } catch (e: unknown) {
-    const errorMessage = e instanceof Error ? e.message : 'Unknown error';
     console.error('Contact API error:', e);
     return NextResponse.json(
-      { ok: false, error: '処理中にエラーが発生しました。', details: errorMessage },
+      {
+        ok: false,
+        error: '処理中にエラーが発生しました。',
+        debug: process.env.NODE_ENV === 'development'
+          ? (e instanceof Error ? e.message : 'Unknown error')
+          : undefined,
+      },
       { status: 500 }
     );
   }

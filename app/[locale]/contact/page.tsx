@@ -7,7 +7,7 @@ export default function ContactPage() {
   const { dict } = useDict();
   const t = dict?.contact;
 
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '', company: '' });
   const [loading, setLoading] = useState(false);
   const [ok, setOk] = useState<null | boolean>(null);
   const [error, setError] = useState('');
@@ -46,13 +46,13 @@ export default function ContactPage() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, message, company: form.company }),
       });
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error || (t?.errors?.sendFail ?? '送信に失敗しました'));
 
       setOk(true);
-      setForm({ name: '', email: '', message: '' });
+      setForm({ name: '', email: '', message: '', company: '' });
     } catch (err: any) {
       setOk(false);
       setError(err?.message || (t?.errors?.sendFail ?? '送信に失敗しました。時間をおいて再度お試しください。'));
@@ -105,6 +105,19 @@ export default function ContactPage() {
               {t?.formTitle ?? "お問い合わせフォーム"}
             </h2>
             <form className="space-y-3 sm:space-y-4" onSubmit={onSubmit} noValidate>
+              {/* honeypot: 人間には見えない。bot がこの欄を埋めると送信をブロックする。 */}
+              <div aria-hidden="true" className="hidden">
+                <label htmlFor="company">Company</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.company}
+                  onChange={onChange}
+                />
+              </div>
               <input
                 type="text"
                 name="name"
