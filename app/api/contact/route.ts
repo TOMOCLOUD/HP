@@ -5,8 +5,6 @@ export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 /* ===== バリデーション ===== */
 function isValidEmail(e: string) {
   return /^(?!.{255,})([\w.!#$%&'*+/=?^_`{|}~-]+)@([A-Za-z0-9-]+\.)+[A-Za-z]{2,}$/.test(e);
@@ -40,6 +38,9 @@ export async function POST(req: Request) {
     if (!process.env.RESEND_API_KEY) {
       return NextResponse.json({ ok: false, error: 'RESEND_API_KEY が未設定です。' }, { status: 500 });
     }
+
+    // キー確認後に初期化（モジュール読み込み時にキーを要求しないことで、ビルドや未設定環境での失敗を防ぐ）
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // 送信元／送信先の設定（ダブルクォートを除去）
     const FROM = process.env.CONTACT_FROM?.replace(/^"|"$/g, '');
