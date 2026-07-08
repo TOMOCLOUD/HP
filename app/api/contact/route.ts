@@ -10,6 +10,33 @@ function isValidEmail(e: string) {
   return /^(?!.{255,})([\w.!#$%&'*+/=?^_`{|}~-]+)@([A-Za-z0-9-]+\.)+[A-Za-z]{2,}$/.test(e);
 }
 
+const ALLOWED_ORIGINS = [process.env.CONTACT_FROM_ORIGIN, process.env.NEXT_PUBLIC_SITE_URL].filter(
+  (v): v is string => !!v
+);
+
+function isAllowedOrigin(req: Request) {
+  if (ALLOWED_ORIGINS.length === 0) return true; // 未設定時はチェックをスキップ
+  const origin = req.headers.get('origin') ?? req.headers.get('referer');
+  if (!origin) return false;
+  return ALLOWED_ORIGINS.some((allowed) => origin.startsWith(allowed));
+}
+
+// プロセス内メモリでの簡易レートリミット（同一IPからの連投を抑制する用途。プロセス再起動でリセットされる）
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const RATE_LIMIT_MAX = 5;
+const rateLimitHits = new Map<string, { count: number; resetAt: number }>();
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  const entry = rateLimitHits.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitHits.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+  entry.count += 1;
+  return entry.count > RATE_LIMIT_MAX;
+}
+
 /* ===== 動作確認用 ===== */
 export async function GET() {
   return NextResponse.json({ ok: true, message: 'Contact API is up.' });
@@ -18,6 +45,15 @@ export async function GET() {
 /* ===== 本体 ===== */
 export async function POST(req: Request) {
   try {
+    if (!isAllowedOrigin(req)) {
+      return NextResponse.json({ ok: false, error: '不正なリクエストです。' }, { status: 403 });
+    }
+
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
+    if (isRateLimited(ip)) {
+      return NextResponse.json({ ok: false, error: 'しばらく時間をおいて再度お試しください。' }, { status: 429 });
+    }
+
     const { name, email, message, company } = await req.json();
 
     // honeypot: 通常のユーザーには見えない company フィールドに値が入っていれば bot とみなす。
@@ -28,6 +64,9 @@ export async function POST(req: Request) {
 
     if (!name || !email || !message) {
       return NextResponse.json({ ok: false, error: '必須項目が不足しています。' }, { status: 400 });
+    }
+    if (String(name).length > 100 || String(email).length > 254 || String(message).length > 5000) {
+      return NextResponse.json({ ok: false, error: '入力内容が長すぎます。' }, { status: 400 });
     }
 
     // 件名・本文に入る name から改行を除去し、メールヘッダ injection を防ぐ。
