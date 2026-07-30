@@ -18,6 +18,7 @@ function NewsPageInner() {
     image: string;
     text: string;
     url?: string;
+    url2?: string;
   }> = t?.items ?? [];
 
   const total = newsList.length;
@@ -119,21 +120,37 @@ function NewsPageInner() {
                       </h2>
                       <p className="mt-2 text-[13.5px] sm:text-sm text-gray-700">{news.text}</p>
 
-                      {news.url && news.url.trim() !== '' && (
-                        <div className="mt-3 sm:mt-4">
-                          <a
-                            href={news.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center justify-center px-3.5 sm:px-4 py-2 rounded-md
-                                       text-white font-semibold text-sm
-                                       btn-gradient bg-gradient-to-r from-sky-500 to-sky-600
-                                       hover:from-sky-600 hover:to-sky-700
-                                       focus:outline-none focus:ring-2 focus:ring-sky-300"
-                            aria-label={t?.moreAria ?? 'Open external link'}
-                          >
-                            {t?.more ?? 'Read more'}
-                          </a>
+                      {((news.url && news.url.trim() !== '') || (news.url2 && news.url2.trim() !== '')) && (
+                        <div className="mt-3 sm:mt-4 flex flex-wrap gap-2 sm:gap-3">
+                          {news.url && news.url.trim() !== '' && (
+                            <a
+                              href={news.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center px-3.5 sm:px-4 py-2 rounded-md
+                                         text-white font-semibold text-sm
+                                         btn-gradient bg-gradient-to-r from-sky-500 to-sky-600
+                                         hover:from-sky-600 hover:to-sky-700
+                                         focus:outline-none focus:ring-2 focus:ring-sky-300"
+                              aria-label={t?.moreAria ?? 'Open external link'}
+                            >
+                              {t?.more ?? 'Read more'}
+                            </a>
+                          )}
+                          {news.url2 && news.url2.trim() !== '' && (
+                            <a
+                              href={news.url2}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center justify-center px-3.5 sm:px-4 py-2 rounded-md
+                                         text-sky-600 font-semibold text-sm border border-sky-300 bg-white
+                                         hover:bg-sky-50
+                                         focus:outline-none focus:ring-2 focus:ring-sky-300"
+                              aria-label={t?.moreAria2 ?? 'Open related article'}
+                            >
+                              {t?.more2 ?? 'Related article'}
+                            </a>
+                          )}
                         </div>
                       )}
                     </div>

@@ -199,11 +199,22 @@
     "title": "News",
     "more": "Read more",
     "moreAria": "Open external link",
+    "more2": "Related article",
+    "moreAria2": "Open related article",
     "newer": "‹ Newer posts",
     "older": "Older posts ›",
     "pagerAria": "News pager",
     "pageXofY": "Page {x} / {y}",
     "items": [
+      {
+        "id": 24,
+        "title": "CEO Ryoma Ogawa spoke at GTIE DEMO DAY 2026.",
+        "date": "2026-07-09",
+        "image": "/Image/logo.png",
+        "text": "On July 9, 2026, CEO Ryoma Ogawa spoke at GTIE DEMO DAY 2026.",
+        "url": "https://gtie.jp/news/45471/",
+        "url2": "https://startup-lab.chiba-u.jp/p/8130/"
+      },
       {
         "id": 23,
         "title": "TOMOCLOUD Inc. will exhibit at MedTech Japan 2026.",

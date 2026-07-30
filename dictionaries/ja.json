@@ -201,11 +201,22 @@
     "title": "ニュース",
     "more": "詳しく見る",
     "moreAria": "詳しく見る（外部サイトへ）",
+    "more2": "関連記事",
+    "moreAria2": "関連記事を見る（外部サイトへ）",
     "newer": "‹ 新しい記事へ",
     "older": "以前の記事へ ›",
     "pagerAria": "ニュースページャー",
     "pageXofY": "Page {x} / {y}",
     "items": [
+      {
+        "id": 24,
+        "title": "GTIE DEMO DAY 2026 に小川良磨CEOが登壇しました。",
+        "date": "2026-07-09",
+        "image": "/Image/logo.png",
+        "text": "2026年7月9日、GTIE DEMO DAY 2026にて小川良磨CEOが登壇しました。",
+        "url": "https://gtie.jp/news/45471/",
+        "url2": "https://startup-lab.chiba-u.jp/p/8130/"
+      },
       {
         "id": 23,
         "title": "株式会社TOMOCLOUDが、メドテックジャパン2026に出展します。",
