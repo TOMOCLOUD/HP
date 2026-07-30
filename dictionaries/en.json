@@ -67,8 +67,8 @@
       "modal": { "achievementsTitle": "Key achievements" },
       "members": {
         "ogawa": {
-          "positionNote": "Project Assistant Professor, Takei Lab, Graduate School of Engineering, Chiba University\nEntrepreneur-in-Residence (EIR), IMO, Chiba University",
-          "title": "Project Assistant Professor, Takei Lab, Graduate School of Engineering, Chiba University\nAlso EIR at IMO, Chiba University",
+          "positionNote": "Visiting Associate Professor, IMO, Chiba University",
+          "title": "Visiting Associate Professor, IMO, Chiba University",
           "subtitle": "Ph.D. (Engineering), Graduate School of Science and Engineering, Chiba University",
           "bio": "Studied at the University of Edinburgh as a representative of Tobitate! Study Abroad JAPAN. Driving social implementation at the intersection of medicine and engineering, developing EIT-based devices to address lymphedema after gynecologic cancer treatment. Selected for JST START (2022) with Prof. Takei and team.",
           "achievements": [
@@ -78,6 +78,14 @@
             "2023: Early Ph.D. completion (5 papers); Best Presentation Award (Lymphedema Society); Research Studio; JSPS PD",
             "2024: KAKENHI (Young Researcher)",
             "2025: AMED Bridge (Tsukuba hub) S0; GTIE GAP Fund (Entry Course); Beyond Japan Zero to X"
+          ]
+        },
+        "kinouchi": {
+          "subtitle": "M.Eng., Graduate School of Science and Engineering, Chiba University",
+          "bio": "Completed an M.Eng. at Chiba University, proposing a CNN-based adaptive traffic signal control method using reinforcement learning. After graduating, gained experience as a PL and full-stack engineer at a web/mobile app company, then worked independently. From 2023, joined the JST START 'LT Monitor' project, leading software development end-to-end and spearheading compliance with medical device standards (ISO 13485, IEC 14971, IEC 62304). Also mentored graduate students on medical device software development and quality management. In AY2025, served as a Project Researcher at Chiba University under the NEDO NEP program, supporting product commercialization.",
+          "achievements": [
+            "Led software development and medical device standards compliance for JST START 'LT Monitor' (ISO 13485, IEC 62304, etc.)",
+            "Participant in NEDO NEP Program (AY2025)"
           ]
         },
         "takei": {
@@ -196,6 +204,14 @@
     "pagerAria": "News pager",
     "pageXofY": "Page {x} / {y}",
     "items": [
+      {
+        "id": 23,
+        "title": "TOMOCLOUD Inc. will exhibit at MedTech Japan 2026.",
+        "date": "2026-04-16",
+        "image": "/Image/news_23.jpg",
+        "text": "We will be exhibiting at MedTech Japan 2026, held at Tokyo Big Sight from April 21–23, 2026.",
+        "url": "https://medtecjapan.com/"
+      },
       {
         "id": 22,
         "title": "CEO Ryoma Ogawa spoke at \"Chiba Global Entrepreneur Salon\" — From Tokatsu to the World: A Startup Hub Creating the Future.",
@@ -405,7 +421,7 @@
     "addressLabel": "Address:",
     "address": "Fujimi Building #609, 2-7-9 Fujimi, Chuo-ku, Chiba 260-0015, Japan",
     "telLabel": "Phone:",
-    "tel": "043-290-2957",
+    "tel": "043-290-3105",
     "emailLabel": "Email:",
     "email": "info@tomocloud.co.jp",
     "formTitle": "Contact form",

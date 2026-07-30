@@ -14,7 +14,17 @@
       "Bash(ls:*)",
       "Bash(xargs grep -l -i \"news\")",
       "Bash(wc -l /c/Users/takeilabc-112/Downloads/Tomocloud_general/11_HP/HP/dictionaries/*.json)",
-      "Bash(curl -L -o \"c:/Users/takeilabc-112/Downloads/Tomocloud_general/11_HP/HP/public/Image/news_19.jpg\" \"https://prcdn.freetls.fastly.net/release_image/175448/2/175448-2-44745b86ebf222e0abc07711944668d0-319x425.jpg\")"
+      "Bash(curl -L -o \"c:/Users/takeilabc-112/Downloads/Tomocloud_general/11_HP/HP/public/Image/news_19.jpg\" \"https://prcdn.freetls.fastly.net/release_image/175448/2/175448-2-44745b86ebf222e0abc07711944668d0-319x425.jpg\")",
+      "Bash(npm run *)",
+      "Bash(npx next *)",
+      "Bash(./node_modules/.bin/next dev *)",
+      "Bash(npm install *)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/yuta/Documents/work/TOMOCLOUD/project/HP/public/Image/Kinouchi_image.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight /Users/yuta/Documents/work/TOMOCLOUD/project/HP/public/Image/Ogawa_image.png /Users/yuta/Documents/work/TOMOCLOUD/project/HP/public/Image/Takei_image.jpg)",
+      "Bash(sips -Z 600 --setProperty formatOptions 90 /Users/yuta/Documents/work/TOMOCLOUD/project/HP/public/Image/Kinouchi_image.jpg)",
+      "Bash(git push *)",
+      "Bash(wc -l /Users/yuta/Documents/work/TOMOCLOUD/project/HP/app/[locale]/page.tsx)",
+      "Bash(npx tsc *)"
     ],
     "deny": [],
     "ask": []

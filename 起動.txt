@@ -16,4 +16,9 @@ http://tomocloud.co.jpの権利はお名前.comで取得済み
 
 
 API Keys
-re_gUJd43gV_BqPyrXAqXWHyQvKcahcoZubj
+※Resend の APIキーはここに書かない。Vercel の環境変数 RESEND_API_KEY、
+　またはローカルの .env.local（.gitignore 済み）にのみ設定すること。
+
+お問い合わせフォームの不正利用対策（Origin チェック）
+※Vercel の環境変数に NEXT_PUBLIC_SITE_URL=https://tomocloud.co.jp を設定すると、
+　このドメイン以外からのフォーム送信をブロックできる。未設定の場合はチェックがスキップされる。
