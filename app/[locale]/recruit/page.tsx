@@ -14,6 +14,15 @@ const FALLBACK = {
       "だからこそ、私たちは非侵襲の“可視化”を核に、基盤技術と新技術の融合を通して革新的な技術を創出し、医療・介護・ヘルスケアの現場へ価値を届けます。",
       "可能性を感じ、その可能性を具体化すべく前に突き進んでいける仲間をお待ちしています。"
     ],
+    openings: {
+      heading: "募集職種",
+      note: "職名を押すと、各募集要項のページ（外部サイト）が開きます。",
+      aria: "の募集要項を見る（外部サイトへ）",
+      items: [
+        { title: "薬事・品質保証リード", source: "LinkedIn", url: "https://www.linkedin.com/jobs/view/4445189680/" },
+        { title: "研究開発リード", source: "JREC-IN Portal", url: "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278" }
+      ]
+    },
     contactBtn: "採用サイトへ",
     contactAria: "採用サイトへ移動"
   },
@@ -27,6 +36,15 @@ const FALLBACK = {
       "By fusing foundational and new technologies around noninvasive “visualization,” we deliver value to medical, nursing, and healthcare settings.",
       "If you see the potential and are eager to turn it into reality, we'd love to work with you."
     ],
+    openings: {
+      heading: "Open Positions",
+      note: "Click a position title to open its full job description on an external site.",
+      aria: " job description (external site)",
+      items: [
+        { title: "Regulatory Affairs & Quality Assurance Lead", source: "LinkedIn", url: "https://www.linkedin.com/jobs/view/4445189680/" },
+        { title: "R&D Lead", source: "JREC-IN Portal", url: "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278" }
+      ]
+    },
     contactBtn: "View Careers",
     contactAria: "Go to careers site"
   }
@@ -79,6 +97,49 @@ export default function RecruitPage(){
             {Array.isArray(t.paragraphs) && t.paragraphs.map((p,i)=>(
               <p key={i} className="mt-2 text-lg sm:text-lg leading-8 text-gray-700 text-left">{p}</p>
             ))}
+
+            {Array.isArray(t.openings?.items) && t.openings.items.length > 0 && (
+              <section className="mt-12 md:mt-16 text-left">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">{t.openings.heading}</h2>
+                <span className="mt-3 block h-1 w-full max-w-[200px] sm:max-w-[240px] bg-sky-500 rounded-full" />
+                <p className="mt-4 text-base sm:text-lg leading-8 text-gray-700">{t.openings.note}</p>
+
+                <ul className="mt-6 space-y-3 sm:space-y-4">
+                  {t.openings.items.map((job,i)=>(
+                    <li key={i}>
+                      <a
+                        href={job.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center justify-between gap-4 rounded-xl border border-slate-200 bg-white
+                                   px-5 py-4 sm:px-6 sm:py-5 shadow-sm transition
+                                   hover:border-sky-300 hover:shadow-md
+                                   focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky-300/40"
+                        aria-label={`${job.title}${t.openings.aria}`}
+                      >
+                        <span className="flex min-w-0 items-center gap-3 sm:gap-4">
+                          <span aria-hidden="true" className="h-9 w-1.5 shrink-0 rounded-full bg-sky-500" />
+                          <span className="min-w-0">
+                            <span className="block text-base sm:text-lg font-semibold text-gray-900 transition-colors group-hover:text-sky-700">
+                              {job.title}
+                            </span>
+                            {job.source && (
+                              <span className="mt-0.5 block text-xs sm:text-sm text-gray-500">{job.source}</span>
+                            )}
+                          </span>
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          className="shrink-0 text-xl sm:text-2xl text-sky-500 transition-transform group-hover:translate-x-1"
+                        >
+                          ›
+                        </span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
 
             <div className="mt-8 md:mt-12 text-left">
               <a

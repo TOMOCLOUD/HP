@@ -422,6 +422,23 @@
       "By fusing foundational and new technologies around noninvasive \\\"visualization,\\\" we deliver value to medical, nursing, and healthcare settings.",
       "If you see the potential and are eager to turn it into reality, we'd love to work with you."
     ],
+    "openings": {
+      "heading": "Open Positions",
+      "note": "Click a position title to open its full job description on an external site.",
+      "aria": " job description (external site)",
+      "items": [
+        {
+          "title": "Regulatory Affairs & Quality Assurance Lead",
+          "source": "LinkedIn",
+          "url": "https://www.linkedin.com/jobs/view/4445189680/"
+        },
+        {
+          "title": "R&D Lead",
+          "source": "JREC-IN Portal",
+          "url": "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278"
+        }
+      ]
+    },
     "contactBtn": "View Careers",
     "contactAria": "Go to careers site"
   },
