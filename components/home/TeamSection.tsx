@@ -60,6 +60,13 @@ const MEMBERS: Member[] = [
     role: 'Co-Founder',
     image: '/Image/Kinouchi_image.jpg',
   },
+  {
+    id: 'hashimoto',
+    name: '橋本 竜我',
+    nameEn: 'Ryuga Hashimoto',
+    role: 'Product Lead',
+    image: '/Image/Hashimoto_image.jpg',
+  },
 ];
 
 function useBodyScrollLock(locked: boolean) {
@@ -179,7 +186,7 @@ export default function TeamSection({
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-gray-900">
           {t?.heading ?? 'Our Team'}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {members.map((m) => (
             <button
               key={m.id}
