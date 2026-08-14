@@ -207,6 +207,15 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 25,
+        "title": "Selected for the University of Tsukuba's \"Medical Startup Support Program [S2]\" under the AMED Translational Research Program.",
+        "date": "2026-07-30",
+        "image": "/Image/logo.png",
+        "text": "Our project \"Research and development toward regulatory approval and commercialization of an early diagnostic device for lymphedema\" (Principal Investigator: Ryoma Ogawa) has been selected for the Medical Startup Support Program [S2] at the University of Tsukuba.",
+        "url": "https://www.hosp.tsukuba.ac.jp/t-credo/1428",
+        "url2": "https://www.hosp.tsukuba.ac.jp/t-credo/researchers/bridging/su_support/"
+      },
+      {
         "id": 24,
         "title": "CEO Ryoma Ogawa spoke at GTIE DEMO DAY 2026.",
         "date": "2026-07-09",

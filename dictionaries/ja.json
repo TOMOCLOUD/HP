@@ -209,6 +209,15 @@
     "pageXofY": "Page {x} / {y}",
     "items": [
       {
+        "id": 25,
+        "title": "AMED橋渡し研究プログラム 筑波大学拠点「大学発医療系スタートアップ支援プログラム【S2】」に採択されました。",
+        "date": "2026-07-30",
+        "image": "/Image/logo.png",
+        "text": "課題名「リンパ浮腫早期診断装置の薬事承認・上市に向けた研究開発」（代表者：小川良磨）が、筑波大学拠点 大学発医療系スタートアップ支援プログラム【S2】に採択されました。",
+        "url": "https://www.hosp.tsukuba.ac.jp/t-credo/1428",
+        "url2": "https://www.hosp.tsukuba.ac.jp/t-credo/researchers/bridging/su_support/"
+      },
+      {
         "id": 24,
         "title": "GTIE DEMO DAY 2026 に小川良磨CEOが登壇しました。",
         "date": "2026-07-09",
