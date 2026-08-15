@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useDict } from '@/lib/useDict';
 
 type Member = {
@@ -83,11 +84,16 @@ function useBodyScrollLock(locked: boolean) {
       bodyPaddingRight: document.body.style.paddingRight,
     };
     const scrollbarGap = window.innerWidth - document.documentElement.clientWidth;
+    // Only pin the body on desktop: on mobile `position: fixed` fights the
+    // dynamic viewport (URL bar collapse) and shifts the centered modal.
+    const pinBody = scrollbarGap > 0;
     document.body.style.paddingRight = `${scrollbarGap}px`;
     html.style.overflow = 'hidden';
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.width = '100%';
+    if (pinBody) {
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+    }
     document.body.style.overflow = 'hidden';
     return () => {
       html.style.overflow = original.htmlOverflow;
@@ -96,7 +102,7 @@ function useBodyScrollLock(locked: boolean) {
       document.body.style.width = original.bodyWidth;
       document.body.style.overflow = original.bodyOverflow;
       document.body.style.paddingRight = original.bodyPaddingRight;
-      window.scrollTo(0, scrollY);
+      if (pinBody) window.scrollTo(0, scrollY);
     };
   }, [locked]);
 }
@@ -116,35 +122,47 @@ function Modal({
 }) {
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const [entered, setEntered] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useBodyScrollLock(open);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     if (open) requestAnimationFrame(() => setEntered(true));
   }, [open]);
 
-  if (!open) return null;
+  if (!open || !mounted) return null;
 
   const handleClose = () => {
     setEntered(false);
     setTimeout(onClose, 500);
   };
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-label={title}>
+  // Rendered through a portal so ancestor `transform` / `will-change`
+  // (e.g. the reveal-on-scroll animation) can't turn the section into the
+  // containing block for this fixed overlay.
+  return createPortal(
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 overscroll-contain"
+      style={{ height: '100dvh' }}
+      role="dialog"
+      aria-modal="true"
+      aria-label={title}
+    >
       <div
-        className={`fixed inset-0 bg-black/40 transition-opacity duration-500 ease-out
+        className={`absolute inset-0 bg-black/40 transition-opacity duration-500 ease-out
                     ${entered ? 'opacity-100' : 'opacity-0'}`}
         onClick={handleClose}
         aria-hidden="true"
       />
       <div
-        className={`relative transition-all duration-500 ease-out w-full max-w-3xl
+        className={`relative transition-all duration-500 ease-out w-full max-w-3xl max-h-full flex
                     ${entered ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-2 scale-95'}`}
       >
         <div
           ref={dialogRef}
-          className="w-full rounded-2xl bg-white shadow-2xl outline-none max-h-[90vh] flex flex-col overflow-hidden"
+          className="w-full rounded-2xl bg-white shadow-2xl outline-none max-h-full flex flex-col overflow-hidden"
           style={{ WebkitOverflowScrolling: 'touch' }}
           onWheel={(e) => e.stopPropagation()}
           onTouchMove={(e) => e.stopPropagation()}
@@ -161,7 +179,8 @@ function Modal({
           <div className="flex-1 overflow-y-auto overscroll-contain p-6">{children}</div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -209,11 +228,11 @@ export default function TeamSection({
                   width={192}
                   height={192}
                   onError={onImgError}
-                  className="block w-36 h-36 md:w-48 md:h-48 object-cover mb-4 border border-gray-300 bg-gray-100 rounded"
+                  className="block w-36 h-36 md:w-44 md:h-44 lg:w-40 lg:h-40 object-cover mb-4 border border-gray-300 bg-gray-100 rounded"
                   loading="lazy"
                 />
               ) : (
-                <div className="w-36 h-36 md:w-48 md:h-48 mb-4 grid place-items-center bg-gray-100 border border-gray-300 rounded">
+                <div className="w-36 h-36 md:w-44 md:h-44 lg:w-40 lg:h-40 mb-4 grid place-items-center bg-gray-100 border border-gray-300 rounded">
                   <span className="text-gray-500">{m.name}</span>
                 </div>
               )}

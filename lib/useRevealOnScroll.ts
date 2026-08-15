@@ -18,9 +18,22 @@ export function useRevealOnScroll() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            (entry.target as HTMLElement).style.opacity = '1';
-            (entry.target as HTMLElement).style.transform = 'none';
-            io.unobserve(entry.target);
+            const el = entry.target as HTMLElement;
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+            // transform / will-change make the element a containing block for
+            // position: fixed descendants. Clear them once the reveal is done
+            // so modals inside the section still anchor to the viewport.
+            (el.style as any).willChange = 'auto';
+            el.addEventListener(
+              'transitionend',
+              () => {
+                el.style.transform = '';
+                el.style.transition = '';
+              },
+              { once: true }
+            );
+            io.unobserve(el);
           }
         });
       },
