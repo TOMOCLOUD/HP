@@ -20,7 +20,8 @@ const FALLBACK = {
       aria: "の募集要項を見る（外部サイトへ）",
       items: [
         { title: "薬事・品質保証リード", source: "LinkedIn", url: "https://www.linkedin.com/jobs/view/4445189680/" },
-        { title: "研究開発リード", source: "JREC-IN Portal", url: "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278" }
+        { title: "研究開発リード", source: "JREC-IN Portal", url: "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278" },
+        { title: "回路設計エンジニア", source: "HiPro Direct", url: "https://talent.direct.hipro-job.jp/talent/issue/21141/" }
       ]
     },
     contactBtn: "採用サイトへ",
@@ -42,7 +43,8 @@ const FALLBACK = {
       aria: " job description (external site)",
       items: [
         { title: "Regulatory Affairs & Quality Assurance Lead", source: "LinkedIn", url: "https://www.linkedin.com/jobs/view/4445189680/" },
-        { title: "R&D Lead", source: "JREC-IN Portal", url: "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278" }
+        { title: "R&D Lead", source: "JREC-IN Portal", url: "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278" },
+        { title: "Circuit Design Engineer", source: "HiPro Direct", url: "https://talent.direct.hipro-job.jp/talent/issue/21141/" }
       ]
     },
     contactBtn: "View Careers",
