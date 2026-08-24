@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import SectionHead from './WaveSource';
 import { tagColor } from './tagColors';
 
@@ -9,6 +8,8 @@ type Item = {
   org: string;
   title: string;
   text?: string;
+  /** 発表元や報道記事など、その件の一次情報。無い件は文字のまま置く */
+  url?: string;
 };
 
 /**
@@ -50,51 +51,62 @@ function Meta({ item, lead }: { item: Item; lead?: boolean }) {
 }
 
 /**
+ * 一件ぶんの器。
+ *
+ * ニュース専用ページは持たないので、行を踏むと発表元や報道記事の
+ * 外部ページを別タブで開く。URL が無い件はリンクにせず、同じ見た目の
+ * 箱として置く（踏めることを示すカーソルや下線は出ない）。
+ */
+function Row({
+  item,
+  className,
+  pad,
+  children,
+}: {
+  item: Item;
+  className: string;
+  pad: number;
+  children: React.ReactNode;
+}) {
+  const style = { '--wv-arc-pad': `${pad}px` } as React.CSSProperties;
+
+  if (!item.url) {
+    return (
+      <div className={className} style={style}>
+        {children}
+      </div>
+    );
+  }
+
+  return (
+    <a className={className} style={style} href={item.url} target="_blank" rel="noopener noreferrer">
+      {children}
+    </a>
+  );
+}
+
+/**
  * 01 ニュース。
  *
- * 実績はこの中に統合した。採択・受賞・媒体掲載は点の色で見分ける。
+ * 実績はこの中に統合した。種別は点の色で見分ける。
  * 行の左端は波面に沿って動き、罫は行と行のあいだにだけ、ごく薄く引く。
  */
 export default function NewsSection({
   t,
   head,
-  locale,
 }: {
   t?: {
-    legend?: { key: string; label: string }[];
-    note?: string;
     featured?: Item;
     items?: Item[];
   };
-  head?: { kicker?: string; title?: string; more?: string };
-  locale: string;
+  head?: { kicker?: string; title?: string };
 }) {
   const items = t?.items ?? [];
   const pads = arcIndents(items.length);
-  const newsHref = `/${locale}/news`;
 
   return (
     <section className="wv-wrap wv-sec">
-      <SectionHead
-        kicker={head?.kicker ?? ''}
-        title={head?.title ?? ''}
-        aside={
-          <Link href={newsHref} className="wv-more">
-            {head?.more}
-          </Link>
-        }
-      />
-
-      {/* 実績の種別はここで凡例として示す */}
-      <div className="wv-legend">
-        {(t?.legend ?? []).map((g) => (
-          <span key={g.key} className="wv-legend-item" style={{ color: tagColor(g.key) }}>
-            <i style={{ background: tagColor(g.key) }} />
-            {g.label}
-          </span>
-        ))}
-        <span className="wv-note wv-legend-note">{t?.note}</span>
-      </div>
+      <SectionHead kicker={head?.kicker ?? ''} title={head?.title ?? ''} />
 
       <div className="wv-news-list">
         {/* 行の左端が沿っていく波面。縦は伸ばすが、線の太さは保つ */}
@@ -112,28 +124,19 @@ export default function NewsSection({
 
         {/* 最新の一件 */}
         {t?.featured ? (
-          <Link
-            href={newsHref}
-            className="wv-news-lead"
-            style={{ '--wv-arc-pad': `${pads[0]}px` } as React.CSSProperties}
-          >
+          <Row item={t.featured} className="wv-news-lead" pad={pads[0]}>
             <Meta item={t.featured} lead />
             <div className="wv-news-lead-title">{t.featured.title}</div>
             <p className="wv-note wv-news-lead-text">{t.featured.text}</p>
-          </Link>
+          </Row>
         ) : null}
 
         {items.map((n, i) => (
-          <Link
-            key={`${n.date}-${n.title}`}
-            href={newsHref}
-            className="wv-news-row"
-            style={{ '--wv-arc-pad': `${pads[i + 1]}px` } as React.CSSProperties}
-          >
+          <Row key={`${n.date}-${n.title}`} item={n} className="wv-news-row" pad={pads[i + 1]}>
             <Meta item={n} />
             <span className="wv-news-row-title">{n.title}</span>
             <span className="wv-news-org wv-news-org-right">{n.org}</span>
-          </Link>
+          </Row>
         ))}
       </div>
     </section>

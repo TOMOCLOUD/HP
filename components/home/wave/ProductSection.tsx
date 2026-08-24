@@ -32,7 +32,6 @@ export default function ProductSection({
     techEyebrow?: string;
     techTitle?: string;
     techLead?: string;
-    techNote?: string;
     eitAria?: string;
     measureLabel?: string;
     reconstructLabel?: string;
@@ -99,9 +98,6 @@ export default function ProductSection({
             ))}
           </div>
           <p className="wv-lead">{t?.techLead}</p>
-          <p className="wv-note" style={{ marginTop: 18 }}>
-            {t?.techNote}
-          </p>
         </div>
 
         <div>

@@ -478,8 +478,7 @@
     "sections": {
       "news": {
         "kicker": "01 · NEWS",
-        "title": "News",
-        "more": "All news"
+        "title": "News"
       },
       "mission": {
         "kicker": "02 · MISSION",
@@ -520,28 +519,14 @@
       }
     },
     "news": {
-      "legend": [
-        {
-          "key": "adoption",
-          "label": "Selected"
-        },
-        {
-          "key": "award",
-          "label": "Award"
-        },
-        {
-          "key": "media",
-          "label": "In the press"
-        }
-      ],
-      "note": "The last eight items: three selections, one award, two press features. Includes the founder's own research record.",
       "featured": {
         "date": "2026.07.30",
         "tag": "Selected",
         "tagKey": "adoption",
         "org": "AMED",
         "title": "Selected for the AMED Translational Research Program, University of Tsukuba hub — Medical Startup Support Program [S2]",
-        "text": "The project \"R&D toward regulatory approval and market launch of an early-diagnosis device for lymphedema\" (PI: Ryoma Ogawa) was selected. Work now moves toward approval and launch."
+        "text": "The project \"R&D toward regulatory approval and market launch of an early-diagnosis device for lymphedema\" (PI: Ryoma Ogawa) was selected. Work now moves toward approval and launch.",
+        "url": "https://www.hosp.tsukuba.ac.jp/t-credo/1428"
       },
       "items": [
         {
@@ -549,49 +534,56 @@
           "tag": "Talk",
           "tagKey": "plain",
           "org": "",
-          "title": "CEO Ryoma Ogawa spoke at GTIE DEMO DAY 2026."
+          "title": "CEO Ryoma Ogawa spoke at GTIE DEMO DAY 2026.",
+          "url": "https://gtie.jp/news/45471/"
         },
         {
           "date": "2026.04.16",
           "tag": "Exhibit",
           "tagKey": "plain",
           "org": "",
-          "title": "TOMOCLOUD will exhibit at Medtec Japan 2026."
+          "title": "TOMOCLOUD will exhibit at Medtec Japan 2026.",
+          "url": "https://medtecjapan.com/"
         },
         {
           "date": "2026.03.02",
           "tag": "In the press",
           "tagKey": "media",
           "org": "Forbes Japan",
-          "title": "Featured in Forbes Japan's \"30 EMERGING DEEPTECH\"."
+          "title": "Featured in Forbes Japan's \"30 EMERGING DEEPTECH\".",
+          "url": "https://prtimes.jp/main/html/rd/p/000000002.000175448.html"
         },
         {
           "date": "2025.10.31",
           "tag": "In the press",
           "tagKey": "media",
           "org": "Nikkan Kogyo Shimbun",
-          "title": "TOMOCLOUD was covered by Nikkan Kogyo Shimbun."
+          "title": "TOMOCLOUD was covered by Nikkan Kogyo Shimbun.",
+          "url": "https://www.nikkan.co.jp/articles/view/00764749"
         },
         {
           "date": "2025.09.06",
           "tag": "Award",
           "tagKey": "award",
           "org": "Founder's research record",
-          "title": "Best Presentation Award, 9th Annual Meeting of the Japanese Society of Lymphedema Treatment"
+          "title": "Best Presentation Award, 9th Annual Meeting of the Japanese Society of Lymphedema Treatment",
+          "url": "https://www.graffiti97.com/9jslt/index.html"
         },
         {
           "date": "2025.08.20",
           "tag": "Selected",
           "tagKey": "adoption",
           "org": "Founder's research record",
-          "title": "Final selection, Beyond Japan Zero to X Program"
+          "title": "Final selection, Beyond Japan Zero to X Program",
+          "url": "https://www.b4d-jp.com/news/2025-8"
         },
         {
           "date": "2025.07.30",
           "tag": "Selected",
           "tagKey": "adoption",
           "org": "Founder's research record",
-          "title": "Selected for the GTIE-GAP Fund, entry course"
+          "title": "Selected for the GTIE-GAP Fund, entry course",
+          "url": "https://gtie.jp/news/43810/"
         }
       ]
     },
@@ -613,7 +605,6 @@
       "techEyebrow": "Core technology",
       "techTitle": "Electrical impedance\ntomography",
       "techLead": "Electrodes placed on the skin inject a weak current, and the resulting voltages are measured to reconstruct the distribution of electrical impedance inside the body as a cross-sectional image. No radiation, no incision, and it can be repeated as often as needed.",
-      "techNote": "TOMOCLOUD was founded in August 2025 on EIT research from the Takei Laboratory at Chiba University.",
       "eitAria": "How a rotating pair of electrodes measures voltages, and the inverse problem is solved to reconstruct the impedance distribution of a cross-section",
       "measureLabel": "MEASURE",
       "reconstructLabel": "RECONSTRUCT",

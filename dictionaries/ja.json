@@ -478,8 +478,7 @@
     "sections": {
       "news": {
         "kicker": "01 · NEWS",
-        "title": "ニュース",
-        "more": "ニュース一覧へ"
+        "title": "ニュース"
       },
       "mission": {
         "kicker": "02 · MISSION",
@@ -520,28 +519,14 @@
       }
     },
     "news": {
-      "legend": [
-        {
-          "key": "adoption",
-          "label": "採択"
-        },
-        {
-          "key": "award",
-          "label": "受賞"
-        },
-        {
-          "key": "media",
-          "label": "媒体掲載"
-        }
-      ],
-      "note": "直近8件。うち採択3・受賞1・媒体掲載2。創業者個人の研究実績を含みます。",
       "featured": {
         "date": "2026.07.30",
         "tag": "採択",
         "tagKey": "adoption",
         "org": "AMED",
         "title": "AMED橋渡し研究プログラム 筑波大学拠点「大学発医療系スタートアップ支援プログラム【S2】」に採択されました",
-        "text": "課題名「リンパ浮腫早期診断装置の薬事承認・上市に向けた研究開発」（代表者：小川良磨）が採択されました。薬事承認と上市に向けた開発を進めます。"
+        "text": "課題名「リンパ浮腫早期診断装置の薬事承認・上市に向けた研究開発」（代表者：小川良磨）が採択されました。薬事承認と上市に向けた開発を進めます。",
+        "url": "https://www.hosp.tsukuba.ac.jp/t-credo/1428"
       },
       "items": [
         {
@@ -549,49 +534,56 @@
           "tag": "登壇",
           "tagKey": "plain",
           "org": "",
-          "title": "GTIE DEMO DAY 2026 に小川良磨CEOが登壇しました。"
+          "title": "GTIE DEMO DAY 2026 に小川良磨CEOが登壇しました。",
+          "url": "https://gtie.jp/news/45471/"
         },
         {
           "date": "2026.04.16",
           "tag": "出展",
           "tagKey": "plain",
           "org": "",
-          "title": "株式会社TOMOCLOUDが、メドテックジャパン2026に出展します。"
+          "title": "株式会社TOMOCLOUDが、メドテックジャパン2026に出展します。",
+          "url": "https://medtecjapan.com/"
         },
         {
           "date": "2026.03.02",
           "tag": "媒体掲載",
           "tagKey": "media",
           "org": "Forbes Japan",
-          "title": "Forbes Japan「30 EMERGING DEEPTECH」に掲載されました。"
+          "title": "Forbes Japan「30 EMERGING DEEPTECH」に掲載されました。",
+          "url": "https://prtimes.jp/main/html/rd/p/000000002.000175448.html"
         },
         {
           "date": "2025.10.31",
           "tag": "媒体掲載",
           "tagKey": "media",
           "org": "日刊工業新聞",
-          "title": "日刊工業新聞に株式会社TOMOCLOUDが掲載されました。"
+          "title": "日刊工業新聞に株式会社TOMOCLOUDが掲載されました。",
+          "url": "https://www.nikkan.co.jp/articles/view/00764749"
         },
         {
           "date": "2025.09.06",
           "tag": "受賞",
           "tagKey": "award",
           "org": "創業者の研究実績",
-          "title": "第9回日本リンパ浮腫治療学会学術総会 最優秀演題賞"
+          "title": "第9回日本リンパ浮腫治療学会学術総会 最優秀演題賞",
+          "url": "https://www.graffiti97.com/9jslt/index.html"
         },
         {
           "date": "2025.08.20",
           "tag": "採択",
           "tagKey": "adoption",
           "org": "創業者の研究実績",
-          "title": "Beyond Japan Zero to X Program 最終採択"
+          "title": "Beyond Japan Zero to X Program 最終採択",
+          "url": "https://www.b4d-jp.com/news/2025-8"
         },
         {
           "date": "2025.07.30",
           "tag": "採択",
           "tagKey": "adoption",
           "org": "創業者の研究実績",
-          "title": "GTIE-GAPファンド エントリーコース 採択"
+          "title": "GTIE-GAPファンド エントリーコース 採択",
+          "url": "https://gtie.jp/news/43810/"
         }
       ]
     },
@@ -613,7 +605,6 @@
       "techEyebrow": "基盤技術",
       "techTitle": "電気インピーダンス・\nトモグラフィ",
       "techLead": "体表に並べた電極から微弱な電流を流し、生じた電位を測ることで、体内の電気インピーダンス分布を断面画像として再構成する技術です。放射線を使わず、切らずに、繰り返し測れます。",
-      "techNote": "TOMOCLOUDは、千葉大学 武居研究室におけるEIT研究を基盤として2025年8月に設立されました。",
       "eitAria": "電極ペアを回しながら電位を測り、逆問題を解いて断面のインピーダンス分布を再構成するまでの流れ",
       "measureLabel": "MEASURE",
       "reconstructLabel": "RECONSTRUCT",

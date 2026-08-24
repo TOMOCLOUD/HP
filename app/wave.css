@@ -727,36 +727,13 @@
 
 /* ============================================================
    01 ニュース
-   実績はこの中に統合した。採択・受賞・媒体掲載は点の色で見分ける
+   実績はこの中に統合した。種別は点の色で見分ける
    ============================================================ */
-.wv-legend {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 24px;
-}
-
-.wv-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  letter-spacing: 0.07em;
-}
-
-.wv-legend-item i {
-  display: block;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
 
 /* 行の左端は波面に沿って動く。その波面を引く一組の弧 */
 .wv-news-list {
   position: relative;
-  margin-top: 44px;
+  margin-top: 52px;
 }
 
 .wv-news-arc {
@@ -838,12 +815,8 @@
   display: none;
 }
 
-.wv-legend-note {
-  font-size: 12px;
-  margin-left: 4px;
-}
-
-.wv-news-row:hover {
+/* 踏める行だけ反応させる。外部URLを持たない件は a ではなく div で出る */
+a.wv-news-row:hover {
   color: inherit;
   background: rgba(18, 150, 219, 0.03);
 }
@@ -892,17 +865,8 @@
     font-weight: 600;
   }
 
-  .wv-legend {
-    gap: 32px;
-  }
-
-  .wv-legend-item {
-    font-size: 13px;
-  }
-
-  .wv-legend-note {
-    font-size: 13px;
-    margin-left: 10px;
+  .wv-news-list {
+    margin-top: 68px;
   }
 
   .wv-news-row .wv-news-meta {

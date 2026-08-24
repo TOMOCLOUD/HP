@@ -20,20 +20,43 @@ export default function SiteFooter() {
   const nav = dict?.top?.nav;
   const f = dict?.footer;
 
-  const pagesLeft = [
+  // hash を持つ項目は独立ページを持たず、ホームのセクションへの
+  // アンカーリンク。ホームに既にいる場合はその場でスクロールし、
+  // 他ページにいる場合は Link の既定動作（ホームへ移動）に任せる。
+  type FooterLink = { label?: string; href: string; hash?: string };
+
+  const anchor = (hash: string): string => `/${locale}#${hash}`;
+
+  const pagesLeft: FooterLink[] = [
     { label: nav?.product, href: `/${locale}/services` },
-    { label: nav?.news, href: `/${locale}/news` },
+    { label: nav?.news, href: anchor('news'), hash: 'news' },
     { label: nav?.achievements, href: `/${locale}/achievements` },
   ];
 
-  // 「採用」「お問い合わせ」「会社概要」は独立ページを持たず、ホームの
-  // セクションへのアンカーリンク。ホームに既にいる場合はその場でスクロール
-  // し、他ページにいる場合は Link の既定動作（ホームへ移動）に任せる。
-  const pagesRight = [
-    { label: nav?.recruit, href: `/${locale}#recruit`, hash: 'recruit' },
-    { label: nav?.contact, href: `/${locale}#contact`, hash: 'contact' },
-    { label: nav?.about, href: `/${locale}#about`, hash: 'about' },
+  const pagesRight: FooterLink[] = [
+    { label: nav?.recruit, href: anchor('recruit'), hash: 'recruit' },
+    { label: nav?.contact, href: anchor('contact'), hash: 'contact' },
+    { label: nav?.about, href: anchor('about'), hash: 'about' },
   ];
+
+  const renderLinks = (items: FooterLink[]) =>
+    items.map((p) => (
+      <li key={p.href}>
+        <Link
+          href={p.href}
+          onClick={
+            p.hash
+              ? (e) => {
+                  if (scrollToSectionIfHome(p.hash!, pathname, locale)) e.preventDefault();
+                }
+              : undefined
+          }
+          scroll={p.hash ? false : undefined}
+        >
+          {p.label}
+        </Link>
+      </li>
+    ));
 
   return (
     <footer className="wv-footer" role="contentinfo">
@@ -54,36 +77,12 @@ export default function SiteFooter() {
 
         <div className="wv-footer-col">
           <div className="wv-lat wv-footer-label">{t?.pages}</div>
-          <ul>
-            {pagesLeft.map((p) => (
-              <li key={p.href}>
-                <Link href={p.href}>{p.label}</Link>
-              </li>
-            ))}
-          </ul>
+          <ul>{renderLinks(pagesLeft)}</ul>
         </div>
 
         <div className="wv-footer-col">
           <div className="wv-footer-label" aria-hidden="true" />
-          <ul>
-            {pagesRight.map((p) => (
-              <li key={p.href}>
-                <Link
-                  href={p.href}
-                  onClick={
-                    p.hash
-                      ? (e) => {
-                          if (scrollToSectionIfHome(p.hash!, pathname, locale)) e.preventDefault();
-                        }
-                      : undefined
-                  }
-                  scroll={p.hash ? false : undefined}
-                >
-                  {p.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ul>{renderLinks(pagesRight)}</ul>
         </div>
 
         <div className="wv-footer-col">
