@@ -104,6 +104,15 @@
   margin-bottom: 0.3em;
 }
 
+/* globals.css の h2::after（触れるとグラデーションの下線が伸びるアニメーション）は
+   旧デザインの他ページのもの。ここでは flex の子として並んでしまい、見出しの字を
+   押しつぶして横に線が出る。トップの見出しでは出さない。
+   会社概要は globals.css 側が #about h2::after という ID 付きのセレクタで
+   別に指定していて、クラスでは重みが足りないので !important で止める。 */
+.wv-h2::after {
+  content: none !important;
+}
+
 .wv-lead {
   font-size: clamp(14px, 1.1vw, 16px);
   line-height: 2.2;
@@ -149,13 +158,34 @@
 .wv .wv-btn:visited {
   color: #fff;
 }
-/* 触れたときは色だけを一段変える。動きは付けない */
-.wv .wv-btn:hover:not(:disabled) {
-  background: var(--wv-link-hover);
+.wv-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 1px solid var(--wv-link);
+  opacity: 0;
+}
+.wv-btn:hover::after {
+  animation: wv-btnring 1.1s cubic-bezier(0.2, 0.7, 0.35, 1);
 }
 .wv-btn:disabled {
   opacity: 0.5;
   cursor: default;
+}
+.wv-btn:disabled::after {
+  animation: none;
+}
+
+@keyframes wv-btnring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.42);
+    opacity: 0;
+  }
 }
 
 /* ============================================================
@@ -1570,10 +1600,11 @@ a.wv-news-row:hover {
   appearance: none;
 }
 
-/* 触れると、写真のまわりの輪がひとつ濃くなる。輪は広げない（動きは付けない） */
+/* 触れると、写真のまわりの輪がひとつ濃くなる */
 .wv-member:hover .wv-member-photo::before,
 .wv-member:focus-visible .wv-member-photo::before {
   border-color: var(--wv-accent);
+  inset: -14%;
 }
 
 .wv-member:hover .wv-member-name,
@@ -1610,6 +1641,9 @@ a.wv-news-row:hover {
   inset: -10%;
   border-radius: 50%;
   border: 1px solid var(--wv-rule-2);
+  transition:
+    inset 0.45s cubic-bezier(0.2, 0.7, 0.35, 1),
+    border-color 0.3s ease;
 }
 
 .wv-member-role {
@@ -2093,5 +2127,9 @@ a.wv-news-row:hover {
   .wv-eit-el,
   .wv-live {
     animation-play-state: paused;
+  }
+
+  .wv-btn:hover::after {
+    animation: none;
   }
 }
