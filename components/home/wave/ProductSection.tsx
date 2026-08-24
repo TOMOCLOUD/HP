@@ -9,9 +9,9 @@ import { scrollToSectionIfHome } from '@/lib/scrollToSection';
 type Step = { n?: string; name?: string; text?: string };
 
 /**
- * 03 製品と技術。
+ * 03 プロダクト&テクノロジー。
  *
- * 1. LT monitor。試作機の写真と、開発段階の注記。
+ * 1. LT monitor Pro。試作機の写真と、開発段階の注記。
  * 2. EIT のリアルタイム再構成。
  * 3. 1フレームができるまでの3段。
  * 4. 実機の写真。どこが中核かは名指しせず、手を動かす範囲の広さで引く。
@@ -43,7 +43,7 @@ export default function ProductSection({
     probeAlt?: string;
     circuitAlt?: string;
   };
-  head?: { kicker?: string; title?: string };
+  head?: { title?: string };
   locale: string;
 }) {
   const pathname = usePathname() || `/${locale}`;
@@ -56,7 +56,7 @@ export default function ProductSection({
 
   return (
     <section className="wv-wrap wv-sec">
-      <SectionHead kicker={head?.kicker ?? ''} title={head?.title ?? ''} />
+      <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-product-lead">
         <div className="wv-arch">

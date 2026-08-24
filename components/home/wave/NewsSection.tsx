@@ -99,14 +99,14 @@ export default function NewsSection({
     featured?: Item;
     items?: Item[];
   };
-  head?: { kicker?: string; title?: string };
+  head?: { title?: string };
 }) {
   const items = t?.items ?? [];
   const pads = arcIndents(items.length);
 
   return (
     <section className="wv-wrap wv-sec">
-      <SectionHead kicker={head?.kicker ?? ''} title={head?.title ?? ''} />
+      <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-news-list">
         {/* 行の左端が沿っていく波面。縦は伸ばすが、線の太さは保つ */}

@@ -9,11 +9,11 @@ export default function SurveySection({
   head,
 }: {
   t?: { lead?: string; cta?: string };
-  head?: { kicker?: string; title?: string };
+  head?: { title?: string };
 }) {
   return (
     <section className="wv-wrap wv-sec">
-      <SectionHead kicker={head?.kicker ?? ''} title={head?.title ?? ''} />
+      <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-survey">
         <p className="wv-survey-lead">{t?.lead}</p>

@@ -14,12 +14,11 @@ export default function RecruitSection({
   head,
 }: {
   t?: { lead?: string; jobs?: Job[] };
-  head?: { kicker?: string; title?: string; more?: string };
+  head?: { title?: string; more?: string };
 }) {
   return (
     <section className="wv-wrap wv-sec">
       <SectionHead
-        kicker={head?.kicker ?? ''}
         title={head?.title ?? ''}
         aside={
           <a href={WANTEDLY} target="_blank" rel="noopener noreferrer" className="wv-more">

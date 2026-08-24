@@ -65,7 +65,13 @@ export default function LocaleHome() {
 
       <LymphedemaSection t={t?.lymphedema} head={s?.lymphedema} />
       <SurveySection t={t?.survey} head={s?.survey} />
-      <TeamSection t={t?.team} head={s?.team} />
+      <TeamSection
+        t={t?.team}
+        head={s?.team}
+        details={dict?.home?.team?.members}
+        achievementsTitle={dict?.home?.team?.modal?.achievementsTitle}
+        closeLabel={dict?.common?.actions?.close}
+      />
       <MessageSection t={t?.message} head={s?.message} />
 
       <div id="contact" className="wv-anchor">

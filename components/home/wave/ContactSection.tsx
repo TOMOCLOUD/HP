@@ -37,7 +37,7 @@ export default function ContactSection({
   head,
 }: {
   t?: Dict;
-  head?: { kicker?: string; title?: string };
+  head?: { title?: string };
 }) {
   const [form, setForm] = useState(EMPTY);
   const [sending, setSending] = useState(false);
@@ -99,7 +99,7 @@ export default function ContactSection({
 
   return (
     <section className="wv-wrap wv-sec">
-      <SectionHead kicker={head?.kicker ?? ''} title={head?.title ?? ''} />
+      <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-contact">
         <div>

@@ -6,11 +6,11 @@ export default function MessageSection({
   head,
 }: {
   t?: { quote?: string; role?: string; name?: string; alt?: string };
-  head?: { kicker?: string; title?: string };
+  head?: { title?: string };
 }) {
   return (
     <section className="wv-wrap wv-sec">
-      <SectionHead kicker={head?.kicker ?? ''} title={head?.title ?? ''} />
+      <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-message">
         <div className="wv-message-photo">

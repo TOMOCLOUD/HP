@@ -30,14 +30,13 @@ export default function MissionSection({
     statement?: string;
     emphasis?: string;
     right?: string;
-    en?: string;
   };
-  head?: { kicker?: string; title?: string };
+  head?: { title?: string };
   values?: Value[];
 }) {
   return (
     <section className="wv-wrap wv-sec">
-      <SectionHead kicker={head?.kicker ?? ''} title={head?.title ?? ''} />
+      <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-mission">
         <svg
@@ -59,9 +58,6 @@ export default function MissionSection({
 
             <div className="wv-mission-col-right">
               <p className="wv-lead">{t?.right}</p>
-              <div className="wv-lat wv-mission-en">
-                <Lines text={t?.en} />
-              </div>
             </div>
           </div>
 

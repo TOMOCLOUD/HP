@@ -85,20 +85,23 @@
 }
 
 /* ---- 文字 ---- */
-.wv-kicker {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  color: var(--wv-muted);
-}
-
+/* 波源の点は見出しの左に置く。
+   2行になる見出しもあるので、中央ではなくベースラインで揃え、
+   1行目の字の高さの真ん中に来るぶんだけ持ち上げる */
 .wv-h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
   margin: 0;
   font-size: clamp(25px, 2.4vw, 34px);
   font-weight: 600;
   letter-spacing: 0.15em;
   color: var(--wv-ink);
   line-height: 1.38;
+}
+
+.wv-h2 .wv-src {
+  margin-bottom: 0.3em;
 }
 
 .wv-lead {
@@ -139,7 +142,11 @@
   border-radius: 999px;
   cursor: pointer;
 }
-.wv-btn:hover {
+/* a でも button でも白抜き。`.wv a` の青が勝って字が消えないよう、
+   セレクタの重みをそちらより上げておく */
+.wv .wv-btn,
+.wv .wv-btn:hover,
+.wv .wv-btn:visited {
   color: #fff;
 }
 .wv-btn::after {
@@ -285,12 +292,15 @@
   }
 }
 
-/* 波源は一滴の点。ホームの見出しの上にある点と同じもの */
+/* 波源は一滴の点。ホームの見出しの横にある点と同じもの。
+   広がる輪は 1400px あり、下に続く入力欄やボタンの上に覆いかぶさる。
+   飾りなので、クリックとキー入力は素通りさせる */
 .wv-src {
   position: relative;
   width: 9px;
   height: 9px;
   flex-shrink: 0;
+  pointer-events: none;
 }
 
 .wv-src span {
@@ -705,18 +715,11 @@
 
 /* ============================================================
    セクションの頭
-   波源の点と、番号つきの英字ラベル
+   波源の点を、セクション名のすぐ横に置く
    ============================================================ */
-.wv-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
 .wv-title-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 24px;
   flex-wrap: wrap;
 }
@@ -943,14 +946,6 @@ a.wv-news-row:hover {
   display: grid;
   gap: 34px;
   margin-top: 56px;
-}
-
-.wv-mission-en {
-  margin-top: 26px;
-  font-size: clamp(13px, 1vw, 14px);
-  font-weight: 500;
-  line-height: 1.9;
-  color: var(--wv-muted);
 }
 
 @media (min-width: 1024px) {
@@ -1456,11 +1451,51 @@ a.wv-news-row:hover {
   line-height: 1.7;
 }
 
-.wv-two-col {
+/* 本文と図。図は枠に入れず、四辺を白へ落として地に溶かす */
+.wv-lymph {
   display: grid;
-  gap: 44px;
+  gap: 36px;
   margin-top: 46px;
-  align-items: start;
+  align-items: center;
+}
+
+.wv-lymph-text p {
+  margin: 0 0 24px;
+}
+.wv-lymph-text p:last-child {
+  margin-bottom: 0;
+}
+
+.wv-lymph-figure {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 460px;
+  overflow: hidden;
+}
+
+.wv-lymph-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 四辺の白→透明。既存のプロダクトページで図に掛けているのと同じ処理 */
+.wv-lymph-figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0) 14%),
+    linear-gradient(to top, #fff, rgba(255, 255, 255, 0) 14%),
+    linear-gradient(to right, #fff, rgba(255, 255, 255, 0) 12%),
+    linear-gradient(to left, #fff, rgba(255, 255, 255, 0) 12%);
+}
+
+.wv-lymph-stats {
+  display: grid;
+  margin-top: 24px;
 }
 
 .wv-stat {
@@ -1496,6 +1531,11 @@ a.wv-news-row:hover {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 60px;
   }
+
+  .wv-lymph-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 44px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1505,10 +1545,15 @@ a.wv-news-row:hover {
     margin-top: 76px;
   }
 
-  .wv-two-col {
-    grid-template-columns: minmax(0, 1fr) 380px;
-    gap: 88px;
+  .wv-lymph {
+    grid-template-columns: minmax(0, 1fr) 440px;
+    gap: 72px;
     margin-top: 84px;
+  }
+
+  .wv-lymph-stats {
+    margin-top: 44px;
+    gap: 0 88px;
   }
 
   .wv-survey {
@@ -1541,8 +1586,34 @@ a.wv-news-row:hover {
   gap: 40px 20px;
 }
 
+/* 押すと紹介文が開く。button だが、見た目は素の文字と写真のまま */
 .wv-member {
+  display: block;
+  width: 100%;
   text-align: center;
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* 触れると、写真のまわりの輪がひとつ濃くなる */
+.wv-member:hover .wv-member-photo::before,
+.wv-member:focus-visible .wv-member-photo::before {
+  border-color: var(--wv-accent);
+  inset: -14%;
+}
+
+.wv-member:hover .wv-member-name,
+.wv-member:focus-visible .wv-member-name {
+  color: var(--wv-link);
+}
+
+.wv-member:focus-visible {
+  outline: none;
 }
 
 .wv-member-photo {
@@ -1570,6 +1641,9 @@ a.wv-news-row:hover {
   inset: -10%;
   border-radius: 50%;
   border: 1px solid var(--wv-rule-2);
+  transition:
+    inset 0.45s cubic-bezier(0.2, 0.7, 0.35, 1),
+    border-color 0.3s ease;
 }
 
 .wv-member-role {
@@ -1615,6 +1689,187 @@ a.wv-news-row:hover {
 
   .wv-member-photo {
     margin-bottom: 30px;
+  }
+}
+
+/* ============================================================
+   紹介文の窓
+   body へ portal で出すので .wv の外。字も色も自分で持つ
+   ============================================================ */
+.wv-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: var(--font-murecho), "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-weight: 400;
+  color: var(--wv-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 後ろのページは黒で落とさず、白を薄く重ねて引かせる */
+.wv-modal-veil {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(3px);
+  animation: wv-modal-in 0.4s ease both;
+}
+
+.wv-modal-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 720px;
+  max-height: 100%;
+  background: #fff;
+  border: 1px solid var(--wv-rule-4);
+  animation: wv-modal-rise 0.4s cubic-bezier(0.2, 0.7, 0.35, 1) both;
+}
+
+@keyframes wv-modal-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wv-modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.wv-modal-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-shrink: 0;
+  padding: 26px 24px 22px;
+  border-bottom: 1px solid var(--wv-rule-3);
+}
+
+.wv-modal-head .wv-member-role {
+  margin-bottom: 8px;
+}
+
+.wv-modal-name {
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+.wv-modal-close {
+  margin-left: auto;
+  flex-shrink: 0;
+  border: 0;
+  border-bottom: 1px solid var(--wv-rule-6);
+  background: none;
+  padding: 0 0 5px;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0.13em;
+  color: var(--wv-link);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.wv-modal-close:hover {
+  color: var(--wv-link-hover);
+}
+
+.wv-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 26px 24px 32px;
+}
+
+.wv-modal-title {
+  margin: 0;
+  font-size: clamp(14px, 1.1vw, 15px);
+  line-height: 1.9;
+  letter-spacing: 0.05em;
+  color: var(--wv-body);
+}
+
+.wv-modal-sub {
+  margin: 10px 0 0;
+  font-size: 13px;
+}
+
+.wv-modal-bio {
+  margin: 24px 0 0;
+}
+
+.wv-modal-achievements {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--wv-rule-3);
+}
+
+.wv-modal-achievements-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--wv-ink);
+  margin-bottom: 14px;
+}
+
+.wv-modal-achievements ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 箇条の頭は中黒ではなく、小さな一滴 */
+.wv-modal-achievements li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.95;
+}
+.wv-modal-achievements li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.92em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--wv-accent);
+}
+
+@media (min-width: 768px) {
+  .wv-modal {
+    padding: 40px;
+  }
+
+  .wv-modal-head {
+    padding: 34px 40px 28px;
+  }
+
+  .wv-modal-body {
+    padding: 32px 40px 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wv-modal-veil,
+  .wv-modal-card {
+    animation: none;
   }
 }
 

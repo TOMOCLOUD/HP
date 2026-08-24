@@ -16,11 +16,11 @@ export default function AboutSection({
   head,
 }: {
   about?: About;
-  head?: { kicker?: string; title?: string };
+  head?: { title?: string };
 }) {
   return (
     <section className="wv-wrap" style={{ paddingBottom: 'var(--wv-sec-gap)' }}>
-      <SectionHead kicker={head?.kicker ?? ''} title={head?.title ?? ''} />
+      <SectionHead title={head?.title ?? ''} />
 
       <div style={{ marginTop: 40 }}>
         {ROWS.map((r) => (

@@ -477,44 +477,34 @@
     },
     "sections": {
       "news": {
-        "kicker": "01 · NEWS",
         "title": "ニュース"
       },
       "mission": {
-        "kicker": "02 · MISSION",
         "title": "目指すもの"
       },
       "product": {
-        "kicker": "03 · PRODUCT",
         "title": "プロダクト&テクノロジー"
       },
       "recruit": {
-        "kicker": "04 · RECRUIT",
         "title": "採用",
         "more": "Wantedly で募集を見る"
       },
       "lymphedema": {
-        "kicker": "05 · LYMPHEDEMA",
         "title": "リンパ浮腫とは"
       },
       "survey": {
-        "kicker": "06 · SURVEY",
         "title": "アンケート協力のお願い"
       },
       "team": {
-        "kicker": "07 · TEAM",
         "title": "チーム"
       },
       "message": {
-        "kicker": "08 · MESSAGE",
         "title": "代表より"
       },
       "contact": {
-        "kicker": "09 · CONTACT",
         "title": "お問い合わせ"
       },
       "about": {
-        "kicker": "10 · ABOUT",
         "title": "会社概要"
       }
     },
@@ -591,17 +581,16 @@
       "left": "多くの人にとって、日常の中で自分の健康状態を継続的に把握するのは簡単ではありません。体や組織を手軽にモニタリングできる手段も限られています。",
       "statement": "視える化技術により、\n全ての人が自分らしく\n生きられる社会を創造する",
       "emphasis": "「見えない」を「視える」に。",
-      "right": "私たちTOMOCLOUDはこの課題を解き、一人ひとりが自分らしく生きられる社会をつくります。",
-      "en": "Enabling authentic lives through\nthe power of visualization."
+      "right": "私たちTOMOCLOUDはこの課題を解き、一人ひとりが自分らしく生きられる社会をつくります。"
     },
     "product": {
       "eyebrow": "開発中の製品",
-      "name": "LT monitor",
+      "name": "LT monitor Pro",
       "lead": "EITにもとづくリンパ浮腫モニタリング装置です。体内の水分やタンパク質の分布を画像として再構成し、日常的かつ継続的な状態評価を可能にすることを目指して開発を進めています。臨床現場での検証もあわせて行っているところです。",
       "note": "自宅での確認を想定した「LTモニタLite」も開発しており、アンケートで使い勝手のご意見をうかがっています。",
       "disclaimerLabel": "開発段階について",
       "disclaimer": "本製品は研究開発段階であり、医療機器としての承認は取得していません。本ページは開発状況の紹介であり、効能または効果を示すものではありません。",
-      "archAlt": "LT monitor の試作機",
+      "archAlt": "LT monitor Pro の試作機",
       "techEyebrow": "基盤技術",
       "techTitle": "電気インピーダンス・\nトモグラフィ",
       "techLead": "体表に並べた電極から微弱な電流を流し、生じた電位を測ることで、体内の電気インピーダンス分布を断面画像として再構成する技術です。放射線を使わず、切らずに、繰り返し測れます。",
@@ -659,6 +648,7 @@
       ]
     },
     "lymphedema": {
+      "imageAlt": "リンパ浮腫でむくんだ脚の模式図",
       "p1": "リンパ液の流れが滞ることで四肢にむくみが生じる病気です。見た目の変化だけでなく、痛みや重だるさを伴い、日常生活や仕事の質にも影響します。",
       "p2": "早期発見と継続的な観察が大切ですが、簡便かつ非侵襲に行える方法は限られてきました。私たちはEITによって、日常の中でも負担なく続けられるモニタリング手法をつくろうとしています。",
       "stats": [
@@ -681,24 +671,28 @@
     "team": {
       "members": [
         {
+          "key": "ogawa",
           "role": "CEO / FOUNDER",
           "name": "小川 良磨",
           "title": "千葉大学 客員准教授",
           "image": "/Image/Ogawa_image.png"
         },
         {
+          "key": "takei",
           "role": "TECHNICAL ADVISER",
           "name": "武居 昌宏",
           "title": "千葉大学 大学院工学研究院 教授",
           "image": "/Image/Takei_image.jpg"
         },
         {
+          "key": "kinouchi",
           "role": "CO-FOUNDER",
           "name": "木内 悠太",
           "title": "",
           "image": "/Image/Kinouchi_image.jpg"
         },
         {
+          "key": "hashimoto",
           "role": "PRODUCT LEAD",
           "name": "橋本 竜我",
           "title": "",

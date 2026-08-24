@@ -477,44 +477,34 @@
     },
     "sections": {
       "news": {
-        "kicker": "01 · NEWS",
         "title": "News"
       },
       "mission": {
-        "kicker": "02 · MISSION",
         "title": "What we are after"
       },
       "product": {
-        "kicker": "03 · PRODUCT",
         "title": "Product & technology"
       },
       "recruit": {
-        "kicker": "04 · RECRUIT",
         "title": "Join us",
         "more": "See openings on Wantedly"
       },
       "lymphedema": {
-        "kicker": "05 · LYMPHEDEMA",
         "title": "About lymphedema"
       },
       "survey": {
-        "kicker": "06 · SURVEY",
         "title": "A request for your input"
       },
       "team": {
-        "kicker": "07 · TEAM",
         "title": "Team"
       },
       "message": {
-        "kicker": "08 · MESSAGE",
         "title": "From the founder"
       },
       "contact": {
-        "kicker": "09 · CONTACT",
         "title": "Contact"
       },
       "about": {
-        "kicker": "10 · ABOUT",
         "title": "Company"
       }
     },
@@ -591,17 +581,16 @@
       "left": "For most people, keeping track of their own health day to day is not easy. The ways to monitor the body and its tissues casually are limited.",
       "statement": "Creating a society where\nvisualization lets everyone\nlive as themselves",
       "emphasis": "Turning the unseen into the seen.",
-      "right": "TOMOCLOUD is solving that problem, so that each person can live as themselves.",
-      "en": "Enabling authentic lives through\nthe power of visualization."
+      "right": "TOMOCLOUD is solving that problem, so that each person can live as themselves."
     },
     "product": {
       "eyebrow": "In development",
-      "name": "LT monitor",
+      "name": "LT monitor Pro",
       "lead": "A lymphedema monitoring device built on EIT. It reconstructs the distribution of water and protein inside the body as an image, with the aim of making everyday, continuous assessment possible. Clinical validation is under way alongside development.",
       "note": "We are also developing LT monitor Lite for checks at home, and are collecting feedback on its usability through a survey.",
       "disclaimerLabel": "On our development stage",
       "disclaimer": "This product is in research and development and has not been approved as a medical device. This page describes our development status and does not claim any efficacy or effect.",
-      "archAlt": "The LT monitor prototype",
+      "archAlt": "The LT monitor Pro prototype",
       "techEyebrow": "Core technology",
       "techTitle": "Electrical impedance\ntomography",
       "techLead": "Electrodes placed on the skin inject a weak current, and the resulting voltages are measured to reconstruct the distribution of electrical impedance inside the body as a cross-sectional image. No radiation, no incision, and it can be repeated as often as needed.",
@@ -659,6 +648,7 @@
       ]
     },
     "lymphedema": {
+      "imageAlt": "Schematic of a leg swollen by lymphedema",
       "p1": "Lymphedema is swelling in the limbs caused by stagnant lymphatic flow. Beyond the visible change, it brings pain and heaviness, and it affects the quality of daily life and work.",
       "p2": "Early detection and continuous observation matter, but simple, non-invasive ways to do that have been limited. With EIT we are building a monitoring method light enough to keep up in everyday life.",
       "stats": [
@@ -681,24 +671,28 @@
     "team": {
       "members": [
         {
+          "key": "ogawa",
           "role": "CEO / FOUNDER",
           "name": "Ryoma Ogawa",
           "title": "Visiting Associate Professor, Chiba University",
           "image": "/Image/Ogawa_image.png"
         },
         {
+          "key": "takei",
           "role": "TECHNICAL ADVISER",
           "name": "Masahiro Takei",
           "title": "Professor, Graduate School of Engineering, Chiba University",
           "image": "/Image/Takei_image.jpg"
         },
         {
+          "key": "kinouchi",
           "role": "CO-FOUNDER",
           "name": "Yuta Kinouchi",
           "title": "",
           "image": "/Image/Kinouchi_image.jpg"
         },
         {
+          "key": "hashimoto",
           "role": "PRODUCT LEAD",
           "name": "Ryuga Hashimoto",
           "title": "",

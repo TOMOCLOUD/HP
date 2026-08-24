@@ -19,26 +19,20 @@ export function WaveSource() {
   );
 }
 
-/** 波源の点 + 番号つきの英字ラベル + 見出し */
-export default function SectionHead({
-  kicker,
-  title,
-  aside,
-}: {
-  kicker: string;
-  title: string;
-  aside?: ReactNode;
-}) {
+/**
+ * 見出しの左に置く波源の点 + 見出し。
+ *
+ * 「01 · NEWS」のような英字ラベルは冗長なので置かない。波が届いて打ち返す
+ * 一滴だけを、セクション名のすぐ横に残す。
+ */
+export default function SectionHead({ title, aside }: { title: string; aside?: ReactNode }) {
   return (
-    <>
-      <div className="wv-head">
+    <div className="wv-title-row">
+      <h2 className="wv-h2">
         <WaveSource />
-        <span className="wv-lat wv-kicker">{kicker}</span>
-      </div>
-      <div className="wv-title-row">
-        <h2 className="wv-h2">{title}</h2>
-        {aside}
-      </div>
-    </>
+        <span>{title}</span>
+      </h2>
+      {aside}
+    </div>
   );
 }
