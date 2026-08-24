@@ -487,7 +487,7 @@
       },
       "product": {
         "kicker": "03 · PRODUCT",
-        "title": "製品と技術"
+        "title": "プロダクト&テクノロジー"
       },
       "recruit": {
         "kicker": "04 · RECRUIT",
@@ -753,7 +753,7 @@
     },
     "nav": {
       "home": "ホーム",
-      "product": "製品と技術",
+      "product": "プロダクト",
       "news": "ニュース",
       "achievements": "実績",
       "recruit": "採用",

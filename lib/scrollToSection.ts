@@ -1,6 +1,15 @@
 'use client';
 
 /**
+ * 一瞬で飛ばず、スクロールする動きを見せる。
+ * 「動きを減らす」設定の環境では、そのままジャンプに倒す。
+ */
+function scrollBehavior(): ScrollBehavior {
+  if (typeof window === 'undefined') return 'auto';
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+}
+
+/**
  * 同じページ内のセクションへスクロールする。
  *
  * 呼び出し元がすでにホームにいる場合だけ処理し、true を返す
@@ -15,7 +24,7 @@ export function scrollToSectionIfHome(hash: string, pathname: string, locale: st
   const target = document.getElementById(hash);
   if (!target) return false;
 
-  target.scrollIntoView({ block: 'start' });
+  target.scrollIntoView({ block: 'start', behavior: scrollBehavior() });
   history.replaceState(null, '', `${home}#${hash}`);
   return true;
 }
@@ -50,7 +59,7 @@ export function scrollToHashOnMount(): () => void {
   if (!hash) return () => {};
 
   const scroll = () => {
-    document.getElementById(hash)?.scrollIntoView({ block: 'start' });
+    document.getElementById(hash)?.scrollIntoView({ block: 'start', behavior: scrollBehavior() });
   };
 
   let settleTimer: ReturnType<typeof setTimeout>;

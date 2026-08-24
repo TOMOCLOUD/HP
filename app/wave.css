@@ -1094,14 +1094,18 @@
   margin-top: 46px;
 }
 
-/* 半円の上端が、そのまま一本の波面になる */
+/* 実機の画面キャプチャは横長なので、縦長のアーチではなく
+   画像の比率そのままの小さめの角丸カードで受ける */
 .wv-arch {
   position: relative;
   width: 100%;
-  max-width: 440px;
-  aspect-ratio: 440 / 580;
+  max-width: 340px;
+  aspect-ratio: 428 / 303;
   margin: 0 auto;
   flex-shrink: 0;
+  background: var(--wv-rule-1);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .wv-arch-rings {
@@ -1118,10 +1122,9 @@
   position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: 50% 50%;
   display: block;
-  border-radius: 50% 50% 24px 24px / 38% 38% 24px 24px;
 }
 
 .wv-eyebrow {
