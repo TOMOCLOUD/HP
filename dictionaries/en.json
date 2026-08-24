@@ -520,5 +520,303 @@
       "invalidEmail": "Please enter a valid email address.",
       "sendFail": "Failed to send. Please try again later."
     }
+  },
+  "top": {
+    "hero": {
+      "badge": "A medical device startup out of Chiba University",
+      "title": "Catch lymphedema early,\nand ease the days after treatment.",
+      "sub": "We are developing non-invasive monitoring devices based on electrical impedance tomography (EIT).",
+      "taglineJa": "Visualize the New Self",
+      "taglineEn": "VISUALIZE THE NEW SELF",
+      "photoAlt": ""
+    },
+    "partners": {
+      "jst": "Japan Science and Technology Agency (JST)",
+      "gtie": "GTIE",
+      "amed": "Japan Agency for Medical Research and Development (AMED)",
+      "nedo": "New Energy and Industrial Technology Development Organization (NEDO)"
+    },
+    "sections": {
+      "news": {
+        "kicker": "01 · NEWS",
+        "title": "News",
+        "more": "All news"
+      },
+      "mission": {
+        "kicker": "02 · MISSION",
+        "title": "What we are after"
+      },
+      "product": {
+        "kicker": "03 · PRODUCT",
+        "title": "Product & technology"
+      },
+      "recruit": {
+        "kicker": "04 · RECRUIT",
+        "title": "Join us",
+        "more": "See openings on Wantedly"
+      },
+      "lymphedema": {
+        "kicker": "05 · LYMPHEDEMA",
+        "title": "About lymphedema"
+      },
+      "survey": {
+        "kicker": "06 · SURVEY",
+        "title": "A request for your input"
+      },
+      "team": {
+        "kicker": "07 · TEAM",
+        "title": "Team"
+      },
+      "message": {
+        "kicker": "08 · MESSAGE",
+        "title": "From the founder"
+      },
+      "contact": {
+        "kicker": "09 · CONTACT",
+        "title": "Contact"
+      },
+      "about": {
+        "kicker": "10 · ABOUT",
+        "title": "Company"
+      }
+    },
+    "news": {
+      "legend": [
+        {
+          "key": "adoption",
+          "label": "Selected"
+        },
+        {
+          "key": "award",
+          "label": "Award"
+        },
+        {
+          "key": "media",
+          "label": "In the press"
+        }
+      ],
+      "note": "The last eight items: three selections, one award, two press features. Includes the founder's own research record.",
+      "featured": {
+        "date": "2026.07.30",
+        "tag": "Selected",
+        "tagKey": "adoption",
+        "org": "AMED",
+        "title": "Selected for the AMED Translational Research Program, University of Tsukuba hub — Medical Startup Support Program [S2]",
+        "text": "The project \"R&D toward regulatory approval and market launch of an early-diagnosis device for lymphedema\" (PI: Ryoma Ogawa) was selected. Work now moves toward approval and launch."
+      },
+      "items": [
+        {
+          "date": "2026.07.09",
+          "tag": "Talk",
+          "tagKey": "plain",
+          "org": "",
+          "title": "CEO Ryoma Ogawa spoke at GTIE DEMO DAY 2026."
+        },
+        {
+          "date": "2026.04.16",
+          "tag": "Exhibit",
+          "tagKey": "plain",
+          "org": "",
+          "title": "TOMOCLOUD will exhibit at Medtec Japan 2026."
+        },
+        {
+          "date": "2026.03.02",
+          "tag": "In the press",
+          "tagKey": "media",
+          "org": "Forbes Japan",
+          "title": "Featured in Forbes Japan's \"30 EMERGING DEEPTECH\"."
+        },
+        {
+          "date": "2025.10.31",
+          "tag": "In the press",
+          "tagKey": "media",
+          "org": "Nikkan Kogyo Shimbun",
+          "title": "TOMOCLOUD was covered by Nikkan Kogyo Shimbun."
+        },
+        {
+          "date": "2025.09.06",
+          "tag": "Award",
+          "tagKey": "award",
+          "org": "Founder's research record",
+          "title": "Best Presentation Award, 9th Annual Meeting of the Japanese Society of Lymphedema Treatment"
+        },
+        {
+          "date": "2025.08.20",
+          "tag": "Selected",
+          "tagKey": "adoption",
+          "org": "Founder's research record",
+          "title": "Final selection, Beyond Japan Zero to X Program"
+        },
+        {
+          "date": "2025.07.30",
+          "tag": "Selected",
+          "tagKey": "adoption",
+          "org": "Founder's research record",
+          "title": "Selected for the GTIE-GAP Fund, entry course"
+        }
+      ]
+    },
+    "mission": {
+      "left": "For most people, keeping track of their own health day to day is not easy. The ways to monitor the body and its tissues casually are limited.",
+      "statement": "Creating a society where\nvisualization lets everyone\nlive as themselves",
+      "emphasis": "Turning the unseen into the seen.",
+      "right": "TOMOCLOUD is solving that problem, so that each person can live as themselves.",
+      "en": "Enabling authentic lives through\nthe power of visualization."
+    },
+    "product": {
+      "eyebrow": "In development",
+      "name": "LT monitor",
+      "lead": "A lymphedema monitoring device built on EIT. It reconstructs the distribution of water and protein inside the body as an image, with the aim of making everyday, continuous assessment possible. Clinical validation is under way alongside development.",
+      "note": "We are also developing LT monitor Lite for checks at home, and are collecting feedback on its usability through a survey.",
+      "disclaimerLabel": "On our development stage",
+      "disclaimer": "This product is in research and development and has not been approved as a medical device. This page describes our development status and does not claim any efficacy or effect.",
+      "archAlt": "The LT monitor prototype",
+      "techEyebrow": "Core technology",
+      "techTitle": "Electrical impedance\ntomography",
+      "techLead": "Electrodes placed on the skin inject a weak current, and the resulting voltages are measured to reconstruct the distribution of electrical impedance inside the body as a cross-sectional image. No radiation, no incision, and it can be repeated as often as needed.",
+      "techNote": "TOMOCLOUD was founded in August 2025 on EIT research from the Takei Laboratory at Chiba University.",
+      "eitAria": "How a rotating pair of electrodes measures voltages, and the inverse problem is solved to reconstruct the impedance distribution of a cross-section",
+      "measureLabel": "MEASURE",
+      "reconstructLabel": "RECONSTRUCT",
+      "realtimeLabel": "EIT RECONSTRUCTION · REALTIME",
+      "pipeline": [
+        {
+          "n": "1",
+          "name": "Inject current",
+          "text": "A weak alternating current is driven through a pair of opposing electrodes."
+        },
+        {
+          "n": "2",
+          "name": "Measure voltage",
+          "text": "The potential differences across the remaining electrodes are read. Rotating the pair once collects one frame."
+        },
+        {
+          "n": "3",
+          "name": "Reconstruct",
+          "text": "The inverse problem is solved to estimate the impedance distribution of the cross-section."
+        }
+      ],
+      "craftQuote": "From the measurement circuits to the software that assembles the cross-section, we build it ourselves.",
+      "craftNote": "We build measurement boards while watching the waveforms, measure, and fix. The device is still a prototype.",
+      "craftCta": "We are looking for people to build it with",
+      "probeAlt": "A hand touching a probe to a board while watching an oscilloscope waveform",
+      "circuitAlt": "Close-up of a measurement board lined with D-sub connectors"
+    },
+    "recruit": {
+      "lead": "We are at the stage of carrying technology out of a university lab all the way to a medical device patients can actually use. Much of it has no precedent, so the work means deciding as we go.",
+      "jobs": [
+        {
+          "type": "Full-time",
+          "title": "Regulatory Affairs & Quality Assurance Lead",
+          "detail": "Building our QMS and preparing the documentation for regulatory submission.",
+          "source": "LinkedIn",
+          "url": "https://www.linkedin.com/jobs/view/4445189680/"
+        },
+        {
+          "type": "Full-time",
+          "title": "R&D Lead",
+          "detail": "Implementing image reconstruction algorithms, and designing and evaluating the device.",
+          "source": "JREC-IN Portal",
+          "url": "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278"
+        }
+      ]
+    },
+    "lymphedema": {
+      "p1": "Lymphedema is swelling in the limbs caused by stagnant lymphatic flow. Beyond the visible change, it brings pain and heaviness, and it affects the quality of daily life and work.",
+      "p2": "Early detection and continuous observation matter, but simple, non-invasive ways to do that have been limited. With EIT we are building a monitoring method light enough to keep up in everyday life.",
+      "stats": [
+        {
+          "label": "Incidence of lymphedema after breast cancer surgery",
+          "value": "[source to be confirmed]",
+          "source": "The figure and its source will be confirmed internally before publication"
+        },
+        {
+          "label": "Estimated patients in Japan",
+          "value": "[source to be confirmed]",
+          "source": "A medical figure, so the source will be cited"
+        }
+      ]
+    },
+    "survey": {
+      "lead": "As we develop LT monitor Lite, a device for checking swelling at home, we are asking about the difficulties you face day to day and the features you feel would help. Responses are aggregated anonymously and used for nothing but improving the product.",
+      "cta": "Answer the survey"
+    },
+    "team": {
+      "members": [
+        {
+          "role": "CEO / FOUNDER",
+          "name": "Ryoma Ogawa",
+          "title": "Visiting Associate Professor, Chiba University",
+          "image": "/Image/Ogawa_image.png"
+        },
+        {
+          "role": "TECHNICAL ADVISER",
+          "name": "Masahiro Takei",
+          "title": "Professor, Graduate School of Engineering, Chiba University",
+          "image": "/Image/Takei_image.jpg"
+        },
+        {
+          "role": "CO-FOUNDER",
+          "name": "Yuta Kinouchi",
+          "title": "",
+          "image": "/Image/Kinouchi_image.jpg"
+        },
+        {
+          "role": "PRODUCT LEAD",
+          "name": "Ryuga Hashimoto",
+          "title": "",
+          "image": "/Image/Hashimoto_image.jpg"
+        }
+      ]
+    },
+    "message": {
+      "quote": "One patient told me that not being able to see the state of their own body was the hardest part. That sentence is still where the work starts. What can engineering do here? That question is what turned measurements in a lab into a decision to build a product.",
+      "role": "CEO / FOUNDER",
+      "name": "Ryoma Ogawa",
+      "alt": "Ryoma Ogawa",
+      "more": "Read the full message"
+    },
+    "contact": {
+      "lead": "For joint research, press enquiries, or hiring, please reach us here.",
+      "tel": "+81-43-290-3105",
+      "email": "info@tomocloud.co.jp",
+      "fields": {
+        "name": "Name",
+        "org": "Company / organisation",
+        "email": "Email address",
+        "phone": "Phone number",
+        "body": "Your message"
+      },
+      "optional": "optional",
+      "submit": "Send",
+      "sending": "Sending…",
+      "privacyPrefix": "By sending this form you agree to our ",
+      "privacyLink": "privacy policy",
+      "privacySuffix": ".",
+      "done": "Thank you. We will get back to you shortly.",
+      "errors": {
+        "missing": "Name, email address and message are required.",
+        "invalidEmail": "That email address does not look valid.",
+        "sendFail": "Sending failed. Please try again in a little while."
+      }
+    },
+    "footer": {
+      "pages": "PAGES",
+      "links": "LINKS",
+      "copyright": "© 2026 TOMOCLOUD, Inc."
+    },
+    "nav": {
+      "home": "Home",
+      "product": "Product",
+      "news": "News",
+      "achievements": "Achievements",
+      "recruit": "Recruit",
+      "contact": "Contact",
+      "about": "Company",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "toEn": "Switch to English",
+      "toJa": "Switch to Japanese"
+    }
   }
 }

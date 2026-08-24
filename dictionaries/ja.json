@@ -522,5 +522,303 @@
       "invalidEmail": "メールアドレスの形式が正しくありません。",
       "sendFail": "送信に失敗しました。時間をおいて再度お試しください。"
     }
+  },
+  "top": {
+    "hero": {
+      "badge": "千葉大学発　医療機器スタートアップ",
+      "title": "リンパ浮腫の早期発見で、\n治療後の毎日に安心を。",
+      "sub": "電気インピーダンス・トモグラフィ（EIT）による非侵襲モニタリング機器を開発しています。",
+      "taglineJa": "新しい自分が視える世界へ",
+      "taglineEn": "VISUALIZE THE NEW SELF",
+      "photoAlt": ""
+    },
+    "partners": {
+      "jst": "国立研究開発法人 科学技術振興機構（JST）",
+      "gtie": "GTIE",
+      "amed": "国立研究開発法人 日本医療研究開発機構（AMED）",
+      "nedo": "国立研究開発法人 新エネルギー・産業技術総合開発機構（NEDO）"
+    },
+    "sections": {
+      "news": {
+        "kicker": "01 · NEWS",
+        "title": "ニュース",
+        "more": "ニュース一覧へ"
+      },
+      "mission": {
+        "kicker": "02 · MISSION",
+        "title": "目指すもの"
+      },
+      "product": {
+        "kicker": "03 · PRODUCT",
+        "title": "製品と技術"
+      },
+      "recruit": {
+        "kicker": "04 · RECRUIT",
+        "title": "採用",
+        "more": "Wantedly で募集を見る"
+      },
+      "lymphedema": {
+        "kicker": "05 · LYMPHEDEMA",
+        "title": "リンパ浮腫とは"
+      },
+      "survey": {
+        "kicker": "06 · SURVEY",
+        "title": "アンケート協力のお願い"
+      },
+      "team": {
+        "kicker": "07 · TEAM",
+        "title": "チーム"
+      },
+      "message": {
+        "kicker": "08 · MESSAGE",
+        "title": "代表より"
+      },
+      "contact": {
+        "kicker": "09 · CONTACT",
+        "title": "お問い合わせ"
+      },
+      "about": {
+        "kicker": "10 · ABOUT",
+        "title": "会社概要"
+      }
+    },
+    "news": {
+      "legend": [
+        {
+          "key": "adoption",
+          "label": "採択"
+        },
+        {
+          "key": "award",
+          "label": "受賞"
+        },
+        {
+          "key": "media",
+          "label": "媒体掲載"
+        }
+      ],
+      "note": "直近8件。うち採択3・受賞1・媒体掲載2。創業者個人の研究実績を含みます。",
+      "featured": {
+        "date": "2026.07.30",
+        "tag": "採択",
+        "tagKey": "adoption",
+        "org": "AMED",
+        "title": "AMED橋渡し研究プログラム 筑波大学拠点「大学発医療系スタートアップ支援プログラム【S2】」に採択されました",
+        "text": "課題名「リンパ浮腫早期診断装置の薬事承認・上市に向けた研究開発」（代表者：小川良磨）が採択されました。薬事承認と上市に向けた開発を進めます。"
+      },
+      "items": [
+        {
+          "date": "2026.07.09",
+          "tag": "登壇",
+          "tagKey": "plain",
+          "org": "",
+          "title": "GTIE DEMO DAY 2026 に小川良磨CEOが登壇しました。"
+        },
+        {
+          "date": "2026.04.16",
+          "tag": "出展",
+          "tagKey": "plain",
+          "org": "",
+          "title": "株式会社TOMOCLOUDが、メドテックジャパン2026に出展します。"
+        },
+        {
+          "date": "2026.03.02",
+          "tag": "媒体掲載",
+          "tagKey": "media",
+          "org": "Forbes Japan",
+          "title": "Forbes Japan「30 EMERGING DEEPTECH」に掲載されました。"
+        },
+        {
+          "date": "2025.10.31",
+          "tag": "媒体掲載",
+          "tagKey": "media",
+          "org": "日刊工業新聞",
+          "title": "日刊工業新聞に株式会社TOMOCLOUDが掲載されました。"
+        },
+        {
+          "date": "2025.09.06",
+          "tag": "受賞",
+          "tagKey": "award",
+          "org": "創業者の研究実績",
+          "title": "第9回日本リンパ浮腫治療学会学術総会 最優秀演題賞"
+        },
+        {
+          "date": "2025.08.20",
+          "tag": "採択",
+          "tagKey": "adoption",
+          "org": "創業者の研究実績",
+          "title": "Beyond Japan Zero to X Program 最終採択"
+        },
+        {
+          "date": "2025.07.30",
+          "tag": "採択",
+          "tagKey": "adoption",
+          "org": "創業者の研究実績",
+          "title": "GTIE-GAPファンド エントリーコース 採択"
+        }
+      ]
+    },
+    "mission": {
+      "left": "多くの人にとって、日常の中で自分の健康状態を継続的に把握するのは簡単ではありません。体や組織を手軽にモニタリングできる手段も限られています。",
+      "statement": "視える化技術により、\n全ての人が自分らしく\n生きられる社会を創造する",
+      "emphasis": "「見えない」を「視える」に。",
+      "right": "私たちTOMOCLOUDはこの課題を解き、一人ひとりが自分らしく生きられる社会をつくります。",
+      "en": "Enabling authentic lives through\nthe power of visualization."
+    },
+    "product": {
+      "eyebrow": "開発中の製品",
+      "name": "LT monitor",
+      "lead": "EITにもとづくリンパ浮腫モニタリング装置です。体内の水分やタンパク質の分布を画像として再構成し、日常的かつ継続的な状態評価を可能にすることを目指して開発を進めています。臨床現場での検証もあわせて行っているところです。",
+      "note": "自宅での確認を想定した「LTモニタLite」も開発しており、アンケートで使い勝手のご意見をうかがっています。",
+      "disclaimerLabel": "開発段階について",
+      "disclaimer": "本製品は研究開発段階であり、医療機器としての承認は取得していません。本ページは開発状況の紹介であり、効能または効果を示すものではありません。",
+      "archAlt": "LT monitor の試作機",
+      "techEyebrow": "基盤技術",
+      "techTitle": "電気インピーダンス・\nトモグラフィ",
+      "techLead": "体表に並べた電極から微弱な電流を流し、生じた電位を測ることで、体内の電気インピーダンス分布を断面画像として再構成する技術です。放射線を使わず、切らずに、繰り返し測れます。",
+      "techNote": "TOMOCLOUDは、千葉大学 武居研究室におけるEIT研究を基盤として2025年8月に設立されました。",
+      "eitAria": "電極ペアを回しながら電位を測り、逆問題を解いて断面のインピーダンス分布を再構成するまでの流れ",
+      "measureLabel": "MEASURE",
+      "reconstructLabel": "RECONSTRUCT",
+      "realtimeLabel": "EIT RECONSTRUCTION · REALTIME",
+      "pipeline": [
+        {
+          "n": "1",
+          "name": "電流注入",
+          "text": "対向する電極ペアに、微弱な交流電流を流します。"
+        },
+        {
+          "n": "2",
+          "name": "電位計測",
+          "text": "残りの電極間の電位差を読みます。ペアを一周させて、1フレーム分を集めます。"
+        },
+        {
+          "n": "3",
+          "name": "画像再構成",
+          "text": "逆問題を解き、断面のインピーダンス分布を推定します。"
+        }
+      ],
+      "craftQuote": "計測する回路から、断面を組み立てるソフトウェアまで、自分たちで作っています。",
+      "craftNote": "波形を見ながら計測基板を作り、測っては直しています。装置はまだ試作の段階です。",
+      "craftCta": "一緒に作る人を探しています",
+      "probeAlt": "オシロスコープの波形を見ながら、基板にプローブを当てる手",
+      "circuitAlt": "D-subコネクタが並んだ計測基板の接写"
+    },
+    "recruit": {
+      "lead": "大学の研究室から出てきた技術を、患者さんが実際に使える医療機器にするところまで持っていく段階です。前例のない部分が多く、決めながら進む仕事になります。",
+      "jobs": [
+        {
+          "type": "正社員",
+          "title": "薬事・品質保証リード",
+          "detail": "QMSの構築と、承認申請に向けた文書整備を担っていただきます。",
+          "source": "LinkedIn",
+          "url": "https://www.linkedin.com/jobs/view/4445189680/"
+        },
+        {
+          "type": "正社員",
+          "title": "研究開発リード",
+          "detail": "画像再構成アルゴリズムの実装と、装置の設計・評価を担っていただきます。",
+          "source": "JREC-IN Portal",
+          "url": "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278"
+        }
+      ]
+    },
+    "lymphedema": {
+      "p1": "リンパ液の流れが滞ることで四肢にむくみが生じる病気です。見た目の変化だけでなく、痛みや重だるさを伴い、日常生活や仕事の質にも影響します。",
+      "p2": "早期発見と継続的な観察が大切ですが、簡便かつ非侵襲に行える方法は限られてきました。私たちはEITによって、日常の中でも負担なく続けられるモニタリング手法をつくろうとしています。",
+      "stats": [
+        {
+          "label": "乳がん術後のリンパ浮腫 発症率",
+          "value": "［要出典確認］",
+          "source": "数値と出典を社内確認のうえ確定します"
+        },
+        {
+          "label": "国内の推定患者数",
+          "value": "［要出典確認］",
+          "source": "医学的数値のため出典を明記します"
+        }
+      ]
+    },
+    "survey": {
+      "lead": "むくみを自宅で確認できる機器「LTモニタLite」の開発にあたり、日々の困りごとや「こういう機能があると助かる」と感じる点をうかがっています。回答は匿名で集計し、製品の改善以外には使いません。",
+      "cta": "アンケートに回答する"
+    },
+    "team": {
+      "members": [
+        {
+          "role": "CEO / FOUNDER",
+          "name": "小川 良磨",
+          "title": "千葉大学 客員准教授",
+          "image": "/Image/Ogawa_image.png"
+        },
+        {
+          "role": "TECHNICAL ADVISER",
+          "name": "武居 昌宏",
+          "title": "千葉大学 大学院工学研究院 教授",
+          "image": "/Image/Takei_image.jpg"
+        },
+        {
+          "role": "CO-FOUNDER",
+          "name": "木内 悠太",
+          "title": "",
+          "image": "/Image/Kinouchi_image.jpg"
+        },
+        {
+          "role": "PRODUCT LEAD",
+          "name": "橋本 竜我",
+          "title": "",
+          "image": "/Image/Hashimoto_image.jpg"
+        }
+      ]
+    },
+    "message": {
+      "quote": "ある患者さんの「からだの状態が見えないことがいちばん不安だ」という言葉が、いまも仕事の起点にあります。工学の側から関われることは何か。その問いが、研究室での測定を製品にする決断につながりました。",
+      "role": "CEO / FOUNDER",
+      "name": "小川 良磨",
+      "alt": "小川 良磨",
+      "more": "メッセージの全文を読む"
+    },
+    "contact": {
+      "lead": "共同研究、取材、採用に関するご相談はこちらからお願いします。",
+      "tel": "043-290-3105",
+      "email": "info@tomocloud.co.jp",
+      "fields": {
+        "name": "お名前",
+        "org": "会社・組織名",
+        "email": "メールアドレス",
+        "phone": "電話番号",
+        "body": "お問い合わせ内容"
+      },
+      "optional": "任意",
+      "submit": "送信する",
+      "sending": "送信中…",
+      "privacyPrefix": "送信をもって",
+      "privacyLink": "プライバシーポリシー",
+      "privacySuffix": "に同意いただいたものとします。",
+      "done": "送信しました。折り返しご連絡いたします。",
+      "errors": {
+        "missing": "お名前・メールアドレス・お問い合わせ内容は必須です。",
+        "invalidEmail": "メールアドレスの形式が正しくありません。",
+        "sendFail": "送信に失敗しました。時間をおいて再度お試しください。"
+      }
+    },
+    "footer": {
+      "pages": "PAGES",
+      "links": "LINKS",
+      "copyright": "© 2026 TOMOCLOUD, Inc."
+    },
+    "nav": {
+      "home": "ホーム",
+      "product": "製品と技術",
+      "news": "ニュース",
+      "achievements": "実績",
+      "recruit": "採用",
+      "contact": "お問い合わせ",
+      "about": "会社概要",
+      "openMenu": "メニューを開く",
+      "closeMenu": "メニューを閉じる",
+      "toEn": "英語に切り替え",
+      "toJa": "日本語に切り替え"
+    }
   }
 }

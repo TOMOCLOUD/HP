@@ -1,19 +1,13 @@
 // app/[locale]/layout.tsx
-import Header from '@/app/Header';
-import Footer from '@/components/Footer';
-import LocaleToggle from '@/components/LocaleToggle';
+import SiteHeader from '@/components/wave/SiteHeader';
+import SiteFooter from '@/components/wave/SiteFooter';
 
-export default function LocaleLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function LocaleLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header />
-      <main className="flex-1 pt-20">{children}</main>
-      <Footer />
-      <LocaleToggle />
+      <SiteHeader />
+      <main className="flex-1">{children}</main>
+      <SiteFooter />
     </>
   );
 }

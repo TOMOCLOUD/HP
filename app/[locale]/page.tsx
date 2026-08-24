@@ -1,36 +1,71 @@
 'use client';
 
-import { useImageFallback } from '@/lib/imageUtils';
-import { useRevealOnScroll } from '@/lib/useRevealOnScroll';
-import Hero from '@/components/home/Hero';
-import VisionSection from '@/components/home/VisionSection';
-import QuestionnaireCard from '@/components/home/QuestionnaireCard';
-import { ValuesSection } from '@/components/home/ValuesSection';
-import TeamSection from '@/components/home/TeamSection';
-import MessageSection from '@/components/home/MessageSection';
-import NewsSection from '@/components/home/NewsSection';
-import RecruitSection from '@/components/home/RecruitSection';
-import AboutSection from '@/components/home/AboutSection';
+import { useDict } from '@/lib/useDict';
+import { useWavePropagation } from '@/lib/useWavePropagation';
+import ContourField from '@/components/home/wave/ContourField';
+import HeroSection from '@/components/home/wave/HeroSection';
+import PartnerLogos from '@/components/home/wave/PartnerLogos';
+import NewsSection from '@/components/home/wave/NewsSection';
+import MissionSection from '@/components/home/wave/MissionSection';
+import ProductSection from '@/components/home/wave/ProductSection';
+import RecruitSection from '@/components/home/wave/RecruitSection';
+import LymphedemaSection from '@/components/home/wave/LymphedemaSection';
+import SurveySection from '@/components/home/wave/SurveySection';
+import TeamSection from '@/components/home/wave/TeamSection';
+import MessageSection from '@/components/home/wave/MessageSection';
+import ContactSection from '@/components/home/wave/ContactSection';
+import AboutSection from '@/components/home/wave/AboutSection';
 
-function HomePage() {
-  useRevealOnScroll();
-  const onImgError = useImageFallback();
+/**
+ * トップページ。干渉（白）案。
+ *
+ * ページ全体を線と余白だけで組む。塗った面はアンケートと送信のボタン、
+ * EIT の再構成画面、それに写真だけ。
+ *
+ * ホームの写真のふちから生まれた波が外へ広がり、そのうちの一本が
+ * ページの下へ向かって出発する。14秒かけて下まで降りきり、
+ * 通り過ぎたセクションの波源が順に発火する。
+ */
+export default function LocaleHome() {
+  const { dict, locale } = useDict();
+  useWavePropagation();
+
+  const t = dict?.top;
+  const s = t?.sections;
 
   return (
-    <div className="bg-white min-h-screen text-gray-900">
-      <Hero />
-      <VisionSection onImgError={onImgError} />
-      <QuestionnaireCard />
-      <ValuesSection />
-      <TeamSection onImgError={onImgError} />
-      <MessageSection onImgError={onImgError} />
-      <NewsSection onImgError={onImgError} />
-      <RecruitSection />
-      <AboutSection />
+    <div className="wv">
+      <ContourField />
+
+      <HeroSection t={t?.hero} />
+      <PartnerLogos t={t?.partners} />
+
+      <div id="news" className="wv-anchor">
+        <NewsSection t={t?.news} head={s?.news} locale={locale} />
+      </div>
+
+      <MissionSection t={t?.mission} head={s?.mission} values={dict?.home?.values} />
+
+      <div id="product" className="wv-anchor">
+        <ProductSection t={t?.product} head={s?.product} recruitHref={`/${locale}/recruit`} />
+      </div>
+
+      <div id="recruit" className="wv-anchor">
+        <RecruitSection t={t?.recruit} head={s?.recruit} />
+      </div>
+
+      <LymphedemaSection t={t?.lymphedema} head={s?.lymphedema} />
+      <SurveySection t={t?.survey} head={s?.survey} />
+      <TeamSection t={t?.team} head={s?.team} />
+      <MessageSection t={t?.message} head={s?.message} />
+
+      <div id="contact" className="wv-anchor">
+        <ContactSection t={t?.contact} head={s?.contact} />
+      </div>
+
+      <div id="about" className="wv-anchor">
+        <AboutSection about={dict?.home?.about} head={s?.about} />
+      </div>
     </div>
   );
-}
-
-export default function LocaleHome() {
-  return <HomePage />;
 }

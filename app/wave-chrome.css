@@ -1,0 +1,278 @@
+/* ============================================================
+   干渉（白）— サイト共通のヘッダーとフッター
+
+   色と罫の変数は wave.css の :root 側で定義している。
+   ============================================================ */
+
+/* ============================================================
+   ヘッダー
+   ロゴと項目名だけ。地は白のままで、下端に髪の毛ほどの罫を一本
+   ============================================================ */
+.wv-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #fff;
+  border-bottom: 1px solid var(--wv-rule-2);
+  font-family: var(--font-murecho), "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+.wv-header-bar {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 0 22px;
+}
+
+.wv-header-logo img {
+  display: block;
+  width: auto;
+  height: 24px;
+}
+
+.wv-header-nav {
+  display: none;
+}
+
+.wv-header-burger {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 0;
+  background: transparent;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.wv-header-burger span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--wv-ink);
+}
+
+.wv-header-link {
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--wv-muted);
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+}
+
+.wv-header-link:hover {
+  color: var(--wv-ink);
+  border-bottom-color: var(--wv-rule-6);
+}
+
+.wv-header-link[aria-current="page"] {
+  color: var(--wv-ink);
+}
+
+.wv-header-locale {
+  border: 0;
+  border-left: 1px solid var(--wv-rule-4);
+  border-radius: 0;
+  background: transparent;
+  padding: 2px 0 2px 24px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--wv-muted);
+  cursor: pointer;
+}
+
+.wv-header-locale:hover {
+  color: var(--wv-link);
+}
+
+@media (min-width: 1024px) {
+  .wv-header-bar {
+    height: 88px;
+    padding: 0 60px;
+  }
+
+  .wv-header-logo img {
+    height: 28px;
+  }
+
+  .wv-header-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-left: auto;
+  }
+
+  .wv-header-burger {
+    display: none;
+  }
+}
+
+/* モバイルの引き出し。地は白のまま、項目は罫で区切る */
+.wv-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: #fff;
+  padding: 64px 22px 22px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 240ms ease, visibility 240ms ease;
+}
+
+.wv-drawer[data-open="true"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.wv-drawer-close {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: var(--wv-ink);
+  cursor: pointer;
+}
+
+.wv-drawer-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.wv-drawer-nav a,
+.wv-drawer-nav button {
+  border: 0;
+  border-top: 1px solid var(--wv-rule-2);
+  border-radius: 0;
+  background: transparent;
+  padding: 20px 2px;
+  font: inherit;
+  font-size: 17px;
+  letter-spacing: 0.09em;
+  color: var(--wv-ink);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.wv-drawer-nav button {
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--wv-muted);
+}
+
+@media (min-width: 1024px) {
+  .wv-drawer {
+    display: none;
+  }
+}
+
+/* ============================================================
+   フッター
+   ============================================================ */
+.wv-footer {
+  background: #fff;
+  color: var(--wv-ink);
+  font-family: var(--font-murecho), "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+.wv-footer a {
+  color: var(--wv-body);
+  text-decoration: none;
+}
+
+.wv-footer a:hover {
+  color: var(--wv-link);
+}
+
+.wv-footer-inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 22px 40px;
+}
+
+.wv-footer-brand {
+  grid-column: 1 / -1;
+}
+
+.wv-footer-brand img {
+  display: block;
+  width: auto;
+  height: 24px;
+  margin-bottom: 20px;
+}
+
+.wv-footer-address {
+  font-size: 13px;
+  line-height: 2.1;
+  letter-spacing: 0.03em;
+  color: var(--wv-muted);
+}
+
+.wv-footer-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--wv-muted);
+  margin-bottom: 14px;
+  min-height: 18px;
+}
+
+.wv-footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 2.3;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.wv-footer-copy {
+  grid-column: 1 / -1;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--wv-muted);
+}
+
+@media (min-width: 1024px) {
+  .wv-footer-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+    padding: 64px 60px 56px;
+  }
+
+  .wv-footer-brand {
+    width: 360px;
+    flex-shrink: 0;
+  }
+
+  .wv-footer-brand img {
+    height: 26px;
+    margin-bottom: 24px;
+  }
+
+  /* 文字数の言語差で折り返さないよう、列は縮めない */
+  .wv-footer-col {
+    flex-shrink: 0;
+  }
+
+  .wv-footer-copy {
+    margin-left: auto;
+    flex-shrink: 0;
+    align-self: flex-end;
+    white-space: nowrap;
+  }
+}
