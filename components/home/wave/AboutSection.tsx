@@ -19,12 +19,16 @@ export default function AboutSection({
   head?: { title?: string };
 }) {
   return (
-    <section className="wv-wrap" style={{ paddingBottom: 'var(--wv-sec-gap)' }}>
+    <section
+      className="wv-wrap"
+      style={{ paddingBottom: 'var(--wv-sec-gap)' }}
+      data-wv-reveal
+    >
       <SectionHead title={head?.title ?? ''} />
 
       <div style={{ marginTop: 40 }}>
         {ROWS.map((r) => (
-          <div key={String(r.value)} className="wv-about-row">
+          <div key={String(r.value)} className="wv-about-row" data-wv-rv>
             <div className="wv-about-key">{about?.[r.label]}</div>
             <div className="wv-about-value">{about?.[r.value]}</div>
           </div>

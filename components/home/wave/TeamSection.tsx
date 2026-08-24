@@ -162,7 +162,7 @@ export default function TeamSection({
   const detailFor = (m: Member) => (m.key ? details?.[m.key] : undefined);
 
   return (
-    <section className="wv-wrap wv-sec">
+    <section className="wv-wrap wv-sec" data-wv-reveal>
       <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-team">
@@ -180,7 +180,13 @@ export default function TeamSection({
 
         <div className="wv-team-grid">
           {(t?.members ?? []).map((m) => (
-            <button key={m.name} type="button" className="wv-member" onClick={() => setActive(m)}>
+            <button
+              key={m.name}
+              type="button"
+              className="wv-member"
+              onClick={() => setActive(m)}
+              data-wv-rv
+            >
               <div className="wv-member-photo">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={m.image} alt={m.name ?? ''} width={224} height={224} />

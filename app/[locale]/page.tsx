@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { useDict } from '@/lib/useDict';
 import { useWavePropagation } from '@/lib/useWavePropagation';
+import { useWaveReveal } from '@/lib/useWaveReveal';
 import { scrollToHashOnMount } from '@/lib/scrollToSection';
 import ContourField from '@/components/home/wave/ContourField';
 import HeroSection from '@/components/home/wave/HeroSection';
@@ -31,6 +32,9 @@ import AboutSection from '@/components/home/wave/AboutSection';
 export default function LocaleHome() {
   const { dict, locale } = useDict();
   useWavePropagation();
+  // 中身が入ってから観測を張る。辞書ロード前は各セクションが空で、
+  // 高さも位置も確定していないため
+  useWaveReveal(!!dict);
 
   // 辞書ロード前は各セクションが空で、まだページの高さが確定していない。
   // 実データが入って高さが確定してから、URL のハッシュへ合わせる。

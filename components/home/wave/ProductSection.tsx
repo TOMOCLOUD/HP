@@ -53,11 +53,11 @@ export default function ProductSection({
   };
 
   return (
-    <section className="wv-wrap wv-sec">
+    <section className="wv-wrap wv-sec" data-wv-reveal>
       <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-product-lead">
-        <div className="wv-arch">
+        <div className="wv-arch" data-wv-rv>
           {/* アーチの半円と同じ中心から、外へ向かって輪を重ねる */}
           <svg className="wv-arch-rings" viewBox="0 0 800 800" fill="none" aria-hidden="true">
             <circle cx="400" cy="400" r="272" stroke="#d2e5f0" strokeWidth="1" />
@@ -68,7 +68,7 @@ export default function ProductSection({
           <img src="/Image/hp/ltmonitor.png" alt={t?.archAlt ?? ''} width={428} height={303} />
         </div>
 
-        <div className="wv-product-body">
+        <div className="wv-product-body" data-wv-rv>
           <p className="wv-lead">{t?.lead}</p>
           <p className="wv-note" style={{ marginTop: 20 }}>
             {t?.note}
@@ -84,7 +84,7 @@ export default function ProductSection({
       </div>
 
       <div className="wv-tech">
-        <div className="wv-tech-text">
+        <div className="wv-tech-text" data-wv-rv>
           <div className="wv-eyebrow">{t?.techEyebrow}</div>
           <div className="wv-tech-title">
             {(t?.techTitle ?? '').split('\n').map((line, i) => (
@@ -96,7 +96,7 @@ export default function ProductSection({
           <p className="wv-lead">{t?.techLead}</p>
         </div>
 
-        <div>
+        <div data-wv-rv>
           <EitDiagram
             ariaLabel={t?.eitAria}
             measureLabel={t?.measureLabel}
@@ -112,7 +112,7 @@ export default function ProductSection({
       {/* 1フレームができるまで */}
       <div className="wv-pipeline">
         {(t?.pipeline ?? []).map((s) => (
-          <div key={s.n} className="wv-pipeline-step">
+          <div key={s.n} className="wv-pipeline-step" data-wv-rv>
             <span className="wv-lat wv-pipeline-n">{s.n}</span>
             <div>
               <div className="wv-pipeline-name">{s.name}</div>
@@ -125,7 +125,7 @@ export default function ProductSection({
       {/* 技術の話を、机の上の実物で受ける。
           写真は大小2枚。比率はおよそ 1 : 0.35、上端をずらして段差をつける */}
       <div className="wv-craft">
-        <div>
+        <div data-wv-rv>
           <p className="wv-craft-quote">{t?.craftQuote}</p>
           <p className="wv-note" style={{ margin: '0 0 26px' }}>
             {t?.craftNote}
@@ -135,7 +135,7 @@ export default function ProductSection({
           </Link>
         </div>
 
-        <div className="wv-craft-photos">
+        <div className="wv-craft-photos" data-wv-rv>
           <div className="wv-craft-photo-lg">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/Image/hp/lab-probe.jpg" alt={t?.probeAlt ?? ''} width={780} height={520} />

@@ -72,14 +72,21 @@ function Row({
 
   if (!item.url) {
     return (
-      <div className={className} style={style}>
+      <div className={className} style={style} data-wv-rv>
         {children}
       </div>
     );
   }
 
   return (
-    <a className={className} style={style} href={item.url} target="_blank" rel="noopener noreferrer">
+    <a
+      className={className}
+      style={style}
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-wv-rv
+    >
       {children}
     </a>
   );
@@ -105,21 +112,40 @@ export default function NewsSection({
   const pads = arcIndents(items.length);
 
   return (
-    <section className="wv-wrap wv-sec">
+    <section className="wv-wrap wv-sec" data-wv-reveal>
       <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-news-list">
-        {/* 行の左端が沿っていく波面。縦は伸ばすが、線の太さは保つ */}
+        {/* 行の左端が沿っていく波面。縦は伸ばすが、線の太さは保つ。
+            pathLength="1" にしてあるのは、登場のときに上から順に引くため
+            （dasharray を長さの実測に依らせないで済む） */}
         <svg
           className="wv-news-arc"
           viewBox="-96 0 190 910"
           preserveAspectRatio="none"
           fill="none"
           aria-hidden="true"
+          data-wv-rv
+          data-wv-rv-draw
         >
-          <path d="M 74.7 0 Q -74.7 455 74.7 910" stroke="#b6d6e9" vectorEffect="non-scaling-stroke" />
-          <path d="M 96 0 Q -53 455 96 910" stroke="#e4eff6" vectorEffect="non-scaling-stroke" />
-          <path d="M 53 0 Q -96 455 53 910" stroke="#e4eff6" vectorEffect="non-scaling-stroke" />
+          <path
+            d="M 74.7 0 Q -74.7 455 74.7 910"
+            stroke="#b6d6e9"
+            vectorEffect="non-scaling-stroke"
+            pathLength={1}
+          />
+          <path
+            d="M 96 0 Q -53 455 96 910"
+            stroke="#e4eff6"
+            vectorEffect="non-scaling-stroke"
+            pathLength={1}
+          />
+          <path
+            d="M 53 0 Q -96 455 53 910"
+            stroke="#e4eff6"
+            vectorEffect="non-scaling-stroke"
+            pathLength={1}
+          />
         </svg>
 
         {/* 最新の一件 */}

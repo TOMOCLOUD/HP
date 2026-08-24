@@ -26,7 +26,7 @@ const FULL_AT_PX = 1500;
 
 export default function PartnerLogos({ t }: { t?: Record<string, string> }) {
   return (
-    <div className="wv-wrap">
+    <div className="wv-wrap" data-wv-reveal>
       <div className="wv-partners">
         {LOGOS.map((logo) => (
           /* eslint-disable-next-line @next/next/no-img-element */
@@ -34,6 +34,7 @@ export default function PartnerLogos({ t }: { t?: Record<string, string> }) {
             key={logo.key}
             src={logo.src}
             alt={t?.[logo.key] ?? logo.key}
+            data-wv-rv
             style={{
               height: `clamp(${logo.hSm}px, ${((logo.h / FULL_AT_PX) * 100).toFixed(2)}vw, ${logo.h}px)`,
             }}

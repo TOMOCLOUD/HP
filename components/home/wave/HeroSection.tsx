@@ -20,27 +20,49 @@ type Hero = {
   photoAlt?: string;
 };
 
+/**
+ * 読み込み直後に順に現れる。落ちた一滴が広げた波が届いた順、という筋なので、
+ * 写真が円に開くのを合図に、バッジ → 見出し → 本文 → タグラインと続く。
+ * 見出しは1行ずつずらす。
+ */
+const HERO_BASE_MS = 260;
+const HERO_LINE_MS = 110;
+const HERO_TAGLINE_MS = 900;
+
 export default function HeroSection({ t }: { t?: Hero }) {
+  const titleLines = (t?.title ?? '').split('\n');
+
   return (
-    <section className="wv-hero">
+    <section className="wv-hero" data-wv-reveal data-wv-reveal-base={HERO_BASE_MS}>
       <div className="wv-hero-calm" />
 
       <div className="wv-hero-inner">
         <div className="wv-hero-text">
-          <div className="wv-hero-badge">
+          <div className="wv-hero-badge" data-wv-rv>
             <i />
             <span>{t?.badge}</span>
           </div>
 
           <h1 className="wv-hero-title">
-            {(t?.title ?? '').split('\n').map((line, i) => (
-              <span key={i} style={{ display: 'block' }}>
+            {titleLines.map((line, i) => (
+              <span
+                key={i}
+                style={{ display: 'block' }}
+                data-wv-rv
+                data-wv-rv-delay={HERO_BASE_MS + 130 + i * HERO_LINE_MS}
+              >
                 {line}
               </span>
             ))}
           </h1>
 
-          <p className="wv-hero-sub">{t?.sub}</p>
+          <p
+            className="wv-hero-sub"
+            data-wv-rv
+            data-wv-rv-delay={HERO_BASE_MS + 130 + titleLines.length * HERO_LINE_MS + 90}
+          >
+            {t?.sub}
+          </p>
         </div>
 
         <div className="wv-hero-photo">
@@ -58,10 +80,18 @@ export default function HeroSection({ t }: { t?: Hero }) {
           </div>
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Image/hp/hero.jpg" alt={t?.photoAlt ?? ''} width={900} height={600} />
+          <img
+            src="/Image/hp/hero.jpg"
+            alt={t?.photoAlt ?? ''}
+            width={900}
+            height={600}
+            data-wv-rv
+            data-wv-rv-circle
+            data-wv-rv-delay={0}
+          />
         </div>
 
-        <div className="wv-hero-tagline">
+        <div className="wv-hero-tagline" data-wv-rv data-wv-rv-delay={HERO_TAGLINE_MS}>
           <div className="wv-hero-tagline-ja">{t?.taglineJa}</div>
           <div className="wv-lat wv-hero-tagline-en">{t?.taglineEn}</div>
         </div>

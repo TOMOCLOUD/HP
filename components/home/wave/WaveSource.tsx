@@ -14,6 +14,8 @@ export function WaveSource() {
       <span className="wv-p wv-p2" />
       <span className="wv-w" />
       <span className="wv-w wv-w2" />
+      {/* セクションが視界に入った瞬間の一打。ふだんは出ない */}
+      <span className="wv-hit" />
       <span className="wv-dot" />
     </span>
   );
@@ -27,7 +29,7 @@ export function WaveSource() {
  */
 export default function SectionHead({ title, aside }: { title: string; aside?: ReactNode }) {
   return (
-    <div className="wv-title-row">
+    <div className="wv-title-row" data-wv-rv>
       <h2 className="wv-h2">
         <WaveSource />
         <span>{title}</span>

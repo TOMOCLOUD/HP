@@ -19,16 +19,16 @@ export default function LymphedemaSection({
   head?: { title?: string };
 }) {
   return (
-    <section className="wv-wrap wv-sec">
+    <section className="wv-wrap wv-sec" data-wv-reveal>
       <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-lymph">
-        <div className="wv-lymph-text">
+        <div className="wv-lymph-text" data-wv-rv>
           <p className="wv-lead">{t?.p1}</p>
           <p className="wv-lead">{t?.p2}</p>
         </div>
 
-        <figure className="wv-lymph-figure">
+        <figure className="wv-lymph-figure" data-wv-rv>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/Image/Lymphedema.png" alt={t?.imageAlt ?? ''} width={1536} height={1024} />
         </figure>
@@ -36,7 +36,7 @@ export default function LymphedemaSection({
 
       <div className="wv-lymph-stats">
         {(t?.stats ?? []).map((s) => (
-          <div key={s.label} className="wv-stat">
+          <div key={s.label} className="wv-stat" data-wv-rv>
             <div className="wv-note" style={{ fontSize: 14 }}>
               {s.label}
             </div>

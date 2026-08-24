@@ -9,11 +9,11 @@ export default function MessageSection({
   head?: { title?: string };
 }) {
   return (
-    <section className="wv-wrap wv-sec">
+    <section className="wv-wrap wv-sec" data-wv-reveal>
       <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-message">
-        <div className="wv-message-photo">
+        <div className="wv-message-photo" data-wv-rv>
           <span />
           <span />
           <span />
@@ -21,7 +21,7 @@ export default function MessageSection({
           <img src="/Image/hp/ogawa.jpg" alt={t?.alt ?? ''} width={460} height={460} />
         </div>
 
-        <div>
+        <div data-wv-rv>
           <p className="wv-message-quote">{t?.quote}</p>
           <div className="wv-message-by">
             <span className="wv-lat wv-message-by-role">{t?.role}</span>

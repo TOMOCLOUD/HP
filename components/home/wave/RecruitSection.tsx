@@ -17,7 +17,7 @@ export default function RecruitSection({
   head?: { title?: string; more?: string };
 }) {
   return (
-    <section className="wv-wrap wv-sec">
+    <section className="wv-wrap wv-sec" data-wv-reveal>
       <SectionHead
         title={head?.title ?? ''}
         aside={
@@ -27,13 +27,13 @@ export default function RecruitSection({
         }
       />
 
-      <p className="wv-lead" style={{ margin: '32px 0 0', maxWidth: 800 }}>
+      <p className="wv-lead" style={{ margin: '32px 0 0', maxWidth: 800 }} data-wv-rv>
         {t?.lead}
       </p>
 
       <div className="wv-jobs">
         {(t?.jobs ?? []).map((j) => (
-          <div key={j.title} className="wv-job">
+          <div key={j.title} className="wv-job" data-wv-rv>
             <div className="wv-job-type">{j.type}</div>
             <div className="wv-job-title">
               {j.url ? (

@@ -98,11 +98,11 @@ export default function ContactSection({
   }
 
   return (
-    <section className="wv-wrap wv-sec">
+    <section className="wv-wrap wv-sec" data-wv-reveal>
       <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-contact">
-        <div>
+        <div data-wv-rv>
           <p className="wv-lead" style={{ margin: '0 0 28px' }}>
             {t?.lead}
           </p>
@@ -113,7 +113,7 @@ export default function ContactSection({
           </div>
         </div>
 
-        <form onSubmit={onSubmit} noValidate>
+        <form onSubmit={onSubmit} noValidate data-wv-rv>
           {/* honeypot: 人間には見えない。bot がこの欄を埋めると送信をブロックする */}
           <div aria-hidden="true" style={{ display: 'none' }}>
             <label htmlFor="wv-company">Company</label>

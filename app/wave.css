@@ -350,6 +350,45 @@
   animation-delay: calc(var(--wv-d, -13s) + 0.3s);
 }
 
+/* セクションが視界に入った瞬間、その場で一度だけ強く打つ一打。
+   常時まわっている 14 秒周期の輪とは別に、登場のときだけ重ねる */
+.wv-src .wv-hit {
+  inset: 0;
+  border: 1px solid var(--wv-accent);
+  opacity: 0;
+}
+
+[data-wv-shown] .wv-src .wv-hit {
+  animation: wv-hit 950ms cubic-bezier(0.15, 0.7, 0.3, 1) 60ms both;
+}
+
+[data-wv-shown] .wv-src .wv-dot {
+  animation: wv-hit-dot 950ms cubic-bezier(0.15, 0.7, 0.3, 1) 60ms both;
+}
+
+@keyframes wv-hit {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(9);
+    opacity: 0;
+  }
+}
+
+@keyframes wv-hit-dot {
+  0% {
+    transform: scale(0.2);
+  }
+  38% {
+    transform: scale(1.55);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 @media (min-width: 1024px) {
   .wv-src {
     width: 10px;
@@ -726,6 +765,60 @@
     justify-content: center;
     gap: 40px clamp(36px, 4vw, 66px);
   }
+}
+
+/* ============================================================
+   登場（波が届いた順に現れる）
+
+   初期の非表示は data-wv-rv-on の下でしか効かない。この属性は
+   useWaveReveal が <html> に立てるので、JS が動かない環境では
+   何も隠れずそのまま読める。
+   動かすのは opacity と transform だけ。高さを動かすとハッシュ遷移の
+   着地位置が狂う
+   ============================================================ */
+/* will-change は敢えて置かない。対象が70近くあり、全部に合成レイヤを
+   立てるとメモリのほうが痛い。opacity と transform だけなら宣言なしでも
+   合成側で処理される */
+[data-wv-rv-on] [data-wv-rv] {
+  opacity: 0;
+  transform: translateY(var(--wv-rv-y, 9px));
+  transition:
+    opacity 720ms ease-out,
+    transform 720ms cubic-bezier(0.2, 0.7, 0.35, 1);
+}
+
+[data-wv-rv-on] [data-wv-rv][data-wv-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+/* 写真は、水面がひらくように円の中心から開く */
+[data-wv-rv-on] [data-wv-rv-circle] {
+  --wv-rv-y: 0px;
+  clip-path: circle(0% at 50% 50%);
+  transition:
+    opacity 720ms ease-out,
+    clip-path 1050ms cubic-bezier(0.2, 0.7, 0.35, 1);
+}
+[data-wv-rv-on] [data-wv-rv-circle][data-wv-shown] {
+  clip-path: circle(75% at 50% 50%);
+}
+
+/* ニュースの弧は、上から下へ引かれる。path は pathLength="1" で
+   正規化してあるので、preserveAspectRatio="none" で縦に伸びても崩れない */
+[data-wv-rv-on] [data-wv-rv-draw] path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1100ms cubic-bezier(0.3, 0.6, 0.3, 1);
+}
+[data-wv-rv-on] [data-wv-rv-draw][data-wv-shown] path {
+  stroke-dashoffset: 0;
+}
+[data-wv-rv-on] [data-wv-rv-draw] path:nth-child(2) {
+  transition-delay: 120ms;
+}
+[data-wv-rv-on] [data-wv-rv-draw] path:nth-child(3) {
+  transition-delay: 210ms;
 }
 
 /* ============================================================

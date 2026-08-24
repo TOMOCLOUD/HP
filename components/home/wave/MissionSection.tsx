@@ -35,7 +35,7 @@ export default function MissionSection({
   values?: Value[];
 }) {
   return (
-    <section className="wv-wrap wv-sec">
+    <section className="wv-wrap wv-sec" data-wv-reveal>
       <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-mission">
@@ -54,14 +54,16 @@ export default function MissionSection({
 
         <div className="wv-mission-inner">
           <div className="wv-mission-cols">
-            <p className="wv-lead wv-mission-col-left">{t?.left}</p>
+            <p className="wv-lead wv-mission-col-left" data-wv-rv>
+              {t?.left}
+            </p>
 
-            <div className="wv-mission-col-right">
+            <div className="wv-mission-col-right" data-wv-rv>
               <p className="wv-lead">{t?.right}</p>
             </div>
           </div>
 
-          <div className="wv-mission-statement">
+          <div className="wv-mission-statement" data-wv-rv>
             <div className="wv-mission-statement-ja">
               <Lines text={t?.statement} />
             </div>
@@ -85,7 +87,7 @@ export default function MissionSection({
 
         <div className="wv-values-grid">
           {(values ?? []).map((v, i) => (
-            <div key={v.title ?? i}>
+            <div key={v.title ?? i} data-wv-rv>
               <div className="wv-lat wv-value-num">{String(i + 1).padStart(2, '0')}</div>
               <div className="wv-lat wv-value-title">{v.title}</div>
               <div className="wv-note">{v.text}</div>

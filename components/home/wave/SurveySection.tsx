@@ -12,12 +12,14 @@ export default function SurveySection({
   head?: { title?: string };
 }) {
   return (
-    <section className="wv-wrap wv-sec">
+    <section className="wv-wrap wv-sec" data-wv-reveal>
       <SectionHead title={head?.title ?? ''} />
 
       <div className="wv-survey">
-        <p className="wv-survey-lead">{t?.lead}</p>
-        <div>
+        <p className="wv-survey-lead" data-wv-rv>
+          {t?.lead}
+        </p>
+        <div data-wv-rv>
           <a href={SURVEY_FORM} target="_blank" rel="noopener noreferrer" className="wv-btn">
             {t?.cta}
           </a>
