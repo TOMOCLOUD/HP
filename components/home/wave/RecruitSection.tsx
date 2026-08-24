@@ -46,7 +46,7 @@ export default function RecruitSection({
             </div>
             <div className="wv-note">{j.detail}</div>
             {j.source ? (
-              <div className="wv-note" style={{ fontSize: 12, marginTop: 10 }}>
+              <div className="wv-note" style={{ fontSize: 13, marginTop: 10 }}>
                 {j.source}
               </div>
             ) : null}

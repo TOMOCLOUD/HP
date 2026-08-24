@@ -188,7 +188,7 @@ export default function TeamSection({
               <div className="wv-lat wv-member-role">{m.role}</div>
               <div className="wv-member-name">{m.name}</div>
               {m.title ? (
-                <div className="wv-note" style={{ fontSize: 13 }}>
+                <div className="wv-note" style={{ fontSize: 14 }}>
                   {m.title}
                 </div>
               ) : null}

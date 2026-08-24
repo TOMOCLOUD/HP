@@ -9,11 +9,20 @@
  * 高さは見た目でそろえているので、数値としてはばらつく。
  */
 const LOGOS = [
-  { key: 'jst', src: '/Image/hp/logo-jst.svg', h: 34, hSm: 26 },
-  { key: 'gtie', src: '/Image/hp/logo-gtie.svg', h: 48, hSm: 38 },
-  { key: 'amed', src: '/Image/hp/logo-amed.png', h: 30, hSm: 23 },
-  { key: 'nedo', src: '/Image/hp/logo-nedo.svg', h: 29, hSm: 21 },
+  { key: 'jst', src: '/Image/hp/logo-jst.svg', h: 43, hSm: 32 },
+  { key: 'gtie', src: '/Image/hp/logo-gtie.svg', h: 60, hSm: 47 },
+  { key: 'amed', src: '/Image/hp/logo-amed.png', h: 38, hSm: 29 },
+  { key: 'nedo', src: '/Image/hp/logo-nedo.svg', h: 36, hSm: 26 },
 ] as const;
+
+/**
+ * 上限の高さに届く画面幅。
+ *
+ * 4つを横一列に並べると、上限の高さでは合計 869px になる。中身の幅は
+ * 1200px - 左右の余白で 1080px までしか使えないので、幅の狭い画面では
+ * 上限まで伸ばさず、画面幅に比例して縮める。
+ */
+const FULL_AT_PX = 1500;
 
 export default function PartnerLogos({ t }: { t?: Record<string, string> }) {
   return (
@@ -25,7 +34,9 @@ export default function PartnerLogos({ t }: { t?: Record<string, string> }) {
             key={logo.key}
             src={logo.src}
             alt={t?.[logo.key] ?? logo.key}
-            style={{ height: `clamp(${logo.hSm}px, ${logo.hSm / 3.9}vw, ${logo.h}px)` }}
+            style={{
+              height: `clamp(${logo.hSm}px, ${((logo.h / FULL_AT_PX) * 100).toFixed(2)}vw, ${logo.h}px)`,
+            }}
           />
         ))}
       </div>

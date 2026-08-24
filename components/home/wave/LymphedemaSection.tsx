@@ -37,11 +37,11 @@ export default function LymphedemaSection({
       <div className="wv-lymph-stats">
         {(t?.stats ?? []).map((s) => (
           <div key={s.label} className="wv-stat">
-            <div className="wv-note" style={{ fontSize: 13 }}>
+            <div className="wv-note" style={{ fontSize: 14 }}>
               {s.label}
             </div>
             <div className="wv-stat-value">{s.value}</div>
-            <div className="wv-note" style={{ fontSize: 12 }}>
+            <div className="wv-note" style={{ fontSize: 13 }}>
               {s.source}
             </div>
           </div>
