@@ -578,13 +578,13 @@
       ]
     },
     "mission": {
-      "left": "For most people, keeping track of their own health day to day is not easy. The ways to monitor the body and its tissues casually are limited.",
+      "left": "Keeping track of your own body, day after day, is harder than it sounds. There are still few easy ways to measure it.",
       "statement": "Creating a society where\nvisualization lets everyone\nlive as themselves",
       "emphasis": "Turning the unseen into the seen.",
-      "right": "TOMOCLOUD is solving that problem, so that each person can live as themselves."
+      "right": "TOMOCLOUD answers that problem with visualization technology."
     },
     "product": {
-      "lead": "A lymphedema monitoring device built on EIT. It reconstructs the distribution of water and protein inside the body as an image, with the aim of making everyday, continuous assessment possible. Clinical validation is under way alongside development.",
+      "lead": "A lymphedema monitoring device that turns the distribution of water and protein inside the body into an image. We develop it through repeated clinical validation, so that day-to-day changes can be followed.",
       "note": "We are also developing LT monitor Lite for checks at home, and are collecting feedback on its usability through a survey.",
       "disclaimerLabel": "On our development stage",
       "disclaimer": "This product is in research and development and has not been approved as a medical device. This page describes our development status and does not claim any efficacy or effect.",
@@ -648,7 +648,7 @@
     "lymphedema": {
       "imageAlt": "Schematic of a leg swollen by lymphedema",
       "p1": "Lymphedema is swelling in the limbs caused by stagnant lymphatic flow. Beyond the visible change, it brings pain and heaviness, and it affects the quality of daily life and work.",
-      "p2": "Early detection and continuous observation matter, but simple, non-invasive ways to do that have been limited. With EIT we are building a monitoring method light enough to keep up in everyday life.",
+      "p2": "What matters is catching it early and watching how it evolves. Yet simple, non-invasive ways to do that have been scarce. EIT makes monitoring light enough for everyday life — building that is our job.",
       "stats": [
         {
           "label": "Incidence of lymphedema after breast cancer surgery",
