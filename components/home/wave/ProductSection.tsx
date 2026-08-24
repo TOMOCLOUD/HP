@@ -11,7 +11,7 @@ type Step = { n?: string; name?: string; text?: string };
 /**
  * 03 プロダクト&テクノロジー。
  *
- * 1. LT monitor Pro。試作機の写真と、開発段階の注記。
+ * 1. 試作機の写真と、開発段階の注記。
  * 2. EIT のリアルタイム再構成。
  * 3. 1フレームができるまでの3段。
  * 4. 実機の写真。どこが中核かは名指しせず、手を動かす範囲の広さで引く。
@@ -22,8 +22,6 @@ export default function ProductSection({
   locale,
 }: {
   t?: {
-    eyebrow?: string;
-    name?: string;
     lead?: string;
     note?: string;
     disclaimerLabel?: string;
@@ -71,8 +69,6 @@ export default function ProductSection({
         </div>
 
         <div className="wv-product-body">
-          <div className="wv-eyebrow">{t?.eyebrow}</div>
-          <div className="wv-lat wv-product-name">{t?.name}</div>
           <p className="wv-lead">{t?.lead}</p>
           <p className="wv-note" style={{ marginTop: 20 }}>
             {t?.note}

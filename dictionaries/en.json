@@ -584,13 +584,11 @@
       "right": "TOMOCLOUD is solving that problem, so that each person can live as themselves."
     },
     "product": {
-      "eyebrow": "In development",
-      "name": "LT monitor Pro",
       "lead": "A lymphedema monitoring device built on EIT. It reconstructs the distribution of water and protein inside the body as an image, with the aim of making everyday, continuous assessment possible. Clinical validation is under way alongside development.",
       "note": "We are also developing LT monitor Lite for checks at home, and are collecting feedback on its usability through a survey.",
       "disclaimerLabel": "On our development stage",
       "disclaimer": "This product is in research and development and has not been approved as a medical device. This page describes our development status and does not claim any efficacy or effect.",
-      "archAlt": "The LT monitor Pro prototype",
+      "archAlt": "The prototype screen",
       "techEyebrow": "Core technology",
       "techTitle": "Electrical impedance\ntomography",
       "techLead": "Electrodes placed on the skin inject a weak current, and the resulting voltages are measured to reconstruct the distribution of electrical impedance inside the body as a cross-sectional image. No radiation, no incision, and it can be repeated as often as needed.",

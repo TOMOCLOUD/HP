@@ -7,13 +7,15 @@ import { useDict } from '@/lib/useDict';
 import { scrollToSectionIfHome } from '@/lib/scrollToSection';
 
 /**
- * ニュース・採用・お問い合わせは独立ページを持たず、ホームの該当
- * セクションへのアンカーリンクにする。他ページから踏むと、ホームへ
+ * ホームの該当セクションへのアンカーリンク。他ページから踏むと、ホームへ
  * 移動したうえでそのセクションまでスクロールする（scrollToSection まかせ）。
+ *
+ * 「プロダクト」の行き先はホームの #product（プロダクト&テクノロジー）。
+ * 別ページの /services ではない。
  */
 const NAV = [
   { key: 'home', kind: 'page', path: '' },
-  { key: 'product', kind: 'page', path: '/services' },
+  { key: 'product', kind: 'anchor', hash: 'product' },
   { key: 'news', kind: 'anchor', hash: 'news' },
   { key: 'recruit', kind: 'anchor', hash: 'recruit' },
   { key: 'contact', kind: 'anchor', hash: 'contact' },
