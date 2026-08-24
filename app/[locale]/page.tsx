@@ -56,7 +56,7 @@ export default function LocaleHome() {
       <MissionSection t={t?.mission} head={s?.mission} values={dict?.home?.values} />
 
       <div id="product" className="wv-anchor">
-        <ProductSection t={t?.product} head={s?.product} recruitHref={`/${locale}/recruit`} />
+        <ProductSection t={t?.product} head={s?.product} locale={locale} />
       </div>
 
       <div id="recruit" className="wv-anchor">

@@ -26,11 +26,11 @@ export default function SiteFooter() {
     { label: nav?.achievements, href: `/${locale}/achievements` },
   ];
 
-  // 「お問い合わせ」「会社概要」は独立ページを持たず、ホームのセクションへの
-  // アンカーリンク。ホームに既にいる場合はその場でスクロールし、
-  // 他ページにいる場合は Link の既定動作（ホームへ移動）に任せる。
+  // 「採用」「お問い合わせ」「会社概要」は独立ページを持たず、ホームの
+  // セクションへのアンカーリンク。ホームに既にいる場合はその場でスクロール
+  // し、他ページにいる場合は Link の既定動作（ホームへ移動）に任せる。
   const pagesRight = [
-    { label: nav?.recruit, href: `/${locale}/recruit`, hash: undefined },
+    { label: nav?.recruit, href: `/${locale}#recruit`, hash: 'recruit' },
     { label: nav?.contact, href: `/${locale}#contact`, hash: 'contact' },
     { label: nav?.about, href: `/${locale}#about`, hash: 'about' },
   ];

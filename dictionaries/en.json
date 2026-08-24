@@ -460,41 +460,6 @@
       }
     ]
   },
-  "recruit": {
-    "title": "Careers",
-    "vision": "From \\\"invisible\\\" to \\\"visible\\\".",
-    "paragraphs": [
-      "TOMOCLOUD is a startup spun out of a diverse, interdisciplinary research lab.",
-      "We value each other's cultures and expertise, and challenge one another to grow.",
-      "Breakthroughs are created by professionals with diverse backgrounds.",
-      "By fusing foundational and new technologies around noninvasive \\\"visualization,\\\" we deliver value to medical, nursing, and healthcare settings.",
-      "If you see the potential and are eager to turn it into reality, we'd love to work with you."
-    ],
-    "openings": {
-      "heading": "Open Positions",
-      "note": "Click a position title to open its full job description on an external site.",
-      "aria": " job description (external site)",
-      "items": [
-        {
-          "title": "Regulatory Affairs & Quality Assurance Lead",
-          "source": "LinkedIn",
-          "url": "https://www.linkedin.com/jobs/view/4445189680/"
-        },
-        {
-          "title": "R&D Lead",
-          "source": "JREC-IN Portal",
-          "url": "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278"
-        },
-        {
-          "title": "Circuit Design Engineer",
-          "source": "HiPro Direct",
-          "url": "https://talent.direct.hipro-job.jp/talent/issue/21141/"
-        }
-      ]
-    },
-    "contactBtn": "View Careers",
-    "contactAria": "Go to careers site"
-  },
   "top": {
     "hero": {
       "badge": "A medical device startup out of Chiba University",
@@ -692,6 +657,13 @@
           "detail": "Implementing image reconstruction algorithms, and designing and evaluating the device.",
           "source": "JREC-IN Portal",
           "url": "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278"
+        },
+        {
+          "type": "Full-time",
+          "title": "Circuit Design Engineer",
+          "detail": "Designing measurement circuits, and implementing and evaluating the boards.",
+          "source": "HiPro Direct",
+          "url": "https://talent.direct.hipro-job.jp/talent/issue/21141/"
         }
       ]
     },

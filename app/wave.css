@@ -1533,7 +1533,8 @@
 
 @media (min-width: 1024px) {
   .wv-jobs {
-    gap: 88px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 64px;
     margin-top: 76px;
   }
 

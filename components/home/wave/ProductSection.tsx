@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import SectionHead from './WaveSource';
 import EitDiagram from './EitDiagram';
+import { scrollToSectionIfHome } from '@/lib/scrollToSection';
 
 type Step = { n?: string; name?: string; text?: string };
 
@@ -15,7 +19,7 @@ type Step = { n?: string; name?: string; text?: string };
 export default function ProductSection({
   t,
   head,
-  recruitHref,
+  locale,
 }: {
   t?: {
     eyebrow?: string;
@@ -41,8 +45,16 @@ export default function ProductSection({
     circuitAlt?: string;
   };
   head?: { kicker?: string; title?: string };
-  recruitHref: string;
+  locale: string;
 }) {
+  const pathname = usePathname() || `/${locale}`;
+
+  // 「採用」は独立ページを持たず、直後に続くホームの #recruit セクションへ
+  // その場でスクロールする。
+  const onRecruitClick = (e: React.MouseEvent) => {
+    if (scrollToSectionIfHome('recruit', pathname, locale)) e.preventDefault();
+  };
+
   return (
     <section className="wv-wrap wv-sec">
       <SectionHead kicker={head?.kicker ?? ''} title={head?.title ?? ''} />
@@ -126,7 +138,7 @@ export default function ProductSection({
           <p className="wv-note" style={{ margin: '0 0 26px' }}>
             {t?.craftNote}
           </p>
-          <Link href={recruitHref} className="wv-more">
+          <Link href={`/${locale}#recruit`} className="wv-more" onClick={onRecruitClick} scroll={false}>
             {t?.craftCta}
           </Link>
         </div>
