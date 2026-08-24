@@ -4,13 +4,19 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useDict } from '@/lib/useDict';
+import { scrollToSectionIfHome } from '@/lib/scrollToSection';
 
+/**
+ * お問い合わせは独立ページを持たず、ホームの #contact セクションへの
+ * アンカーリンクにする。他ページから踏むと、ホームへ移動したうえで
+ * そのセクションまでスクロールする（next/link のハッシュ遷移まかせ）。
+ */
 const NAV = [
-  { key: 'home', path: '' },
-  { key: 'product', path: '/services' },
-  { key: 'news', path: '/news' },
-  { key: 'recruit', path: '/recruit' },
-  { key: 'contact', path: '/contact' },
+  { key: 'home', kind: 'page', path: '' },
+  { key: 'product', kind: 'page', path: '/services' },
+  { key: 'news', kind: 'page', path: '/news' },
+  { key: 'recruit', kind: 'page', path: '/recruit' },
+  { key: 'contact', kind: 'anchor', hash: 'contact' },
 ] as const;
 
 /** パスの先頭のロケールだけを入れ替える */
@@ -55,6 +61,15 @@ export default function SiteHeader() {
     return path === '' ? pathname === href || pathname === `${href}/` : pathname.startsWith(href);
   };
 
+  const hrefFor = (item: (typeof NAV)[number]) =>
+    item.kind === 'anchor' ? `/${locale}#${item.hash}` : `/${locale}${item.path}`;
+
+  // ホームに既にいる場合は、ページ遷移を挟まずその場でスクロールする。
+  // 他ページにいる場合は Link の既定動作（ホームへ移動）に任せる。
+  const onAnchorClick = (hash: string) => (e: React.MouseEvent) => {
+    if (scrollToSectionIfHome(hash, pathname, locale)) e.preventDefault();
+  };
+
   return (
     <header className="wv-header">
       <div className="wv-header-bar">
@@ -67,9 +82,11 @@ export default function SiteHeader() {
           {NAV.map((item) => (
             <Link
               key={item.key}
-              href={`/${locale}${item.path}`}
+              href={hrefFor(item)}
               className="wv-header-link"
-              aria-current={isCurrent(item.path) ? 'page' : undefined}
+              aria-current={item.kind === 'page' && isCurrent(item.path) ? 'page' : undefined}
+              onClick={item.kind === 'anchor' ? onAnchorClick(item.hash) : undefined}
+              scroll={item.kind === 'anchor' ? false : undefined}
             >
               {t?.[item.key]}
             </Link>
@@ -112,7 +129,15 @@ export default function SiteHeader() {
 
         <nav className="wv-drawer-nav">
           {NAV.map((item) => (
-            <Link key={item.key} href={`/${locale}${item.path}`} onClick={() => setMenuOpen(false)}>
+            <Link
+              key={item.key}
+              href={hrefFor(item)}
+              onClick={(e) => {
+                if (item.kind === 'anchor') onAnchorClick(item.hash)(e);
+                setMenuOpen(false);
+              }}
+              scroll={item.kind === 'anchor' ? false : undefined}
+            >
               {t?.[item.key]}
             </Link>
           ))}

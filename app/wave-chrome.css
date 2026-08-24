@@ -27,7 +27,7 @@
 .wv-header-logo img {
   display: block;
   width: auto;
-  height: 24px;
+  height: 28px;
 }
 
 .wv-header-nav {
@@ -95,7 +95,7 @@
   }
 
   .wv-header-logo img {
-    height: 28px;
+    height: 34px;
   }
 
   .wv-header-nav {
@@ -208,7 +208,7 @@
 .wv-footer-brand img {
   display: block;
   width: auto;
-  height: 24px;
+  height: 28px;
   margin-bottom: 20px;
 }
 
@@ -260,7 +260,7 @@
   }
 
   .wv-footer-brand img {
-    height: 26px;
+    height: 32px;
     margin-bottom: 24px;
   }
 

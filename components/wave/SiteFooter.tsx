@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useDict } from '@/lib/useDict';
+import { scrollToSectionIfHome } from '@/lib/scrollToSection';
 
 const TAKEI_LAB = 'https://tomocloud.xsrv.jp/takei-lab/';
 
@@ -13,6 +15,7 @@ const TAKEI_LAB = 'https://tomocloud.xsrv.jp/takei-lab/';
  */
 export default function SiteFooter() {
   const { dict, locale } = useDict();
+  const pathname = usePathname() || `/${locale}`;
   const t = dict?.top?.footer;
   const nav = dict?.top?.nav;
   const f = dict?.footer;
@@ -23,10 +26,13 @@ export default function SiteFooter() {
     { label: nav?.achievements, href: `/${locale}/achievements` },
   ];
 
+  // 「お問い合わせ」「会社概要」は独立ページを持たず、ホームのセクションへの
+  // アンカーリンク。ホームに既にいる場合はその場でスクロールし、
+  // 他ページにいる場合は Link の既定動作（ホームへ移動）に任せる。
   const pagesRight = [
-    { label: nav?.recruit, href: `/${locale}/recruit` },
-    { label: nav?.contact, href: `/${locale}/contact` },
-    { label: nav?.about, href: `/${locale}#about` },
+    { label: nav?.recruit, href: `/${locale}/recruit`, hash: undefined },
+    { label: nav?.contact, href: `/${locale}#contact`, hash: 'contact' },
+    { label: nav?.about, href: `/${locale}#about`, hash: 'about' },
   ];
 
   return (
@@ -62,7 +68,19 @@ export default function SiteFooter() {
           <ul>
             {pagesRight.map((p) => (
               <li key={p.href}>
-                <Link href={p.href}>{p.label}</Link>
+                <Link
+                  href={p.href}
+                  onClick={
+                    p.hash
+                      ? (e) => {
+                          if (scrollToSectionIfHome(p.hash!, pathname, locale)) e.preventDefault();
+                        }
+                      : undefined
+                  }
+                  scroll={p.hash ? false : undefined}
+                >
+                  {p.label}
+                </Link>
               </li>
             ))}
           </ul>

@@ -56,7 +56,7 @@ export default function ProductSection({
             <circle cx="400" cy="400" r="392" stroke="#f0f6fa" strokeWidth="1" />
           </svg>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Image/hp/ltmonitor.jpg" alt={t?.archAlt ?? ''} width={640} height={529} />
+          <img src="/Image/hp/ltmonitor.png" alt={t?.archAlt ?? ''} width={428} height={303} />
         </div>
 
         <div className="wv-product-body">

@@ -1,7 +1,9 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useDict } from '@/lib/useDict';
 import { useWavePropagation } from '@/lib/useWavePropagation';
+import { scrollToHashOnMount } from '@/lib/scrollToSection';
 import ContourField from '@/components/home/wave/ContourField';
 import HeroSection from '@/components/home/wave/HeroSection';
 import PartnerLogos from '@/components/home/wave/PartnerLogos';
@@ -29,6 +31,13 @@ import AboutSection from '@/components/home/wave/AboutSection';
 export default function LocaleHome() {
   const { dict, locale } = useDict();
   useWavePropagation();
+
+  // 辞書ロード前は各セクションが空で、まだページの高さが確定していない。
+  // 実データが入って高さが確定してから、URL のハッシュへ合わせる。
+  useEffect(() => {
+    if (!dict) return;
+    return scrollToHashOnMount();
+  }, [dict]);
 
   const t = dict?.top;
   const s = t?.sections;
