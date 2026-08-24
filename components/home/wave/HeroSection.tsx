@@ -31,6 +31,9 @@ const HERO_TAGLINE_MS = 900;
 
 export default function HeroSection({ t }: { t?: Hero }) {
   const titleLines = (t?.title ?? '').split('\n');
+  // 本文も見出しと同じく \n で折り返し位置を決める。
+  // 幅まかせにすると語の途中で切れるため
+  const subLines = (t?.sub ?? '').split('\n');
 
   return (
     <section className="wv-hero" data-wv-reveal data-wv-reveal-base={HERO_BASE_MS}>
@@ -61,7 +64,11 @@ export default function HeroSection({ t }: { t?: Hero }) {
             data-wv-rv
             data-wv-rv-delay={HERO_BASE_MS + 130 + titleLines.length * HERO_LINE_MS + 90}
           >
-            {t?.sub}
+            {subLines.map((line, i) => (
+              <span key={i} style={{ display: 'block' }}>
+                {line}
+              </span>
+            ))}
           </p>
         </div>
 
