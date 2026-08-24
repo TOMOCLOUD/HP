@@ -51,7 +51,6 @@ export default function LocaleHome() {
       <ContourField />
 
       <HeroSection t={t?.hero} />
-      <PartnerLogos t={t?.partners} />
 
       <div id="news" className="wv-anchor">
         <NewsSection t={t?.news} head={s?.news} />
@@ -81,6 +80,8 @@ export default function LocaleHome() {
       <div id="contact" className="wv-anchor">
         <ContactSection t={t?.contact} head={s?.contact} />
       </div>
+
+      <PartnerLogos t={t?.partners} />
 
       <div id="about" className="wv-anchor">
         <AboutSection about={dict?.home?.about} head={s?.about} />
