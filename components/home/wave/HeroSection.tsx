@@ -18,7 +18,6 @@ const RIPPLE_DELAYS = [0, -1.4, -2.8, -4.2, -5.6, -7, -8.4, -9.8, -11.2, -12.6];
 const DROP_DELAYS = [0, -1.13, -2.25, -3.38, -4.5, -5.63, -6.75, -7.88];
 
 type Hero = {
-  badge?: string;
   title?: string;
   sub?: string;
   taglineJa?: string;
@@ -29,7 +28,7 @@ type Hero = {
 
 /**
  * 読み込み直後に順に現れる。落ちた一滴が広げた波が届いた順、という筋なので、
- * 写真が円に開くのを合図に、バッジ → 見出し → 本文 → タグラインと続く。
+ * 写真が円に開くのを合図に、見出し → 本文 → タグラインと続く。
  * 見出しは1行ずつずらす。
  */
 const HERO_BASE_MS = 360;
@@ -58,11 +57,6 @@ export default function HeroSection({ t, locale }: { t?: Hero; locale: string })
 
       <div className="wv-hero-inner">
         <div className="wv-hero-text">
-          <div className="wv-hero-badge" data-wv-rv>
-            <i />
-            <span>{t?.badge}</span>
-          </div>
-
           <h1 className="wv-hero-title">
             {titleLines.map((line, i) => (
               <span

@@ -41,6 +41,11 @@ export default function PartnerLogos({ t }: { t?: Record<string, string> }) {
           />
         ))}
       </div>
+
+      {/* 採択のロゴを受けて、技術の出どころをここで一度だけ名乗る */}
+      <p className="wv-partners-caption" data-wv-rv>
+        {t?.caption}
+      </p>
     </div>
   );
 }

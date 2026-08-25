@@ -549,26 +549,9 @@
   z-index: 3;
 }
 
-.wv-hero-badge {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: clamp(12px, 1vw, 14px);
-  letter-spacing: 0.16em;
-  color: var(--wv-body);
-}
-
-.wv-hero-badge i {
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--wv-accent);
-  flex-shrink: 0;
-}
-
+/* 以前ここにあったバッジと同じ位置から始める。写真の上端と揃う */
 .wv-hero-title {
-  margin: 30px 0 0;
+  margin: 0;
   max-width: 640px;
   font-size: clamp(26px, 3.4vw, 46px);
   font-weight: 600;
@@ -779,7 +762,17 @@
   gap: 40px 20px;
   align-items: center;
   justify-items: center;
-  padding: 60px 0 76px;
+  padding: 60px 0 34px;
+}
+
+/* 採択のロゴを受けて、技術の出どころを一度だけ名乗る一行 */
+.wv-partners-caption {
+  margin: 0 0 76px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: 0.1em;
+  color: var(--wv-muted);
 }
 
 .wv-partners img {
@@ -793,7 +786,11 @@
   .wv-partners {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 48px;
-    padding: 78px 0 96px;
+    padding: 78px 0 42px;
+  }
+
+  .wv-partners-caption {
+    margin-bottom: 96px;
   }
 }
 

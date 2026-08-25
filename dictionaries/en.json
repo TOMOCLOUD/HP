@@ -462,7 +462,6 @@
   },
   "top": {
     "hero": {
-      "badge": "A medical device startup out of Chiba University",
       "title": "Catch lymphedema early,\nand ease the days after treatment.",
       "sub": "We develop non-invasive monitoring devices\nusing electrical impedance tomography (EIT).",
       "taglineJa": "Visualize the New Self",
@@ -474,7 +473,8 @@
       "jst": "Japan Science and Technology Agency (JST)",
       "gtie": "GTIE",
       "amed": "Japan Agency for Medical Research and Development (AMED)",
-      "nedo": "New Energy and Industrial Technology Development Organization (NEDO)"
+      "nedo": "New Energy and Industrial Technology Development Organization (NEDO)",
+      "caption": "Born out of Chiba University, developed with support from public research agencies."
     },
     "sections": {
       "news": {
