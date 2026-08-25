@@ -464,8 +464,6 @@
     "hero": {
       "title": "リンパ浮腫の早期発見で、\n治療後の毎日に安心を。",
       "sub": "EIT（電気インピーダンス・トモグラフィ）を使った\n非侵襲のモニタリング機器を開発しています。",
-      "taglineJa": "新しい自分が視える世界へ",
-      "taglineEn": "VISUALIZE THE NEW SELF",
       "recruitCta": "募集中のポジションを見る",
       "photoAlt": ""
     },
@@ -712,6 +710,8 @@
       ]
     },
     "message": {
+      "taglineJa": "新しい自分が視える世界へ",
+      "taglineEn": "VISUALIZE THE NEW SELF",
       "quote": "ある患者さんの「からだの状態が見えないことがいちばん不安だ」という言葉が、いまも仕事の起点にあります。工学の側から関われることは何か。その問いが、研究室での測定を製品にする決断につながりました。",
       "role": "CEO / FOUNDER",
       "name": "小川 良磨",

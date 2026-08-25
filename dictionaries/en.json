@@ -464,8 +464,6 @@
     "hero": {
       "title": "Catch lymphedema early,\nand ease the days after treatment.",
       "sub": "We develop non-invasive monitoring devices\nusing electrical impedance tomography (EIT).",
-      "taglineJa": "Visualize the New Self",
-      "taglineEn": "VISUALIZE THE NEW SELF",
       "recruitCta": "See open positions",
       "photoAlt": ""
     },
@@ -712,6 +710,8 @@
       ]
     },
     "message": {
+      "taglineJa": "Visualize the New Self",
+      "taglineEn": "VISUALIZE THE NEW SELF",
       "quote": "One patient told me that not being able to see the state of their own body was the hardest part. That sentence is still where the work starts. What can engineering do here? That question is what turned measurements in a lab into a decision to build a product.",
       "role": "CEO / FOUNDER",
       "name": "Ryoma Ogawa",

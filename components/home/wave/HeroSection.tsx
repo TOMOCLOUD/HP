@@ -20,20 +20,17 @@ const DROP_DELAYS = [0, -1.13, -2.25, -3.38, -4.5, -5.63, -6.75, -7.88];
 type Hero = {
   title?: string;
   sub?: string;
-  taglineJa?: string;
-  taglineEn?: string;
   recruitCta?: string;
   photoAlt?: string;
 };
 
 /**
  * 読み込み直後に順に現れる。落ちた一滴が広げた波が届いた順、という筋なので、
- * 写真が円に開くのを合図に、見出し → 本文 → タグラインと続く。
+ * 写真が円に開くのを合図に、見出し → 本文 → 採用への一行と続く。
  * 見出しは1行ずつずらす。
  */
 const HERO_BASE_MS = 360;
 const HERO_LINE_MS = 155;
-const HERO_TAGLINE_MS = 1260;
 /** 本文が出たあと、ひと呼吸おいて採用への一行が続く */
 const HERO_CTA_MS = 180;
 
@@ -115,11 +112,6 @@ export default function HeroSection({ t, locale }: { t?: Hero; locale: string })
             data-wv-rv-circle
             data-wv-rv-delay={0}
           />
-        </div>
-
-        <div className="wv-hero-tagline" data-wv-rv data-wv-rv-delay={HERO_TAGLINE_MS}>
-          <div className="wv-hero-tagline-ja">{t?.taglineJa}</div>
-          <div className="wv-lat wv-hero-tagline-en">{t?.taglineEn}</div>
         </div>
       </div>
 

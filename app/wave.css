@@ -543,8 +543,7 @@
   flex-direction: column;
 }
 
-.wv-hero-text,
-.wv-hero-tagline {
+.wv-hero-text {
   position: relative;
   z-index: 3;
 }
@@ -641,25 +640,6 @@
   pointer-events: none;
 }
 
-.wv-hero-tagline {
-  margin-top: 42px;
-}
-
-.wv-hero-tagline .wv-hero-tagline-ja {
-  font-size: clamp(17px, 1.4vw, 20px);
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: var(--wv-link);
-  margin-bottom: 13px;
-}
-
-.wv-hero-tagline .wv-hero-tagline-en {
-  font-size: clamp(12px, 1vw, 14px);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  color: var(--wv-muted);
-}
-
 /* 落ちた一滴そのものと、そこから出る波。
    点と波源は同じ座標を共有する */
 .wv-hero-drop {
@@ -701,7 +681,8 @@
 @media (min-width: 1024px) {
   .wv-hero {
     padding-bottom: 0;
-    min-height: 880px;
+    /* 二段目にタグラインを置いていた頃より、その分だけ低い */
+    min-height: 798px;
   }
 
   .wv-hero-inner {
@@ -710,7 +691,7 @@
     align-items: start;
     column-gap: 40px;
     padding-top: 74px;
-    min-height: 806px;
+    min-height: 720px;
   }
 
   .wv-hero-text {
@@ -724,15 +705,6 @@
     grid-row: 1;
     margin: 0;
     align-self: start;
-  }
-
-  /* キャッチと写真の下に、少し離してタグラインを置く */
-  .wv-hero-tagline {
-    grid-column: 1;
-    grid-row: 2;
-    align-self: end;
-    margin-top: 0;
-    padding-bottom: 90px;
   }
 
   .wv-hero {
@@ -2054,6 +2026,26 @@ a.wv-news-row:hover {
 .wv-message-photo span:nth-child(3) {
   inset: -25%;
   border: 1px solid var(--wv-rule-1);
+}
+
+/* 掲げている言葉。語りの前に置き、引用文とは字の大きさで差をつける */
+.wv-message-tagline {
+  margin-bottom: 26px;
+}
+
+.wv-message-tagline-ja {
+  font-size: clamp(16px, 1.3vw, 19px);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--wv-link);
+  margin-bottom: 11px;
+}
+
+.wv-message-tagline-en {
+  font-size: clamp(11px, 0.95vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--wv-muted);
 }
 
 .wv-message-quote {
