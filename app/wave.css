@@ -1048,7 +1048,7 @@ a.wv-news-row:hover {
 
 /* ============================================================
    02 目指すもの
-   弧をひとつ引いて、その下に三つの文をぶら下げる
+   弧をひとつ引いて、その下にミッションの一文だけを置く
    ============================================================ */
 .wv-mission {
   position: relative;
@@ -1070,7 +1070,8 @@ a.wv-news-row:hover {
 .wv-mission-statement {
   text-align: center;
   max-width: 620px;
-  margin: 0 auto;
+  /* 弧は高さのある絶対配置なので、その分だけ下げて重なりを避ける */
+  margin: 46px auto 0;
 }
 
 .wv-mission-statement-ja {
@@ -1089,41 +1090,15 @@ a.wv-news-row:hover {
   color: var(--wv-link);
 }
 
-.wv-mission-cols {
-  display: grid;
-  gap: 34px;
-  margin-top: 56px;
-}
-
 @media (min-width: 1024px) {
   .wv-mission {
     margin-top: 84px;
     padding-top: 40px;
   }
 
-  .wv-mission-inner {
-    display: grid;
-    grid-template-columns: 300px minmax(0, 1fr) 300px;
-    gap: 0 45px;
-    align-items: start;
-  }
-
-  .wv-mission-cols {
-    display: contents;
-  }
-
-  .wv-mission-col-left {
-    grid-column: 1;
-    padding-top: 72px;
-  }
-
+  /* 下げ幅は .wv-mission の padding-top が受け持つ */
   .wv-mission-statement {
-    grid-column: 2;
-  }
-
-  .wv-mission-col-right {
-    grid-column: 3;
-    padding-top: 72px;
+    margin-top: 0;
   }
 }
 

@@ -17,7 +17,7 @@ function Lines({ text }: { text?: string }) {
 /**
  * 02 目指すもの。
  *
- * 弧をひとつ引いて、その下に三つの文をぶら下げる。
+ * 弧をひとつ引いて、その下にミッションの一文だけを置く。
  * Values は弧を下にふくらませ、四つの柱の頭をそれに沿ってずらす。
  */
 export default function MissionSection({
@@ -26,10 +26,8 @@ export default function MissionSection({
   values,
 }: {
   t?: {
-    left?: string;
     statement?: string;
     emphasis?: string;
-    right?: string;
   };
   head?: { title?: string };
   values?: Value[];
@@ -53,16 +51,6 @@ export default function MissionSection({
         </svg>
 
         <div className="wv-mission-inner">
-          <div className="wv-mission-cols">
-            <p className="wv-lead wv-mission-col-left" data-wv-rv>
-              {t?.left}
-            </p>
-
-            <div className="wv-mission-col-right" data-wv-rv>
-              <p className="wv-lead">{t?.right}</p>
-            </div>
-          </div>
-
           <div className="wv-mission-statement" data-wv-rv>
             <div className="wv-mission-statement-ja">
               <Lines text={t?.statement} />
