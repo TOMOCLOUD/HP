@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import SectionHead from './WaveSource';
@@ -63,8 +64,7 @@ export default function ProductSection({
             <circle cx="400" cy="400" r="330" stroke="#e4eff6" strokeWidth="1" />
             <circle cx="400" cy="400" r="392" stroke="#f0f6fa" strokeWidth="1" />
           </svg>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Image/hp/ltmonitor.png" alt={t?.archAlt ?? ''} width={428} height={303} />
+          <Image src="/Image/hp/ltmonitor.png" alt={t?.archAlt ?? ''} width={428} height={303} />
         </div>
 
         <div className="wv-product-body" data-wv-rv>
@@ -133,12 +133,15 @@ export default function ProductSection({
 
         <div className="wv-craft-photos" data-wv-rv>
           <div className="wv-craft-photo-lg">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/Image/hp/lab-probe.jpg" alt={t?.probeAlt ?? ''} width={780} height={520} />
+            <Image src="/Image/hp/lab-probe.jpg" alt={t?.probeAlt ?? ''} width={780} height={520} />
           </div>
           <div className="wv-craft-photo-sm">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/Image/hp/lab-circuit.jpg" alt={t?.circuitAlt ?? ''} width={460} height={345} />
+            <Image
+              src="/Image/hp/lab-circuit.jpg"
+              alt={t?.circuitAlt ?? ''}
+              width={460}
+              height={345}
+            />
           </div>
         </div>
       </div>

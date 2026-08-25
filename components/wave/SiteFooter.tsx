@@ -66,7 +66,14 @@ export default function SiteFooter() {
         <div className="wv-footer-brand">
           <Link href={`/${locale}`} aria-label="TOMOCLOUD">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/Image/logo2.png" alt="TOMOCLOUD" width={420} height={177} />
+            <img
+              src="/Image/logo2.png"
+              alt="TOMOCLOUD"
+              width={420}
+              height={177}
+              loading="lazy"
+              decoding="async"
+            />
           </Link>
           <div className="wv-note wv-footer-address">
             〒{f?.zip}

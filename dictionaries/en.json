@@ -347,7 +347,7 @@
         "id": 11,
         "title": "The US FDA Center for Devices and Radiological Health visited Chiba University IMO, and CEO Ryoma Ogawa had a meeting.",
         "date": "2025-10-29",
-        "image": "/Image/news.png",
+        "image": "/Image/news_11.jpg",
         "text": "October 29, 2025 (Wed)",
         "url": "https://imo.chiba-u.jp/news/news/1029FDA_jetro.html"
       },
@@ -684,7 +684,7 @@
           "role": "CEO / FOUNDER",
           "name": "Ryoma Ogawa",
           "title": "Visiting Associate Professor, Chiba University",
-          "image": "/Image/Ogawa_image.png"
+          "image": "/Image/Ogawa_image.jpg"
         },
         {
           "key": "takei",
@@ -760,5 +760,12 @@
       "toEn": "Switch to English",
       "toJa": "Switch to Japanese"
     }
+  },
+  "meta": {
+    "title": "TOMOCLOUD Inc.",
+    "titleTemplate": "%s | TOMOCLOUD Inc.",
+    "description": "We develop non-invasive monitoring devices using electrical impedance tomography (EIT). Catching lymphedema early to ease the days after cancer treatment. A medical device startup out of Chiba University.",
+    "services": "Product",
+    "achievements": "Achievements"
   }
 }

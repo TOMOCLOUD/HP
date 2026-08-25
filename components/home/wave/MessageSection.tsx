@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import SectionHead from './WaveSource';
 
 /**
@@ -29,8 +30,7 @@ export default function MessageSection({
           <span />
           <span />
           <span />
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Image/hp/ogawa.jpg" alt={t?.alt ?? ''} width={460} height={460} />
+          <Image src="/Image/hp/ogawa.jpg" alt={t?.alt ?? ''} width={460} height={460} />
         </div>
 
         <div data-wv-rv>

@@ -3,6 +3,23 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  /**
+   * 旧ページの行き先。
+   *
+   * ニュース・採用・お問い合わせ・会社概要は独立ページをやめ、ホームの
+   * 節に統合した。名刺や求人票、報道記事、検索結果から旧 URL を踏んだ人が
+   * 404 に落ちないよう、対応する節へ恒久リダイレクトする。着地してからの
+   * スクロールは scrollToHashOnMount が受け持つ。
+   */
+  async redirects() {
+    const gone = ['news', 'recruit', 'contact', 'about'];
+    return gone.map((name) => ({
+      source: `/:locale(ja|en)/${name}`,
+      destination: `/:locale#${name}`,
+      permanent: true,
+    }));
+  },
+
   async headers() {
     return [
       {

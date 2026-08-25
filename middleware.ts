@@ -10,9 +10,16 @@ export function middleware(req: NextRequest) {
   const isFile = pathname.includes('.') || pathname.startsWith('/_next') || pathname.startsWith('/api')
   if (isFile) return
 
-  // 先頭セグメントがロケールならそのまま
+  // 先頭セグメントがロケールならそのまま。
+  // ただし <html lang> をロケールに合わせたいので、パスだけ下へ渡す。
+  // App Router では <html> をルートのレイアウトにしか置けず、
+  // [locale] のレイアウトからは書き換えられないため。
   const seg = pathname.split('/')[1]
-  if (isLocale(seg)) return
+  if (isLocale(seg)) {
+    const res = NextResponse.next()
+    res.headers.set('x-pathname', pathname)
+    return res
+  }
 
   // それ以外は /ja を先頭に付けてリダイレクト
   const url = req.nextUrl.clone()

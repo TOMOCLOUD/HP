@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { scrollToSectionIfHome } from '@/lib/scrollToSection';
@@ -102,9 +103,9 @@ export default function HeroSection({ t, locale }: { t?: Hero; locale: string })
             <span style={{ animationDelay: '-0.35s' }} />
           </div>
 
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/Image/hp/hero.jpg"
+            priority
             alt={t?.photoAlt ?? ''}
             width={900}
             height={600}

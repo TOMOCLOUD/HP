@@ -77,7 +77,7 @@ export default function SiteHeader() {
       <div className="wv-header-bar">
         <Link href={`/${locale}`} className="wv-header-logo" aria-label="TOMOCLOUD">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Image/logo2.png" alt="TOMOCLOUD" width={420} height={177} />
+          <img src="/Image/logo2.png" alt="TOMOCLOUD" width={420} height={177} decoding="async" />
         </Link>
 
         <nav className="wv-header-nav" aria-label="TOMOCLOUD">

@@ -34,6 +34,8 @@ export default function PartnerLogos({ t }: { t?: Record<string, string> }) {
             key={logo.key}
             src={logo.src}
             alt={t?.[logo.key] ?? logo.key}
+            loading="lazy"
+            decoding="async"
             data-wv-rv
             style={{
               height: `clamp(${logo.hSm}px, ${((logo.h / FULL_AT_PX) * 100).toFixed(2)}vw, ${logo.h}px)`,

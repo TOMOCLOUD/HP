@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import SectionHead from './WaveSource';
 
 type Stat = { label?: string; value?: string; ref?: string };
@@ -31,8 +32,12 @@ export default function LymphedemaSection({
         </div>
 
         <figure className="wv-lymph-figure" data-wv-rv>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/Image/Lymphedema.png" alt={t?.imageAlt ?? ''} width={1536} height={1024} />
+          <Image
+            src="/Image/Lymphedema.png"
+            alt={t?.imageAlt ?? ''}
+            width={1536}
+            height={1024}
+          />
         </figure>
       </div>
 

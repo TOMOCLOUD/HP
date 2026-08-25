@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import SectionHead from './WaveSource';
@@ -188,8 +189,7 @@ export default function TeamSection({
               data-wv-rv
             >
               <div className="wv-member-photo">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={m.image} alt={m.name ?? ''} width={224} height={224} />
+                <Image src={m.image ?? ''} alt={m.name ?? ''} width={224} height={224} />
               </div>
               <div className="wv-lat wv-member-role">{m.role}</div>
               <div className="wv-member-name">{m.name}</div>

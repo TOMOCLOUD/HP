@@ -684,7 +684,7 @@
           "role": "CEO / FOUNDER",
           "name": "小川 良磨",
           "title": "千葉大学 客員准教授",
-          "image": "/Image/Ogawa_image.png"
+          "image": "/Image/Ogawa_image.jpg"
         },
         {
           "key": "takei",
@@ -760,5 +760,12 @@
       "toEn": "英語に切り替え",
       "toJa": "日本語に切り替え"
     }
+  },
+  "meta": {
+    "title": "株式会社TOMOCLOUD",
+    "titleTemplate": "%s ｜ 株式会社TOMOCLOUD",
+    "description": "EIT（電気インピーダンス・トモグラフィ）による非侵襲のモニタリング機器を開発しています。リンパ浮腫の早期発見で、がん治療後の毎日に安心を。千葉大学発の医療機器スタートアップです。",
+    "services": "プロダクト",
+    "achievements": "実績"
   }
 }
