@@ -1315,6 +1315,12 @@ a.wv-news-row:hover {
   margin-top: 44px;
 }
 
+/* 免責は本文より一段小さく。薬事上の断りであって、読ませる本文ではない */
+.wv-disclaimer .wv-note {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
 .wv-tech {
   display: grid;
   gap: 44px;
