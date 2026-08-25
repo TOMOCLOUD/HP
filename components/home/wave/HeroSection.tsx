@@ -25,9 +25,9 @@ type Hero = {
  * 写真が円に開くのを合図に、バッジ → 見出し → 本文 → タグラインと続く。
  * 見出しは1行ずつずらす。
  */
-const HERO_BASE_MS = 260;
-const HERO_LINE_MS = 110;
-const HERO_TAGLINE_MS = 900;
+const HERO_BASE_MS = 360;
+const HERO_LINE_MS = 155;
+const HERO_TAGLINE_MS = 1260;
 
 export default function HeroSection({ t }: { t?: Hero }) {
   const titleLines = (t?.title ?? '').split('\n');
@@ -52,7 +52,7 @@ export default function HeroSection({ t }: { t?: Hero }) {
                 key={i}
                 style={{ display: 'block' }}
                 data-wv-rv
-                data-wv-rv-delay={HERO_BASE_MS + 130 + i * HERO_LINE_MS}
+                data-wv-rv-delay={HERO_BASE_MS + 180 + i * HERO_LINE_MS}
               >
                 {line}
               </span>
@@ -62,7 +62,7 @@ export default function HeroSection({ t }: { t?: Hero }) {
           <p
             className="wv-hero-sub"
             data-wv-rv
-            data-wv-rv-delay={HERO_BASE_MS + 130 + titleLines.length * HERO_LINE_MS + 90}
+            data-wv-rv-delay={HERO_BASE_MS + 180 + titleLines.length * HERO_LINE_MS + 125}
           >
             {subLines.map((line, i) => (
               <span key={i} style={{ display: 'block' }}>

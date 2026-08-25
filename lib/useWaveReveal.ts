@@ -26,9 +26,9 @@ import { useEffect } from 'react';
  */
 
 /** 隣り合う要素をずらす間隔 */
-const STAGGER_MS = 80;
+const STAGGER_MS = 110;
 /** これ以上ずらすと、最後の要素を待たされる感じが出る */
-const MAX_STAGGER_MS = 640;
+const MAX_STAGGER_MS = 880;
 /** 下端からこの割合だけ内側に入ってから発火する */
 const ROOT_MARGIN = '0px 0px -12% 0px';
 
