@@ -51,7 +51,7 @@
       },
       {
         "title": "Act on innovation",
-        "text": "Relentlessly explore the frontier—and turn it into practical solutions."
+        "text": "Relentlessly explore the frontier and turn it into practical solutions."
       },
       {
         "title": "Act from zero",
@@ -659,7 +659,7 @@
     "lymphedema": {
       "imageAlt": "Schematic of a leg swollen by lymphedema",
       "p1": "Lymphedema is swelling in the limbs caused by stagnant lymphatic flow. Beyond the visible change, it brings pain and heaviness, and it affects the quality of daily life and work.",
-      "p2": "What matters is catching it early and watching how it evolves. Yet simple, non-invasive ways to do that have been scarce. EIT makes monitoring light enough for everyday life — building that is our job.",
+      "p2": "What matters is catching it early and watching how it evolves. Yet simple, non-invasive ways to do that have been scarce. EIT makes monitoring light enough for everyday life. Building that is our job.",
       "stats": [
         {
           "label": "Incidence after cancer treatment",
@@ -734,12 +734,12 @@
       "more": "Read the full message"
     },
     "contact": {
-      "lead": "For joint research, press enquiries, or hiring, please reach us here.",
+      "lead": "For joint research, press inquiries, or hiring, please reach us here.",
       "tel": "+81-43-290-3105",
       "email": "info@tomocloud.co.jp",
       "fields": {
         "name": "Name",
-        "org": "Company / organisation",
+        "org": "Company / organization",
         "email": "Email address",
         "phone": "Phone number",
         "body": "Your message"
