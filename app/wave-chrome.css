@@ -27,7 +27,7 @@
 .wv-header-logo img {
   display: block;
   width: auto;
-  height: 34px;
+  height: 44px;
 }
 
 .wv-header-nav {
@@ -95,7 +95,7 @@
   }
 
   .wv-header-logo img {
-    height: 44px;
+    height: 58px;
   }
 
   .wv-header-nav {
@@ -177,10 +177,20 @@
 /* ============================================================
    フッター
    ============================================================ */
+/* 波紋を地として敷くので、その基準になる。はみ出しは切る */
 .wv-footer {
+  position: relative;
+  overflow: hidden;
   background: #fff;
   color: var(--wv-ink);
   font-family: var(--font-murecho), "Hiragino Sans", "Yu Gothic", sans-serif;
+}
+
+/* 文字は地より上に置く */
+.wv-footer-inner,
+.wv-footer-base {
+  position: relative;
+  z-index: 1;
 }
 
 .wv-footer a {
@@ -198,7 +208,8 @@
   gap: 34px 24px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 48px 22px 40px;
+  /* 上をゆったり取る。文字が始まる前に、地の輪が見えるように */
+  padding: 88px 22px 40px;
 }
 
 .wv-footer-brand {
@@ -208,7 +219,7 @@
 .wv-footer-brand img {
   display: block;
   width: auto;
-  height: 34px;
+  height: 46px;
   margin-bottom: 20px;
 }
 
@@ -238,12 +249,66 @@
   white-space: nowrap;
 }
 
+/* 住所。address の斜体は解いておく */
+.wv-footer-address {
+  font-style: normal;
+}
+
+/* 連絡の取りよう。番地の下に、行を分けて積む */
+.wv-footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+
+/* 下の層。上の層とのあいだに髪の毛ほどの罫を一本 */
+.wv-footer-base {
+  border-top: 1px solid var(--wv-rule-1);
+}
+
+.wv-footer-base-inner {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 22px 22px 30px;
+}
+
 .wv-footer-copy {
-  grid-column: 1 / -1;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.05em;
   color: var(--wv-muted);
+}
+
+.wv-footer-legal {
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+
+/* 言語の切り替え。押せるものだと分かる幅だけ持たせる */
+.wv-footer-lang {
+  margin-left: auto;
+  border: 1px solid var(--wv-rule-2);
+  background: none;
+  color: var(--wv-body);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.wv-footer-lang:hover {
+  border-color: var(--wv-accent);
+  color: var(--wv-link);
 }
 
 @media (min-width: 1024px) {
@@ -251,7 +316,7 @@
     display: flex;
     align-items: flex-start;
     gap: 80px;
-    padding: 64px 60px 56px;
+    padding: 120px 60px 56px;
   }
 
   .wv-footer-brand {
@@ -260,7 +325,7 @@
   }
 
   .wv-footer-brand img {
-    height: 40px;
+    height: 58px;
     margin-bottom: 24px;
   }
 
@@ -269,10 +334,7 @@
     flex-shrink: 0;
   }
 
-  .wv-footer-copy {
-    margin-left: auto;
-    flex-shrink: 0;
-    align-self: flex-end;
-    white-space: nowrap;
+  .wv-footer-base-inner {
+    padding: 24px 60px 34px;
   }
 }

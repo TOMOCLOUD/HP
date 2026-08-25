@@ -84,7 +84,7 @@ export default function LocaleHome() {
       <MessageSection t={t?.message} head={s?.message} />
 
       <div id="contact" className="wv-anchor">
-        <ContactSection t={t?.contact} head={s?.contact} />
+        <ContactSection t={t?.contact} head={s?.contact} locale={locale} />
       </div>
 
       <PartnerLogos t={t?.partners} />

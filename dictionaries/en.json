@@ -745,7 +745,10 @@
     "footer": {
       "pages": "PAGES",
       "links": "LINKS",
-      "copyright": "© 2026 TOMOCLOUD, Inc."
+      "copyright": "© 2026 TOMOCLOUD, Inc.",
+      "recruit": "RECRUIT",
+      "openPositions": "Open positions",
+      "wantedly": "Wantedly"
     },
     "nav": {
       "home": "Home",
@@ -758,7 +761,8 @@
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
       "toEn": "Switch to English",
-      "toJa": "Switch to Japanese"
+      "toJa": "Switch to Japanese",
+      "privacy": "Privacy Policy"
     }
   },
   "meta": {
@@ -766,6 +770,42 @@
     "titleTemplate": "%s | TOMOCLOUD Inc.",
     "description": "We develop non-invasive monitoring devices using electrical impedance tomography (EIT). Catching lymphedema early to ease the days after cancer treatment. A medical device startup out of Chiba University.",
     "services": "Product",
-    "achievements": "Achievements"
+    "achievements": "Achievements",
+    "privacy": "Privacy Policy"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "TOMOCLOUD Inc. (\"we\") handles the personal information entrusted to us through our contact form and other channels according to the policy below.",
+    "sections": [
+      {
+        "h": "Information we collect",
+        "p": "Through the contact form we receive your name, organization, email address, phone number, and the content of your inquiry. Organization and phone number are optional."
+      },
+      {
+        "h": "Purpose of use",
+        "p": "We use the information to respond to your inquiry and to keep a record of that correspondence. We do not use it for any other purpose."
+      },
+      {
+        "h": "Disclosure to third parties",
+        "p": "We do not provide your information to third parties without your consent, except that inquiries are delivered through an email service (Resend), and except where disclosure is required by law."
+      },
+      {
+        "h": "Retention and safeguards",
+        "p": "We keep the information only as long as needed to respond, and delete it once it is no longer required. Communications are encrypted and access is limited to those who need it."
+      },
+      {
+        "h": "Access, correction and deletion",
+        "p": "On request, we will disclose, correct, suspend the use of, or delete the information we hold about you. Please contact us at the address below."
+      },
+      {
+        "h": "Contact",
+        "p": "TOMOCLOUD Inc.\nFujimi Building #609, 2-7-9 Fujimi, Chuo-ku, Chiba 260-0015, Japan\nTEL +81-43-290-3105 / info@tomocloud.co.jp"
+      },
+      {
+        "h": "Changes to this policy",
+        "p": "We may revise this policy in line with changes to applicable law or our practices. Any revision will be posted on this page."
+      }
+    ],
+    "updated": "Established: August 25, 2026"
   }
 }

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 import SectionHead from './WaveSource';
 
@@ -35,9 +36,11 @@ const EMPTY = { name: '', org: '', email: '', phone: '', body: '', company: '' }
 export default function ContactSection({
   t,
   head,
+  locale,
 }: {
   t?: Dict;
   head?: { title?: string };
+  locale: string;
 }) {
   const [form, setForm] = useState(EMPTY);
   const [sending, setSending] = useState(false);
@@ -208,7 +211,10 @@ export default function ContactSection({
             </button>
             <div className="wv-note wv-contact-privacy">
               {t?.privacyPrefix}
-              {t?.privacyLink}
+              {/* 同意を求める以上、その中身を読める先を必ず添える */}
+              <Link href={`/${locale}/privacy`} className="wv-contact-privacy-link">
+                {t?.privacyLink}
+              </Link>
               {t?.privacySuffix}
             </div>
           </div>
