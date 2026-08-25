@@ -1071,6 +1071,68 @@ a.wv-news-row:hover {
   }
 }
 
+/* 節の末尾から年別の全件アーカイブ（/news）へ。
+   組み方はヒーローの採用導線（.wv-hero-more）と同じ語彙 */
+.wv-news-foot {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.wv-news-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: clamp(13px, 1.1vw, 15px);
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--wv-rule-6);
+  padding-bottom: 6px;
+}
+
+.wv-news-more i {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 320ms cubic-bezier(0.2, 0.7, 0.35, 1);
+}
+
+.wv-news-more:hover {
+  border-bottom-color: var(--wv-link-hover);
+}
+
+.wv-news-more:hover i {
+  transform: translateX(3px) rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wv-news-more i {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   ニュースのアーカイブ（/news）
+   弧は「直近の動き」を見せるトップの演出なので持ち込まず、
+   年見出しと行のリズムだけで組む
+   ============================================================ */
+.wv-news-archive {
+  max-width: 980px;
+}
+
+.wv-news-year {
+  margin: 72px 0 18px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--wv-muted);
+}
+
+.wv-news-yeargroup:first-of-type .wv-news-year {
+  margin-top: 44px;
+}
+
 /* ============================================================
    02 目指すもの
    弧をひとつ引いて、その下にミッションの一文だけを置く

@@ -476,7 +476,8 @@
     },
     "sections": {
       "news": {
-        "title": "News"
+        "title": "News",
+        "more": "All news"
       },
       "mission": {
         "title": "What we are after"

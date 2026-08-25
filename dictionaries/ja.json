@@ -476,7 +476,8 @@
     },
     "sections": {
       "news": {
-        "title": "ニュース"
+        "title": "ニュース",
+        "more": "これまでのニュース"
       },
       "mission": {
         "title": "目指すもの"

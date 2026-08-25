@@ -1,16 +1,10 @@
+import Link from 'next/link';
 import SectionHead from './WaveSource';
 import { tagColor } from './tagColors';
+import { newsItems, toNewsRow, type LocalizedNewsRow } from '@/content/news';
 
-type Item = {
-  date: string;
-  tag: string;
-  tagKey: string;
-  org: string;
-  title: string;
-  text?: string;
-  /** 発表元や報道記事など、その件の一次情報。無い件は文字のまま置く */
-  url?: string;
-};
+/** 発表元や報道記事など、その件の一次情報を url に持つ。無い件は文字のまま置く */
+export type Item = LocalizedNewsRow;
 
 /**
  * 行の左端が乗る波面の位置。
@@ -34,7 +28,7 @@ function arcIndents(rowCount: number) {
   });
 }
 
-function Meta({ item, lead }: { item: Item; lead?: boolean }) {
+export function Meta({ item, lead }: { item: Item; lead?: boolean }) {
   const color = tagColor(item.tagKey);
   return (
     <div className="wv-news-meta">
@@ -57,7 +51,7 @@ function Meta({ item, lead }: { item: Item; lead?: boolean }) {
  * 外部ページを別タブで開く。URL が無い件はリンクにせず、同じ見た目の
  * 箱として置く（踏めることを示すカーソルや下線は出ない）。
  */
-function Row({
+export function Row({
   item,
   className,
   pad,
@@ -92,23 +86,32 @@ function Row({
   );
 }
 
+/** トップに出す直近の件数。これを超えた分はアーカイブ（/news）にだけ出る */
+const TOP_COUNT = 7;
+
 /**
  * 01 ニュース。
  *
  * 実績はこの中に統合した。種別は点の色で見分ける。
  * 行の左端は波面に沿って動き、罫は行と行のあいだにだけ、ごく薄く引く。
+ *
+ * 出すのは注目の1件と直近 TOP_COUNT 件だけ。件数が増えてもこの節の丈は
+ * 変わらず、全件は末尾の導線の先（/news）が受け持つ。
  */
 export default function NewsSection({
-  t,
   head,
+  locale,
 }: {
-  t?: {
-    featured?: Item;
-    items?: Item[];
-  };
-  head?: { title?: string };
+  head?: { title?: string; more?: string };
+  locale: 'ja' | 'en';
 }) {
-  const items = t?.items ?? [];
+  const sorted = [...newsItems].sort((a, b) => b.date.localeCompare(a.date));
+  const featured = sorted.find((n) => n.featured);
+  const lead = featured ? toNewsRow(featured, locale) : undefined;
+  const items = sorted
+    .filter((n) => !n.featured)
+    .slice(0, TOP_COUNT)
+    .map((n) => toNewsRow(n, locale));
   const pads = arcIndents(items.length);
 
   return (
@@ -148,12 +151,12 @@ export default function NewsSection({
           />
         </svg>
 
-        {/* 最新の一件 */}
-        {t?.featured ? (
-          <Row item={t.featured} className="wv-news-lead" pad={pads[0]}>
-            <Meta item={t.featured} lead />
-            <div className="wv-news-lead-title">{t.featured.title}</div>
-            <p className="wv-note wv-news-lead-text">{t.featured.text}</p>
+        {/* 注目の一件 */}
+        {lead ? (
+          <Row item={lead} className="wv-news-lead" pad={pads[0]}>
+            <Meta item={lead} lead />
+            <div className="wv-news-lead-title">{lead.title}</div>
+            <p className="wv-note wv-news-lead-text">{lead.text}</p>
           </Row>
         ) : null}
 
@@ -165,6 +168,16 @@ export default function NewsSection({
           </Row>
         ))}
       </div>
+
+      {/* 全件は年別のアーカイブで。矢印はヒーローの採用導線と同じ山形 */}
+      {head?.more ? (
+        <div className="wv-news-foot" data-wv-rv>
+          <Link href={`/${locale}/news`} className="wv-news-more">
+            <span>{head.more}</span>
+            <i />
+          </Link>
+        </div>
+      ) : null}
     </section>
   );
 }

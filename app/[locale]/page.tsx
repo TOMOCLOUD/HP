@@ -58,7 +58,7 @@ export default function LocaleHome() {
       <HeroSection t={t?.hero} locale={locale} />
 
       <div id="news" className="wv-anchor">
-        <NewsSection t={t?.news} head={s?.news} />
+        <NewsSection head={s?.news} locale={locale} />
       </div>
 
       <MissionSection t={t?.mission} head={s?.mission} values={dict?.home?.values} />
