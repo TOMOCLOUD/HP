@@ -852,7 +852,9 @@
 /* 行の左端は波面に沿って動く。その波面を引く一組の弧 */
 .wv-news-list {
   position: relative;
-  margin-top: 52px;
+  /* 見出しの一件が上の余白を持つ分、ここは 22px ぶん戻してある。
+     合計は 52px で、持たせる前と同じ位置に見える */
+  margin-top: 30px;
 }
 
 .wv-news-arc {
@@ -872,6 +874,8 @@
 
 .wv-news-lead {
   display: block;
+  /* 踏んだときの色が文字にぴったり付かないよう、上にも余白を取る */
+  padding-top: 22px;
   padding-bottom: 34px;
 }
 
@@ -934,7 +938,9 @@
   display: none;
 }
 
-/* 踏める行だけ反応させる。外部URLを持たない件は a ではなく div で出る */
+/* 踏める行だけ反応させる。外部URLを持たない件は a ではなく div で出る。
+   見出しの一件も外部URLを持つので、ふつうの行と同じ扱いにする */
+a.wv-news-lead:hover,
 a.wv-news-row:hover {
   color: inherit;
   background: rgba(18, 150, 219, 0.03);
