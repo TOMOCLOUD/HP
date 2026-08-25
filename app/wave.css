@@ -1247,13 +1247,6 @@ a.wv-news-row:hover {
   margin-top: 44px;
 }
 
-.wv-disclaimer-label {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  color: var(--wv-award);
-  margin-bottom: 14px;
-}
-
 .wv-tech {
   display: grid;
   gap: 44px;

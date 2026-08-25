@@ -25,7 +25,6 @@ export default function ProductSection({
   t?: {
     lead?: string;
     note?: string;
-    disclaimerLabel?: string;
     disclaimer?: string;
     archAlt?: string;
     techEyebrow?: string;
@@ -74,7 +73,6 @@ export default function ProductSection({
           </p>
 
           <div className="wv-disclaimer">
-            <div className="wv-disclaimer-label">{t?.disclaimerLabel}</div>
             <div className="wv-note" style={{ color: 'var(--wv-body)' }}>
               {t?.disclaimer}
             </div>
