@@ -1,3 +1,9 @@
+'use client';
+
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { scrollToSectionIfHome } from '@/lib/scrollToSection';
+
 /**
  * ヒーロー。
  *
@@ -17,6 +23,7 @@ type Hero = {
   sub?: string;
   taglineJa?: string;
   taglineEn?: string;
+  recruitCta?: string;
   photoAlt?: string;
 };
 
@@ -28,12 +35,22 @@ type Hero = {
 const HERO_BASE_MS = 360;
 const HERO_LINE_MS = 155;
 const HERO_TAGLINE_MS = 1260;
+/** 本文が出たあと、ひと呼吸おいて採用への一行が続く */
+const HERO_CTA_MS = 180;
 
-export default function HeroSection({ t }: { t?: Hero }) {
+export default function HeroSection({ t, locale }: { t?: Hero; locale: string }) {
   const titleLines = (t?.title ?? '').split('\n');
   // 本文も見出しと同じく \n で折り返し位置を決める。
   // 幅まかせにすると語の途中で切れるため
   const subLines = (t?.sub ?? '').split('\n');
+  const subDelay = HERO_BASE_MS + 180 + titleLines.length * HERO_LINE_MS + 125;
+  const pathname = usePathname() || `/${locale}`;
+
+  // 「採用」は独立ページを持たず、同じホームの #recruit セクションへ
+  // その場でスクロールする（ProductSection の導線と同じ扱い）。
+  const onRecruitClick = (e: React.MouseEvent) => {
+    if (scrollToSectionIfHome('recruit', pathname, locale)) e.preventDefault();
+  };
 
   return (
     <section className="wv-hero" data-wv-reveal data-wv-reveal-base={HERO_BASE_MS}>
@@ -59,17 +76,25 @@ export default function HeroSection({ t }: { t?: Hero }) {
             ))}
           </h1>
 
-          <p
-            className="wv-hero-sub"
-            data-wv-rv
-            data-wv-rv-delay={HERO_BASE_MS + 180 + titleLines.length * HERO_LINE_MS + 125}
-          >
+          <p className="wv-hero-sub" data-wv-rv data-wv-rv-delay={subDelay}>
             {subLines.map((line, i) => (
               <span key={i} style={{ display: 'block' }}>
                 {line}
               </span>
             ))}
           </p>
+
+          <Link
+            href={`/${locale}#recruit`}
+            className="wv-hero-more"
+            onClick={onRecruitClick}
+            scroll={false}
+            data-wv-rv
+            data-wv-rv-delay={subDelay + HERO_CTA_MS}
+          >
+            <span>{t?.recruitCta}</span>
+            <i />
+          </Link>
         </div>
 
         <div className="wv-hero-photo">

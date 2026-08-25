@@ -586,6 +586,45 @@
   color: var(--wv-body);
 }
 
+/* 本文の下、採用セクションへの一行。
+   面で塗るのは .wv-btn だけと決めてあるので、ここも線一本で示す。
+   .wv-more と同じ語彙のまま、ヒーローの分だけ字を大きくする */
+.wv-hero-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 36px;
+  font-size: clamp(13px, 1.1vw, 15px);
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--wv-rule-6);
+  padding-bottom: 6px;
+}
+
+/* 矢印は線二本の山形。波の進む向きへ、ふれたときだけ一歩出る */
+.wv-hero-more i {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 320ms cubic-bezier(0.2, 0.7, 0.35, 1);
+}
+
+.wv-hero-more:hover {
+  border-bottom-color: var(--wv-link-hover);
+}
+
+.wv-hero-more:hover i {
+  transform: translateX(3px) rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wv-hero-more i {
+    transition: none;
+  }
+}
+
 /* 写真。この円のふちが、いちばん内側の波面になる。
    層は下から、輪（0）→ 水面を静める白（1）→ 写真（2）→ 文字（3）。
    輪だけが白の下をくぐるので、文字のまわりでは薄く沈む */

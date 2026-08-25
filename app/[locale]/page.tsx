@@ -50,7 +50,7 @@ export default function LocaleHome() {
     <div className="wv">
       <ContourField />
 
-      <HeroSection t={t?.hero} />
+      <HeroSection t={t?.hero} locale={locale} />
 
       <div id="news" className="wv-anchor">
         <NewsSection t={t?.news} head={s?.news} />
