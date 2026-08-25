@@ -651,17 +651,27 @@
         {
           "label": "がん治療後の発症率",
           "value": "20〜30%",
-          "source": "Chang M, 2016 / Cormier J, Cancer, 2010"
+          "ref": "1"
         },
         {
           "label": "国内の推定患者数",
           "value": "26万人",
-          "source": "リンパ浮腫研修運営委員会"
+          "ref": "2"
         },
         {
           "label": "国内のリスク患者数",
           "value": "79万人",
-          "source": "リンパ浮腫研修運営委員会"
+          "ref": "2"
+        }
+      ],
+      "refs": [
+        {
+          "n": "1",
+          "text": "Chang M, 2016 / Cormier J, Cancer, 2010"
+        },
+        {
+          "n": "2",
+          "text": "リンパ浮腫研修運営委員会"
         }
       ]
     },

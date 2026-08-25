@@ -651,17 +651,27 @@
         {
           "label": "Incidence after cancer treatment",
           "value": "20–30%",
-          "source": "Chang M, 2016 / Cormier J, Cancer, 2010"
+          "ref": "1"
         },
         {
           "label": "Estimated patients in Japan",
           "value": "260,000",
-          "source": "Lymphedema Training Steering Committee, Japan"
+          "ref": "2"
         },
         {
           "label": "At-risk population in Japan",
           "value": "790,000",
-          "source": "Lymphedema Training Steering Committee, Japan"
+          "ref": "2"
+        }
+      ],
+      "refs": [
+        {
+          "n": "1",
+          "text": "Chang M, 2016 / Cormier J, Cancer, 2010"
+        },
+        {
+          "n": "2",
+          "text": "Lymphedema Training Steering Committee, Japan"
         }
       ]
     },

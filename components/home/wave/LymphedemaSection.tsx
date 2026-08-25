@@ -1,6 +1,7 @@
 import SectionHead from './WaveSource';
 
-type Stat = { label?: string; value?: string; source?: string };
+type Stat = { label?: string; value?: string; ref?: string };
+type Ref = { n?: string; text?: string };
 
 /**
  * 05 リンパ浮腫とは。
@@ -8,13 +9,15 @@ type Stat = { label?: string; value?: string; source?: string };
  * 図は既存のプロダクトページで使っているものをそのまま置く。細い青線と
  * 淡い円だけの絵なので、枠に入れず、四辺を白へ落として地に溶かす。
  *
- * 下の数値は医学的な数字なので、値のすぐ下に出典を添えて出す。
+ * 下の数値は医学的な数字なので、典拠のあることが見て分かるようにする。
+ * 値の右肩に番号を振り、出典そのものは三つの下へまとめた。同じ出典を
+ * 引く数値が複数あるため、各枠に書くと同じ一行が何度も出てしまう。
  */
 export default function LymphedemaSection({
   t,
   head,
 }: {
-  t?: { p1?: string; p2?: string; imageAlt?: string; stats?: Stat[] };
+  t?: { p1?: string; p2?: string; imageAlt?: string; stats?: Stat[]; refs?: Ref[] };
   head?: { title?: string };
 }) {
   return (
@@ -39,11 +42,21 @@ export default function LymphedemaSection({
             <div className="wv-note" style={{ fontSize: 14 }}>
               {s.label}
             </div>
-            <div className="wv-stat-value">{s.value}</div>
-            <div className="wv-note" style={{ fontSize: 13 }}>
-              {s.source}
+            <div className="wv-stat-value">
+              {s.value}
+              {s.ref ? <sup className="wv-stat-ref">{s.ref}</sup> : null}
             </div>
           </div>
+        ))}
+      </div>
+
+      {/* 出典。数値そのものではないので、字を落として下へ引く */}
+      <div className="wv-lymph-refs" data-wv-rv>
+        {(t?.refs ?? []).map((r) => (
+          <p key={r.n} className="wv-lymph-ref">
+            <span className="wv-lymph-ref-n">※{r.n}</span>
+            {r.text}
+          </p>
         ))}
       </div>
     </section>

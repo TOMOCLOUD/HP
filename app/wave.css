@@ -1610,7 +1610,8 @@ a.wv-news-row:hover {
 
 .wv-stat {
   border-top: 1px solid var(--wv-ink);
-  padding: 22px 0 34px;
+  /* 出典は下へ移したので、値で終わる分だけ足元を詰める */
+  padding: 22px 0 26px;
 }
 
 .wv-stat-value {
@@ -1618,7 +1619,35 @@ a.wv-news-row:hover {
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--wv-ink);
-  margin: 14px 0;
+  margin: 14px 0 0;
+}
+
+/* 値の右肩の番号。数字の一部に見えない大きさまで落とす */
+.wv-stat-ref {
+  margin-left: 3px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--wv-muted);
+  vertical-align: super;
+  line-height: 0;
+}
+
+/* 出典。数値そのものではないので、字を落として下へ引く */
+.wv-lymph-refs {
+  margin-top: 2px;
+}
+
+.wv-lymph-ref {
+  margin: 0 0 5px;
+  font-size: 12px;
+  line-height: 1.85;
+  letter-spacing: 0.03em;
+  color: var(--wv-muted);
+}
+
+.wv-lymph-ref-n {
+  margin-right: 7px;
 }
 
 .wv-survey {
