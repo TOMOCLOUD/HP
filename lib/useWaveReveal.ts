@@ -17,6 +17,11 @@ import { useEffect } from 'react';
  *   data-wv-reveal-base   … そのまとまりの開始を遅らせる ms
  *   data-wv-rv-delay      … その要素だけ開始を明示する ms（順番の計算を無視）
  *
+ * まとまりは入れ子にできる。セクションの下の方にあって、そこまで
+ * スクロールして初めて目に入る一群は、内側にもう一つまとまりを作る。
+ * 外側が視界に入った時点でまとめて出してしまうと、読み手が着く頃には
+ * 出し終わっていて、順に現れるところが見えないため。
+ *
  * 初期の非表示は CSS 側に直接書かず、このフックが <html> に
  * data-wv-rv-on を立てて初めて効くようにしている。JS が動かない環境で
  * 本文が永久に消えるのを避けるため。
@@ -55,7 +60,10 @@ export function useWaveReveal(ready: boolean) {
     // まとまりごとに、中の要素へ順番を振る
     const itemsOf = new Map<HTMLElement, HTMLElement[]>();
     for (const group of groups) {
-      const items = Array.from(group.querySelectorAll<HTMLElement>('[data-wv-rv]'));
+      // 入れ子のまとまりの中身は、内側に任せて自分は持たない
+      const items = Array.from(group.querySelectorAll<HTMLElement>('[data-wv-rv]')).filter(
+        (el) => el.closest('[data-wv-reveal]') === group
+      );
       const base = Number(group.dataset.wvRevealBase ?? 0);
       items.forEach((el, i) => {
         const own = el.dataset.wvRvDelay;

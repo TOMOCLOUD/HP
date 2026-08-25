@@ -2,6 +2,15 @@ import SectionHead from './WaveSource';
 
 type Value = { title?: string; text?: string };
 
+/**
+ * 四つの柱を出す間隔。
+ *
+ * ページ全体の既定（110ms）より広く取る。ここは 01 から順に
+ * 一枚ずつ立っていくところを見せたい場所なので、隣と重なりすぎない
+ * ところまで開ける。
+ */
+const VALUE_STAGGER_MS = 240;
+
 function Lines({ text }: { text?: string }) {
   return (
     <>
@@ -60,7 +69,9 @@ export default function MissionSection({
         </div>
       </div>
 
-      <div className="wv-values">
+      {/* セクションの下の方にあるので、ここだけ別の発火のまとまりにする。
+          読み手が Values まで来てから、01 → 04 と順に立ち上がる */}
+      <div className="wv-values" data-wv-reveal>
         <svg
           className="wv-values-arc"
           viewBox="0 0 1200 80"
@@ -75,7 +86,7 @@ export default function MissionSection({
 
         <div className="wv-values-grid">
           {(values ?? []).map((v, i) => (
-            <div key={v.title ?? i} data-wv-rv>
+            <div key={v.title ?? i} data-wv-rv data-wv-rv-delay={i * VALUE_STAGGER_MS}>
               <div className="wv-lat wv-value-num">{String(i + 1).padStart(2, '0')}</div>
               <div className="wv-lat wv-value-title">{v.title}</div>
               <div className="wv-note">{v.text}</div>
