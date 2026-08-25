@@ -472,7 +472,7 @@
       "gtie": "GTIE",
       "amed": "Japan Agency for Medical Research and Development (AMED)",
       "nedo": "New Energy and Industrial Technology Development Organization (NEDO)",
-      "caption": "Born out of Chiba University, developed with support from public research agencies."
+      "caption": "Born out of Chiba University, supported by public research agencies."
     },
     "sections": {
       "news": {
@@ -689,7 +689,7 @@
       ]
     },
     "survey": {
-      "lead": "As we develop LT monitor Lite, a device for checking swelling at home, we are asking about the difficulties you face day to day and the features you feel would help. Responses are aggregated anonymously and used for nothing but improving the product.",
+      "lead": "As we develop LT monitor Lite, our device for use at home, we are asking about the difficulties you face day to day and the features you feel would help. Responses are aggregated anonymously and used for nothing but improving the product.",
       "cta": "Answer the survey"
     },
     "team": {

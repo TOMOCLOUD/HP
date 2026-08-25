@@ -31,7 +31,7 @@ import AboutSection from '@/components/home/wave/AboutSection';
  *
  * 並びは、何を目指すか（目指すもの）→ 何が困りごとか（リンパ浮腫とは）
  * → どう解くか（プロダクト&テクノロジー）の順。リンパ浮腫の節は
- * 「切らずに手軽に測れる方法は限られてきました。EITなら〜」で終わり、
+ * 「切らずに手軽に測れる方法は限られていました。EITなら〜」で終わり、
  * そのまま次の節の基盤技術へ渡る。
  */
 export default function LocaleHome() {
