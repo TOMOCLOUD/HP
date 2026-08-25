@@ -8,8 +8,7 @@ type Stat = { label?: string; value?: string; source?: string };
  * 図は既存のプロダクトページで使っているものをそのまま置く。細い青線と
  * 淡い円だけの絵なので、枠に入れず、四辺を白へ落として地に溶かす。
  *
- * 右の数値は、出典を社内で確認したうえで確定する。
- * 医学的な数値なので、確認できるまでは placeholder のまま置いておく。
+ * 下の数値は医学的な数字なので、値のすぐ下に出典を添えて出す。
  */
 export default function LymphedemaSection({
   t,

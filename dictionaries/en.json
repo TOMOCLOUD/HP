@@ -649,14 +649,19 @@
       "p2": "What matters is catching it early and watching how it evolves. Yet simple, non-invasive ways to do that have been scarce. EIT makes monitoring light enough for everyday life — building that is our job.",
       "stats": [
         {
-          "label": "Incidence of lymphedema after breast cancer surgery",
-          "value": "[source to be confirmed]",
-          "source": "The figure and its source will be confirmed internally before publication"
+          "label": "Incidence after cancer treatment",
+          "value": "20–30%",
+          "source": "Chang M, 2016 / Cormier J, Cancer, 2010"
         },
         {
           "label": "Estimated patients in Japan",
-          "value": "[source to be confirmed]",
-          "source": "A medical figure, so the source will be cited"
+          "value": "260,000",
+          "source": "Lymphedema Training Steering Committee, Japan"
+        },
+        {
+          "label": "At-risk population in Japan",
+          "value": "790,000",
+          "source": "Lymphedema Training Steering Committee, Japan"
         }
       ]
     },
