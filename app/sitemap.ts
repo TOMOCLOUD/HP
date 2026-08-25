@@ -4,7 +4,7 @@ import { locales } from '@/lib/i18n';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://tomocloud.co.jp';
 
 /** ロケールを持つページ。ホームは節をまとめた一枚なので、これで全部 */
-const paths = ['', '/news', '/services', '/achievements', '/privacy'];
+const paths = ['', '/news', '/services', '/privacy'];
 
 /**
  * 日英の同じページを alternates で結びつけ、どちらも同じ内容の別言語版だと

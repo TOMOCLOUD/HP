@@ -47,7 +47,6 @@ export default function SiteFooter() {
   const pages: FooterLink[] = [
     { label: nav?.product, href: `/${locale}/services` },
     { label: nav?.news, href: anchor('news'), hash: 'news' },
-    { label: nav?.achievements, href: `/${locale}/achievements` },
     { label: nav?.contact, href: anchor('contact'), hash: 'contact' },
     { label: nav?.about, href: anchor('about'), hash: 'about' },
   ];

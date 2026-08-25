@@ -182,33 +182,6 @@
       "cta": "Take the Survey"
     }
   },
-  "achievements": {
-    "title": "Achievements",
-    "lead": "Our publications, conference presentations, and awards.",
-    "lead2": "Each item links to the original paper or conference page.",
-    "labelPaper": "Publication",
-    "labelPresentation": "Presentation",
-    "labelAward": "Award",
-    "labelComingSoon": "Coming soon",
-    "openLink": "Open link",
-    "linkPending": "Coming soon",
-    "items": [
-      {
-        "id": "coming-soon",
-        "type": "comingSoon",
-        "title": "Coming soon"
-      },
-      {
-        "id": "pres-2025-lymph",
-        "type": "presentation",
-        "title": "EIT for Lymphedema Evaluation: Past and Future",
-        "date": "2025-09-06",
-        "journalOrConf": "9th Annual Meeting of the Japanese Society for Lymphedema Treatment",
-        "authors": "R. Ogawa, Y. Kinouchi, S. Akita and M. Takei",
-        "externalUrl": "https://www.graffiti97.com/9jslt/index.html"
-      }
-    ]
-  },
   "top": {
     "hero": {
       "title": "Catch lymphedema early,\nand ease the days after treatment.",
@@ -434,7 +407,6 @@
       "home": "Home",
       "product": "Product",
       "news": "News",
-      "achievements": "Achievements",
       "recruit": "Recruit",
       "contact": "Contact",
       "about": "Company",
@@ -451,7 +423,6 @@
     "titleTemplate": "%s | TOMOCLOUD Inc.",
     "description": "We develop non-invasive monitoring devices using electrical impedance tomography (EIT). Catching lymphedema early to ease the days after cancer treatment. A medical device startup out of Chiba University.",
     "services": "Product",
-    "achievements": "Achievements",
     "privacy": "Privacy Policy"
   },
   "privacy": {

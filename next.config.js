@@ -14,11 +14,19 @@ const nextConfig = {
    */
   async redirects() {
     const gone = ['recruit', 'contact', 'about'];
-    return gone.map((name) => ({
-      source: `/:locale(ja|en)/${name}`,
-      destination: `/:locale#${name}`,
-      permanent: true,
-    }));
+    return [
+      ...gone.map((name) => ({
+        source: `/:locale(ja|en)/${name}`,
+        destination: `/:locale#${name}`,
+        permanent: true,
+      })),
+      // 実績ページは廃止した。対応する節がホームに無いので、ホームへ返す
+      {
+        source: '/:locale(ja|en)/achievements',
+        destination: '/:locale',
+        permanent: true,
+      },
+    ];
   },
 
   async headers() {
