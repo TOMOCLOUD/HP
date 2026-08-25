@@ -28,6 +28,11 @@ import AboutSection from '@/components/home/wave/AboutSection';
  * ホームの写真のふちから生まれた波が外へ広がり、そのうちの一本が
  * ページの下へ向かって出発する。14秒かけて下まで降りきり、
  * 通り過ぎたセクションの波源が順に発火する。
+ *
+ * 並びは、何を目指すか（目指すもの）→ 何が困りごとか（リンパ浮腫とは）
+ * → どう解くか（プロダクト&テクノロジー）の順。リンパ浮腫の節は
+ * 「切らずに手軽に測れる方法は限られてきました。EITなら〜」で終わり、
+ * そのまま次の節の基盤技術へ渡る。
  */
 export default function LocaleHome() {
   const { dict, locale } = useDict();
@@ -58,6 +63,8 @@ export default function LocaleHome() {
 
       <MissionSection t={t?.mission} head={s?.mission} values={dict?.home?.values} />
 
+      <LymphedemaSection t={t?.lymphedema} head={s?.lymphedema} />
+
       <div id="product" className="wv-anchor">
         <ProductSection t={t?.product} head={s?.product} locale={locale} />
       </div>
@@ -66,7 +73,6 @@ export default function LocaleHome() {
         <RecruitSection t={t?.recruit} head={s?.recruit} />
       </div>
 
-      <LymphedemaSection t={t?.lymphedema} head={s?.lymphedema} />
       <SurveySection t={t?.survey} head={s?.survey} />
       <TeamSection
         t={t?.team}
