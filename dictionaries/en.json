@@ -613,7 +613,6 @@
         }
       ],
       "craftQuote": "From the measurement circuits to the software that assembles the cross-section, we build it ourselves.",
-      "craftNote": "We build measurement boards while watching the waveforms, measure, and fix. The device is still a prototype.",
       "craftCta": "We are looking for people to build it with",
       "probeAlt": "A hand touching a probe to a board while watching an oscilloscope waveform",
       "circuitAlt": "Close-up of a measurement board lined with D-sub connectors"

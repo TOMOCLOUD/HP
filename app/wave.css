@@ -1284,7 +1284,7 @@ a.wv-news-row:hover {
 }
 
 .wv-craft-quote {
-  margin: 0 0 24px;
+  margin: 0 0 32px;
   font-size: clamp(15px, 1.6vw, 21px);
   font-weight: 500;
   line-height: 2.1;

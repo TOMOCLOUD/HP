@@ -36,7 +36,6 @@ export default function ProductSection({
     realtimeLabel?: string;
     pipeline?: Step[];
     craftQuote?: string;
-    craftNote?: string;
     craftCta?: string;
     probeAlt?: string;
     circuitAlt?: string;
@@ -127,9 +126,6 @@ export default function ProductSection({
       <div className="wv-craft">
         <div data-wv-rv>
           <p className="wv-craft-quote">{t?.craftQuote}</p>
-          <p className="wv-note" style={{ margin: '0 0 26px' }}>
-            {t?.craftNote}
-          </p>
           <Link href={`/${locale}#recruit`} className="wv-more" onClick={onRecruitClick} scroll={false}>
             {t?.craftCta}
           </Link>
