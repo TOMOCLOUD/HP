@@ -89,18 +89,24 @@
    1行目の字の高さの真ん中に来るぶんだけ持ち上げる */
 .wv-h2 {
   display: flex;
-  align-items: baseline;
+  align-items: flex-start;
   gap: 14px;
   margin: 0;
   font-size: clamp(25px, 2.4vw, 34px);
   font-weight: 600;
   letter-spacing: 0.15em;
+  line-height: 1.35;
   color: var(--wv-ink);
   line-height: 1.38;
 }
 
+/* 点の中心を一行目の行高中心（＝和文の視覚中心）に置く。
+   baseline 合わせは、テキストを持たない箱のベースライン合成の仕方が
+   ブラウザで割れていて（ボーダー下端 or マージン下端）、点が字より
+   下に落ちることがあった。0.675em は line-height 1.35 の半分、
+   4.5px は点（9px）の半分 */
 .wv-h2 .wv-src {
-  margin-bottom: 0.3em;
+  margin-top: calc(0.675em - 4.5px);
 }
 
 /* globals.css の h2::after（触れるとグラデーションの下線が伸びるアニメーション）は
