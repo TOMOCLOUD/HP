@@ -224,10 +224,10 @@
       },
       {
         "id": 27,
-        "title": "NEDO主催「NEP Pitch -2025躍進ファイナル-」に小川良磨CEOが登壇します。",
+        "title": "NEDO主催「NEP Pitch -2025躍進ファイナル-」に小川良磨CEOが登壇しました。",
         "date": "2026-07-28",
         "image": "/Image/logo.png",
-        "text": "2026年8月24日（月）ベルサール虎ノ門にて開催されるNEDO NEP事業のディープテック系スタートアップによるピッチイベント「NEP Pitch -2025躍進ファイナル-」に登壇します。",
+        "text": "2026年8月24日（月）にベルサール虎ノ門で開催されたNEDO NEP事業のディープテック系スタートアップによるピッチイベント「NEP Pitch -2025躍進ファイナル-」に登壇しました。",
         "url": "https://prtimes.jp/main/html/rd/p/000000005.000157480.html"
       },
       {
@@ -514,10 +514,26 @@
         "tagKey": "adoption",
         "org": "AMED",
         "title": "AMED橋渡し研究プログラム 筑波大学拠点「大学発医療系スタートアップ支援プログラム【S2】」に採択されました",
-        "text": "課題名「リンパ浮腫早期診断装置の薬事承認・上市に向けた研究開発」（代表者：小川良磨）が採択されました。薬事承認と上市に向けた開発を進めます。",
+        "text": "課題名「リンパ浮腫早期診断装置の薬事承認・上市に向けた研究開発」（代表者：小川良磨）が採択されました。",
         "url": "https://www.hosp.tsukuba.ac.jp/t-credo/1428"
       },
       "items": [
+        {
+          "date": "2026.08.24",
+          "tag": "登壇",
+          "tagKey": "plain",
+          "org": "",
+          "title": "NEDO主催「NEP Pitch -2025躍進ファイナル-」に小川良磨CEOが登壇しました。",
+          "url": "https://prtimes.jp/main/html/rd/p/000000005.000157480.html"
+        },
+        {
+          "date": "2026.07.14",
+          "tag": "受賞",
+          "tagKey": "award",
+          "org": "",
+          "title": "HVC KYOTOにて、O-Nexus AwardおよびTokyu Land Awardを受賞しました。",
+          "url": "https://hvckyoto.com/"
+        },
         {
           "date": "2026.07.09",
           "tag": "登壇",
@@ -531,7 +547,7 @@
           "tag": "出展",
           "tagKey": "plain",
           "org": "",
-          "title": "株式会社TOMOCLOUDが、メドテックジャパン2026に出展します。",
+          "title": "株式会社TOMOCLOUDが、メドテックジャパン2026に出展しました。",
           "url": "https://medtecjapan.com/"
         },
         {
@@ -555,7 +571,7 @@
           "tag": "受賞",
           "tagKey": "award",
           "org": "研究実績",
-          "title": "第9回日本リンパ浮腫治療学会学術総会 最優秀演題賞",
+          "title": "第9回日本リンパ浮腫治療学会学術総会で最優秀演題賞を受賞しました。",
           "url": "https://www.graffiti97.com/9jslt/index.html"
         },
         {
@@ -563,7 +579,7 @@
           "tag": "採択",
           "tagKey": "adoption",
           "org": "研究実績",
-          "title": "Beyond Japan Zero to X Program 最終採択",
+          "title": "Beyond Japan Zero to X Programに最終採択されました。",
           "url": "https://www.b4d-jp.com/news/2025-8"
         },
         {
@@ -571,7 +587,7 @@
           "tag": "採択",
           "tagKey": "adoption",
           "org": "研究実績",
-          "title": "GTIE-GAPファンド エントリーコース 採択",
+          "title": "GTIE-GAPファンド エントリーコースに採択されました。",
           "url": "https://gtie.jp/news/43810/"
         }
       ]

@@ -224,10 +224,10 @@
       },
       {
         "id": 27,
-        "title": "CEO Ryoma Ogawa will pitch at NEP Pitch 2025 Final, hosted by NEDO.",
+        "title": "CEO Ryoma Ogawa pitched at NEP Pitch 2025 Final, hosted by NEDO.",
         "date": "2026-07-28",
         "image": "/Image/logo.png",
-        "text": "TOMOCLOUD will pitch at NEP Pitch 2025 Final, a pitch event for deep-tech startups supported by NEDO NEP program, held on August 24, 2026 at Bellesalle Toranomon.",
+        "text": "TOMOCLOUD pitched at NEP Pitch 2025 Final, a pitch event for deep-tech startups supported by the NEDO NEP program, held on August 24, 2026 at Bellesalle Toranomon.",
         "url": "https://prtimes.jp/main/html/rd/p/000000005.000157480.html"
       },
       {
@@ -513,11 +513,27 @@
         "tag": "Selected",
         "tagKey": "adoption",
         "org": "AMED",
-        "title": "Selected for the AMED Translational Research Program, University of Tsukuba hub — Medical Startup Support Program [S2]",
-        "text": "The project \"R&D toward regulatory approval and market launch of an early-diagnosis device for lymphedema\" (PI: Ryoma Ogawa) was selected. Work now moves toward approval and launch.",
+        "title": "Selected for the Medical Startup Support Program [S2] under the AMED Translational Research Program (University of Tsukuba hub)",
+        "text": "The project \"R&D toward regulatory approval and market launch of an early-diagnosis device for lymphedema\" (PI: Ryoma Ogawa) was selected.",
         "url": "https://www.hosp.tsukuba.ac.jp/t-credo/1428"
       },
       "items": [
+        {
+          "date": "2026.08.24",
+          "tag": "Talk",
+          "tagKey": "plain",
+          "org": "",
+          "title": "CEO Ryoma Ogawa pitched at NEP Pitch 2025 Final, hosted by NEDO.",
+          "url": "https://prtimes.jp/main/html/rd/p/000000005.000157480.html"
+        },
+        {
+          "date": "2026.07.14",
+          "tag": "Award",
+          "tagKey": "award",
+          "org": "",
+          "title": "TOMOCLOUD received the O-Nexus Award and the Tokyu Land Award at HVC KYOTO.",
+          "url": "https://hvckyoto.com/"
+        },
         {
           "date": "2026.07.09",
           "tag": "Talk",
@@ -531,7 +547,7 @@
           "tag": "Exhibit",
           "tagKey": "plain",
           "org": "",
-          "title": "TOMOCLOUD will exhibit at Medtec Japan 2026.",
+          "title": "TOMOCLOUD exhibited at Medtec Japan 2026.",
           "url": "https://medtecjapan.com/"
         },
         {
@@ -539,7 +555,7 @@
           "tag": "In the press",
           "tagKey": "media",
           "org": "Forbes Japan",
-          "title": "Featured in Forbes Japan's \"30 EMERGING DEEPTECH\".",
+          "title": "TOMOCLOUD was featured in Forbes Japan's \"30 EMERGING DEEPTECH\".",
           "url": "https://prtimes.jp/main/html/rd/p/000000002.000175448.html"
         },
         {
@@ -555,7 +571,7 @@
           "tag": "Award",
           "tagKey": "award",
           "org": "Research record",
-          "title": "Best Presentation Award, 9th Annual Meeting of the Japanese Society of Lymphedema Treatment",
+          "title": "CEO Ryoma Ogawa received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society of Lymphedema Treatment.",
           "url": "https://www.graffiti97.com/9jslt/index.html"
         },
         {
@@ -563,7 +579,7 @@
           "tag": "Selected",
           "tagKey": "adoption",
           "org": "Research record",
-          "title": "Final selection, Beyond Japan Zero to X Program",
+          "title": "TOMOCLOUD was selected in the final round of the Beyond Japan Zero to X Program.",
           "url": "https://www.b4d-jp.com/news/2025-8"
         },
         {
@@ -571,7 +587,7 @@
           "tag": "Selected",
           "tagKey": "adoption",
           "org": "Research record",
-          "title": "Selected for the GTIE-GAP Fund, entry course",
+          "title": "TOMOCLOUD was selected for the GTIE-GAP Fund entry course.",
           "url": "https://gtie.jp/news/43810/"
         }
       ]
