@@ -458,12 +458,30 @@
   }
 }
 
+/**
+ * 波源はページのはるか下にある。ここに見えているのは、その輪が
+ * こちらへ届いたところ。虹のように弧を架けたいので、左右の端が
+ * 下がりきるまでの丈を取る。
+ *
+ * 中心までの距離が輪の曲がり方を決める。画面が狭いと、遠い中心の
+ * ままでは弧がほとんど直線に見えるので、横幅に応じて近づける。
+ */
 .wv-moire {
+  --wv-moire-origin: 420px;
+
   position: relative;
-  height: 52px;
+  height: 96px;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 15%, #000 85%, rgba(0, 0, 0, 0) 100%);
-  mask-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 15%, #000 85%, rgba(0, 0, 0, 0) 100%);
+  /* 左右は端で消し、上は弧が現れてくるように薄くしてから始める。
+     切り落とすと、いちばん外側の輪だけが直線で断ち切られて見える */
+  -webkit-mask-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 15%, #000 85%, rgba(0, 0, 0, 0) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 30%, #000 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 15%, #000 85%, rgba(0, 0, 0, 0) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000 30%, #000 100%);
+  mask-composite: intersect;
 }
 
 .wv-moire::before,
@@ -478,7 +496,7 @@
 
 .wv-moire::before {
   background: repeating-radial-gradient(
-    circle at 50% 980px,
+    circle at 50% var(--wv-moire-origin),
     rgba(18, 150, 219, 0) 0 30px,
     rgba(18, 150, 219, 0.26) 30px 31px
   );
@@ -487,16 +505,26 @@
 
 .wv-moire::after {
   background: repeating-radial-gradient(
-    circle at 50% 980px,
+    circle at 50% var(--wv-moire-origin),
     rgba(15, 30, 40, 0) 0 33px,
     rgba(15, 30, 40, 0.13) 33px 34px
   );
   animation: wv-swell-b 9s linear infinite;
 }
 
+@media (min-width: 768px) {
+  .wv-moire {
+    --wv-moire-origin: 660px;
+    height: 132px;
+  }
+}
+
 @media (min-width: 1024px) {
   .wv-moire {
-    height: 58px;
+    /* マスクで見えるのは横幅の 7 割ほど。1400px 幅なら中央から
+       左右 490px で、そこまでに弧は 131px 下がる。それが収まる丈 */
+    --wv-moire-origin: 980px;
+    height: 176px;
   }
 }
 
