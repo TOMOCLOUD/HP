@@ -6,13 +6,14 @@ const nextConfig = {
   /**
    * 旧ページの行き先。
    *
-   * ニュース・採用・お問い合わせ・会社概要は独立ページをやめ、ホームの
-   * 節に統合した。名刺や求人票、報道記事、検索結果から旧 URL を踏んだ人が
-   * 404 に落ちないよう、対応する節へ恒久リダイレクトする。着地してからの
-   * スクロールは scrollToHashOnMount が受け持つ。
+   * 採用・お問い合わせ・会社概要は独立ページをやめ、ホームの節に統合した。
+   * 名刺や求人票、報道記事、検索結果から旧 URL を踏んだ人が 404 に落ちない
+   * よう、対応する節へ恒久リダイレクトする。着地してからのスクロールは
+   * scrollToHashOnMount が受け持つ。ニュースは /news を年別アーカイブ
+   * として持つため、リダイレクトしない。
    */
   async redirects() {
-    const gone = ['news', 'recruit', 'contact', 'about'];
+    const gone = ['recruit', 'contact', 'about'];
     return gone.map((name) => ({
       source: `/:locale(ja|en)/${name}`,
       destination: `/:locale#${name}`,

@@ -783,6 +783,7 @@
   },
   "meta": {
     "title": "TOMOCLOUD Inc.",
+    "news": "News",
     "titleTemplate": "%s | TOMOCLOUD Inc.",
     "description": "We develop non-invasive monitoring devices using electrical impedance tomography (EIT). Catching lymphedema early to ease the days after cancer treatment. A medical device startup out of Chiba University.",
     "services": "Product",
