@@ -57,7 +57,7 @@ export function toNewsRow(item: NewsItem, locale: 'ja' | 'en'): LocalizedNewsRow
 const TAG = {
   talk: { ja: '登壇', en: 'Talk' },
   exhibit: { ja: '出展', en: 'Exhibit' },
-  press: { ja: '媒体掲載', en: 'In the press' },
+  press: { ja: 'メディア掲載', en: 'In the press' },
   selected: { ja: '採択', en: 'Selected' },
   award: { ja: '受賞', en: 'Award' },
   funding: { ja: '資金調達', en: 'Funding' },
@@ -84,7 +84,7 @@ export const newsItems: NewsItem[] = [
     tag: TAG.selected,
     org: { ja: 'AMED', en: 'AMED' },
     title: {
-      ja: 'AMED橋渡し研究プログラム 筑波大学拠点「大学発医療系スタートアップ支援プログラム【S2】」に採択されました',
+      ja: 'AMED橋渡し研究プログラム 筑波大学拠点「大学発医療系スタートアップ支援プログラム【S2】」に採択されました。',
       en: 'Selected for the Medical Startup Support Program [S2] under the AMED Translational Research Program (University of Tsukuba hub)',
     },
     text: {
@@ -303,7 +303,7 @@ export const newsItems: NewsItem[] = [
     tag: TAG.selected,
     org: RESEARCH,
     title: {
-      ja: 'Beyond Japan Zero to X Programに最終採択されました。',
+      ja: 'Beyond Japan Zero to X Programの最終採択者に決定しました。',
       en: 'TOMOCLOUD was selected in the final round of the Beyond Japan Zero to X Program.',
     },
     url: 'https://www.b4d-jp.com/news/2025-8',

@@ -241,7 +241,7 @@
       "archAlt": "The LT monitor Pro prototype screen",
       "techEyebrow": "Core technology",
       "techTitle": "Electrical impedance\ntomography",
-      "techLead": "Electrodes placed on the skin inject a weak current, and the resulting voltages are measured to reconstruct the distribution of electrical impedance inside the body as a cross-sectional image. No radiation, no incision, and it can be repeated as often as needed.",
+      "techLead": "Electrodes placed on the skin inject a weak current, and the resulting voltages are measured to reconstruct the distribution of electrical impedance inside the body as a cross-sectional image. It uses no radiation, so it can be repeated as often as needed.",
       "eitAria": "How a rotating pair of electrodes measures voltages, and the inverse problem is solved to reconstruct the impedance distribution of a cross-section",
       "measureLabel": "MEASURE",
       "reconstructLabel": "RECONSTRUCT",
@@ -296,7 +296,7 @@
     },
     "lymphedema": {
       "imageAlt": "Schematic of a leg swollen by lymphedema",
-      "p1": "Lymphedema is swelling in the limbs caused by stagnant lymphatic flow. Beyond the visible change, it brings pain and heaviness, and it affects the quality of daily life and work.",
+      "p1": "Lymphedema is swelling in the limbs caused by stagnant lymphatic flow. The change is not only visible. It brings pain and heaviness, and it affects daily life and work.",
       "p2": "What matters is catching it early and watching how it evolves. Yet simple, non-invasive ways to do that have been scarce. EIT makes monitoring light enough for everyday life. Building that is our job.",
       "stats": [
         {
