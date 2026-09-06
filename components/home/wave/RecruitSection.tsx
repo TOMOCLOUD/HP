@@ -27,7 +27,8 @@ export default function RecruitSection({
         }
       />
 
-      <p className="wv-lead" style={{ margin: '32px 0 0', maxWidth: 800 }} data-wv-rv>
+      {/* 47字。17px の本文で約 807px になるので、800px だと「す。」だけ次の行に落ちる */}
+      <p className="wv-lead" style={{ margin: '32px 0 0', maxWidth: 820 }} data-wv-rv>
         {t?.lead}
       </p>
 
