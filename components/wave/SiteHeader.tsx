@@ -12,11 +12,14 @@ import { scrollToSectionIfHome } from '@/lib/scrollToSection';
  *
  * 「プロダクト」の行き先はホームの #product（プロダクト&テクノロジー）。
  * 別ページの /services ではない。
+ *
+ * 並びはホームの縦の順（ニュース → プロダクト → 採用 → お問い合わせ）に
+ * 合わせる。全部がホーム内のアンカーなので、ヘッダーは実質ホームの目次。
  */
 const NAV = [
   { key: 'home', kind: 'page', path: '' },
-  { key: 'product', kind: 'anchor', hash: 'product' },
   { key: 'news', kind: 'anchor', hash: 'news' },
+  { key: 'product', kind: 'anchor', hash: 'product' },
   { key: 'recruit', kind: 'anchor', hash: 'recruit' },
   { key: 'contact', kind: 'anchor', hash: 'contact' },
 ] as const;
