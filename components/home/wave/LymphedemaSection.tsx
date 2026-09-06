@@ -35,8 +35,14 @@ export default function LymphedemaSection({
 
       <div className="wv-lymph">
         <div className="wv-lymph-text" data-wv-rv>
-          <p className="wv-lead">{t?.p1}</p>
-          <p className="wv-lead">{t?.p2}</p>
+          {/* 一文目と二文目は同じ段落。空行を挟まず、行だけ改める */}
+          <p className="wv-lead">
+            {[t?.p1, t?.p2].filter(Boolean).map((line, i) => (
+              <span key={i} style={{ display: 'block' }}>
+                {line}
+              </span>
+            ))}
+          </p>
           <p className="wv-lead">{t?.p3}</p>
           <p className="wv-lead">{t?.p4}</p>
         </div>
