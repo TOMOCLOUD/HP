@@ -40,7 +40,7 @@
     },
     "questionnaire": {
       "heading": "Survey Request",
-      "p1": "TOMOCLOUD Inc. is developing \\\"LT monitor Lite,\\\" a device that allows you to monitor edema (swelling) at home.",
+      "p1": "TOMOCLOUD Inc. is developing \"LT monitor Lite,\" a device that allows you to monitor edema (swelling) at home.",
       "p2": "Please help us improve our product by sharing your daily challenges and desired features in our survey.",
       "cta": "Take the Survey"
     },
@@ -51,7 +51,7 @@
       },
       {
         "title": "Act on innovation",
-        "text": "Relentlessly explore the frontier—and turn it into practical solutions."
+        "text": "Relentlessly explore the frontier and turn it into practical solutions."
       },
       {
         "title": "Act from zero",
@@ -64,7 +64,9 @@
     ],
     "team": {
       "heading": "Our Team",
-      "modal": { "achievementsTitle": "Key achievements" },
+      "modal": {
+        "achievementsTitle": "Key achievements"
+      },
       "members": {
         "ogawa": {
           "positionNote": "Visiting Associate Professor, Chiba University",
@@ -117,26 +119,6 @@
       "p5": "But our aim isn't visualization for its own sake. It's to provide a compass: to visualize the invisible, make sense of it, and help you take the next step. When the invisible is visualized, people can move forward. We want to support that moment—using visualization as a shared language that gently connects medicine, caregiving, and everyday health—so everyone can live more authentically. And we will expand this model, born in Japan, to the world.",
       "signature": "Ryoma Ogawa, CEO, TOMOCLOUD Inc."
     },
-    "news": {
-      "heading": "Recent News",
-      "cta": "View all news",
-      "items": {
-        "n14": "TOMOCLOUD Inc. has completed a seed round fundraising of 50 million yen.",
-        "n13": "CEO Ryoma Ogawa spoke at the 23rd Chiba University Biomedical Engineering Symposium.",
-        "n12": "TOMOCLOUD Inc. was featured in Nikkan Kogyo Shimbun.",
-        "n11": "The US FDA Center for Devices and Radiological Health visited Chiba University IMO, and CEO Ryoma Ogawa had a meeting.",
-        "n10": "CEO Ryoma Ogawa participated in SPARK-BIH VC Day and delivered a pitch presentation.",
-        "n9": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program.",
-        "n8": "CEO Ryoma Ogawa, received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!",
-        "n7": "CEO Ryoma Ogawa to speak in the Excellence Session at the 9th Academic Meeting of the Japanese Society of Lymphedema Treatment.",
-        "n6": "CEO Ryoma Ogawa to appear at the special event of the 19th Mukumi Seminar on Aug 24.",
-        "n5": "CEO Ryoma Ogawa selected as a finalist for the Beyond Japan Zero to X Program.",
-        "n4": "CEO Ryoma Ogawa selected for the GTIE GAP Fund (Entry Course).",
-        "n3": "CEO Ryoma Ogawa presented at the 33rd Annual Meeting of the Japan Breast Cancer Society.",
-        "n2": "CEO Ryoma Ogawa presented research at the 37th Bioengineering Conference (JSME).",
-        "n1": "CEO Ryoma Ogawa gave a lecture at the 49th Annual Meeting of the Japanese Society of Lymphology."
-      }
-    },
     "recruit": {
       "heading": "Recruit",
       "p1": "Join us.",
@@ -163,7 +145,7 @@
       "heading": "Core Technology: EIT",
       "imageAlt": "Illustration of EIT (Electrical Impedance Tomography)",
       "p1": "Electrical Impedance Tomography (EIT) reconstructs images of impedance distribution using multiple electrodes.",
-      "p2": "It literally turns the \\\"unseen\\\" into something visible.",
+      "p2": "It literally turns the \"unseen\" into something visible.",
       "p3": "By applying small currents via surface electrodes and measuring potentials, EIT visualizes internal states non-invasively and in real time.",
       "p4_prefix": "TOMOCLOUD Inc. was founded based on research conducted at ",
       "p4_bold": "Chiba University Takei Laboratory",
@@ -193,332 +175,300 @@
     "questionnaire": {
       "heading": "Survey Request",
       "p1": "Thank you for your continued support.",
-      "p2": "TOMOCLOUD Inc. is developing \\\"LT monitor Lite,\\\" a device that allows you to monitor edema (swelling) at home.",
+      "p2": "TOMOCLOUD Inc. is developing \"LT monitor Lite,\" a device that allows you to monitor edema (swelling) at home.",
       "p3": "This survey aims to gather feedback on your daily challenges, desired features, and any concerns about purchasing the product to help us improve our development.",
       "p4": "Your responses will be collected anonymously and used solely for product improvement and quality enhancement. By submitting your response, you agree to these terms.",
       "p5": "We appreciate your valuable time and cooperation.",
       "cta": "Take the Survey"
     }
   },
-  "news": {
-    "title": "News",
-    "more": "Read more",
-    "moreAria": "Open external link",
-    "more2": "Related article",
-    "moreAria2": "Open related article",
-    "newer": "‹ Newer posts",
-    "older": "Older posts ›",
-    "pagerAria": "News pager",
-    "pageXofY": "Page {x} / {y}",
-    "items": [
-      {
-        "id": 25,
-        "title": "Selected for the University of Tsukuba's \"Medical Startup Support Program [S2]\" under the AMED Translational Research Program.",
-        "date": "2026-07-30",
-        "image": "/Image/logo.png",
-        "text": "Our project \"Research and development toward regulatory approval and commercialization of an early diagnostic device for lymphedema\" (Principal Investigator: Ryoma Ogawa) has been selected for the Medical Startup Support Program [S2] at the University of Tsukuba.",
-        "url": "https://www.hosp.tsukuba.ac.jp/t-credo/1428",
-        "url2": "https://www.hosp.tsukuba.ac.jp/t-credo/researchers/bridging/su_support/"
+  "top": {
+    "hero": {
+      "title": "Catch lymphedema early,\nand ease the days after treatment.",
+      "sub": "We develop non-invasive monitoring devices\nusing electrical impedance tomography (EIT).",
+      "recruitCta": "See open positions",
+      "photoAlt": ""
+    },
+    "partners": {
+      "jst": "Japan Science and Technology Agency (JST)",
+      "gtie": "GTIE",
+      "amed": "Japan Agency for Medical Research and Development (AMED)",
+      "nedo": "New Energy and Industrial Technology Development Organization (NEDO)",
+      "caption": "Born out of Chiba University, supported by public research agencies."
+    },
+    "sections": {
+      "news": {
+        "title": "News",
+        "more": "All news"
       },
-      {
-        "id": 27,
-        "title": "CEO Ryoma Ogawa will pitch at NEP Pitch 2025 Final, hosted by NEDO.",
-        "date": "2026-07-28",
-        "image": "/Image/logo.png",
-        "text": "TOMOCLOUD will pitch at NEP Pitch 2025 Final, a pitch event for deep-tech startups supported by NEDO NEP program, held on August 24, 2026 at Bellesalle Toranomon.",
-        "url": "https://prtimes.jp/main/html/rd/p/000000005.000157480.html"
+      "mission": {
+        "title": "What we are after"
       },
-      {
-        "id": 26,
-        "title": "TOMOCLOUD received the O-Nexus Award and the Tokyu Land Award at HVC KYOTO.",
-        "date": "2026-07-14",
-        "image": "/Image/logo.png",
-        "text": "TOMOCLOUD Inc. received the O-Nexus Award and the Tokyu Land Award at HVC KYOTO, a leading global healthcare startup program.",
-        "url": "https://hvckyoto.com/"
+      "product": {
+        "title": "Product & technology"
       },
-      {
-        "id": 24,
-        "title": "CEO Ryoma Ogawa spoke at GTIE DEMO DAY 2026.",
-        "date": "2026-07-09",
-        "image": "/Image/logo.png",
-        "text": "On July 9, 2026, CEO Ryoma Ogawa spoke at GTIE DEMO DAY 2026.",
-        "url": "https://gtie.jp/news/45471/",
-        "url2": "https://startup-lab.chiba-u.jp/p/8130/"
+      "recruit": {
+        "title": "Join us",
+        "more": "See openings on Wantedly"
       },
-      {
-        "id": 23,
-        "title": "TOMOCLOUD Inc. will exhibit at MedTech Japan 2026.",
-        "date": "2026-04-16",
-        "image": "/Image/news_23.jpg",
-        "text": "We will be exhibiting at MedTech Japan 2026, held at Tokyo Big Sight from April 21–23, 2026.",
-        "url": "https://medtecjapan.com/"
+      "lymphedema": {
+        "title": "About lymphedema"
       },
-      {
-        "id": 22,
-        "title": "CEO Ryoma Ogawa spoke at \"Chiba Global Entrepreneur Salon\" — From Tokatsu to the World: A Startup Hub Creating the Future.",
-        "date": "2026-04-04",
-        "image": "/Image/logo.png",
-        "text": "CEO Ryoma Ogawa spoke at \"Chiba Global Entrepreneur Salon\" — From Tokatsu to the World: A Startup Hub Creating the Future.",
-        "url": "https://startup-lab.chiba-u.jp/p/7916/"
+      "survey": {
+        "title": "A request for your input"
       },
-      {
-        "id": 21,
-        "title": "[April Dream Project] TOMOCLOUD shares its dream",
-        "date": "2026-04-01",
-        "image": "/Image/news_21.png",
-        "text": "TOMOCLOUD Inc. uses its proprietary bioelectrical imaging technology \"Electrical Impedance Tomography (EIT)\" to contribute to improving the QOL of lymphedema patients and cancer survivors.",
-        "url": "https://prtimes.jp/main/html/rd/p/000000003.000175448.html"
+      "team": {
+        "title": "Team"
       },
-      {
-        "id": 20,
-        "title": "CEO Ryoma Ogawa will speak at a Cancer Fitness seminar: Understanding \"Edema Structure\" — Supporting Future Self-Monitoring with Engineering.",
-        "date": "2026-03-09",
-        "image": "/Image/logo.png",
-        "text": "CEO Ryoma Ogawa will speak at an online seminar on March 9, 2026 (Mon).",
-        "url": "https://cancerfit0309.peatix.com/view"
+      "message": {
+        "title": "From the founder"
       },
-      {
-        "id": 19,
-        "title": "TOMOCLOUD featured in Forbes JAPAN \"30 EMERGING DEEPTECH.\"",
-        "date": "2026-03-02",
-        "image": "/Image/news_19.jpg",
-        "text": "TOMOCLOUD Inc., a Chiba University-backed startup, has been selected and featured in Forbes JAPAN April 2026 issue as one of \"30 EMERGING DEEPTECH from Regional Japan.\"",
-        "url": "https://prtimes.jp/main/html/rd/p/000000002.000175448.html"
+      "contact": {
+        "title": "Contact"
       },
-      {
-        "id": 18,
-        "title": "TOMOCLOUD Inc. will exhibit at NEDO NEP-Lab 2026.",
-        "date": "2026-02-10",
-        "image": "/Image/logo.png",
-        "text": "TOMOCLOUD will exhibit at NEP-Lab 2026, a pitch event for deep-tech startups supported by NEDO NEP program, held on March 10, 2026 at Tokyo Midtown Hall.",
-        "url": "https://prtimes.jp/main/html/rd/p/000000004.000157480.html"
-      },
-      {
-        "id": 17,
-        "title": "CEO Ryoma Ogawa will deliver a special lecture at the Kanto Lymphedema Research Society.",
-        "date": "2026-02-10",
-        "image": "/Image/logo.png",
-        "text": "February 21, 2026 (Sat) Keio University Shinanomachi Campus",
-        "url": "http://kanto-lymph.kenkyuukai.jp/special/?id=40074"
-      },
-      {
-        "id": 16,
-        "title": "CEO Ryoma Ogawa will speak at the Chiba University IMO Lunch Seminar: \"From Ph.D. to Entrepreneurship — The Reality of Building Quality and Systems at a Chiba University Medical Device Startup.\"",
-        "date": "2026-01-22",
-        "image": "/Image/logo.png",
-        "text": "January 22, 2026 (Thu) 12:10–12:40, Online",
-        "url": "https://startup-lab.chiba-u.jp/p/7704/"
-      },
-      {
-        "id": 15,
-        "title": "CEO Ryoma Ogawa will speak at the 45th Symposium of the Japan Medical-Engineering Monozukuri Commons, \"Toward the Creation of Medical Devices from Japan.\"",
-        "date": "2026-01-21",
-        "image": "/Image/logo.png",
-        "text": "January 21, 2026 (Wed) 16:00–18:00, Online",
-        "url": "https://www.ikou-commons.com/t_info/sympo/comcymp45/"
-      },
-      {
-        "id": 14,
-        "title": "TOMOCLOUD Inc. has completed a seed round fundraising of 50 million yen.",
-        "date": "2025-12-26",
-        "image": "/Image/logo.png",
-        "text": "TOMOCLOUD Inc. is pleased to announce that we have completed a seed round fundraising totaling 50 million yen.",
-        "url": "https://prtimes.jp/main/html/rd/p/000000001.000175448.html"
-      },
-      {
-        "id": 13,
-        "title": "CEO Ryoma Ogawa spoke at the 23rd Chiba University Biomedical Engineering Symposium.",
-        "date": "2025-11-25",
-        "image": "/Image/news_13.jpg",
-        "text": "November 25, 2025 (Tue) 13:00-17:30, Chiba University Keyaki Hall",
-        "url": "https://www.cfme.chiba-u.jp/event/symposium2025/"
-      },
-      {
-        "id": 12,
-        "title": "TOMOCLOUD Inc. was featured in Nikkan Kogyo Shimbun.",
-        "date": "2025-10-31",
-        "image": "/Image/logo.png",
-        "text": "Regarding lymphedema early diagnostic system development",
-        "url": "https://www.nikkan.co.jp/articles/view/00764749"
-      },
-      {
-        "id": 11,
-        "title": "The US FDA Center for Devices and Radiological Health visited Chiba University IMO, and CEO Ryoma Ogawa had a meeting.",
-        "date": "2025-10-29",
-        "image": "/Image/news.png",
-        "text": "October 29, 2025 (Wed)",
-        "url": "https://imo.chiba-u.jp/news/news/1029FDA_jetro.html"
-      },
-      {
-        "id": 10,
-        "title": "CEO Ryoma Ogawa participated in SPARK-BIH VC Day and delivered a pitch presentation. SPARK is an accelerator-style translation program originating from Stanford University.",
-        "date": "2025-10-03",
-        "image": "/Image/news_10.png",
-        "text": "October 1, 2025",
-        "url": "https://www.spark-bih.de/news-events/venture-capital-day"
-      },
-      {
-        "id": 9,
-        "title": "CEO Ryoma Ogawa is participating in the Beyond Japan Zero to X Program.",
-        "date": "2025-09-08",
-        "image": "/Image/news_5_2.png",
-        "text": "September 8–26, 2025",
-        "url": "https://www.b4d-jp.com/news/2025-8"
-      },
-      {
-        "id": 7,
-        "title": "Mr. Ryoma Ogawa, CEO, received the Best Presentation Award at the 9th Annual Meeting of the Japanese Society for Lymphoedema Treatment. Congratulations!",
-        "date": "2025-09-06",
-        "image": "/Image/news_7_2.png",
-        "text": "September 6–7, 2025 · Act City Hamamatsu, Congress Center",
-        "url": "https://www.graffiti97.com/9jslt/index.html"
-      },
-      {
-        "id": 8,
-        "title": "CEO Ryoma Ogawa to speak in the Excellent Presentation session at the 9th JSLS Lymphedema Treatment Annual Meeting: \"EIT for Lymphedema Evaluation—Past and Future\"",
-        "date": "2025-08-23",
-        "image": "/Image/news_7_2.png",
-        "text": "September 6–7, 2025 · Act City Hamamatsu, Congress Center",
-        "url": "https://www.graffiti97.com/9jslt/index.html"
-      },
-      {
-        "id": 6,
-        "title": "CEO Ryoma Ogawa will talk at the Special Event of the 19th Lymphedema Seminar",
-        "date": "2025-08-23",
-        "image": "/Image/news_6_2.png",
-        "text": "10:00–12:00 (JST), Online",
-        "url": "https://www.mukumi-seminar.org/event/"
-      },
-      {
-        "id": 5,
-        "title": "CEO Ryoma Ogawa selected as a finalist for Beyond JAPAN Zero to X Program (Deep Tech – San Diego course)",
-        "date": "2025-08-20",
-        "image": "/Image/news_5_2.png",
-        "text": "A dispatch-style program to develop next-generation innovators and entrepreneurs.",
-        "url": "https://www.b4d-jp.com/news/2025-8"
-      },
-      {
-        "id": 4,
-        "title": "CEO Ryoma Ogawa accepted into the GTIE-GAP Fund (Entry Course)",
-        "date": "2025-07-30",
-        "image": "/Image/news_4_2.png",
-        "text": "Theme: Commercialization of a muscle mass/quality imaging wearable to help prevent sarcopenia.",
-        "url": "https://gtie.jp/news/43810/"
-      },
-      {
-        "id": 3,
-        "title": "Presentation at the 33rd Annual Meeting of the Japanese Breast Cancer Society: \"A New Breast Cancer Evaluation Method Using EIT\"",
-        "date": "2025-08-12",
-        "image": "/Image/news_3_2.png",
-        "text": "Held July 10–12, 2025.",
-        "url": "https://www.congre.co.jp/jbcs2025/"
-      },
-      {
-        "id": 2,
-        "title": "Research presentation at JSME 37th Bioengineering Conference",
-        "date": "2025-05-24",
-        "image": "/Image/news_2_2.png",
-        "text": "Held May 24–25, 2025.",
-        "url": "https://www.jsme.or.jp/conference/bioconf25/index.html"
-      },
-      {
-        "id": 1,
-        "title": "Talk at the 49th Annual Meeting of the Japanese Society of Lymphology",
-        "date": "2025-05-23",
-        "image": "/Image/news_1_2.png",
-        "text": "Held May 23–24, 2025.",
-        "url": "https://square.umin.ac.jp/jsl49/"
+      "about": {
+        "title": "Company"
       }
-    ]
-  },
-  "achievements": {
-    "title": "Achievements",
-    "lead": "Our publications, conference presentations, and awards.",
-    "lead2": "Each item links to the original paper or conference page.",
-    "labelPaper": "Publication",
-    "labelPresentation": "Presentation",
-    "labelAward": "Award",
-    "labelComingSoon": "Coming soon",
-    "openLink": "Open link",
-    "linkPending": "Coming soon",
-    "items": [
-      {
-        "id": "coming-soon",
-        "type": "comingSoon",
-        "title": "Coming soon"
-      },
-      {
-        "id": "pres-2025-lymph",
-        "type": "presentation",
-        "title": "EIT for Lymphedema Evaluation: Past and Future",
-        "date": "2025-09-06",
-        "journalOrConf": "9th Annual Meeting of the Japanese Society for Lymphedema Treatment",
-        "authors": "R. Ogawa, Y. Kinouchi, S. Akita and M. Takei",
-        "externalUrl": "https://www.graffiti97.com/9jslt/index.html"
-      }
-    ]
-  },
-  "recruit": {
-    "title": "Careers",
-    "vision": "From \\\"invisible\\\" to \\\"visible\\\".",
-    "paragraphs": [
-      "TOMOCLOUD is a startup spun out of a diverse, interdisciplinary research lab.",
-      "We value each other's cultures and expertise, and challenge one another to grow.",
-      "Breakthroughs are created by professionals with diverse backgrounds.",
-      "By fusing foundational and new technologies around noninvasive \\\"visualization,\\\" we deliver value to medical, nursing, and healthcare settings.",
-      "If you see the potential and are eager to turn it into reality, we'd love to work with you."
-    ],
-    "openings": {
-      "heading": "Open Positions",
-      "note": "Click a position title to open its full job description on an external site.",
-      "aria": " job description (external site)",
-      "items": [
+    },
+    "mission": {
+      "statement": "Creating a society where\nvisualization lets everyone\nlive as themselves",
+      "emphasis": "Turning the unseen into the seen."
+    },
+    "product": {
+      "lead": "LT monitor Pro is a lymphedema monitoring device that turns the distribution of water and protein inside the body into an image. We develop it through repeated clinical validation, so that day-to-day changes can be followed.",
+      "note": "We are also developing LT monitor Lite, a device for checking swelling at home.",
+      "disclaimer": "Not approved as a medical device. This page makes no claim of efficacy or effect.",
+      "archAlt": "The LT monitor Pro prototype screen",
+      "techTitle": "Core Technology: EIT",
+      "techP1": "Electrical Impedance Tomography (EIT) reconstructs images of impedance distribution using multiple electrodes.",
+      "techP2": "It literally turns the \"unseen\" into something visible.",
+      "techP3": "By applying small currents via surface electrodes and measuring potentials, EIT visualizes internal states non-invasively and in real time.",
+      "techOriginPrefix": "TOMOCLOUD Inc. was founded based on research conducted at ",
+      "techOriginLab": "Chiba University Takei Laboratory",
+      "techOriginSuffix": ".",
+      "techCta": "Visit Takei Lab",
+      "eitAria": "How a rotating pair of electrodes measures voltages, and the inverse problem is solved to reconstruct the impedance distribution of a cross-section",
+      "measureLabel": "MEASURE",
+      "reconstructLabel": "RECONSTRUCT",
+      "realtimeLabel": "EIT RECONSTRUCTION · REALTIME",
+      "pipeline": [
         {
+          "n": "1",
+          "name": "Inject current",
+          "text": "A weak alternating current is driven through a pair of opposing electrodes."
+        },
+        {
+          "n": "2",
+          "name": "Measure voltage",
+          "text": "The potential differences across the remaining electrodes are read. Rotating the pair once collects one frame."
+        },
+        {
+          "n": "3",
+          "name": "Reconstruct",
+          "text": "The inverse problem is solved to estimate the impedance distribution of the cross-section."
+        }
+      ],
+      "craftQuote": "From developing image reconstruction algorithms and measurement circuits to commercialization and productization, we work end to end.",
+      "craftCta": "We are looking for people to build it with",
+      "probeAlt": "A hand touching a probe to a board while watching an oscilloscope waveform",
+      "circuitAlt": "Close-up of a measurement board lined with D-sub connectors"
+    },
+    "recruit": {
+      "lead": "From lab technology to a medical device that reaches patients. We are looking for members to take on that journey from the earliest days.",
+      "jobs": [
+        {
+          "type": "Full-time",
           "title": "Regulatory Affairs & Quality Assurance Lead",
+          "detail": "Building our QMS and preparing the documentation for regulatory submission.",
           "source": "LinkedIn",
           "url": "https://www.linkedin.com/jobs/view/4445189680/"
         },
         {
+          "type": "Full-time",
           "title": "R&D Lead",
+          "detail": "Implementing image reconstruction algorithms, and designing and evaluating the device.",
           "source": "JREC-IN Portal",
           "url": "https://jrecin.jst.go.jp/seek/SeekJorDetail?id=D126080278"
         },
         {
+          "type": "Full-time",
           "title": "Circuit Design Engineer",
+          "detail": "Designing measurement circuits, and implementing and evaluating the boards.",
           "source": "HiPro Direct",
           "url": "https://talent.direct.hipro-job.jp/talent/issue/21141/"
         }
       ]
     },
-    "contactBtn": "View Careers",
-    "contactAria": "Go to careers site"
-  },
-  "contact": {
-    "title": "Contact",
-    "lead": "For inquiries or consultation, please use the contact details below.",
-    "infoTitle": "Contact information",
-    "addressLabel": "Address:",
-    "address": "Fujimi Building #609, 2-7-9 Fujimi, Chuo-ku, Chiba 260-0015, Japan",
-    "telLabel": "Phone:",
-    "tel": "043-290-3105",
-    "emailLabel": "Email:",
-    "email": "info@tomocloud.co.jp",
-    "formTitle": "Contact form",
-    "form": {
-      "namePlaceholder": "Name",
-      "emailPlaceholder": "Email address",
-      "messagePlaceholder": "Message (please be as specific as possible)",
-      "nameAria": "Name",
-      "emailAria": "Email address",
-      "messageAria": "Message",
-      "sending": "Sending…",
-      "submit": "Send"
+    "lymphedema": {
+      "imageAlt": "Schematic of a leg swollen by lymphedema",
+      "p1": "Lymphedema is a condition in which swelling occurs in the limbs due to impaired lymphatic flow.",
+      "p2": "Beyond appearance changes, it can cause pain and heaviness, affecting quality of life and work.",
+      "p3": "Early detection and continuous observation are important, yet truly simple and non-invasive methods have been limited.",
+      "p4": "We aim to realize an EIT-based monitoring method that can be performed routinely with minimal burden.",
+      "stats": [
+        {
+          "label": "Incidence after cancer treatment",
+          "value": "20–30%",
+          "ref": "1"
+        },
+        {
+          "label": "Estimated patients in Japan",
+          "value": "approx. 150,000",
+          "ref": "2"
+        },
+        {
+          "label": "At-risk population in Japan",
+          "value": "790,000",
+          "ref": "3"
+        }
+      ],
+      "refs": [
+        {
+          "n": "1",
+          "text": "Chang M, 2016 / Cormier J, Cancer, 2010"
+        },
+        {
+          "n": "2",
+          "text": "Based on published materials from the Ministry of Health, Labour and Welfare (approx. 150,000) and an estimate by the Cancer Control Promotion Council (150,000–200,000)."
+        },
+        {
+          "n": "3",
+          "text": "Lymphedema Training Steering Committee, Japan"
+        }
+      ]
     },
-    "success": "Your inquiry has been received. Please check the auto-reply email.",
-    "errors": {
-      "missing": "Please fill in all required fields.",
-      "invalidEmail": "Please enter a valid email address.",
-      "sendFail": "Failed to send. Please try again later."
+    "survey": {
+      "lead": "As we develop LT monitor Lite, our device for use at home, we are asking about the difficulties you face day to day and the features you feel would help. Responses are aggregated anonymously and used for nothing but improving the product.",
+      "cta": "Answer the survey"
+    },
+    "team": {
+      "members": [
+        {
+          "key": "ogawa",
+          "role": "CEO / FOUNDER",
+          "name": "Ryoma Ogawa",
+          "title": "Visiting Associate Professor, Chiba University",
+          "image": "/Image/Ogawa_image.jpg"
+        },
+        {
+          "key": "takei",
+          "role": "TECHNICAL ADVISER",
+          "name": "Masahiro Takei",
+          "title": "Professor, Graduate School of Engineering, Chiba University",
+          "image": "/Image/Takei_image.jpg"
+        },
+        {
+          "key": "kinouchi",
+          "role": "CO-FOUNDER",
+          "name": "Yuta Kinouchi",
+          "title": "",
+          "image": "/Image/Kinouchi_image.jpg"
+        },
+        {
+          "key": "hashimoto",
+          "role": "PRODUCT LEAD",
+          "name": "Ryuga Hashimoto",
+          "title": "",
+          "image": "/Image/Hashimoto_image.jpg"
+        }
+      ]
+    },
+    "message": {
+      "taglineJa": "Visualize the New Self",
+      "taglineEn": "VISUALIZE THE NEW SELF",
+      "quote": "Even while working in an engineering lab, I spent my student years on hospital wards, listening directly to patients and clinicians. One patient said, \"What frightens me most is that I can't visualize what's happening inside my body.\" That stayed with me—and made me determined to build technology that eases that invisible anxiety. The more I listened, the more I felt these were not someone else's problems, but challenges I should help solve.",
+      "role": "CEO / FOUNDER",
+      "name": "Ryoma Ogawa",
+      "alt": "Ryoma Ogawa",
+      "more": "Read the full message"
+    },
+    "contact": {
+      "lead": "For joint research, press inquiries, or hiring, please reach us here.",
+      "tel": "+81-43-290-3105",
+      "email": "info@tomocloud.co.jp",
+      "fields": {
+        "name": "Name",
+        "org": "Company / organization",
+        "email": "Email address",
+        "phone": "Phone number",
+        "body": "Your message"
+      },
+      "optional": "optional",
+      "submit": "Send",
+      "sending": "Sending…",
+      "privacyPrefix": "By sending this form you agree to our ",
+      "privacyLink": "privacy policy",
+      "privacySuffix": ".",
+      "done": "Thank you. We will get back to you shortly.",
+      "errors": {
+        "missing": "Name, email address and message are required.",
+        "invalidEmail": "That email address does not look valid.",
+        "sendFail": "Sending failed. Please try again in a little while."
+      }
+    },
+    "footer": {
+      "pages": "PAGES",
+      "links": "LINKS",
+      "copyright": "© 2026 TOMOCLOUD, Inc.",
+      "recruit": "RECRUIT",
+      "openPositions": "Open positions",
+      "wantedly": "Wantedly"
+    },
+    "nav": {
+      "home": "Home",
+      "product": "Product",
+      "news": "News",
+      "recruit": "Recruit",
+      "contact": "Contact",
+      "about": "Company",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "toEn": "Switch to English",
+      "toJa": "Switch to Japanese",
+      "privacy": "Privacy Policy"
     }
+  },
+  "meta": {
+    "title": "TOMOCLOUD Inc.",
+    "news": "News",
+    "titleTemplate": "%s | TOMOCLOUD Inc.",
+    "description": "We develop non-invasive monitoring devices using electrical impedance tomography (EIT). Catching lymphedema early to ease the days after cancer treatment. A medical device startup out of Chiba University.",
+    "services": "Product",
+    "privacy": "Privacy Policy"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "intro": "TOMOCLOUD Inc. (\"we\") handles the personal information entrusted to us through our contact form and other channels according to the policy below.",
+    "sections": [
+      {
+        "h": "Information we collect",
+        "p": "Through the contact form we receive your name, organization, email address, phone number, and the content of your inquiry. Organization and phone number are optional."
+      },
+      {
+        "h": "Purpose of use",
+        "p": "We use the information to respond to your inquiry and to keep a record of that correspondence. We do not use it for any other purpose."
+      },
+      {
+        "h": "Disclosure to third parties",
+        "p": "We do not provide your information to third parties without your consent, except where disclosure is required by law. We use an email delivery service (Resend) to receive inquiries from the contact form."
+      },
+      {
+        "h": "Retention and safeguards",
+        "p": "We keep the information only as long as needed to respond, and delete it once it is no longer required. Communications are encrypted and access is limited to those who need it."
+      },
+      {
+        "h": "Access, correction, suspension of use, and deletion",
+        "p": "On request, we will disclose, correct, suspend the use of, or delete the information we hold about you. Please contact us at the address below."
+      },
+      {
+        "h": "Contact",
+        "p": "TOMOCLOUD Inc.\nFujimi Building #609, 2-7-9 Fujimi, Chuo-ku, Chiba 260-0015, Japan\nTEL +81-43-290-3105 / info@tomocloud.co.jp"
+      },
+      {
+        "h": "Changes to this policy",
+        "p": "We may revise this policy in line with changes to applicable law or our practices. Any revision will be posted on this page."
+      }
+    ],
+    "updated": "Established: August 25, 2026"
   }
 }

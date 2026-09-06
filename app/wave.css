@@ -1,0 +1,2451 @@
+/* ============================================================
+   干渉（白）— トップページのスタイル
+
+   線と余白だけでページを組む。面を塗るのはボタンと EIT の
+   再構成画面、それに写真だけ。
+   ============================================================ */
+
+/* 色と罫はヘッダー・フッターも使うので :root に置く */
+:root {
+  --wv-ink: #0f1e28;
+  --wv-body: #3b4a54;
+  --wv-muted: #58666f;
+  --wv-accent: #1296db;
+  --wv-link: #0d71a4;
+  --wv-link-hover: #095275;
+  --wv-award: #b35926;
+
+  /* 罫は薄いものから濃いものまで6段。線だけで組むので段階が要る */
+  --wv-rule-1: #f0f6fa;
+  --wv-rule-2: #edf3f8;
+  --wv-rule-3: #e4eff6;
+  --wv-rule-4: #d2e5f0;
+  --wv-rule-5: #c7deec;
+  --wv-rule-6: #b6d6e9;
+}
+
+.wv {
+  --wv-gutter: 22px;
+  --wv-sec-gap: 96px;
+  /* ホームの写真の直径。波紋の大きさはすべてこれを基準に決める */
+  --wv-photo: 320px;
+
+  position: relative;
+  overflow-x: clip;
+  background: #fff;
+  color: var(--wv-ink);
+  font-family: var(--font-murecho), "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .wv {
+    --wv-gutter: 40px;
+    --wv-sec-gap: 128px;
+    --wv-photo: 44vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wv {
+    --wv-gutter: 60px;
+    --wv-sec-gap: 172px;
+    --wv-photo: min(600px, 42vw);
+  }
+}
+
+/* ---- 土台 ---- */
+.wv-lat {
+  font-family: var(--font-syne), system-ui, sans-serif;
+}
+
+.wv a {
+  color: var(--wv-link);
+  text-decoration: none;
+}
+.wv a:hover {
+  color: var(--wv-link-hover);
+}
+
+.wv-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: var(--wv-gutter);
+  padding-right: var(--wv-gutter);
+}
+
+.wv-sec {
+  padding-bottom: var(--wv-sec-gap);
+}
+
+/* 追従するヘッダーの下に隠れないよう、飛び先を少し下げる */
+.wv-anchor {
+  scroll-margin-top: 88px;
+}
+
+/* ---- 文字 ---- */
+/* 波源の点は見出しの左に置く。
+   2行になる見出しもあるので、中央ではなくベースラインで揃え、
+   1行目の字の高さの真ん中に来るぶんだけ持ち上げる */
+.wv-h2 {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin: 0;
+  font-size: clamp(25px, 2.4vw, 34px);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  line-height: 1.35;
+  color: var(--wv-ink);
+  line-height: 1.38;
+}
+
+/* 点の中心を一行目の行高中心（＝和文の視覚中心）に置く。
+   baseline 合わせは、テキストを持たない箱のベースライン合成の仕方が
+   ブラウザで割れていて（ボーダー下端 or マージン下端）、点が字より
+   下に落ちることがあった。0.675em は line-height 1.35 の半分、
+   4.5px は点（9px）の半分 */
+.wv-h2 .wv-src {
+  margin-top: calc(0.675em - 4.5px);
+}
+
+/* globals.css の h2::after（触れるとグラデーションの下線が伸びるアニメーション）は
+   旧デザインの他ページのもの。ここでは flex の子として並んでしまい、見出しの字を
+   押しつぶして横に線が出る。トップの見出しでは出さない。
+   会社概要は globals.css 側が #about h2::after という ID 付きのセレクタで
+   別に指定していて、クラスでは重みが足りないので !important で止める。 */
+.wv-h2::after {
+  content: none !important;
+}
+
+/* 本文。和文は同じ em に画数が入るので、欧文と同じ px では足りない。
+   16px を下限にし、行送りは 1.9 まで詰める（2.0 を超えると行が一つの塊として
+   読めず、視線が次の行頭に戻れなくなる）。字間も、語間に空白のない和文では
+   まとまりの手がかりなので、広げずに 0 付近に置く */
+/* 本文と補足は、段落の末尾に一、二文字だけ残さない（text-wrap: pretty）。
+   幅や字の大きさが変わっても「す。」だけの行が出ないようにする保険 */
+.wv-lead {
+  font-size: clamp(16px, 1.2vw, 17px);
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  color: var(--wv-body);
+  text-wrap: pretty;
+}
+
+.wv-note {
+  font-size: clamp(14px, 1vw, 15px);
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  color: var(--wv-muted);
+  text-wrap: pretty;
+}
+
+.wv-more {
+  display: inline-block;
+  font-size: 13px;
+  letter-spacing: 0.13em;
+  border-bottom: 1px solid var(--wv-rule-6);
+  padding-bottom: 5px;
+  white-space: nowrap;
+}
+
+/* 面で塗るのはここだけ。ページで唯一の行動 */
+.wv-btn {
+  position: relative;
+  display: inline-block;
+  border: 0;
+  background: var(--wv-link);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 18px 42px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+/* a でも button でも白抜き。`.wv a` の青が勝って字が消えないよう、
+   セレクタの重みをそちらより上げておく */
+.wv .wv-btn,
+.wv .wv-btn:hover,
+.wv .wv-btn:visited {
+  color: #fff;
+}
+.wv-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  border: 1px solid var(--wv-link);
+  opacity: 0;
+}
+.wv-btn:hover::after {
+  animation: wv-btnring 1.1s cubic-bezier(0.2, 0.7, 0.35, 1);
+}
+.wv-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.wv-btn:disabled::after {
+  animation: none;
+}
+
+@keyframes wv-btnring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.42);
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   広がる波
+   輪は生まれた瞬間から外へ向かい、遠ざかるほど薄くなって消える
+   ============================================================ */
+@keyframes wv-ripple {
+  0% {
+    transform: scale(0.375);
+    opacity: 0;
+  }
+  6% {
+    opacity: 0.5;
+  }
+  62% {
+    opacity: 0.34;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes wv-drop {
+  0% {
+    transform: scale(0.02);
+    opacity: 0;
+  }
+  9% {
+    opacity: 0.42;
+  }
+  60% {
+    opacity: 0.26;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.wv-wf {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.wv-wf i {
+  --wv-ring: calc(var(--wv-photo) * 2.667);
+  position: absolute;
+  left: calc(var(--wv-ring) / -2);
+  top: calc(var(--wv-ring) / -2);
+  width: var(--wv-ring);
+  height: var(--wv-ring);
+  border-radius: 50%;
+  border: 1px solid var(--wv-accent);
+  opacity: 0;
+  animation: wv-ripple 14s cubic-bezier(0.2, 0.6, 0.35, 1) infinite;
+}
+
+/* 落ちたばかりの一滴。こちらは点から始まる */
+.wv-wf.wv-drop i {
+  --wv-ring: min(1200px, 92vw);
+  border-color: var(--wv-ink);
+  animation-name: wv-drop;
+  animation-duration: 9s;
+}
+
+/* ============================================================
+   セクション間の伝播
+   ホームの波源から出た波が、14秒かけてページの下まで降りていく。
+   各セクションの波源は、波が自分のところへ届いた瞬間に発火する。
+   届く時刻は画面幅で変わるので、遅延は useWavePropagation が測って
+   --wv-d に入れる。ここは既定値だけ置いておく。
+   ============================================================ */
+@keyframes wv-prop {
+  0% {
+    transform: scale(0.0071);
+    opacity: 0;
+  }
+  0.9% {
+    opacity: 0.38;
+  }
+  5% {
+    opacity: 0.26;
+  }
+  7.143% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/* 波を受けとった波源が、その場で小さく打ち返す */
+@keyframes wv-srcwave {
+  0% {
+    transform: scale(0.35);
+    opacity: 0.5;
+  }
+  18% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+/* 波源は一滴の点。ホームの見出しの横にある点と同じもの。
+   広がる輪は 1400px あり、下に続く入力欄やボタンの上に覆いかぶさる。
+   飾りなので、クリックとキー入力は素通りさせる */
+.wv-src {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.wv-src span {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.wv-src .wv-dot {
+  inset: 0;
+  background: var(--wv-accent);
+}
+
+.wv-src .wv-w {
+  inset: -20px;
+  border: 1px solid var(--wv-accent);
+  animation: wv-srcwave 14s ease-out infinite;
+  animation-delay: var(--wv-d, -13s);
+}
+.wv-src .wv-w2 {
+  animation-delay: calc(var(--wv-d, -13s) + 0.55s);
+}
+
+.wv-src .wv-p {
+  left: 50%;
+  top: 50%;
+  width: 1400px;
+  height: 1400px;
+  margin: -700px 0 0 -700px;
+  border: 1px solid var(--wv-accent);
+  opacity: 0;
+  animation: wv-prop 14s linear infinite;
+  animation-delay: var(--wv-d, -13s);
+}
+.wv-src .wv-p2 {
+  animation-delay: calc(var(--wv-d, -13s) + 0.3s);
+}
+
+/* セクションが視界に入った瞬間、その場で一度だけ強く打つ一打。
+   常時まわっている 14 秒周期の輪とは別に、登場のときだけ重ねる */
+.wv-src .wv-hit {
+  inset: 0;
+  border: 1px solid var(--wv-accent);
+  opacity: 0;
+}
+
+[data-wv-shown] .wv-src .wv-hit {
+  animation: wv-hit 950ms cubic-bezier(0.15, 0.7, 0.3, 1) 60ms both;
+}
+
+[data-wv-shown] .wv-src .wv-dot {
+  animation: wv-hit-dot 950ms cubic-bezier(0.15, 0.7, 0.3, 1) 60ms both;
+}
+
+@keyframes wv-hit {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(9);
+    opacity: 0;
+  }
+}
+
+@keyframes wv-hit-dot {
+  0% {
+    transform: scale(0.2);
+  }
+  38% {
+    transform: scale(1.55);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (min-width: 1024px) {
+  .wv-src {
+    width: 10px;
+    height: 10px;
+  }
+  .wv-src .wv-w {
+    inset: -25px;
+  }
+}
+
+/* ホームの写真から、下へ向かう波が出発する一本 */
+@keyframes wv-hprop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  0.9% {
+    opacity: 0.4;
+  }
+  5% {
+    opacity: 0.26;
+  }
+  7.143% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.wv-hp {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.wv-hp span {
+  --wv-ring: calc(var(--wv-photo) * 3.334);
+  position: absolute;
+  left: calc(var(--wv-ring) / -2);
+  top: calc(var(--wv-ring) / -2);
+  width: var(--wv-ring);
+  height: var(--wv-ring);
+  border-radius: 50%;
+  border: 1px solid var(--wv-accent);
+  opacity: 0;
+  animation: wv-hprop 14s linear infinite;
+}
+
+/* ============================================================
+   フッターの地
+   波はページの終わりまで残る。帯で区切らず、フッターそのものの
+   地として敷く
+   ============================================================ */
+/**
+ * 輪はゆっくりと外へ広がる。ヒーローの輪と同じ振る舞いにして、
+ * ページを通して波の語彙をひとつに保つ。
+ *
+ * 上端と下端では消しておく。中ほど、ちょうど文字が乗るあたりが
+ * いちばん濃い。読みづらくならないよう、線そのものは限界まで薄い。
+ */
+@keyframes wv-swell {
+  from {
+    transform: scale(1);
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  86% {
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.16);
+    opacity: 0;
+  }
+}
+
+.wv-moire {
+  /* 消えきる位置。ロゴと Pages が始まる手前で引き取る。
+     フッターの上の余白（88px／広い画面では 120px）に収める */
+  --wv-moire-hold: 46px;
+  --wv-moire-fade: 104px;
+
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  /* 縦は上から下へ引き取り、横は左右の端で消す。
+     端で線が断ち切られると、地ではなく板に見える */
+  -webkit-mask-image:
+    linear-gradient(
+      180deg,
+      #000 0px,
+      #000 var(--wv-moire-hold),
+      rgba(0, 0, 0, 0) var(--wv-moire-fade)
+    ),
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 13%, #000 87%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(
+      180deg,
+      #000 0px,
+      #000 var(--wv-moire-hold),
+      rgba(0, 0, 0, 0) var(--wv-moire-fade)
+    ),
+    linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #000 13%, #000 87%, rgba(0, 0, 0, 0) 100%);
+  mask-composite: intersect;
+}
+
+@media (min-width: 1024px) {
+  .wv-moire {
+    --wv-moire-hold: 62px;
+    --wv-moire-fade: 140px;
+  }
+}
+
+/* 波源はフッターのはるか下。そこから届いた輪が、ここを横切っていく */
+.wv-moire::before,
+.wv-moire::after {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  transform-origin: 50% 150%;
+}
+
+.wv-moire::before {
+  background: repeating-radial-gradient(
+    circle at 50% 150%,
+    rgba(18, 150, 219, 0) 0 46px,
+    rgba(18, 150, 219, 0.15) 46px 47px
+  );
+  animation: wv-swell 13s linear infinite;
+}
+
+/* 二枚目はわずかに間隔を変える。重なったところに干渉の縞が出る */
+.wv-moire::after {
+  background: repeating-radial-gradient(
+    circle at 50% 150%,
+    rgba(15, 30, 40, 0) 0 51px,
+    rgba(15, 30, 40, 0.08) 51px 52px
+  );
+  animation: wv-swell 13s linear infinite;
+  animation-delay: -6.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wv-moire::before,
+  .wv-moire::after {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   等高線の地
+   体液は途切れずにつながっている。その連続性を地形図の等高線で敷く
+   ============================================================ */
+.wv-contours {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wv-contours span {
+  position: absolute;
+  width: 1560px;
+  aspect-ratio: 1;
+  background: url("/Image/hp/contour.svg") center / contain no-repeat;
+  transform: translate(-50%, -50%) rotate(var(--wv-rot, 0deg)) scale(var(--wv-scale, 1));
+}
+
+/* ============================================================
+   ヒーロー
+   写真そのものを波源にする。輪は写真のふちから生まれて外へ広がり、
+   左下に落ちたもう一滴の波と、画面の中ほどで重なる
+   ============================================================ */
+/* 横は切るが、縦は切らない。写真から出た輪の一本が、
+   このセクションの外まで出ていくのがこのページの筋なので */
+.wv-hero {
+  --wv-drop-x: 88%;
+  --wv-drop-y: 48px;
+
+  position: relative;
+  overflow-x: clip;
+  padding: 78px var(--wv-gutter) 96px;
+}
+
+.wv-hero-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.wv-hero-text {
+  position: relative;
+  z-index: 3;
+}
+
+/* 以前ここにあったバッジと同じ位置から始める。写真の上端と揃う */
+.wv-hero-title {
+  margin: 0;
+  max-width: 640px;
+  font-size: clamp(26px, 3.4vw, 46px);
+  font-weight: 600;
+  line-height: 1.78;
+  letter-spacing: 0.05em;
+  color: var(--wv-ink);
+}
+
+.wv-hero-sub {
+  margin: 26px 0 0;
+  max-width: 560px;
+  font-size: clamp(16px, 1.2vw, 17px);
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  color: var(--wv-body);
+}
+
+/* 本文の下、採用セクションへの一行。
+   面で塗るのは .wv-btn だけと決めてあるので、ここも線一本で示す。
+   .wv-more と同じ語彙のまま、ヒーローの分だけ字を大きくする */
+.wv-hero-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 36px;
+  font-size: clamp(13px, 1.1vw, 15px);
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--wv-rule-6);
+  padding-bottom: 6px;
+}
+
+/* 矢印は線二本の山形。波の進む向きへ、ふれたときだけ一歩出る */
+.wv-hero-more i {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 320ms cubic-bezier(0.2, 0.7, 0.35, 1);
+}
+
+.wv-hero-more:hover {
+  border-bottom-color: var(--wv-link-hover);
+}
+
+.wv-hero-more:hover i {
+  transform: translateX(3px) rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wv-hero-more i {
+    transition: none;
+  }
+}
+
+/* 写真。この円のふちが、いちばん内側の波面になる。
+   層は下から、輪（0）→ 水面を静める白（1）→ 写真（2）→ 文字（3）。
+   輪だけが白の下をくぐるので、文字のまわりでは薄く沈む */
+.wv-hero-photo {
+  position: relative;
+  width: var(--wv-photo);
+  aspect-ratio: 1;
+  margin: 46px auto 0;
+  flex-shrink: 0;
+}
+
+.wv-hero-photo img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 57% 46%;
+  display: block;
+}
+
+/* 円のふちの一本。これがいちばん内側の波面 */
+.wv-hero-photo::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(18, 150, 219, 0.45);
+  pointer-events: none;
+}
+
+/* 落ちた一滴そのものと、そこから出る波。
+   点と波源は同じ座標を共有する */
+.wv-hero-drop {
+  left: var(--wv-drop-x);
+  top: auto;
+  bottom: var(--wv-drop-y);
+}
+
+.wv-hero-droplet {
+  position: absolute;
+  z-index: 3;
+  left: var(--wv-drop-x);
+  top: auto;
+  bottom: var(--wv-drop-y);
+  margin: 0 0 -6px -6px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--wv-accent);
+  opacity: 0.55;
+}
+
+/* 文字のまわりだけ水面を静めて、見出しの可読性を保つ */
+.wv-hero-calm {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0) 88%, rgba(255, 255, 255, 0.72) 100%),
+    radial-gradient(
+      ellipse 62% 22% at 22% 22%,
+      #fff 0%,
+      rgba(255, 255, 255, 0.9) 50%,
+      rgba(255, 255, 255, 0) 84%
+    );
+}
+
+@media (min-width: 1024px) {
+  .wv-hero {
+    padding-bottom: 0;
+    /* 二段目にタグラインを置いていた頃より、その分だけ低い */
+    min-height: 798px;
+  }
+
+  .wv-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    column-gap: 40px;
+    padding-top: 74px;
+    min-height: 720px;
+  }
+
+  .wv-hero-text {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: start;
+  }
+
+  .wv-hero-photo {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    align-self: start;
+  }
+
+  .wv-hero {
+    --wv-drop-x: 14%;
+    --wv-drop-y: 220px;
+  }
+
+  .wv-hero-calm {
+    background:
+      linear-gradient(to bottom, rgba(255, 255, 255, 0) 76%, rgba(255, 255, 255, 0.86) 100%),
+      radial-gradient(
+        ellipse 560px 300px at 26% 43%,
+        #fff 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(255, 255, 255, 0) 82%
+      );
+  }
+}
+
+/* ============================================================
+   採択・支援の機関
+   会社概要の手前に、機関のロゴだけを静かに並べる。見出しも説明も置かない
+   ============================================================ */
+.wv-partners {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 20px;
+  align-items: center;
+  justify-items: center;
+  padding: 60px 0 34px;
+}
+
+/* 採択のロゴを受けて、技術の出どころを一度だけ名乗る一行 */
+.wv-partners-caption {
+  margin: 0 0 76px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.9;
+  letter-spacing: 0.1em;
+  color: var(--wv-muted);
+}
+
+.wv-partners img {
+  width: auto;
+  display: block;
+  /* 高さから決まる幅を潰されたくない。入らないときは縮まずに折り返す */
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .wv-partners {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 48px;
+    padding: 78px 0 42px;
+  }
+
+  .wv-partners-caption {
+    margin-bottom: 96px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wv-partners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px clamp(36px, 4vw, 66px);
+  }
+}
+
+/* ============================================================
+   登場（波が届いた順に現れる）
+
+   初期の非表示は data-wv-rv-on の下でしか効かない。この属性は
+   useWaveReveal が <html> に立てるので、JS が動かない環境では
+   何も隠れずそのまま読める。
+   動かすのは opacity と transform だけ。高さを動かすとハッシュ遷移の
+   着地位置が狂う
+   ============================================================ */
+/* will-change は敢えて置かない。対象が70近くあり、全部に合成レイヤを
+   立てるとメモリのほうが痛い。opacity と transform だけなら宣言なしでも
+   合成側で処理される */
+[data-wv-rv-on] [data-wv-rv] {
+  opacity: 0;
+  transform: translateY(var(--wv-rv-y, 9px));
+  transition:
+    opacity 1000ms ease-out,
+    transform 1000ms cubic-bezier(0.2, 0.7, 0.35, 1);
+}
+
+[data-wv-rv-on] [data-wv-rv][data-wv-shown] {
+  opacity: 1;
+  transform: none;
+}
+
+/* 写真は、水面がひらくように円の中心から開く */
+[data-wv-rv-on] [data-wv-rv-circle] {
+  --wv-rv-y: 0px;
+  clip-path: circle(0% at 50% 50%);
+  transition:
+    opacity 1000ms ease-out,
+    clip-path 1450ms cubic-bezier(0.2, 0.7, 0.35, 1);
+}
+[data-wv-rv-on] [data-wv-rv-circle][data-wv-shown] {
+  clip-path: circle(75% at 50% 50%);
+}
+
+/* ニュースの弧は、上から下へ引かれる。path は pathLength="1" で
+   正規化してあるので、preserveAspectRatio="none" で縦に伸びても崩れない */
+[data-wv-rv-on] [data-wv-rv-draw] path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1550ms cubic-bezier(0.3, 0.6, 0.3, 1);
+}
+[data-wv-rv-on] [data-wv-rv-draw][data-wv-shown] path {
+  stroke-dashoffset: 0;
+}
+[data-wv-rv-on] [data-wv-rv-draw] path:nth-child(2) {
+  transition-delay: 170ms;
+}
+[data-wv-rv-on] [data-wv-rv-draw] path:nth-child(3) {
+  transition-delay: 290ms;
+}
+
+/* ============================================================
+   セクションの頭
+   波源の点を、セクション名のすぐ横に置く
+   ============================================================ */
+.wv-title-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.wv-title-row .wv-more {
+  margin-left: auto;
+}
+
+/* ============================================================
+   01 ニュース
+   実績はこの中に統合した。種別は点の色で見分ける
+   ============================================================ */
+
+/* 行の左端は波面に沿って動く。その波面を引く一組の弧 */
+.wv-news-list {
+  position: relative;
+  /* 見出しの一件が上の余白を持つ分、ここは 22px ぶん戻してある。
+     合計は 52px で、持たせる前と同じ位置に見える */
+  margin-top: 30px;
+}
+
+.wv-news-arc {
+  position: absolute;
+  left: -34px;
+  top: 0;
+  height: 100%;
+  width: 80px;
+  pointer-events: none;
+}
+
+/* モバイルでは弧の振幅も小さいので、寄せ幅も同じ比率で詰める */
+.wv-news-lead,
+.wv-news-row {
+  padding-left: calc(var(--wv-arc-pad, 0px) * 0.45);
+}
+
+.wv-news-lead {
+  display: block;
+  /* 踏んだときの色が文字にぴったり付かないよう、上にも余白を取る */
+  padding-top: 22px;
+  padding-bottom: 34px;
+}
+
+.wv-news-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.wv-news-date {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--wv-muted);
+}
+
+.wv-news-tag {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+
+.wv-news-tag i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.wv-news-lead-title {
+  font-size: clamp(19px, 1.7vw, 24px);
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--wv-ink);
+  max-width: 800px;
+}
+
+.wv-news-lead-text {
+  margin: 16px 0 0;
+  max-width: 720px;
+}
+
+/* 罫は行と行のあいだにだけ、ごく薄く引く */
+.wv-news-row {
+  display: block;
+  border-top: 1px solid var(--wv-rule-2);
+  padding-top: 22px;
+  padding-bottom: 22px;
+  color: inherit;
+}
+
+/* 行の右端に添える出どころは、幅が要るのでデスクトップだけ */
+.wv-news-org-right {
+  display: none;
+}
+
+/* 踏める行だけ反応させる。外部URLを持たない件は a ではなく div で出る。
+   見出しの一件も外部URLを持つので、ふつうの行と同じ扱いにする */
+a.wv-news-lead:hover,
+a.wv-news-row:hover {
+  color: inherit;
+  background: rgba(18, 150, 219, 0.03);
+}
+
+.wv-news-row-title {
+  font-size: clamp(16px, 1.2vw, 17px);
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  color: var(--wv-ink);
+}
+
+.wv-news-org {
+  font-size: 13px;
+  color: var(--wv-muted);
+}
+
+@media (min-width: 1024px) {
+  .wv-news-arc {
+    left: -96px;
+    width: 190px;
+  }
+
+  .wv-news-lead,
+  .wv-news-row {
+    padding-left: var(--wv-arc-pad, 0px);
+  }
+
+  .wv-news-lead {
+    padding-bottom: 46px;
+  }
+
+  .wv-news-row {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  .wv-news-org-right {
+    display: block;
+  }
+
+  .wv-news-date-lead {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .wv-news-list {
+    margin-top: 68px;
+  }
+
+  .wv-news-row .wv-news-meta {
+    margin-bottom: 0;
+    flex-shrink: 0;
+    gap: 26px;
+  }
+
+  .wv-news-row .wv-news-date {
+    width: 100px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .wv-news-row .wv-news-tag {
+    width: 100px;
+  }
+
+  .wv-news-row-title {
+    flex-grow: 1;
+  }
+
+  .wv-news-row .wv-news-org {
+    flex-shrink: 0;
+    width: 150px;
+    text-align: right;
+  }
+}
+
+/* 節の末尾から年別の全件アーカイブ（/news）へ。
+   組み方はヒーローの採用導線（.wv-hero-more）と同じ語彙 */
+.wv-news-foot {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.wv-news-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-size: clamp(13px, 1.1vw, 15px);
+  letter-spacing: 0.12em;
+  border-bottom: 1px solid var(--wv-rule-6);
+  padding-bottom: 6px;
+}
+
+.wv-news-more i {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 320ms cubic-bezier(0.2, 0.7, 0.35, 1);
+}
+
+.wv-news-more:hover {
+  border-bottom-color: var(--wv-link-hover);
+}
+
+.wv-news-more:hover i {
+  transform: translateX(3px) rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wv-news-more i {
+    transition: none;
+  }
+}
+
+/* ============================================================
+   ニュースのアーカイブ（/news）
+   弧は「直近の動き」を見せるトップの演出なので持ち込まず、
+   年見出しと行のリズムだけで組む
+   ============================================================ */
+.wv-news-archive {
+  max-width: 980px;
+}
+
+.wv-news-year {
+  margin: 72px 0 18px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--wv-muted);
+}
+
+.wv-news-yeargroup:first-of-type .wv-news-year {
+  margin-top: 44px;
+}
+
+/* ============================================================
+   02 目指すもの
+   弧をひとつ引いて、その下にミッションの一文だけを置く
+   ============================================================ */
+.wv-mission {
+  position: relative;
+  margin-top: 46px;
+}
+
+.wv-mission-arc,
+.wv-values-arc {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.wv-mission-arc {
+  top: -10px;
+}
+
+.wv-mission-statement {
+  text-align: center;
+  max-width: 620px;
+  /* 弧は高さのある絶対配置なので、その分だけ下げて重なりを避ける */
+  margin: 46px auto 0;
+}
+
+.wv-mission-statement-ja {
+  font-size: clamp(20px, 2.2vw, 31px);
+  font-weight: 600;
+  line-height: 1.95;
+  letter-spacing: 0.11em;
+  color: var(--wv-ink);
+}
+
+.wv-mission-statement-em {
+  margin-top: 32px;
+  font-size: clamp(16px, 1.5vw, 21px);
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  color: var(--wv-link);
+}
+
+@media (min-width: 1024px) {
+  .wv-mission {
+    margin-top: 84px;
+    padding-top: 40px;
+  }
+
+  /* 下げ幅は .wv-mission の padding-top が受け持つ */
+  .wv-mission-statement {
+    margin-top: 0;
+  }
+}
+
+/* Values。今度は弧を下にふくらませる */
+.wv-values {
+  position: relative;
+  margin-top: 64px;
+}
+
+.wv-values-arc {
+  top: -24px;
+}
+
+.wv-values-grid {
+  display: grid;
+  gap: 40px;
+}
+
+.wv-value-num {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--wv-muted);
+  margin-bottom: 14px;
+}
+
+.wv-value-title {
+  font-size: clamp(17px, 1.4vw, 19px);
+  font-weight: 600;
+  color: var(--wv-ink);
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+
+@media (min-width: 768px) {
+  .wv-values-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 44px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wv-values {
+    margin-top: 40px;
+    padding-top: 34px;
+  }
+
+  .wv-values-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  /* 弧に沿って、四つの柱の頭をずらす */
+  .wv-values-grid > :nth-child(1) {
+    margin-top: 29px;
+  }
+  .wv-values-grid > :nth-child(2) {
+    margin-top: 44px;
+  }
+  .wv-values-grid > :nth-child(3) {
+    margin-top: 44px;
+  }
+  .wv-values-grid > :nth-child(4) {
+    margin-top: 29px;
+  }
+}
+
+/* ============================================================
+   03 製品と技術
+   ============================================================ */
+.wv-product-lead {
+  display: grid;
+  gap: 40px;
+  margin-top: 46px;
+}
+
+/* 実機の画面キャプチャは横長なので、縦長のアーチではなく
+   画像の比率そのままの小さめの角丸カードで受ける */
+.wv-arch {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 428 / 303;
+  margin: 0 auto;
+  flex-shrink: 0;
+  background: var(--wv-rule-1);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.wv-arch-rings {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 182%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.wv-arch img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: 50% 50%;
+  display: block;
+}
+
+.wv-eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--wv-muted);
+  margin-bottom: 16px;
+}
+
+.wv-disclaimer {
+  border-top: 1px solid var(--wv-rule-3);
+  padding-top: 26px;
+  max-width: 620px;
+  margin-top: 44px;
+}
+
+/* 免責は本文より一段小さく。薬事上の断りであって、読ませる本文ではない */
+.wv-disclaimer .wv-note {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.wv-tech {
+  display: grid;
+  gap: 44px;
+  margin-top: 96px;
+}
+
+.wv-tech-title {
+  font-size: clamp(21px, 2.1vw, 28px);
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  color: var(--wv-ink);
+  margin: 0 0 28px;
+  line-height: 1.85;
+}
+
+/* 社の成り立ち。本文より一段落とし、研究室の名だけ太くして踏めることを示す */
+.wv-tech-origin {
+  margin-top: 20px;
+}
+.wv-tech-origin a {
+  font-weight: 600;
+}
+
+/* 研究室サイトへ。面で塗る行動のひとつとして .wv-btn を使う */
+.wv-tech-cta {
+  margin-top: 36px;
+}
+
+/* 1フレームができるまで */
+.wv-pipeline {
+  display: grid;
+  gap: 30px;
+  margin-top: 64px;
+  border-top: 1px solid var(--wv-rule-3);
+  padding-top: 40px;
+}
+
+.wv-pipeline-step {
+  display: flex;
+  gap: 16px;
+}
+
+.wv-pipeline-n {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--wv-link);
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+
+.wv-pipeline-name {
+  font-size: clamp(15px, 1.3vw, 17px);
+  font-weight: 600;
+  color: var(--wv-ink);
+  margin-bottom: 10px;
+  letter-spacing: 0.07em;
+}
+
+/* 技術の話を、机の上の実物で受ける。
+   写真は大小2枚。比率はおよそ 1 : 0.35、上端をずらして段差をつける */
+.wv-craft {
+  display: grid;
+  gap: 30px;
+  margin-top: 72px;
+  align-items: center;
+}
+
+.wv-craft-quote {
+  margin: 0 0 32px;
+  font-size: clamp(15px, 1.6vw, 21px);
+  font-weight: 500;
+  line-height: 2.1;
+  letter-spacing: 0.05em;
+  color: var(--wv-ink);
+}
+
+.wv-craft-photos {
+  position: relative;
+  width: 100%;
+  max-width: 744px;
+  aspect-ratio: 744 / 392;
+}
+
+.wv-craft-photo-lg,
+.wv-craft-photo-sm {
+  position: absolute;
+  overflow: hidden;
+  background: var(--wv-rule-2);
+}
+
+.wv-craft-photo-lg {
+  right: 0;
+  top: 0;
+  width: 66%;
+  aspect-ratio: 490 / 310;
+  border-radius: 10px;
+}
+
+.wv-craft-photo-sm {
+  left: 0;
+  top: 55%;
+  width: 23%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+}
+
+.wv-craft-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.wv-craft-photo-lg img {
+  object-position: 50% 50%;
+}
+.wv-craft-photo-sm img {
+  object-position: 46% 48%;
+}
+
+@media (min-width: 1024px) {
+  .wv-product-lead {
+    grid-template-columns: 440px minmax(0, 1fr);
+    gap: 88px;
+    align-items: start;
+    margin-top: 84px;
+  }
+
+  .wv-product-body {
+    padding-top: 44px;
+  }
+
+  /* 本文欄は 1440px で 520px、1024px で 480px。460px 固定だと 17px の本文で
+     二文目（27字）が「す。」だけ次の行に落ちる。図はその分だけ狭くなる
+     （1440px で 560px → 500px） */
+  .wv-tech {
+    grid-template-columns: min(520px, calc(380px + 9.7vw)) minmax(0, 1fr);
+    gap: 60px;
+    align-items: start;
+    margin-top: 128px;
+  }
+
+  .wv-tech-text {
+    padding-top: 6px;
+  }
+
+  .wv-pipeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 48px;
+    margin-top: 84px;
+    padding-top: 44px;
+  }
+
+  .wv-craft {
+    grid-template-columns: 400px minmax(0, 1fr);
+    gap: 56px;
+    margin-top: 100px;
+  }
+
+  .wv-craft-photo-sm {
+    left: 3%;
+  }
+}
+
+/* ============================================================
+   EIT のリアルタイム再構成
+   左は計測。電流を流す電極ペアが1ステップずつ隣へ移り、16回で一周する。
+   右は再構成。推定されたインピーダンス分布が揺れ、走査線が上から下へ抜ける
+   ============================================================ */
+@keyframes wv-sweep {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes wv-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(8px, -6px);
+  }
+}
+@keyframes wv-blob-a {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-30px, 22px);
+  }
+}
+@keyframes wv-blob-b {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(26px, -22px);
+  }
+}
+@keyframes wv-blob-c {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-16px, -18px);
+  }
+}
+@keyframes wv-scan {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(248px);
+  }
+}
+@keyframes wv-elec {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes wv-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  55%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.wv-eit {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  display: block;
+}
+
+.wv-eit g,
+.wv-eit circle {
+  transform-box: view-box;
+}
+
+.wv-eit-pair {
+  animation: wv-sweep 6.4s steps(16) infinite;
+  transform-origin: 150px 170px;
+}
+.wv-eit-iso {
+  animation: wv-drift 11s ease-in-out infinite;
+}
+.wv-eit-ba {
+  animation: wv-blob-a 13s ease-in-out infinite;
+}
+.wv-eit-bb {
+  animation: wv-blob-b 9s ease-in-out infinite;
+}
+.wv-eit-bc {
+  animation: wv-blob-c 17s ease-in-out infinite;
+}
+.wv-eit-scan {
+  animation: wv-scan 3.6s linear infinite;
+}
+.wv-eit-el {
+  animation: wv-elec 2.6s ease-in-out infinite;
+}
+.wv-live {
+  animation: wv-blink 1.3s steps(1) infinite;
+}
+
+/* 図が縮んでも、下の英字ラベルは読める大きさを保つ */
+.wv-eit-label {
+  font-family: var(--font-syne), system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  fill: var(--wv-muted);
+}
+
+@media (min-width: 700px) {
+  .wv-eit-label {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+}
+
+.wv-eit-caption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.wv-eit-caption i {
+  display: block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--wv-accent);
+  flex-shrink: 0;
+}
+
+.wv-eit-caption span {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--wv-muted);
+}
+
+@media (min-width: 1024px) {
+  /* 右の円（RECONSTRUCT）の下に寄せる。ただし本文欄を広げた分だけ図の欄が
+     狭くなるので、字の側に 230px は残して三行に割れないようにする */
+  .wv-eit-caption {
+    padding-left: min(57%, calc(100% - 230px));
+  }
+}
+
+/* ============================================================
+   04 採用 / 05 リンパ浮腫 / 06 アンケート
+   ============================================================ */
+.wv-jobs {
+  display: grid;
+  gap: 40px;
+  margin-top: 56px;
+}
+
+.wv-job {
+  border-top: 1px solid var(--wv-ink);
+  padding-top: 26px;
+}
+
+.wv-job-type {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--wv-muted);
+  margin-bottom: 20px;
+}
+
+.wv-job-title {
+  font-size: clamp(18px, 1.8vw, 21px);
+  font-weight: 600;
+  color: var(--wv-ink);
+  margin-bottom: 16px;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+}
+
+/* 本文と図。図は枠に入れず、四辺を白へ落として地に溶かす */
+.wv-lymph {
+  display: grid;
+  gap: 36px;
+  margin-top: 46px;
+  align-items: center;
+}
+
+.wv-lymph-text p {
+  margin: 0 0 24px;
+}
+.wv-lymph-text p:last-child {
+  margin-bottom: 0;
+}
+
+.wv-lymph-figure {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 460px;
+  overflow: hidden;
+}
+
+.wv-lymph-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 四辺の白→透明。既存のプロダクトページで図に掛けているのと同じ処理 */
+.wv-lymph-figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0) 14%),
+    linear-gradient(to top, #fff, rgba(255, 255, 255, 0) 14%),
+    linear-gradient(to right, #fff, rgba(255, 255, 255, 0) 12%),
+    linear-gradient(to left, #fff, rgba(255, 255, 255, 0) 12%);
+}
+
+.wv-lymph-stats {
+  display: grid;
+  margin-top: 24px;
+}
+
+.wv-stat {
+  border-top: 1px solid var(--wv-ink);
+  /* 出典は下へ移したので、値で終わる分だけ足元を詰める */
+  padding: 22px 0 26px;
+}
+
+.wv-stat-value {
+  font-size: clamp(18px, 1.7vw, 20px);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--wv-ink);
+  margin: 14px 0 0;
+}
+
+/* 値の右肩の番号。数字の一部に見えない大きさまで落とす */
+.wv-stat-ref {
+  margin-left: 3px;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--wv-muted);
+  vertical-align: super;
+  line-height: 0;
+}
+
+/* 出典。数値そのものではないので、字を落として下へ引く */
+.wv-lymph-refs {
+  margin-top: 2px;
+}
+
+.wv-lymph-ref {
+  margin: 0 0 5px;
+  font-size: 12px;
+  line-height: 1.85;
+  letter-spacing: 0.03em;
+  color: var(--wv-muted);
+}
+
+.wv-lymph-ref-n {
+  margin-right: 7px;
+}
+
+.wv-survey {
+  display: grid;
+  gap: 34px;
+  margin-top: 40px;
+  align-items: start;
+}
+
+.wv-survey-lead {
+  margin: 0;
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: 1.95;
+  letter-spacing: 0.02em;
+  color: var(--wv-ink);
+}
+
+@media (min-width: 768px) {
+  .wv-jobs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 60px;
+  }
+
+  .wv-lymph-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wv-jobs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 64px;
+    margin-top: 76px;
+  }
+
+  .wv-lymph {
+    grid-template-columns: minmax(0, 1fr) 440px;
+    gap: 72px;
+    margin-top: 84px;
+  }
+
+  .wv-lymph-stats {
+    margin-top: 44px;
+    gap: 0 60px;
+  }
+
+  .wv-survey {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 88px;
+    margin-top: 60px;
+  }
+}
+
+/* ============================================================
+   07 チーム
+   一人ひとりを一滴として、まわりに波紋を広げる
+   ============================================================ */
+.wv-team {
+  position: relative;
+  margin-top: 46px;
+}
+
+.wv-team-arc {
+  position: absolute;
+  left: 0;
+  top: -60px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.wv-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px 20px;
+}
+
+/* 押すと紹介文が開く。button だが、見た目は素の文字と写真のまま */
+.wv-member {
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 0;
+  background: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* 触れると、写真のまわりの輪がひとつ濃くなる */
+.wv-member:hover .wv-member-photo::before,
+.wv-member:focus-visible .wv-member-photo::before {
+  border-color: var(--wv-accent);
+  inset: -14%;
+}
+
+.wv-member:hover .wv-member-name,
+.wv-member:focus-visible .wv-member-name {
+  color: var(--wv-link);
+}
+
+.wv-member:focus-visible {
+  outline: none;
+}
+
+.wv-member-photo {
+  position: relative;
+  width: 100%;
+  max-width: 224px;
+  aspect-ratio: 1;
+  margin: 0 auto 24px;
+}
+
+.wv-member-photo img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 1px solid rgba(18, 150, 219, 0.4);
+}
+
+/* まわりに一本、離れた輪を置く */
+.wv-member-photo::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  border-radius: 50%;
+  border: 1px solid var(--wv-rule-2);
+  transition:
+    inset 0.45s cubic-bezier(0.2, 0.7, 0.35, 1),
+    border-color 0.3s ease;
+}
+
+.wv-member-role {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--wv-muted);
+  margin-bottom: 12px;
+}
+
+.wv-member-name {
+  font-size: clamp(17px, 1.5vw, 19px);
+  font-weight: 600;
+  color: var(--wv-ink);
+  margin-bottom: 10px;
+  letter-spacing: 0.08em;
+}
+
+@media (min-width: 1024px) {
+  .wv-team {
+    margin-top: 84px;
+  }
+
+  .wv-team-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* 弧に沿って、四人の頭をずらす */
+  .wv-team-grid > :nth-child(1) {
+    margin-top: 40px;
+  }
+  .wv-team-grid > :nth-child(2) {
+    margin-top: 20px;
+  }
+  .wv-team-grid > :nth-child(3) {
+    margin-top: 20px;
+  }
+  .wv-team-grid > :nth-child(4) {
+    margin-top: 40px;
+  }
+
+  .wv-member-photo {
+    margin-bottom: 30px;
+  }
+}
+
+/* ============================================================
+   紹介文の窓
+   body へ portal で出すので .wv の外。字も色も自分で持つ
+   ============================================================ */
+.wv-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: var(--font-murecho), "Hiragino Sans", "Yu Gothic", sans-serif;
+  font-weight: 400;
+  color: var(--wv-ink);
+}
+
+/* 後ろのページは黒で落とさず、白を薄く重ねて引かせる */
+.wv-modal-veil {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(3px);
+  animation: wv-modal-in 0.4s ease both;
+}
+
+.wv-modal-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 720px;
+  max-height: 100%;
+  background: #fff;
+  border: 1px solid var(--wv-rule-4);
+  animation: wv-modal-rise 0.4s cubic-bezier(0.2, 0.7, 0.35, 1) both;
+}
+
+@keyframes wv-modal-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes wv-modal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.wv-modal-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  flex-shrink: 0;
+  padding: 26px 24px 22px;
+  border-bottom: 1px solid var(--wv-rule-3);
+}
+
+.wv-modal-head .wv-member-role {
+  margin-bottom: 8px;
+}
+
+.wv-modal-name {
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+}
+
+.wv-modal-close {
+  margin-left: auto;
+  flex-shrink: 0;
+  border: 0;
+  border-bottom: 1px solid var(--wv-rule-6);
+  background: none;
+  padding: 0 0 5px;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: 0.13em;
+  color: var(--wv-link);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.wv-modal-close:hover {
+  color: var(--wv-link-hover);
+}
+
+.wv-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 26px 24px 32px;
+}
+
+.wv-modal-title {
+  margin: 0;
+  font-size: clamp(15px, 1.1vw, 16px);
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+  color: var(--wv-body);
+}
+
+.wv-modal-sub {
+  margin: 10px 0 0;
+  font-size: 14px;
+}
+
+.wv-modal-bio {
+  margin: 24px 0 0;
+}
+
+.wv-modal-achievements {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--wv-rule-3);
+}
+
+.wv-modal-achievements-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--wv-ink);
+  margin-bottom: 14px;
+}
+
+.wv-modal-achievements ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* 箇条の頭は中黒ではなく、小さな一滴 */
+.wv-modal-achievements li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 14px;
+  line-height: 1.9;
+}
+.wv-modal-achievements li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.92em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--wv-accent);
+}
+
+@media (min-width: 768px) {
+  .wv-modal {
+    padding: 40px;
+  }
+
+  .wv-modal-head {
+    padding: 34px 40px 28px;
+  }
+
+  .wv-modal-body {
+    padding: 32px 40px 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wv-modal-veil,
+  .wv-modal-card {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   08 代表より
+   ============================================================ */
+.wv-message {
+  display: grid;
+  gap: 40px;
+  margin-top: 46px;
+  align-items: center;
+}
+
+.wv-message-photo {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.wv-message-photo img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 三本の輪が外へ向かって薄くなっていく */
+.wv-message-photo span {
+  position: absolute;
+  border-radius: 50%;
+}
+.wv-message-photo span:nth-child(1) {
+  inset: -8%;
+  border: 1px solid var(--wv-rule-4);
+}
+.wv-message-photo span:nth-child(2) {
+  inset: -17%;
+  border: 1px solid var(--wv-rule-3);
+}
+.wv-message-photo span:nth-child(3) {
+  inset: -25%;
+  border: 1px solid var(--wv-rule-1);
+}
+
+/* 掲げている言葉。語りの前に置き、引用文とは字の大きさで差をつける */
+.wv-message-tagline {
+  margin-bottom: 26px;
+}
+
+.wv-message-tagline-ja {
+  font-size: clamp(16px, 1.3vw, 19px);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--wv-link);
+  margin-bottom: 11px;
+}
+
+.wv-message-tagline-en {
+  font-size: clamp(11px, 0.95vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--wv-muted);
+}
+
+.wv-message-quote {
+  margin: 0 0 32px;
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 500;
+  line-height: 2.25;
+  letter-spacing: 0.07em;
+  color: var(--wv-ink);
+}
+
+.wv-message-by {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.wv-message-by-role {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--wv-muted);
+}
+
+.wv-message-by-name {
+  font-size: clamp(17px, 1.5vw, 19px);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--wv-ink);
+}
+
+@media (min-width: 1024px) {
+  .wv-message {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 96px;
+    margin-top: 84px;
+    padding-left: 28px;
+  }
+
+  .wv-message-photo {
+    margin: 0;
+  }
+}
+
+/* ============================================================
+   09 お問い合わせ
+   ============================================================ */
+.wv-contact {
+  display: grid;
+  gap: 44px;
+  margin-top: 46px;
+  align-items: start;
+}
+
+.wv-contact-tel {
+  font-size: clamp(15px, 1.4vw, 17px);
+  font-weight: 500;
+  color: var(--wv-body);
+  line-height: 2.1;
+  letter-spacing: 0.02em;
+}
+
+.wv-fields {
+  display: grid;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.wv-field label {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  color: var(--wv-muted);
+  margin-bottom: 12px;
+}
+
+/* 入力欄も一本の線。塗らない。
+   16px を下回ると iOS Safari がフォーカス時にページを勝手に拡大するので、
+   ここは意匠より先に 16px を守る */
+.wv-field input,
+.wv-field textarea {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--wv-rule-4);
+  background: transparent;
+  padding: 6px 2px;
+  font: inherit;
+  font-size: 16px;
+  color: var(--wv-ink);
+  border-radius: 0;
+}
+
+.wv-field textarea {
+  min-height: 104px;
+  resize: vertical;
+  line-height: 1.9;
+}
+
+.wv-field input:focus,
+.wv-field textarea:focus {
+  outline: none;
+  border-bottom-color: var(--wv-accent);
+}
+
+.wv-contact-submit {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex-wrap: wrap;
+  margin-top: 44px;
+}
+
+.wv-field-optional {
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+.wv-contact-privacy {
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.wv-form-status {
+  font-size: 14px;
+  line-height: 1.9;
+}
+.wv-form-status[data-ok="true"] {
+  color: var(--wv-link);
+}
+.wv-form-status[data-ok="false"] {
+  color: var(--wv-award);
+}
+
+@media (min-width: 768px) {
+  .wv-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 44px;
+  }
+
+  .wv-field-wide {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wv-contact {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 88px;
+    margin-top: 84px;
+  }
+
+  .wv-fields {
+    gap: 44px 56px;
+  }
+}
+
+/* ============================================================
+   10 会社概要
+   ============================================================ */
+.wv-about-row {
+  display: grid;
+  gap: 8px;
+  padding: 22px 0;
+  border-top: 1px solid var(--wv-rule-2);
+}
+
+.wv-about-key {
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--wv-muted);
+}
+
+.wv-about-value {
+  font-size: clamp(16px, 1.2vw, 17px);
+  color: var(--wv-ink);
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  white-space: pre-line;
+}
+
+@media (min-width: 768px) {
+  .wv-about-row {
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 56px;
+    padding: 28px 0;
+  }
+
+  .wv-about-key {
+    padding-top: 6px;
+  }
+}
+
+/* ============================================================
+   動きを減らす設定の環境では、輪はそれぞれの位置で止まる
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .wv-wf i,
+  .wv-src .wv-w,
+  .wv-src .wv-p,
+  .wv-hp span,
+  .wv-moire::before,
+  .wv-moire::after,
+  .wv-eit-pair,
+  .wv-eit-iso,
+  .wv-eit-ba,
+  .wv-eit-bb,
+  .wv-eit-bc,
+  .wv-eit-scan,
+  .wv-eit-el,
+  .wv-live {
+    animation-play-state: paused;
+  }
+
+  .wv-btn:hover::after {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   決まりごとのページ（プライバシーポリシーなど）
+   仕掛けは置かず、読む速さを妨げない組みにする
+   ============================================================ */
+.wv-legal {
+  max-width: 820px;
+}
+
+.wv-legal-intro {
+  margin: 36px 0 0;
+}
+
+.wv-legal-block {
+  margin-top: 44px;
+}
+
+.wv-legal-h {
+  margin: 0 0 14px;
+  font-size: clamp(15px, 1.3vw, 17px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--wv-ink);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--wv-rule-1);
+}
+
+.wv-legal-p {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 2.1;
+  letter-spacing: 0.02em;
+  color: var(--wv-body);
+}
+
+.wv-legal-updated {
+  margin-top: 56px;
+  font-size: 13px;
+}
