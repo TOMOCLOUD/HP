@@ -45,10 +45,10 @@ export default function SiteFooter() {
 
   const anchor = (hash: string): string => `/${locale}#${hash}`;
 
-  // 並びはヘッダーと同じく、ホームの縦の順に合わせる
+  // 並びと行き先はヘッダーと同じ。プロダクトもホームの #product へ（/services ではない）
   const pages: FooterLink[] = [
     { label: nav?.news, href: anchor('news'), hash: 'news' },
-    { label: nav?.product, href: `/${locale}/services` },
+    { label: nav?.product, href: anchor('product'), hash: 'product' },
     { label: nav?.contact, href: anchor('contact'), hash: 'contact' },
     { label: nav?.about, href: anchor('about'), hash: 'about' },
   ];
