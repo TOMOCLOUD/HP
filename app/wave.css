@@ -1336,6 +1336,19 @@ a.wv-news-row:hover {
   line-height: 1.85;
 }
 
+/* 社の成り立ち。本文より一段落とし、研究室の名だけ太くして踏めることを示す */
+.wv-tech-origin {
+  margin-top: 20px;
+}
+.wv-tech-origin a {
+  font-weight: 600;
+}
+
+/* 研究室サイトへ。面で塗る行動のひとつとして .wv-btn を使う */
+.wv-tech-cta {
+  margin-top: 36px;
+}
+
 /* 1フレームができるまで */
 .wv-pipeline {
   display: grid;

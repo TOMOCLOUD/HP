@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import SectionHead from './WaveSource';
 import EitDiagram from './EitDiagram';
 import { scrollToSectionIfHome } from '@/lib/scrollToSection';
+import { TAKEI_LAB_URL } from '@/lib/links';
 
 type Step = { n?: string; name?: string; text?: string };
 
@@ -13,7 +14,7 @@ type Step = { n?: string; name?: string; text?: string };
  * 03 プロダクト&テクノロジー。
  *
  * 1. 試作機の写真と、開発段階の注記。
- * 2. EIT のリアルタイム再構成。
+ * 2. 基盤技術 EIT の説明と、研究室への導線。右にリアルタイム再構成。
  * 3. 1フレームができるまでの3段。
  * 4. 実機の写真。どこが中核かは名指しせず、手を動かす範囲の広さで引く。
  */
@@ -27,9 +28,14 @@ export default function ProductSection({
     note?: string;
     disclaimer?: string;
     archAlt?: string;
-    techEyebrow?: string;
     techTitle?: string;
-    techLead?: string;
+    techP1?: string;
+    techP2?: string;
+    techP3?: string;
+    techOriginPrefix?: string;
+    techOriginLab?: string;
+    techOriginSuffix?: string;
+    techCta?: string;
     eitAria?: string;
     measureLabel?: string;
     reconstructLabel?: string;
@@ -82,15 +88,30 @@ export default function ProductSection({
 
       <div className="wv-tech">
         <div className="wv-tech-text" data-wv-rv>
-          <div className="wv-eyebrow">{t?.techEyebrow}</div>
-          <div className="wv-tech-title">
-            {(t?.techTitle ?? '').split('\n').map((line, i) => (
+          <div className="wv-tech-title">{t?.techTitle}</div>
+          {/* 三文は段落を分けず、一文ずつ行を改める */}
+          <p className="wv-lead">
+            {[t?.techP1, t?.techP2, t?.techP3].filter(Boolean).map((line, i) => (
               <span key={i} style={{ display: 'block' }}>
                 {line}
               </span>
             ))}
-          </div>
-          <p className="wv-lead">{t?.techLead}</p>
+          </p>
+          <p className="wv-note wv-tech-origin">
+            {t?.techOriginPrefix}
+            <a href={TAKEI_LAB_URL} target="_blank" rel="noopener noreferrer">
+              {t?.techOriginLab}
+            </a>
+            {t?.techOriginSuffix}
+          </p>
+          <a
+            href={TAKEI_LAB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="wv-btn wv-tech-cta"
+          >
+            {t?.techCta}
+          </a>
         </div>
 
         <div data-wv-rv>

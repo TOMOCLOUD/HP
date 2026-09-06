@@ -18,7 +18,15 @@ export default function LymphedemaSection({
   t,
   head,
 }: {
-  t?: { p1?: string; p2?: string; imageAlt?: string; stats?: Stat[]; refs?: Ref[] };
+  t?: {
+    p1?: string;
+    p2?: string;
+    p3?: string;
+    p4?: string;
+    imageAlt?: string;
+    stats?: Stat[];
+    refs?: Ref[];
+  };
   head?: { title?: string };
 }) {
   return (
@@ -29,6 +37,8 @@ export default function LymphedemaSection({
         <div className="wv-lymph-text" data-wv-rv>
           <p className="wv-lead">{t?.p1}</p>
           <p className="wv-lead">{t?.p2}</p>
+          <p className="wv-lead">{t?.p3}</p>
+          <p className="wv-lead">{t?.p4}</p>
         </div>
 
         <figure className="wv-lymph-figure" data-wv-rv>

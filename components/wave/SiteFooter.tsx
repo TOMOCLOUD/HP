@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useDict } from '@/lib/useDict';
 import { scrollToSectionIfHome } from '@/lib/scrollToSection';
+import { TAKEI_LAB_URL } from '@/lib/links';
 
-const TAKEI_LAB = 'https://tomocloud.xsrv.jp/takei-lab/';
+const TAKEI_LAB = TAKEI_LAB_URL;
 const WANTEDLY = 'https://www.wantedly.com/companies/tomocloud';
 
 /** パスの先頭のロケールだけを入れ替える */

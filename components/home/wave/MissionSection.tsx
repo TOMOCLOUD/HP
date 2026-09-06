@@ -89,7 +89,9 @@ export default function MissionSection({
             <div key={v.title ?? i} data-wv-rv data-wv-rv-delay={i * VALUE_STAGGER_MS}>
               <div className="wv-lat wv-value-num">{String(i + 1).padStart(2, '0')}</div>
               <div className="wv-lat wv-value-title">{v.title}</div>
-              <div className="wv-note">{v.text}</div>
+              <div className="wv-note">
+                <Lines text={v.text} />
+              </div>
             </div>
           ))}
         </div>
