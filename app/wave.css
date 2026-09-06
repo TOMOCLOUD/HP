@@ -1327,6 +1327,11 @@ a.wv-news-row:hover {
   margin-top: 96px;
 }
 
+/* 段落の末尾に一、二文字だけ残さない。幅や字の大きさが変わっても効く保険 */
+.wv-tech-text p {
+  text-wrap: pretty;
+}
+
 .wv-tech-title {
   font-size: clamp(21px, 2.1vw, 28px);
   font-weight: 600;
@@ -1453,8 +1458,11 @@ a.wv-news-row:hover {
     padding-top: 44px;
   }
 
+  /* 本文欄は 1440px で 520px、1024px で 480px。460px 固定だと 17px の本文で
+     二文目（27字）が「す。」だけ次の行に落ちる。図はその分だけ狭くなる
+     （1440px で 560px → 500px） */
   .wv-tech {
-    grid-template-columns: 460px minmax(0, 1fr);
+    grid-template-columns: min(520px, calc(380px + 9.7vw)) minmax(0, 1fr);
     gap: 60px;
     align-items: start;
     margin-top: 128px;
@@ -1634,8 +1642,10 @@ a.wv-news-row:hover {
 }
 
 @media (min-width: 1024px) {
+  /* 右の円（RECONSTRUCT）の下に寄せる。ただし本文欄を広げた分だけ図の欄が
+     狭くなるので、字の側に 230px は残して三行に割れないようにする */
   .wv-eit-caption {
-    padding-left: 57%;
+    padding-left: min(57%, calc(100% - 230px));
   }
 }
 
