@@ -199,7 +199,8 @@
     "sections": {
       "news": {
         "title": "News",
-        "more": "All news"
+        "more": "All news",
+        "featured": "Featured"
       },
       "mission": {
         "title": "What we are after"
@@ -376,6 +377,7 @@
     "message": {
       "taglineJa": "Visualize the New Self",
       "taglineEn": "VISUALIZE THE NEW SELF",
+      "pull": "\"What frightens me most is that I can't visualize what's happening inside my body.\"",
       "quote": "Even while working in an engineering lab, I spent my student years on hospital wards, listening directly to patients and clinicians. One patient said, \"What frightens me most is that I can't visualize what's happening inside my body.\" That stayed with me—and made me determined to build technology that eases that invisible anxiety. The more I listened, the more I felt these were not someone else's problems, but challenges I should help solve.",
       "role": "CEO / FOUNDER",
       "name": "Ryoma Ogawa",

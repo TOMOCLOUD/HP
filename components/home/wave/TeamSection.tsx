@@ -193,11 +193,10 @@ export default function TeamSection({
               </div>
               <div className="wv-lat wv-member-role">{m.role}</div>
               <div className="wv-member-name">{m.name}</div>
-              {m.title ? (
-                <div className="wv-note" style={{ fontSize: 14 }}>
-                  {m.title}
-                </div>
-              ) : null}
+              {/* 所属の無い人にも行だけは置き、カードの丈を揃える */}
+              <div className="wv-note wv-member-title" aria-hidden={m.title ? undefined : true}>
+                {m.title || '\u00a0'}
+              </div>
             </button>
           ))}
         </div>

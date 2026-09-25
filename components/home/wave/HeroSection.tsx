@@ -37,8 +37,9 @@ const HERO_CTA_MS = 180;
 
 export default function HeroSection({ t, locale }: { t?: Hero; locale: string }) {
   const titleLines = (t?.title ?? '').split('\n');
-  // 本文も見出しと同じく \n で折り返し位置を決める。
-  // 幅まかせにすると語の途中で切れるため
+  // 本文も見出しと同じく \n で折り返し位置を決める（768px 以上）。
+  // それより狭いと一行目が収まらず「使っ／た」と割れるので、行を続けて流し、
+  // 折り返しは文節単位（word-break: auto-phrase）に任せる
   const subLines = (t?.sub ?? '').split('\n');
   const subDelay = HERO_BASE_MS + 180 + titleLines.length * HERO_LINE_MS + 125;
   const pathname = usePathname() || `/${locale}`;
@@ -70,7 +71,9 @@ export default function HeroSection({ t, locale }: { t?: Hero; locale: string })
 
           <p className="wv-hero-sub" data-wv-rv data-wv-rv-delay={subDelay}>
             {subLines.map((line, i) => (
-              <span key={i} style={{ display: 'block' }}>
+              <span key={i} className="wv-hero-sub-line">
+                {/* 続けて流すとき、英語では行と行のあいだに語間が要る */}
+                {i > 0 && locale === 'en' ? ' ' : null}
                 {line}
               </span>
             ))}

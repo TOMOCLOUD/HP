@@ -14,6 +14,8 @@ export default function MessageSection({
   t?: {
     taglineJa?: string;
     taglineEn?: string;
+    /** 本文から原文どおり抜き出した一節。本文とは別に大きく置く */
+    pull?: string;
     quote?: string;
     role?: string;
     name?: string;
@@ -39,6 +41,9 @@ export default function MessageSection({
             <div className="wv-lat wv-message-tagline-en">{t?.taglineEn}</div>
           </div>
 
+          {/* 語りの芯になる患者さんの言葉だけを、先に大きく置く。
+              本文は長いので太字にせず、ふつうの太さで読ませる */}
+          {t?.pull ? <blockquote className="wv-message-pull">{t.pull}</blockquote> : null}
           <p className="wv-message-quote">{t?.quote}</p>
           <div className="wv-message-by">
             <span className="wv-lat wv-message-by-role">{t?.role}</span>

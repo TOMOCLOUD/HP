@@ -28,10 +28,20 @@ function arcIndents(rowCount: number) {
   });
 }
 
-export function Meta({ item, lead }: { item: Item; lead?: boolean }) {
+export function Meta({
+  item,
+  lead,
+  featuredLabel,
+}: {
+  item: Item;
+  lead?: boolean;
+  /** 注目枠であることを示す札。日付順の並びから外れて先頭にある理由を示す */
+  featuredLabel?: string;
+}) {
   const color = tagColor(item.tagKey);
   return (
     <div className="wv-news-meta">
+      {featuredLabel ? <span className="wv-lat wv-news-featured">{featuredLabel}</span> : null}
       <span className={`wv-lat wv-news-date${lead ? ' wv-news-date-lead' : ''}`}>{item.date}</span>
       <span className="wv-news-tag" style={{ color }}>
         <i style={{ background: color }} />
@@ -102,7 +112,7 @@ export default function NewsSection({
   head,
   locale,
 }: {
-  head?: { title?: string; more?: string };
+  head?: { title?: string; more?: string; featured?: string };
   locale: 'ja' | 'en';
 }) {
   const sorted = [...newsItems].sort((a, b) => b.date.localeCompare(a.date));
@@ -154,7 +164,7 @@ export default function NewsSection({
         {/* 注目の一件 */}
         {lead ? (
           <Row item={lead} className="wv-news-lead" pad={pads[0]}>
-            <Meta item={lead} lead />
+            <Meta item={lead} lead featuredLabel={head?.featured} />
             <div className="wv-news-lead-title">{lead.title}</div>
             <p className="wv-note wv-news-lead-text">{lead.text}</p>
           </Row>

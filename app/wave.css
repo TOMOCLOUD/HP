@@ -26,7 +26,7 @@
 
 .wv {
   --wv-gutter: 22px;
-  --wv-sec-gap: 96px;
+  --wv-sec-gap: 64px;
   /* ホームの写真の直径。波紋の大きさはすべてこれを基準に決める */
   --wv-photo: 320px;
 
@@ -41,7 +41,7 @@
 @media (min-width: 768px) {
   .wv {
     --wv-gutter: 40px;
-    --wv-sec-gap: 128px;
+    --wv-sec-gap: 96px;
     --wv-photo: 44vw;
   }
 }
@@ -49,7 +49,7 @@
 @media (min-width: 1024px) {
   .wv {
     --wv-gutter: 60px;
-    --wv-sec-gap: 172px;
+    --wv-sec-gap: 144px;
     --wv-photo: min(600px, 42vw);
   }
 }
@@ -94,10 +94,20 @@
   margin: 0;
   font-size: clamp(25px, 2.4vw, 34px);
   font-weight: 600;
-  letter-spacing: 0.15em;
+  /* 狭い幅では字間を詰める。0.15em のままだと「プロダクト&テクノロジー」が
+     収まらず、長音の「ー」一字だけが次の行に落ちた */
+  letter-spacing: 0.08em;
   line-height: 1.35;
   color: var(--wv-ink);
   line-height: 1.38;
+  /* それでも割れるときは文節の切れ目で */
+  word-break: auto-phrase;
+}
+
+@media (min-width: 768px) {
+  .wv-h2 {
+    letter-spacing: 0.15em;
+  }
 }
 
 /* 点の中心を一行目の行高中心（＝和文の視覚中心）に置く。
@@ -628,6 +638,20 @@
   color: var(--wv-body);
 }
 
+/* 行の区切りは 768px 以上でだけ効かせる。狭い幅では続けて流し、
+   文節の切れ目で折り返す（未対応のブラウザでは keep-all で語の途中を避ける） */
+.wv-hero-sub {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  word-break: auto-phrase;
+}
+
+@media (min-width: 768px) {
+  .wv-hero-sub-line {
+    display: block;
+  }
+}
+
 /* 本文の下、採用セクションへの一行。
    面で塗るのは .wv-btn だけと決めてあるので、ここも線一本で示す。
    .wv-more と同じ語彙のまま、ヒーローの分だけ字を大きくする */
@@ -917,19 +941,15 @@
   margin-top: 30px;
 }
 
+/* 弧はデスクトップだけ。モバイルでは余白の幅に弧が収まらず、
+   線が行頭の字に重なって日付や見出しの頭が欠けて見えたため、
+   弧を出さず、行の左端もまっすぐ揃える */
 .wv-news-arc {
+  display: none;
   position: absolute;
-  left: -34px;
   top: 0;
   height: 100%;
-  width: 80px;
   pointer-events: none;
-}
-
-/* モバイルでは弧の振幅も小さいので、寄せ幅も同じ比率で詰める */
-.wv-news-lead,
-.wv-news-row {
-  padding-left: calc(var(--wv-arc-pad, 0px) * 0.45);
 }
 
 .wv-news-lead {
@@ -945,6 +965,19 @@
   gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 14px;
+}
+
+/* 注目枠の札。日付より新しい件が下に並ぶので、先頭に置いた理由を示す */
+.wv-news-featured {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--wv-accent);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  color: var(--wv-accent);
 }
 
 .wv-news-date {
@@ -1020,6 +1053,7 @@ a.wv-news-row:hover {
 
 @media (min-width: 1024px) {
   .wv-news-arc {
+    display: block;
     left: -96px;
     width: 190px;
   }
@@ -1634,6 +1668,7 @@ a.wv-news-row:hover {
 }
 
 .wv-eit-caption span {
+  white-space: nowrap;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.18em;
@@ -1643,8 +1678,10 @@ a.wv-news-row:hover {
 @media (min-width: 1024px) {
   /* 右の円（RECONSTRUCT）の下に寄せる。ただし本文欄を広げた分だけ図の欄が
      狭くなるので、字の側に 230px は残して三行に割れないようにする */
+  /* 再構成の円の下、右端に寄せて一行で置く。
+     左に余白を足して寄せていた頃は、残りの幅に収まらず途中で折り返していた */
   .wv-eit-caption {
-    padding-left: min(57%, calc(100% - 230px));
+    justify-content: flex-end;
   }
 }
 
@@ -1731,18 +1768,21 @@ a.wv-news-row:hover {
   padding: 22px 0 26px;
 }
 
+/* この節でいちばん持ち帰ってほしいのは数値なので、ラベルより一段大きく置く。
+   大きくした分、太さは落として紙面を重くしない */
 .wv-stat-value {
-  font-size: clamp(18px, 1.7vw, 20px);
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  font-size: clamp(34px, 3.4vw, 46px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
   color: var(--wv-ink);
-  margin: 14px 0 0;
+  margin: 12px 0 0;
 }
 
 /* 値の右肩の番号。数字の一部に見えない大きさまで落とす */
 .wv-stat-ref {
-  margin-left: 3px;
-  font-size: 11px;
+  margin-left: 4px;
+  font-size: 13px;
   font-weight: 400;
   letter-spacing: 0;
   color: var(--wv-muted);
@@ -1916,6 +1956,10 @@ a.wv-news-row:hover {
   color: var(--wv-ink);
   margin-bottom: 10px;
   letter-spacing: 0.08em;
+}
+
+.wv-member-title {
+  font-size: 14px;
 }
 
 @media (min-width: 1024px) {
@@ -2193,13 +2237,24 @@ a.wv-news-row:hover {
   color: var(--wv-muted);
 }
 
+.wv-message-pull {
+  margin: 0 0 28px;
+  padding-left: 20px;
+  border-left: 2px solid var(--wv-accent);
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 600;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: var(--wv-ink);
+}
+
 .wv-message-quote {
   margin: 0 0 32px;
-  font-size: clamp(16px, 1.8vw, 22px);
-  font-weight: 500;
-  line-height: 2.25;
-  letter-spacing: 0.07em;
-  color: var(--wv-ink);
+  font-size: clamp(16px, 1.25vw, 18px);
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 0.03em;
+  color: var(--wv-body);
 }
 
 .wv-message-by {
@@ -2268,33 +2323,45 @@ a.wv-news-row:hover {
   margin-bottom: 12px;
 }
 
-/* 入力欄も一本の線。塗らない。
+/* 入力欄は薄く塗り、四辺を細い線で囲む。下線一本だと、とくに本文欄が
+   どこからどこまでか分かりにくかった。
    16px を下回ると iOS Safari がフォーカス時にページを勝手に拡大するので、
    ここは意匠より先に 16px を守る */
 .wv-field input,
 .wv-field textarea {
   display: block;
   width: 100%;
-  border: 0;
-  border-bottom: 1px solid var(--wv-rule-4);
-  background: transparent;
-  padding: 6px 2px;
+  border: 1px solid var(--wv-rule-4);
+  background: #f6fafd;
+  padding: 11px 14px;
   font: inherit;
   font-size: 16px;
   color: var(--wv-ink);
-  border-radius: 0;
+  border-radius: 6px;
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    box-shadow 200ms ease;
 }
 
 .wv-field textarea {
-  min-height: 104px;
+  min-height: 160px;
   resize: vertical;
   line-height: 1.9;
 }
 
+.wv-field input:hover,
+.wv-field textarea:hover {
+  border-color: var(--wv-rule-6);
+}
+
+/* 枠の色だけでは弱いので、淡い輪を足してフォーカスの位置を示す */
 .wv-field input:focus,
 .wv-field textarea:focus {
   outline: none;
-  border-bottom-color: var(--wv-accent);
+  background: #fff;
+  border-color: var(--wv-accent);
+  box-shadow: 0 0 0 3px rgba(18, 150, 219, 0.15);
 }
 
 .wv-contact-submit {
