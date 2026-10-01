@@ -10,7 +10,9 @@
  *   場合も、終わったら過去形へ直す
  * - featured はトップの注目枠に出す1件。常にちょうど1件だけ true にし、
  *   新しい節目（採択・受賞・資金調達・薬事マイルストーン）が来たら移す。
- *   注目枠を退いた件は、text を残したままふつうの行として並ぶ
+ *   ただし規模の小さい採択（地域の助成金など）では、より大きな節目を
+ *   そのまま残してよい。注目枠を退いた件は、text を残したまま
+ *   ふつうの行として並ぶ
  */
 
 export type NewsTagKey = 'adoption' | 'award' | 'media' | 'plain';
@@ -68,6 +70,31 @@ const RESEARCH = { ja: '研究実績', en: 'Research record' };
 
 /** 新しい順。並びが崩れても表示側で date 降順に直す */
 export const newsItems: NewsItem[] = [
+  {
+    date: '2026-10-07',
+    tagKey: 'plain',
+    tag: TAG.exhibit,
+    title: {
+      ja: 'BioJapan 2026（10月7日〜9日、パシフィコ横浜）の千葉大学ブースに出展します。',
+      en: 'TOMOCLOUD will exhibit at the Chiba University booth at BioJapan 2026 (October 7–9, Pacifico Yokohama).',
+    },
+    url: 'https://jcd-expo.jp/jp/',
+  },
+  {
+    date: '2026-09-18',
+    tagKey: 'adoption',
+    tag: TAG.selected,
+    org: { ja: '千葉銀行', en: 'Chiba Bank' },
+    title: {
+      ja: '「ちばぎん研究開発助成制度2026」の助成金交付先に決定しました。',
+      en: 'Selected as a grant recipient under the Chiba Bank R&D Grant Program 2026.',
+    },
+    text: {
+      ja: '共同研究テーマ「次世代EIT高解像度3D化基盤技術の開発」が助成対象に選ばれました。本制度は、中小企業と大学・高専等との共同研究を資金面から支援するものです。',
+      en: 'The joint research theme "Development of core technology for next-generation high-resolution 3D EIT" was selected. The program funds joint research between small and medium-sized companies and universities or technical colleges.',
+    },
+    url: 'https://www.chibabank.co.jp/news/news20260918_01',
+  },
   {
     date: '2026-08-24',
     tagKey: 'plain',
