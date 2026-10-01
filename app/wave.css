@@ -810,7 +810,7 @@
 
 /* ============================================================
    採択・支援の機関
-   会社概要の手前に、機関のロゴだけを静かに並べる。見出しも説明も置かない
+   代表よりとお問い合わせの間に、機関のロゴだけを静かに並べる。見出しは置かない
    ============================================================ */
 .wv-partners {
   display: grid;
@@ -821,7 +821,7 @@
   padding: 60px 0 34px;
 }
 
-/* 採択のロゴを受けて、技術の出どころを一度だけ名乗る一行 */
+/* 採択のロゴを受けて、技術の出どころを一度だけ名乗る二行 */
 .wv-partners-caption {
   margin: 0 0 76px;
   text-align: center;
@@ -1178,8 +1178,9 @@ a.wv-news-row:hover {
 }
 
 /* ============================================================
-   02 目指すもの
-   弧をひとつ引いて、その下にミッションの一文だけを置く
+   02 目指すもの / 私たちが大切にしているもの
+   弧をひとつ引いて、その下にミッションの一文だけを置く。
+   Values は見出しを分けて続く節に置く
    ============================================================ */
 .wv-mission {
   position: relative;
@@ -1233,10 +1234,13 @@ a.wv-news-row:hover {
   }
 }
 
-/* Values。今度は弧を下にふくらませる */
+/* Values。今度は弧を下にふくらませる。
+   弧は -24px から 26px まで下がるので、狭い幅では 01 がそれに掛からない
+   ところまで柱を下げる（1024px 以上は padding-top 34px が受け持つ） */
 .wv-values {
   position: relative;
   margin-top: 64px;
+  padding-top: 36px;
 }
 
 .wv-values-arc {
@@ -2217,37 +2221,19 @@ a.wv-news-row:hover {
   border: 1px solid var(--wv-rule-1);
 }
 
-/* 掲げている言葉。語りの前に置き、引用文とは字の大きさで差をつける */
-.wv-message-tagline {
-  margin-bottom: 26px;
-}
-
-.wv-message-tagline-ja {
-  font-size: clamp(16px, 1.3vw, 19px);
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: var(--wv-link);
-  margin-bottom: 11px;
-}
-
-.wv-message-tagline-en {
-  font-size: clamp(11px, 0.95vw, 13px);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  color: var(--wv-muted);
-}
-
-.wv-message-pull {
+/* メッセージの題。語りの前に置き、本文とは字の大きさで差をつける */
+/* 390px では「見えない不安を、視える安心へ。」の鉤括弧込み 17 字が
+   一行に収まる大きさと字間にする（20px・0.06em だと末尾だけが落ちた） */
+.wv-message-title {
   margin: 0 0 28px;
-  padding-left: 20px;
-  border-left: 2px solid var(--wv-accent);
-  font-size: clamp(20px, 2vw, 26px);
+  font-size: clamp(19px, 2vw, 26px);
   font-weight: 600;
   line-height: 1.7;
   letter-spacing: 0.04em;
   color: var(--wv-ink);
 }
 
+/* 本文は一文ごとの段落。段落の間は行の高さ（2）より少しだけ開ける */
 .wv-message-quote {
   margin: 0 0 32px;
   font-size: clamp(16px, 1.25vw, 18px);
@@ -2255,6 +2241,15 @@ a.wv-news-row:hover {
   line-height: 2;
   letter-spacing: 0.03em;
   color: var(--wv-body);
+  text-wrap: pretty;
+}
+
+.wv-message-quote p {
+  margin: 0;
+}
+
+.wv-message-quote p + p {
+  margin-top: 0.6em;
 }
 
 .wv-message-by {

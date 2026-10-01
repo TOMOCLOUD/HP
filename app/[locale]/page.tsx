@@ -61,7 +61,12 @@ export default function LocaleHome() {
         <NewsSection head={s?.news} locale={locale} />
       </div>
 
-      <MissionSection t={t?.mission} head={s?.mission} values={dict?.home?.values} />
+      <MissionSection
+        t={t?.mission}
+        head={s?.mission}
+        valuesHead={s?.values}
+        values={dict?.home?.values}
+      />
 
       <LymphedemaSection t={t?.lymphedema} head={s?.lymphedema} />
 
@@ -83,11 +88,11 @@ export default function LocaleHome() {
       />
       <MessageSection t={t?.message} head={s?.message} />
 
+      <PartnerLogos t={t?.partners} />
+
       <div id="contact" className="wv-anchor">
         <ContactSection t={t?.contact} head={s?.contact} locale={locale} />
       </div>
-
-      <PartnerLogos t={t?.partners} />
 
       <div id="about" className="wv-anchor">
         <AboutSection about={dict?.home?.about} head={s?.about} />

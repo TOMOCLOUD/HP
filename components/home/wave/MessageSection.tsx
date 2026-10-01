@@ -4,19 +4,17 @@ import SectionHead from './WaveSource';
 /**
  * 08 代表より。写真のまわりに三本の輪が、外へ向かって薄くなっていく。
  *
- * 掲げている言葉を語りの前に置く。代表の言葉としていちばん収まる場所で、
- * ヒーローに置くとページの頭にキャッチが二つ並んでしまう。
+ * メッセージの題を語りの前に置き、本文は一文ごとの段落で読ませる。
+ * 「新しい自分が視える世界へ」は目指すものの節に移した。
  */
 export default function MessageSection({
   t,
   head,
 }: {
   t?: {
-    taglineJa?: string;
-    taglineEn?: string;
-    /** 本文から原文どおり抜き出した一節。本文とは別に大きく置く */
-    pull?: string;
-    quote?: string;
+    /** メッセージの題。本文とは字の大きさで差をつける */
+    title?: string;
+    paragraphs?: string[];
     role?: string;
     name?: string;
     alt?: string;
@@ -36,15 +34,13 @@ export default function MessageSection({
         </div>
 
         <div data-wv-rv>
-          <div className="wv-message-tagline">
-            <div className="wv-message-tagline-ja">{t?.taglineJa}</div>
-            <div className="wv-lat wv-message-tagline-en">{t?.taglineEn}</div>
+          {/* 題だけを太く置き、本文はふつうの太さで読ませる */}
+          {t?.title ? <h3 className="wv-message-title">{t.title}</h3> : null}
+          <div className="wv-message-quote">
+            {(t?.paragraphs ?? []).map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
           </div>
-
-          {/* 語りの芯になる患者さんの言葉だけを、先に大きく置く。
-              本文は長いので太字にせず、ふつうの太さで読ませる */}
-          {t?.pull ? <blockquote className="wv-message-pull">{t.pull}</blockquote> : null}
-          <p className="wv-message-quote">{t?.quote}</p>
           <div className="wv-message-by">
             <span className="wv-lat wv-message-by-role">{t?.role}</span>
             <span className="wv-message-by-name">{t?.name}</span>

@@ -1,7 +1,7 @@
 /**
  * 採択・支援の機関。
  *
- * 会社概要の手前に、機関のロゴだけを静かに並べる。見出しも説明文も置かない。
+ * 代表よりとお問い合わせの間に、機関のロゴだけを静かに並べる。見出しは置かない。
  * JST・AMED・NEDO は公式サイトの配布物を公式色のまま使っている。
  * GTIE は白一色の公式アートワークしか公開されていないため、
  * 明るい地に載るよう濃色へ置き換えたものを使う。
@@ -44,9 +44,13 @@ export default function PartnerLogos({ t }: { t?: Record<string, string> }) {
         ))}
       </div>
 
-      {/* 採択のロゴを受けて、技術の出どころをここで一度だけ名乗る */}
+      {/* 採択のロゴを受けて、技術の出どころをここで一度だけ名乗る。二文を一行ずつ */}
       <p className="wv-partners-caption" data-wv-rv>
-        {t?.caption}
+        {(t?.caption ?? '').split('\n').map((line, i) => (
+          <span key={i} style={{ display: 'block' }}>
+            {line}
+          </span>
+        ))}
       </p>
     </div>
   );

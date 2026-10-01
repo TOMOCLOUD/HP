@@ -24,14 +24,17 @@ function Lines({ text }: { text?: string }) {
 }
 
 /**
- * 02 目指すもの。
+ * 02 目指すもの / 私たちが大切にしているもの。
  *
  * 弧をひとつ引いて、その下にミッションの一文だけを置く。
- * Values は弧を下にふくらませ、四つの柱の頭をそれに沿ってずらす。
+ * Values は「目指すもの」ではなく「大切にしているもの」なので、
+ * 見出しを分けて続く節に置く。弧を下にふくらませ、四つの柱の頭を
+ * それに沿ってずらす。
  */
 export default function MissionSection({
   t,
   head,
+  valuesHead,
   values,
 }: {
   t?: {
@@ -39,9 +42,11 @@ export default function MissionSection({
     emphasis?: string;
   };
   head?: { title?: string };
+  valuesHead?: { title?: string };
   values?: Value[];
 }) {
   return (
+    <>
     <section className="wv-wrap wv-sec" data-wv-reveal>
       <SectionHead title={head?.title ?? ''} />
 
@@ -68,10 +73,14 @@ export default function MissionSection({
           </div>
         </div>
       </div>
+    </section>
 
-      {/* セクションの下の方にあるので、ここだけ別の発火のまとまりにする。
-          読み手が Values まで来てから、01 → 04 と順に立ち上がる */}
-      <div className="wv-values" data-wv-reveal>
+    {/* 節を分けているので発火のまとまりも別になり、
+        読み手が Values まで来てから、01 → 04 と順に立ち上がる */}
+    <section className="wv-wrap wv-sec" data-wv-reveal>
+      <SectionHead title={valuesHead?.title ?? ''} />
+
+      <div className="wv-values">
         <svg
           className="wv-values-arc"
           viewBox="0 0 1200 80"
@@ -97,5 +106,6 @@ export default function MissionSection({
         </div>
       </div>
     </section>
+    </>
   );
 }

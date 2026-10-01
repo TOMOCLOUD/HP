@@ -185,7 +185,7 @@
   "top": {
     "hero": {
       "title": "Catch lymphedema early,\nand ease the days after treatment.",
-      "sub": "We develop non-invasive monitoring devices\nusing electrical impedance tomography (EIT).",
+      "sub": "We develop non-invasive diagnostic and monitoring devices\nusing electrical impedance tomography (EIT).",
       "recruitCta": "See open positions",
       "photoAlt": ""
     },
@@ -194,7 +194,7 @@
       "gtie": "GTIE",
       "amed": "Japan Agency for Medical Research and Development (AMED)",
       "nedo": "New Energy and Industrial Technology Development Organization (NEDO)",
-      "caption": "Born out of Chiba University, supported by public research agencies."
+      "caption": "As a startup born out of Chiba University, we work to bring research results into society.\nWe have built the business with the support of a range of public agencies."
     },
     "sections": {
       "news": {
@@ -204,6 +204,9 @@
       },
       "mission": {
         "title": "What we are after"
+      },
+      "values": {
+        "title": "What we value"
       },
       "product": {
         "title": "Product & technology"
@@ -233,17 +236,17 @@
     },
     "mission": {
       "statement": "Creating a society where\nvisualization lets everyone\nlive as themselves",
-      "emphasis": "Turning the unseen into the seen."
+      "emphasis": "Visualize the New Self"
     },
     "product": {
-      "lead": "LT monitor Pro is a lymphedema monitoring device that turns the distribution of water and protein inside the body into an image. We develop it through repeated clinical validation, so that day-to-day changes can be followed.",
+      "lead": "LT monitor Pro is a product for diagnosing lymphedema that images the distribution of water and protein inside the body. Bringing together medical and engineering expertise, we develop it through continuous validation in clinical settings.",
       "note": "We are also developing LT monitor Lite, a device for checking swelling at home.",
       "disclaimer": "Not approved as a medical device. This page makes no claim of efficacy or effect.",
       "archAlt": "The LT monitor Pro prototype screen",
       "techTitle": "Core Technology: EIT",
-      "techP1": "Electrical Impedance Tomography (EIT) reconstructs images of impedance distribution using multiple electrodes.",
-      "techP2": "It literally turns the \"unseen\" into something visible.",
-      "techP3": "By applying small currents via surface electrodes and measuring potentials, EIT visualizes internal states non-invasively and in real time.",
+      "techP1": "Electrical Impedance Tomography (EIT) is a sensing technology that images the electrical properties inside the body from signals obtained at many electrodes.",
+      "techP2": "It makes visible the changes inside the body that could not be seen before.",
+      "techP3": "By measuring weak currents and potentials, it achieves real-time visualization with no burden on the body.",
       "techOriginPrefix": "TOMOCLOUD Inc. was founded based on research conducted at ",
       "techOriginLab": "Chiba University Takei Laboratory",
       "techOriginSuffix": ".",
@@ -255,21 +258,21 @@
       "pipeline": [
         {
           "n": "1",
-          "name": "Inject current",
-          "text": "A weak alternating current is driven through a pair of opposing electrodes."
+          "name": "Apply current",
+          "text": "Switching between electrodes, a weak alternating current is applied to the body."
         },
         {
           "n": "2",
           "name": "Measure voltage",
-          "text": "The potential differences across the remaining electrodes are read. Rotating the pair once collects one frame."
+          "text": "The potential differences arising between electrodes are measured in turn, collecting the data needed for imaging."
         },
         {
           "n": "3",
           "name": "Reconstruct",
-          "text": "The inverse problem is solved to estimate the impedance distribution of the cross-section."
+          "text": "Through inverse-problem analysis of the signals, the impedance distribution inside the body is reconstructed as an image."
         }
       ],
-      "craftQuote": "From developing image reconstruction algorithms and measurement circuits to commercialization and productization, we work end to end.",
+      "craftQuote": "To realize medical technology that does not yet exist, we work with clinical teams and take it all the way, from algorithm and hardware R&D to productization and commercialization.",
       "craftCta": "We are looking for people to build it with",
       "probeAlt": "A hand touching a probe to a board while watching an oscilloscope waveform",
       "circuitAlt": "Close-up of a measurement board lined with D-sub connectors"
@@ -375,10 +378,14 @@
       ]
     },
     "message": {
-      "taglineJa": "Visualize the New Self",
-      "taglineEn": "VISUALIZE THE NEW SELF",
-      "pull": "\"What frightens me most is that I can't visualize what's happening inside my body.\"",
-      "quote": "Even while working in an engineering lab, I spent my student years on hospital wards, listening directly to patients and clinicians. One patient said, \"What frightens me most is that I can't visualize what's happening inside my body.\" That stayed with me—and made me determined to build technology that eases that invisible anxiety. The more I listened, the more I felt these were not someone else's problems, but challenges I should help solve.",
+      "title": "From unseen anxiety to visible reassurance.",
+      "paragraphs": [
+        "While doing research in the faculty of engineering, I have been visiting hospital wards since my student days, listening to patients and clinicians.",
+        "What I felt there again and again was the anxiety of not being able to see the state of one's own body.",
+        "I wanted to make changes in the body easier to understand and closer at hand.",
+        "Starting from that wish, we work with clinical teams to develop new sensing technology through the power of engineering.",
+        "Finding problems together with the clinical front line, and solving them together. That is where our making begins."
+      ],
       "role": "CEO / FOUNDER",
       "name": "Ryoma Ogawa",
       "alt": "Ryoma Ogawa",
@@ -434,7 +441,7 @@
     "title": "TOMOCLOUD Inc.",
     "news": "News",
     "titleTemplate": "%s | TOMOCLOUD Inc.",
-    "description": "We develop non-invasive monitoring devices using electrical impedance tomography (EIT). Catching lymphedema early to ease the days after cancer treatment. A medical device startup out of Chiba University.",
+    "description": "We develop non-invasive diagnostic and monitoring devices using electrical impedance tomography (EIT). Catching lymphedema early to ease the days after cancer treatment. A medical device startup out of Chiba University.",
     "services": "Product",
     "privacy": "Privacy Policy"
   },
