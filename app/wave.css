@@ -232,23 +232,6 @@
   }
 }
 
-@keyframes wv-drop {
-  0% {
-    transform: scale(0.02);
-    opacity: 0;
-  }
-  9% {
-    opacity: 0.42;
-  }
-  60% {
-    opacity: 0.26;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
-  }
-}
-
 .wv-wf {
   position: absolute;
   z-index: 0;
@@ -270,14 +253,6 @@
   border: 1px solid var(--wv-accent);
   opacity: 0;
   animation: wv-ripple 14s cubic-bezier(0.2, 0.6, 0.35, 1) infinite;
-}
-
-/* 落ちたばかりの一滴。こちらは点から始まる */
-.wv-wf.wv-drop i {
-  --wv-ring: min(1200px, 92vw);
-  border-color: var(--wv-ink);
-  animation-name: wv-drop;
-  animation-duration: 9s;
 }
 
 /* ============================================================
@@ -592,15 +567,11 @@
 
 /* ============================================================
    ヒーロー
-   写真そのものを波源にする。輪は写真のふちから生まれて外へ広がり、
-   左下に落ちたもう一滴の波と、画面の中ほどで重なる
+   写真そのものを波源にする。輪は写真のふちから生まれて外へ広がる
    ============================================================ */
 /* 横は切るが、縦は切らない。写真から出た輪の一本が、
    このセクションの外まで出ていくのがこのページの筋なので */
 .wv-hero {
-  --wv-drop-x: 88%;
-  --wv-drop-y: 48px;
-
   position: relative;
   overflow-x: clip;
   padding: 78px var(--wv-gutter) 96px;
@@ -724,28 +695,6 @@
   pointer-events: none;
 }
 
-/* 落ちた一滴そのものと、そこから出る波。
-   点と波源は同じ座標を共有する */
-.wv-hero-drop {
-  left: var(--wv-drop-x);
-  top: auto;
-  bottom: var(--wv-drop-y);
-}
-
-.wv-hero-droplet {
-  position: absolute;
-  z-index: 3;
-  left: var(--wv-drop-x);
-  top: auto;
-  bottom: var(--wv-drop-y);
-  margin: 0 0 -6px -6px;
-  width: 13px;
-  height: 13px;
-  border-radius: 50%;
-  background: var(--wv-accent);
-  opacity: 0.55;
-}
-
 /* 文字のまわりだけ水面を静めて、見出しの可読性を保つ */
 .wv-hero-calm {
   position: absolute;
@@ -789,11 +738,6 @@
     grid-row: 1;
     margin: 0;
     align-self: start;
-  }
-
-  .wv-hero {
-    --wv-drop-x: 14%;
-    --wv-drop-y: 220px;
   }
 
   .wv-hero-calm {

@@ -9,14 +9,13 @@ import { scrollToSectionIfHome } from '@/lib/scrollToSection';
  * ヒーロー。
  *
  * 写真そのものを波源にする。輪は写真のふちから生まれて外へ広がり、
- * 落ちたもう一滴の波と、画面の中ほどで重なる。
  * そのうちの一本（wv-hp）がページの下へ向かって出発する。
+ * 左下に置いていた「落ちた一滴」（点と、そこから出る輪）は、ない方が
+ * 自然だという指摘で取り除いた。
  */
 
 /** 14秒周期を10本で割って、輪が途切れず出ているように見せる */
 const RIPPLE_DELAYS = [0, -1.4, -2.8, -4.2, -5.6, -7, -8.4, -9.8, -11.2, -12.6];
-/** 一滴のほうは9秒周期を8本で */
-const DROP_DELAYS = [0, -1.13, -2.25, -3.38, -4.5, -5.63, -6.75, -7.88];
 
 type Hero = {
   title?: string;
@@ -26,7 +25,7 @@ type Hero = {
 };
 
 /**
- * 読み込み直後に順に現れる。落ちた一滴が広げた波が届いた順、という筋なので、
+ * 読み込み直後に順に現れる。写真から広がった波が届いた順、という筋なので、
  * 写真が円に開くのを合図に、見出し → 本文 → 採用への一行と続く。
  * 見出しは1行ずつずらす。
  */
@@ -118,14 +117,6 @@ export default function HeroSection({ t, locale }: { t?: Hero; locale: string })
           />
         </div>
       </div>
-
-      {/* 波源その二。落ちたばかりの一滴 */}
-      <div className="wv-wf wv-drop wv-hero-drop">
-        {DROP_DELAYS.map((d) => (
-          <i key={d} style={{ animationDelay: `${d}s` }} />
-        ))}
-      </div>
-      <span className="wv-hero-droplet" />
     </section>
   );
 }
