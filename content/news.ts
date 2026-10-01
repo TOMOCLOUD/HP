@@ -84,7 +84,6 @@ export const newsItems: NewsItem[] = [
     date: '2026-09-18',
     tagKey: 'adoption',
     tag: TAG.selected,
-    org: { ja: '千葉銀行', en: 'Chiba Bank' },
     title: {
       ja: '「ちばぎん研究開発助成制度2026」の助成金交付先に決定しました。',
       en: 'Selected as a grant recipient under the Chiba Bank R&D Grant Program 2026.',
