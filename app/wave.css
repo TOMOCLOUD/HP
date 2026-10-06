@@ -1215,9 +1215,16 @@ a.wv-news-row:hover {
   letter-spacing: 0;
 }
 
-/* 頭の "Act" だけロゴの水色。大きな太字なので白地で 3:1 を満たす */
+/* 頭の "Act" だけロゴの水色で、題の倍ほどに大きく立てる。
+   残りの語と同じ行には並べず、どの幅でも一行目に置く。
+   大きな太字なので白地で 3:1 を満たす */
 .wv-value-verb {
+  display: block;
+  font-size: clamp(48px, 4vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.01em;
   color: var(--wv-accent);
+  margin-bottom: 6px;
 }
 
 @media (min-width: 768px) {
@@ -1236,12 +1243,6 @@ a.wv-news-row:hover {
   .wv-values-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     align-items: start;
-  }
-
-  /* 四列では題が一行に収まらず、語の途中の位置で折れて行数が揃わない。
-     "Act" で改行して、四つとも「Act ／ 残りの語」の二行に揃える */
-  .wv-value-verb {
-    display: block;
   }
 
   /* 弧に沿って、四つの柱の頭をずらす */
