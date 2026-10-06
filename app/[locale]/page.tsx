@@ -1,36 +1,28 @@
-'use client';
+// app/[locale]/page.tsx
+import type { Metadata } from 'next';
+import HomePage from '@/components/home/HomePage';
+import { notFound } from 'next/navigation';
+import { getDictionary, isLocale } from '@/lib/i18n';
+import { pageMetadata } from '@/lib/seo';
 
-import { useImageFallback } from '@/lib/imageUtils';
-import { useRevealOnScroll } from '@/lib/useRevealOnScroll';
-import Hero from '@/components/home/Hero';
-import VisionSection from '@/components/home/VisionSection';
-import QuestionnaireCard from '@/components/home/QuestionnaireCard';
-import { ValuesSection } from '@/components/home/ValuesSection';
-import TeamSection from '@/components/home/TeamSection';
-import MessageSection from '@/components/home/MessageSection';
-import NewsSection from '@/components/home/NewsSection';
-import RecruitSection from '@/components/home/RecruitSection';
-import AboutSection from '@/components/home/AboutSection';
-
-function HomePage() {
-  useRevealOnScroll();
-  const onImgError = useImageFallback();
-
-  return (
-    <div className="bg-white min-h-screen text-gray-900">
-      <Hero />
-      <VisionSection onImgError={onImgError} />
-      <QuestionnaireCard />
-      <ValuesSection />
-      <TeamSection onImgError={onImgError} />
-      <MessageSection onImgError={onImgError} />
-      <NewsSection onImgError={onImgError} />
-      <RecruitSection />
-      <AboutSection />
-    </div>
-  );
+/**
+ * ホーム。本体は 'use client' で metadata を持てないので、
+ * canonical・hreflang・og:url をこの入口から与える。
+ */
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  return isLocale(locale) ? pageMetadata(locale, '') : {};
 }
 
-export default function LocaleHome() {
-  return <HomePage />;
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  // ホームが使うのは top / home / common だけ。丸ごと渡すと、製品ページや
+  // プライバシーの文言まで HTML に埋め込まれる
+  const { top, home, common } = await getDictionary(locale);
+  return <HomePage dict={{ top, home, common }} locale={locale} />;
 }

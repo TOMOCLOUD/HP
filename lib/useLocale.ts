@@ -6,8 +6,8 @@ import { isLocale, defaultLocale, type Locale, locales } from './i18n';
 
 /**
  * 現在のロケールをパスから取得し、ロケール切替を行うフック
- * 例: /ja/services -> locale='ja'
- *     /services    -> locale=defaultLocale ('ja')
+ * 例: /ja/news -> locale='ja'
+ *     /news    -> locale=defaultLocale ('ja')
  */
 export function useLocale() {
   const pathname = usePathname() || '/';

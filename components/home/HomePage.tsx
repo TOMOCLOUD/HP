@@ -1,0 +1,97 @@
+'use client';
+
+import { useEffect } from 'react';
+import type { Locale } from '@/lib/i18n';
+import { useWavePropagation } from '@/lib/useWavePropagation';
+import { useWaveReveal } from '@/lib/useWaveReveal';
+import { scrollToHashOnMount } from '@/lib/scrollToSection';
+import ContourField from '@/components/home/wave/ContourField';
+import HeroSection from '@/components/home/wave/HeroSection';
+import PartnerLogos from '@/components/home/wave/PartnerLogos';
+import NewsSection from '@/components/home/wave/NewsSection';
+import MissionSection from '@/components/home/wave/MissionSection';
+import ProductSection from '@/components/home/wave/ProductSection';
+import RecruitSection from '@/components/home/wave/RecruitSection';
+import LymphedemaSection from '@/components/home/wave/LymphedemaSection';
+import SurveySection from '@/components/home/wave/SurveySection';
+import TeamSection from '@/components/home/wave/TeamSection';
+import MessageSection from '@/components/home/wave/MessageSection';
+import ContactSection from '@/components/home/wave/ContactSection';
+import AboutSection from '@/components/home/wave/AboutSection';
+
+/**
+ * トップページ。干渉（白）案。
+ *
+ * ページ全体を線と余白だけで組む。塗った面はアンケートと送信のボタン、
+ * EIT の再構成画面、それに写真だけ。
+ *
+ * ホームの写真のふちから生まれた波が外へ広がり、そのうちの一本が
+ * ページの下へ向かって出発する。14秒かけて下まで降りきり、
+ * 通り過ぎたセクションの波源が順に発火する。
+ *
+ * 並びは、何を目指すか（目指すもの）→ 何が困りごとか（リンパ浮腫とは）
+ * → どう解くか（プロダクト&テクノロジー）の順。リンパ浮腫の節は
+ * 「切らずに手軽に測れる方法は限られていました。EITなら〜」で終わり、
+ * そのまま次の節の基盤技術へ渡る。
+ *
+ * 辞書は app/[locale]/page.tsx がサーバーで読んで渡す。ブラウザで後から
+ * 読み込むと、検索エンジンが受け取る HTML に見出しも本文も入らない。
+ */
+export default function HomePage({ dict, locale }: { dict: Record<string, any>; locale: Locale }) {
+  useWavePropagation();
+  useWaveReveal(true);
+
+  useEffect(() => scrollToHashOnMount(), []);
+
+  const t = dict?.top;
+  const s = t?.sections;
+
+  return (
+    <div className="wv">
+      <ContourField />
+
+      <HeroSection t={t?.hero} locale={locale} />
+
+      <div id="news" className="wv-anchor">
+        <NewsSection head={s?.news} locale={locale} />
+      </div>
+
+      <MissionSection
+        t={t?.mission}
+        head={s?.mission}
+        valuesHead={s?.values}
+        values={dict?.home?.values}
+      />
+
+      <LymphedemaSection t={t?.lymphedema} head={s?.lymphedema} />
+
+      <div id="product" className="wv-anchor">
+        <ProductSection t={t?.product} head={s?.product} locale={locale} />
+      </div>
+
+      <div id="recruit" className="wv-anchor">
+        <RecruitSection t={t?.recruit} head={s?.recruit} />
+      </div>
+
+      <SurveySection t={t?.survey} head={s?.survey} />
+      <TeamSection
+        t={t?.team}
+        head={s?.team}
+        details={dict?.home?.team?.members}
+        achievementsTitle={dict?.home?.team?.modal?.achievementsTitle}
+        closeLabel={dict?.common?.actions?.close}
+      />
+      <MessageSection t={t?.message} head={s?.message} />
+
+      <PartnerLogos t={t?.partners} />
+
+      <div id="contact" className="wv-anchor">
+        <ContactSection t={t?.contact} head={s?.contact} locale={locale} />
+      </div>
+
+      <div id="about" className="wv-anchor">
+        <AboutSection about={dict?.home?.about} head={s?.about} />
+      </div>
+    </div>
+  );
+}
