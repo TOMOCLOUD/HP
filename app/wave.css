@@ -521,17 +521,18 @@
   background: repeating-radial-gradient(
     circle at 50% 150%,
     rgba(18, 150, 219, 0) 0 46px,
-    rgba(18, 150, 219, 0.15) 46px 47px
+    rgba(18, 150, 219, 0.55) 46px 47px
   );
   animation: wv-swell 13s linear infinite;
 }
 
-/* 二枚目はわずかに間隔を変える。重なったところに干渉の縞が出る */
+/* 二枚目はわずかに間隔を変える。重なったところに干渉の縞が出る。
+   フッターの地が深い色なので、こちらは明るい水色で引く */
 .wv-moire::after {
   background: repeating-radial-gradient(
     circle at 50% 150%,
-    rgba(15, 30, 40, 0) 0 51px,
-    rgba(15, 30, 40, 0.08) 51px 52px
+    rgba(127, 203, 242, 0) 0 51px,
+    rgba(127, 203, 242, 0.22) 51px 52px
   );
   animation: wv-swell 13s linear infinite;
   animation-delay: -6.5s;

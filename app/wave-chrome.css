@@ -177,12 +177,19 @@
 /* ============================================================
    フッター
    ============================================================ */
-/* 波紋を地として敷くので、その基準になる。はみ出しは切る */
+/* 波紋を地として敷くので、その基準になる。はみ出しは切る。
+   地はロゴの水色（--wv-accent）を沈めた深い色。文字はその上で読める
+   明るさの水色と白に寄せる */
 .wv-footer {
+  --wv-ft-ground: #0a3a57;
+  --wv-ft-text: #c9e3f3;
+  --wv-ft-label: #7fcbf2;
+  --wv-ft-rule: rgba(18, 150, 219, 0.45);
+
   position: relative;
   overflow: hidden;
-  background: #fff;
-  color: var(--wv-ink);
+  background: var(--wv-ft-ground);
+  color: #fff;
   font-family: var(--font-murecho), "Hiragino Sans", "Yu Gothic", sans-serif;
 }
 
@@ -194,12 +201,12 @@
 }
 
 .wv-footer a {
-  color: var(--wv-body);
+  color: #fff;
   text-decoration: none;
 }
 
 .wv-footer a:hover {
-  color: var(--wv-link);
+  color: var(--wv-ft-label);
 }
 
 .wv-footer-inner {
@@ -216,25 +223,18 @@
   grid-column: 1 / -1;
 }
 
-.wv-footer-brand img {
-  display: block;
-  width: auto;
-  height: 46px;
-  margin-bottom: 20px;
-}
-
 .wv-footer-address {
   font-size: 13px;
   line-height: 2.1;
   letter-spacing: 0.03em;
-  color: var(--wv-muted);
+  color: var(--wv-ft-text);
 }
 
 .wv-footer-label {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.18em;
-  color: var(--wv-muted);
+  color: var(--wv-ft-label);
   margin-bottom: 14px;
   min-height: 18px;
 }
@@ -264,9 +264,13 @@
   letter-spacing: 0.03em;
 }
 
-/* 下の層。上の層とのあいだに髪の毛ほどの罫を一本 */
+.wv-footer-contact a {
+  color: var(--wv-ft-text);
+}
+
+/* 下の層。上の層とのあいだに、ロゴの水色で細い罫を一本 */
 .wv-footer-base {
-  border-top: 1px solid var(--wv-rule-1);
+  border-top: 1px solid var(--wv-ft-rule);
 }
 
 .wv-footer-base-inner {
@@ -283,7 +287,7 @@
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.05em;
-  color: var(--wv-muted);
+  color: var(--wv-ft-text);
 }
 
 .wv-footer-legal {
@@ -291,12 +295,16 @@
   letter-spacing: 0.03em;
 }
 
+.wv-footer .wv-footer-legal {
+  color: var(--wv-ft-text);
+}
+
 /* 言語の切り替え。押せるものだと分かる幅だけ持たせる */
 .wv-footer-lang {
   margin-left: auto;
-  border: 1px solid var(--wv-rule-2);
+  border: 1px solid var(--wv-ft-label);
   background: none;
-  color: var(--wv-body);
+  color: #fff;
   font: inherit;
   font-size: 12px;
   font-weight: 500;
@@ -307,8 +315,8 @@
 }
 
 .wv-footer-lang:hover {
-  border-color: var(--wv-accent);
-  color: var(--wv-link);
+  border-color: #fff;
+  color: var(--wv-ft-label);
 }
 
 @media (min-width: 1024px) {
@@ -322,11 +330,6 @@
   .wv-footer-brand {
     width: 360px;
     flex-shrink: 0;
-  }
-
-  .wv-footer-brand img {
-    height: 58px;
-    margin-bottom: 24px;
   }
 
   /* 文字数の言語差で折り返さないよう、列は縮めない */

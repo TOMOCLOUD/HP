@@ -25,6 +25,9 @@ function switchLocale(pathname: string, next: 'ja' | 'en') {
  * 直前にひと筋だけ水面の断面を置く。ページを通してここだけ、
  * 波が横から見える。
  *
+ * 地はロゴの水色を沈めた深い色。白で組むページの終わりを、
+ * ここで一度だけ面としてはっきりさせる。
+ *
  * 中身は二層。上に社の在り処と行き先、細い罫を挟んで、下に
  * 著作の表示と決まりごとへの導線を置く。読み手が探すものと、
  * 出しておかねばならないものとを、同じ高さに混ぜない。
@@ -77,19 +80,8 @@ export default function SiteFooter() {
       <div className="wv-moire" />
 
       <div className="wv-footer-inner">
+        {/* ロゴはヘッダーにあるので、ここでは社名と在り処だけを置く */}
         <div className="wv-footer-brand">
-          <Link href={`/${locale}`} aria-label="TOMOCLOUD">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/Image/logo2.png"
-              alt="TOMOCLOUD"
-              width={420}
-              height={177}
-              loading="lazy"
-              decoding="async"
-            />
-          </Link>
-
           <address className="wv-note wv-footer-address">
             {f?.company}
             <br />〒{f?.zip} {f?.address}
