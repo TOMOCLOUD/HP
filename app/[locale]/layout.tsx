@@ -10,6 +10,7 @@ import SiteHeader from '@/components/wave/SiteHeader';
 import SiteFooter from '@/components/wave/SiteFooter';
 import { getDictionary, isLocale, locales } from '@/lib/i18n';
 import { OGP_IMAGE } from '@/lib/seo';
+import { REVEAL_BOOT_SCRIPT } from '@/lib/useWaveReveal';
 
 // 本文は Murecho。英字と数字だけ Syne に振る（.wv-lat）
 //
@@ -107,7 +108,14 @@ export default async function LocaleLayout({
   const dict = await getDictionary(locale);
 
   return (
-    <html lang={locale} className={`${murecho.variable} ${syne.variable}`}>
+    // suppressHydrationWarning は、下の <head> のスクリプトが <html> に立てる
+    // data-wv-rv-on を React が「サーバーと違う」と警告しないようにするため
+    <html lang={locale} className={`${murecho.variable} ${syne.variable}`} suppressHydrationWarning>
+      <head>
+        {/* 登場アニメーションの対象を、最初の描画より前に隠しておく。
+            React の effect で隠すと、本文が一度見えてから消えて見える */}
+        <script dangerouslySetInnerHTML={{ __html: REVEAL_BOOT_SCRIPT }} />
+      </head>
       <body className="min-h-screen flex flex-col bg-white">
         <SiteHeader nav={dict.top?.nav} locale={locale} />
         <main className="flex-1">{children}</main>

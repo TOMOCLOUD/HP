@@ -39,10 +39,23 @@ const ROOT_MARGIN = '0px 0px -12% 0px';
 
 const REDUCED = '(prefers-reduced-motion: reduce)';
 
+/**
+ * 最初の描画より前に <html> へ data-wv-rv-on を立てるスクリプト。
+ * app/[locale]/layout.tsx が <head> にインラインで置く。
+ *
+ * 本文はサーバーで描画されるので、この印を React の effect で立てると、
+ * 最初の HTML が一度そのまま見えてから、JS が動いた時点で全部が隠れ、
+ * 改めて登場し直す。印を先に立てておけば、最初から隠れた状態で始まる。
+ * JS が動かない環境ではこのスクリプトも動かないので、何も隠れず読める。
+ */
+export const REVEAL_BOOT_SCRIPT =
+  `(function(){try{if(!matchMedia('${REDUCED}').matches)` +
+  `document.documentElement.setAttribute('data-wv-rv-on','')}catch(e){}})()`;
+
 export function useWaveReveal(ready: boolean) {
-  // 隠す指定は、観測を張るより先に立てておく。
-  // 辞書が届いてから立てると、本文が入った直後の1フレームだけ見えてしまい、
-  // そこから opacity 0 に落ちるので、ちらついて見える。
+  // 隠す指定は、ふつう REVEAL_BOOT_SCRIPT が最初の描画より前に立てている。
+  // ここは同じ印を立て直すだけ（二重に立てても害はない）で、
+  // 主な役目は離れるときに外すこと。
   useEffect(() => {
     if (window.matchMedia(REDUCED).matches) return;
     const root = document.documentElement;
