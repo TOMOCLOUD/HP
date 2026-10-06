@@ -1205,12 +1205,19 @@ a.wv-news-row:hover {
   margin-bottom: 14px;
 }
 
+/* 四つの柱の題。本文よりはっきり大きく立てる */
 .wv-value-title {
-  font-size: clamp(17px, 1.4vw, 19px);
+  font-size: clamp(24px, 2vw, 28px);
   font-weight: 600;
+  line-height: 1.3;
   color: var(--wv-ink);
-  margin-bottom: 14px;
-  letter-spacing: 0.01em;
+  margin-bottom: 18px;
+  letter-spacing: 0;
+}
+
+/* 頭の "Act" だけロゴの水色。大きな太字なので白地で 3:1 を満たす */
+.wv-value-verb {
+  color: var(--wv-accent);
 }
 
 @media (min-width: 768px) {
@@ -1229,6 +1236,12 @@ a.wv-news-row:hover {
   .wv-values-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     align-items: start;
+  }
+
+  /* 四列では題が一行に収まらず、語の途中の位置で折れて行数が揃わない。
+     "Act" で改行して、四つとも「Act ／ 残りの語」の二行に揃える */
+  .wv-value-verb {
+    display: block;
   }
 
   /* 弧に沿って、四つの柱の頭をずらす */

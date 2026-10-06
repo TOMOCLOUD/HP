@@ -24,6 +24,20 @@ function Lines({ text }: { text?: string }) {
 }
 
 /**
+ * Values の題。四つとも同じ動詞で始まるので、頭の一語だけを
+ * ロゴの水色にして、四つが一組の行動指針であることを見せる。
+ */
+function ValueTitle({ title }: { title?: string }) {
+  const [head, ...rest] = (title ?? '').split(' ');
+  return (
+    <>
+      <span className="wv-value-verb">{head}</span>
+      {rest.length ? ` ${rest.join(' ')}` : null}
+    </>
+  );
+}
+
+/**
  * 02 目指すもの / 私たちが大切にしているもの。
  *
  * 弧をひとつ引いて、その下にミッションの一文だけを置く。
@@ -97,7 +111,9 @@ export default function MissionSection({
           {(values ?? []).map((v, i) => (
             <div key={v.title ?? i} data-wv-rv data-wv-rv-delay={i * VALUE_STAGGER_MS}>
               <div className="wv-lat wv-value-num">{String(i + 1).padStart(2, '0')}</div>
-              <div className="wv-lat wv-value-title">{v.title}</div>
+              <div className="wv-lat wv-value-title">
+                <ValueTitle title={v.title} />
+              </div>
               <div className="wv-note">
                 <Lines text={v.text} />
               </div>
