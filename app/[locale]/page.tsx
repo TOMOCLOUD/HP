@@ -1,7 +1,8 @@
 // app/[locale]/page.tsx
 import type { Metadata } from 'next';
 import HomePage from '@/components/home/HomePage';
-import { isLocale } from '@/lib/i18n';
+import { notFound } from 'next/navigation';
+import { getDictionary, isLocale } from '@/lib/i18n';
 import { pageMetadata } from '@/lib/seo';
 
 /**
@@ -17,6 +18,9 @@ export async function generateMetadata({
   return isLocale(locale) ? pageMetadata(locale, '') : {};
 }
 
-export default function Page() {
-  return <HomePage />;
+export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  if (!isLocale(locale)) notFound();
+  const dict = await getDictionary(locale);
+  return <HomePage dict={dict} locale={locale} />;
 }

@@ -102,13 +102,16 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
+  // ヘッダーとフッターの文言もここで読んで渡す。ブラウザで後から読み込むと、
+  // 最初の HTML にはナビも社名も入らない
+  const dict = await getDictionary(locale);
 
   return (
     <html lang={locale} className={`${murecho.variable} ${syne.variable}`}>
       <body className="min-h-screen flex flex-col bg-white">
-        <SiteHeader />
+        <SiteHeader nav={dict.top?.nav} locale={locale} />
         <main className="flex-1">{children}</main>
-        <SiteFooter />
+        <SiteFooter t={dict.top?.footer} nav={dict.top?.nav} company={dict.footer} locale={locale} />
       </body>
     </html>
   );

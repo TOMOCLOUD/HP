@@ -2331,6 +2331,11 @@ a.wv-news-row:hover {
   letter-spacing: 0.02em;
 }
 
+/* 括弧は辞書が持つ。全角括弧の和文は要らないが、半角括弧の英文は一拍空ける */
+.wv-field-optional:lang(en) {
+  margin-left: 0.35em;
+}
+
 .wv-contact-privacy {
   font-size: 14px;
   line-height: 1.9;

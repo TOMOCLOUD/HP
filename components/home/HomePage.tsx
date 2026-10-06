@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { useDict } from '@/lib/useDict';
+import type { Locale } from '@/lib/i18n';
 import { useWavePropagation } from '@/lib/useWavePropagation';
 import { useWaveReveal } from '@/lib/useWaveReveal';
 import { scrollToHashOnMount } from '@/lib/scrollToSection';
@@ -33,20 +33,15 @@ import AboutSection from '@/components/home/wave/AboutSection';
  * → どう解くか（プロダクト&テクノロジー）の順。リンパ浮腫の節は
  * 「切らずに手軽に測れる方法は限られていました。EITなら〜」で終わり、
  * そのまま次の節の基盤技術へ渡る。
+ *
+ * 辞書は app/[locale]/page.tsx がサーバーで読んで渡す。ブラウザで後から
+ * 読み込むと、検索エンジンが受け取る HTML に見出しも本文も入らない。
  */
-export default function HomePage() {
-  const { dict, locale } = useDict();
+export default function HomePage({ dict, locale }: { dict: Record<string, any>; locale: Locale }) {
   useWavePropagation();
-  // 中身が入ってから観測を張る。辞書ロード前は各セクションが空で、
-  // 高さも位置も確定していないため
-  useWaveReveal(!!dict);
+  useWaveReveal(true);
 
-  // 辞書ロード前は各セクションが空で、まだページの高さが確定していない。
-  // 実データが入って高さが確定してから、URL のハッシュへ合わせる。
-  useEffect(() => {
-    if (!dict) return;
-    return scrollToHashOnMount();
-  }, [dict]);
+  useEffect(() => scrollToHashOnMount(), []);
 
   const t = dict?.top;
   const s = t?.sections;

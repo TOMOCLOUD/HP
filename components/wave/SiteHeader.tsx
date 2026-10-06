@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
-import { useDict } from '@/lib/useDict';
+import type { Locale } from '@/lib/i18n';
 import { scrollToSectionIfHome } from '@/lib/scrollToSection';
 
 /**
@@ -40,13 +40,19 @@ function switchLocale(pathname: string, next: 'ja' | 'en') {
  * 干渉案のヘッダーは、ロゴと項目名だけ。地は白のままで、
  * 下端に髪の毛ほどの罫を一本だけ引く。
  */
-export default function SiteHeader() {
-  const { dict, locale } = useDict();
+export default function SiteHeader({
+  nav,
+  locale,
+}: {
+  /** 辞書の top.nav。レイアウトがサーバーで読んで渡す */
+  nav?: Record<string, string | undefined>;
+  locale: Locale;
+}) {
   const pathname = usePathname() || `/${locale}`;
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const t = dict?.top?.nav;
+  const t = nav;
   const nextLocale = locale === 'ja' ? 'en' : 'ja';
 
   useEffect(() => {

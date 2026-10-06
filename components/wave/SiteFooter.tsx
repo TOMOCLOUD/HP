@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { useDict } from '@/lib/useDict';
+import type { Locale } from '@/lib/i18n';
 import { scrollToSectionIfHome } from '@/lib/scrollToSection';
 import { TAKEI_LAB_URL } from '@/lib/links';
 
@@ -32,13 +32,21 @@ function switchLocale(pathname: string, next: 'ja' | 'en') {
  * 著作の表示と決まりごとへの導線を置く。読み手が探すものと、
  * 出しておかねばならないものとを、同じ高さに混ぜない。
  */
-export default function SiteFooter() {
-  const { dict, locale } = useDict();
+export default function SiteFooter({
+  t,
+  nav,
+  company,
+  locale,
+}: {
+  /** 辞書の top.footer / top.nav / footer。レイアウトがサーバーで読んで渡す */
+  t?: Record<string, string | undefined>;
+  nav?: Record<string, string | undefined>;
+  company?: Record<string, string | undefined>;
+  locale: Locale;
+}) {
   const pathname = usePathname() || `/${locale}`;
   const router = useRouter();
-  const t = dict?.top?.footer;
-  const nav = dict?.top?.nav;
-  const f = dict?.footer;
+  const f = company;
   const nextLocale = locale === 'ja' ? 'en' : 'ja';
 
   // hash を持つ項目は独立ページを持たず、ホームのセクションへの

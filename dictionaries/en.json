@@ -1,13 +1,5 @@
 {
   "common": {
-    "nav": {
-      "home": "Home",
-      "product": "Product",
-      "news": "News",
-      "achievement": "Achievement",
-      "recruit": "Recruit",
-      "contact": "Contact"
-    },
     "actions": {
       "close": "Close"
     }
@@ -23,27 +15,6 @@
     "externalLab": "Takei Lab (External)"
   },
   "home": {
-    "hero": {
-      "title": "TOMOCLOUD",
-      "leadJa": "新しい自分が視える世界へ",
-      "leadEn": "Visualize the New Self"
-    },
-    "vision": {
-      "heading": "Our Vision",
-      "subtitleJa": "視える化技術により全ての人が自分らしく生きることのできる社会を創造する",
-      "subtitleEn": "Enabling authentic lives through the power of visualization.",
-      "p1": "For most of us, tracking our health day-to-day isn't easy. Simple, continuous ways to monitor the body remain limited.",
-      "p2": "There have also been limited means to easily monitor the body and tissues.",
-      "p3Strong": "At TOMOCLOUD, we visualize the invisible",
-      "p4": "With visualization technology, we turn complex biosignals into clear, intuitive insights so everyone can live more authentically.",
-      "cta": "View product"
-    },
-    "questionnaire": {
-      "heading": "Survey Request",
-      "p1": "TOMOCLOUD Inc. is developing \"LT monitor Lite,\" a device that allows you to monitor edema (swelling) at home.",
-      "p2": "Please help us improve our product by sharing your daily challenges and desired features in our survey.",
-      "cta": "Take the Survey"
-    },
     "values": [
       {
         "title": "Act like an owner",
@@ -108,22 +79,6 @@
           "bio": "Studied mechanical and intelligent systems engineering at the University of Electro-Communications, researching image reconstruction from electroencephalography (EEG) signals. As a representative of Tobitate! Study Abroad JAPAN, spent a research internship at imec, one of Europe's largest research institutes. Began a career at CMIC Co., Ltd., designing and building EDC (electronic data capture) systems for multiple studies, including international clinical trials. Subsequently moved to Future Corporation, working on development toward regulatory approval of Class II software as a medical device (SaMD) and on hands-on QMS operations. After further work as a software engineer at a SaaS company, joined TOMOCLOUD in July 2026. As Product Lead, oversees 'LT Monitor Pro' and 'LT Monitor Lite', lymphedema monitoring devices using bioelectrical impedance measurement, driving everything from product planning and development to QMS implementation and regulatory strategy."
         }
       }
-    },
-    "message": {
-      "heading": "Message",
-      "title": "Visualize the New Self",
-      "p1": "Even while working in an engineering lab, I spent my student years on hospital wards, listening directly to patients and clinicians. One patient said, \"What frightens me most is that I can't visualize what's happening inside my body.\" That stayed with me—and made me determined to build technology that eases that invisible anxiety. The more I listened, the more I felt these were not someone else's problems, but challenges I should help solve.",
-      "p2": "I also learned a simple, profound truth: patients are people leading full lives. Each person is at once a patient, a family member, a friend, a professional—many versions of \"self\" that existed before illness and will continue after. I want to support all of those selves. That's why we shape technology not as a mere tool, but as a companion woven into everyday life.",
-      "p3": "What we've established is the power of visualization through Electrical Impedance Tomography (EIT). Human tissues have distinct electrical properties, and those properties shift with fluid composition. EIT makes it possible to visualize the invisible—to render these properties clearly and non-invasively, with practical precision.",
-      "p4": "With this, we can replace some costly, burdensome tools and enable at-home monitoring that used to be impossible to visualize—opening new possibilities for early detection and ongoing monitoring of conditions like lymphedema and other chronic diseases.",
-      "p5": "But our aim isn't visualization for its own sake. It's to provide a compass: to visualize the invisible, make sense of it, and help you take the next step. When the invisible is visualized, people can move forward. We want to support that moment—using visualization as a shared language that gently connects medicine, caregiving, and everyday health—so everyone can live more authentically. And we will expand this model, born in Japan, to the world.",
-      "signature": "Ryoma Ogawa, CEO, TOMOCLOUD Inc."
-    },
-    "recruit": {
-      "heading": "Recruit",
-      "p1": "Join us.",
-      "p2": "If you're interested, feel free to reach out first.",
-      "cta": "View Careers"
     },
     "about": {
       "heading": "About us",
@@ -402,7 +357,7 @@
         "phone": "Phone number",
         "body": "Your message"
       },
-      "optional": "optional",
+      "optional": "(optional)",
       "submit": "Send",
       "sending": "Sending…",
       "privacyPrefix": "By sending this form you agree to our ",

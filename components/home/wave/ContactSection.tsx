@@ -155,7 +155,7 @@ export default function ContactSection({
             <div className="wv-field">
               <label htmlFor="wv-org">
                 {f?.org}
-                {t?.optional ? <span className="wv-field-optional">（{t.optional}）</span> : null}
+                {t?.optional ? <span className="wv-field-optional">{t.optional}</span> : null}
               </label>
               <input
                 id="wv-org"
@@ -185,7 +185,7 @@ export default function ContactSection({
             <div className="wv-field">
               <label htmlFor="wv-phone">
                 {f?.phone}
-                {t?.optional ? <span className="wv-field-optional">（{t.optional}）</span> : null}
+                {t?.optional ? <span className="wv-field-optional">{t.optional}</span> : null}
               </label>
               <input
                 id="wv-phone"

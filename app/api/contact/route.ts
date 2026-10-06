@@ -126,16 +126,7 @@ export async function POST(req: Request) {
       text: `お名前: ${safeName}\nメール: ${email}\n送信元: ${locale === 'en' ? '英語版サイト' : '日本語版サイト'}\n\n${message}`,
     });
 
-    // 自動返信（ユーザー宛て）
-    const reply = autoReply(locale, safeName, String(message));
-    const userRes = await resend.emails.send({
-      from: FROM,
-      to: email,
-      subject: reply.subject,
-      text: reply.text,
-    });
-
-    // 失敗時の詳細（デバッグ情報を追加）
+    // 会社宛てが届かなければ失敗。自動返信はまだ送っていないので送り直して構わない
     if (ownerRes.error) {
       console.error('Resend error (owner):', ownerRes.error);
       return NextResponse.json({
@@ -144,19 +135,25 @@ export async function POST(req: Request) {
         debug: process.env.NODE_ENV === 'development' ? ownerRes.error : undefined
       }, { status: 500 });
     }
+
+    // 自動返信（ユーザー宛て）。ここで失敗しても問い合わせ自体は届いているので
+    // 成功として返す。失敗を返すと送り直され、会社宛てに同じ内容が重複する
+    const reply = autoReply(locale, safeName, String(message));
+    const userRes = await resend.emails.send({
+      from: FROM,
+      to: email,
+      subject: reply.subject,
+      text: reply.text,
+    });
     if (userRes.error) {
-      console.error('Resend error (user):', userRes.error);
-      return NextResponse.json({
-        ok: false,
-        error: '送信に失敗しました。時間をおいて再度お試しください。',
-        debug: process.env.NODE_ENV === 'development' ? userRes.error : undefined
-      }, { status: 500 });
+      console.error('Resend error (auto-reply, inquiry already delivered):', userRes.error);
     }
 
     return NextResponse.json({
       ok: true,
       ownerId: ownerRes.data?.id ?? null,
       userId: userRes.data?.id ?? null,
+      autoReplied: !userRes.error,
     });
   } catch (e: unknown) {
     console.error('Contact API error:', e);

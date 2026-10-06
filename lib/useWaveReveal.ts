@@ -79,14 +79,15 @@ export function useWaveReveal(ready: boolean) {
      * 引きずらないようにするため。
      */
     const settle = (el: HTMLElement) => {
-      el.addEventListener(
-        'transitionend',
-        (e) => {
-          if (e.propertyName !== 'opacity') return;
-          el.style.transitionDelay = '';
-        },
-        { once: true }
-      );
+      // transitionend は子からも泡立って届き、transform の終わりも先に来る。
+      // { once: true } だとそれらで一回分を使い切るので、自分の opacity の
+      // 終わりが来るまで待って、自分で外す
+      const onEnd = (e: TransitionEvent) => {
+        if (e.target !== el || e.propertyName !== 'opacity') return;
+        el.style.transitionDelay = '';
+        el.removeEventListener('transitionend', onEnd);
+      };
+      el.addEventListener('transitionend', onEnd);
     };
 
     const show = (group: HTMLElement) => {
