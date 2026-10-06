@@ -412,7 +412,8 @@
       "errors": {
         "missing": "Name, email address and message are required.",
         "invalidEmail": "That email address does not look valid.",
-        "sendFail": "Sending failed. Please try again in a little while."
+        "sendFail": "Sending failed. Please try again in a little while.",
+        "tooMany": "Too many messages were sent in a short time. Please wait about 10 minutes and try again."
       }
     },
     "footer": {

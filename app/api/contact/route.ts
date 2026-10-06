@@ -37,6 +37,24 @@ function isRateLimited(ip: string) {
   return entry.count > RATE_LIMIT_MAX;
 }
 
+/* ===== 自動返信の文面（送信元のサイトの言葉で返す） ===== */
+function autoReply(locale: 'ja' | 'en', name: string, message: string) {
+  if (locale === 'en') {
+    return {
+      subject: '[Auto-reply] We have received your inquiry',
+      text:
+        `Dear ${name},\n\nThank you for contacting TOMOCLOUD. We have received your inquiry as follows.\n\n` +
+        `---\n${message}\n---\n\n* This is a send-only address. Please do not reply to this email.`,
+    };
+  }
+  return {
+    subject: '【自動返信】お問い合わせを受け付けました',
+    text:
+      `${name} 様\n\nこの度はお問い合わせありがとうございます。以下の内容で受け付けました。\n\n` +
+      `---\n${message}\n---\n\n※本メールは送信専用です。`,
+  };
+}
+
 /* ===== 動作確認用 ===== */
 export async function GET() {
   return NextResponse.json({ ok: true, message: 'Contact API is up.' });
@@ -54,7 +72,9 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: false, error: 'しばらく時間をおいて再度お試しください。' }, { status: 429 });
     }
 
-    const { name, email, message, company } = await req.json();
+    const { name, email, message, company, locale: rawLocale } = await req.json();
+    // 想定外の値は日本語として扱う
+    const locale: 'ja' | 'en' = rawLocale === 'en' ? 'en' : 'ja';
 
     // honeypot: 通常のユーザーには見えない company フィールドに値が入っていれば bot とみなす。
     // 成功レスポンスを返して bot に検知させない。
@@ -103,17 +123,16 @@ export async function POST(req: Request) {
       to: TO,
       subject: `【お問い合わせ】${safeName} さんより`,
       replyTo: email, // ← ここが正しいキー名
-      text: `お名前: ${safeName}\nメール: ${email}\n\n${message}`,
+      text: `お名前: ${safeName}\nメール: ${email}\n送信元: ${locale === 'en' ? '英語版サイト' : '日本語版サイト'}\n\n${message}`,
     });
 
     // 自動返信（ユーザー宛て）
+    const reply = autoReply(locale, safeName, String(message));
     const userRes = await resend.emails.send({
       from: FROM,
       to: email,
-      subject: '【自動返信】お問い合わせを受け付けました',
-      text:
-        `${safeName} 様\n\nこの度はお問い合わせありがとうございます。以下の内容で受け付けました。\n\n` +
-        `---\n${message}\n---\n\n※本メールは送信専用です。`,
+      subject: reply.subject,
+      text: reply.text,
     });
 
     // 失敗時の詳細（デバッグ情報を追加）

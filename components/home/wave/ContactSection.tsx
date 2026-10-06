@@ -20,7 +20,7 @@ type Dict = {
   privacyLink?: string;
   privacySuffix?: string;
   done?: string;
-  errors?: { missing?: string; invalidEmail?: string; sendFail?: string };
+  errors?: { missing?: string; invalidEmail?: string; sendFail?: string; tooMany?: string };
 };
 
 const EMPTY = { name: '', org: '', email: '', phone: '', body: '', company: '' };
@@ -83,18 +83,24 @@ export default function ContactSection({
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, message, company: form.company }),
+        // locale は自動返信をどちらの言葉で書くかを API に伝えるため
+        body: JSON.stringify({ name, email, message, company: form.company, locale }),
       });
-      const data = await res.json();
-      if (!res.ok || !data.ok) throw new Error(data.error || t?.errors?.sendFail);
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !data?.ok) {
+        // API のエラー文は日本語だけで、設定の不備（キー未設定など）も含むので
+        // 画面には出さない。連投の制限だけは待てば通ると分かるよう別に伝える
+        setStatus({
+          ok: false,
+          text: (res.status === 429 ? t?.errors?.tooMany : t?.errors?.sendFail) ?? '',
+        });
+        return;
+      }
 
       setForm(EMPTY);
       setStatus({ ok: true, text: t?.done ?? '' });
-    } catch (err) {
-      setStatus({
-        ok: false,
-        text: err instanceof Error && err.message ? err.message : (t?.errors?.sendFail ?? ''),
-      });
+    } catch {
+      setStatus({ ok: false, text: t?.errors?.sendFail ?? '' });
     } finally {
       setSending(false);
     }
