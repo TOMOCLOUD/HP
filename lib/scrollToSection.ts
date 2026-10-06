@@ -53,6 +53,9 @@ const RETRY_DELAYS_MS = [0, 50, 120, 250, 450, 700, 1000, 1400, 1900, 2500, 3200
  * 改めて対象要素へ合わせ直す。加えて、高さは変わらないままスクロール位置
  * だけが後から巻き戻されるケースにも対抗できるよう、時間ベースでも
  * 何度か打ち直す。
+ *
+ * ただし、読み手が自分でスクロールやキー操作を始めたら、そこで打ち直しは
+ * すべてやめる。読み手が動かした位置を、こちらが引き戻してはいけない。
  */
 export function scrollToHashOnMount(): () => void {
   const hash = window.location.hash.slice(1);
@@ -77,10 +80,20 @@ export function scrollToHashOnMount(): () => void {
   const retryTimers = RETRY_DELAYS_MS.map((ms) => setTimeout(scroll, ms));
   const giveUp = setTimeout(() => observer.disconnect(), GIVE_UP_MS);
 
-  return () => {
+  const stop = () => {
     clearTimeout(settleTimer);
     clearTimeout(giveUp);
     retryTimers.forEach(clearTimeout);
     observer.disconnect();
+    USER_SCROLL_EVENTS.forEach((type) => window.removeEventListener(type, stop));
   };
+
+  // wheel / touchstart はスクロールの意思、keydown は矢印・PageDown・Space。
+  // pointerdown はスクロールバーをつかんだとき
+  USER_SCROLL_EVENTS.forEach((type) => window.addEventListener(type, stop, { passive: true }));
+
+  return stop;
 }
+
+/** 読み手が自分で動かし始めたと見なすイベント */
+const USER_SCROLL_EVENTS = ['wheel', 'touchstart', 'keydown', 'pointerdown'] as const;

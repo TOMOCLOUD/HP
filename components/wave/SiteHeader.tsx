@@ -11,7 +11,6 @@ import { scrollToSectionIfHome } from '@/lib/scrollToSection';
  * 移動したうえでそのセクションまでスクロールする（scrollToSection まかせ）。
  *
  * 「プロダクト」の行き先はホームの #product（プロダクト&テクノロジー）。
- * 別ページの /services ではない。
  *
  * 並びはホームの縦の順（ニュース → プロダクト → 採用 → お問い合わせ）に
  * 合わせる。全部がホーム内のアンカーなので、ヘッダーは実質ホームの目次。

@@ -8,7 +8,7 @@ export const OGP_IMAGE = { url: '/Image/hp/ogp.jpg', width: 900, height: 472 };
 const OG_LOCALE: Record<Locale, string> = { ja: 'ja_JP', en: 'en_US' };
 
 /** 辞書の meta のうち、ページの題として引けるもの */
-type TitleKey = 'news' | 'privacy' | 'services';
+type TitleKey = 'news' | 'privacy';
 
 /**
  * 一枚のページのメタ情報。canonical・hreflang・og:url はページごとに

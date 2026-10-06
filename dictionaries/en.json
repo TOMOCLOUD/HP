@@ -94,49 +94,6 @@
       "rep": "Ryoma Ogawa"
     }
   },
-  "services": {
-    "title": "Product",
-    "eit": {
-      "heading": "Core Technology: EIT",
-      "imageAlt": "Illustration of EIT (Electrical Impedance Tomography)",
-      "p1": "Electrical Impedance Tomography (EIT) reconstructs images of impedance distribution using multiple electrodes.",
-      "p2": "It literally turns the \"unseen\" into something visible.",
-      "p3": "By applying small currents via surface electrodes and measuring potentials, EIT visualizes internal states non-invasively and in real time.",
-      "p4_prefix": "TOMOCLOUD Inc. was founded based on research conducted at ",
-      "p4_bold": "Chiba University Takei Laboratory",
-      "p4_suffix": ".",
-      "cta": "Visit Takei Lab"
-    },
-    "lymphedema": {
-      "heading": "What is Lymphedema?",
-      "imageAlt": "Schematic image of lymphedema",
-      "p1": "Lymphedema is a condition in which swelling occurs in the limbs due to impaired lymphatic flow.",
-      "p2": "Beyond appearance changes, it can cause pain and heaviness, affecting quality of life and work.",
-      "p3": "Early detection and continuous observation are important, yet truly simple and non-invasive methods have been limited.",
-      "p4": "We aim to realize an EIT-based monitoring method that can be performed routinely with minimal burden."
-    },
-    "product": {
-      "badge": "Prototype",
-      "subheading": "In Development",
-      "title": "LT monitor",
-      "lead1": "An EIT-based lymphedema monitoring device.",
-      "lead2": "It aims to visualize internal states in real time and enable daily, continuous assessment.",
-      "b1": "Real-time internal visualization",
-      "b2": "Simple, intuitive UI to reduce user burden",
-      "b3": "Clinical validation in progress",
-      "image1Alt": "LT monitor photo 1",
-      "image2Alt": "LT monitor photo 2"
-    },
-    "questionnaire": {
-      "heading": "Survey Request",
-      "p1": "Thank you for your continued support.",
-      "p2": "TOMOCLOUD Inc. is developing \"LT monitor Lite,\" a device that allows you to monitor edema (swelling) at home.",
-      "p3": "This survey aims to gather feedback on your daily challenges, desired features, and any concerns about purchasing the product to help us improve our development.",
-      "p4": "Your responses will be collected anonymously and used solely for product improvement and quality enhancement. By submitting your response, you agree to these terms.",
-      "p5": "We appreciate your valuable time and cooperation.",
-      "cta": "Take the Survey"
-    }
-  },
   "top": {
     "hero": {
       "title": "Catch lymphedema early,\nand bring peace of mind to everyday life.",
@@ -398,7 +355,6 @@
     "news": "News",
     "titleTemplate": "%s | TOMOCLOUD Inc.",
     "description": "We develop non-invasive diagnostic and monitoring devices using electrical impedance tomography (EIT). Catching lymphedema early to bring peace of mind to everyday life. A medical device startup out of Chiba University.",
-    "services": "Product",
     "privacy": "Privacy Policy"
   },
   "privacy": {

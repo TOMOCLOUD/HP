@@ -188,8 +188,9 @@ export default function TeamSection({
               onClick={() => setActive(m)}
               data-wv-rv
             >
+              {/* 写真の無い人は枠だけ置く。next/image は空の src で例外を投げる */}
               <div className="wv-member-photo">
-                <Image src={m.image ?? ''} alt={m.name ?? ''} width={224} height={224} />
+                {m.image ? <Image src={m.image} alt={m.name ?? ''} width={224} height={224} /> : null}
               </div>
               <div className="wv-lat wv-member-role">{m.role}</div>
               <div className="wv-member-name">{m.name}</div>

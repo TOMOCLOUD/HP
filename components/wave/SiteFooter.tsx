@@ -56,7 +56,7 @@ export default function SiteFooter({
 
   const anchor = (hash: string): string => `/${locale}#${hash}`;
 
-  // 並びと行き先はヘッダーと同じ。プロダクトもホームの #product へ（/services ではない）
+  // 並びと行き先はヘッダーと同じ。プロダクトもホームの #product へ
   const pages: FooterLink[] = [
     { label: nav?.news, href: anchor('news'), hash: 'news' },
     { label: nav?.product, href: anchor('product'), hash: 'product' },

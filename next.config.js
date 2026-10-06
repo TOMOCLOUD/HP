@@ -20,6 +20,12 @@ const nextConfig = {
         destination: `/:locale#${name}`,
         permanent: true,
       })),
+      // 旧製品ページは廃止した。内容はホームのプロダクトの節が受け持つ
+      {
+        source: '/:locale(ja|en)/services',
+        destination: '/:locale#product',
+        permanent: true,
+      },
       // 実績ページは廃止した。対応する節がホームに無いので、ホームへ返す
       {
         source: '/:locale(ja|en)/achievements',

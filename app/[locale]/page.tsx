@@ -21,6 +21,8 @@ export async function generateMetadata({
 export default async function Page({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!isLocale(locale)) notFound();
-  const dict = await getDictionary(locale);
-  return <HomePage dict={dict} locale={locale} />;
+  // ホームが使うのは top / home / common だけ。丸ごと渡すと、製品ページや
+  // プライバシーの文言まで HTML に埋め込まれる
+  const { top, home, common } = await getDictionary(locale);
+  return <HomePage dict={{ top, home, common }} locale={locale} />;
 }
