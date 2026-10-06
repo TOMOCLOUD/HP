@@ -97,7 +97,7 @@ export function Row({
 }
 
 /** トップに出す直近の件数。これを超えた分はアーカイブ（/news）にだけ出る */
-const TOP_COUNT = 7;
+const TOP_COUNT = 4;
 
 /**
  * 01 ニュース。
