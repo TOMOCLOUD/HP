@@ -1,0 +1,33 @@
+name: CI
+
+# ビルドは Vercel のプレビューが受け持つ。ここでは Vercel が見ない lint と型チェックを回す
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      # ルートの型（params など）は Next が生成する。生成しないと tsc はそれを見ずに通る
+      - name: Type check
+        run: |
+          npx next typegen
+          npx tsc --noEmit
