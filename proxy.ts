@@ -1,9 +1,9 @@
-// middleware.ts
+// proxy.ts
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { locales, defaultLocale, isLocale } from './lib/i18n'
+import { defaultLocale, isLocale } from './lib/i18n'
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl
 
   // 除外: /api, /_next, /favicon.ico などのファイルパス
