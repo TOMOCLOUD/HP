@@ -2,9 +2,11 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import type { Dictionary } from '@/lib/i18n';
 
-type Dict = Record<string, any>;
+type Dict = Dictionary;
+type DictCache = Record<string, Dict | undefined>;
 
 const DICT_MAP: Record<'ja'|'en', () => Promise<Dict>> = {
   ja: () => import('@/dictionaries/ja.json').then(m => m.default),
@@ -26,9 +28,9 @@ export function useDict() {
       const key = `__dict_${locale}`;
 
       // キャッシュから読み込み
-      if (typeof window !== 'undefined' && (window as any)[key]) {
+      if (typeof window !== 'undefined' && (window as unknown as DictCache)[key]) {
         if (!isCancelled) {
-          setDict((window as any)[key]);
+          setDict((window as unknown as DictCache)[key]);
           setIsLoading(false);
         }
         return;
@@ -41,7 +43,7 @@ export function useDict() {
         if (!isCancelled) {
           // ウィンドウにキャッシュ
           if (typeof window !== 'undefined') {
-            (window as any)[key] = loadedDict;
+            (window as unknown as DictCache)[key] = loadedDict;
           }
           setDict(loadedDict);
           setIsLoading(false);

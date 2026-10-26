@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import type { Locale } from '@/lib/i18n';
+import type { Dictionary, Locale } from '@/lib/i18n';
 import { useWavePropagation } from '@/lib/useWavePropagation';
 import { useWaveReveal } from '@/lib/useWaveReveal';
 import { scrollToHashOnMount } from '@/lib/scrollToSection';
@@ -37,7 +37,7 @@ import AboutSection from '@/components/home/wave/AboutSection';
  * 辞書は app/[locale]/page.tsx がサーバーで読んで渡す。ブラウザで後から
  * 読み込むと、検索エンジンが受け取る HTML に見出しも本文も入らない。
  */
-export default function HomePage({ dict, locale }: { dict: Record<string, any>; locale: Locale }) {
+export default function HomePage({ dict, locale }: { dict: Pick<Dictionary, 'top' | 'home' | 'common'>; locale: Locale }) {
   useWavePropagation();
   useWaveReveal(true);
 

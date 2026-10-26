@@ -61,10 +61,12 @@ export default function SiteHeader({
     };
   }, [menuOpen]);
 
-  // ページを移ったらメニューは閉じる
-  useEffect(() => {
+  // ページを移ったらメニューは閉じる。effect で閉じると、開いたままの描画を一度挟む
+  const [menuPathname, setMenuPathname] = useState(pathname);
+  if (menuPathname !== pathname) {
+    setMenuPathname(pathname);
     setMenuOpen(false);
-  }, [pathname]);
+  }
 
   const isCurrent = (path: string) => {
     const href = `/${locale}${path}`;

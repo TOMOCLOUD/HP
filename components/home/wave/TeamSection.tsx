@@ -1,9 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
 import SectionHead from './WaveSource';
+
+const subscribeNothing = () => () => {};
 
 type Member = { key?: string; role?: string; name?: string; title?: string; image?: string };
 
@@ -79,11 +81,10 @@ function MemberModal({
   closeLabel: string;
   onClose: () => void;
 }) {
-  const [mounted, setMounted] = useState(false);
+  // portal の出し先 document.body はブラウザにしかない。サーバー描画では出さない
+  const mounted = useSyncExternalStore(subscribeNothing, () => true, () => false);
 
   useBodyScrollLock(true);
-
-  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
