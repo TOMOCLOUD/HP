@@ -26,5 +26,8 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      # ルートの型（params など）は Next が生成する。生成しないと tsc はそれを見ずに通る
       - name: Type check
-        run: npx tsc --noEmit
+        run: |
+          npx next typegen
+          npx tsc --noEmit
