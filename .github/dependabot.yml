@@ -1,0 +1,60 @@
+# Dependabot 設定（lt-monitor-pro の .github/dependabot.yml を参考にした）
+#
+# 方針:
+# - 依存ライブラリは SOUP として管理しているため、bot の PR は自動マージしない。
+#   人がレビューしてからマージする
+# - minor / patch はまとめて 1 本の PR にし、major は互換性の確認が要るので個別の PR にする
+# - target-branch は指定しない。指定すると、そのエントリの設定（ignore 等）が
+#   security updates に適用されなくなる（GitHub の仕様）。未指定なら PR の base は
+#   既定ブランチ（main）になる
+version: 2
+
+updates:
+  # Next.js サイト本体（ルートの package.json + package-lock.json）
+  - package-ecosystem: "npm"
+    directory: "/"
+    # 毎週月曜 09:00（日本時間）に更新を確認する
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    # 同時に開いておく PR は最大 5 件
+    open-pull-requests-limit: 5
+    # 公開直後のバージョンを更新候補にしない。npm の乗っ取り版は公開から数日で
+    # 見つかり取り下げられることが多いため、少し待ってから取り込む。
+    # major は互換性確認の時間も兼ねて長めにする。security updates には適用されない
+    cooldown:
+      default-days: 7
+      semver-major-days: 30
+    labels:
+      - "dependencies"
+    # コミットメッセージはこのリポジトリの「種別: 内容」の形式に合わせる
+    commit-message:
+      prefix: "chore(deps)"
+    # minor と patch はまとめて 1 本の PR にする。グループに入らない major は
+    # パッケージごとに個別の PR になる
+    groups:
+      npm-minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+
+  # GitHub Actions のワークフロー（.github/workflows/*.yml の uses:）
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "chore(deps)"
+    groups:
+      actions-minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
