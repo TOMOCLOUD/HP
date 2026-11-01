@@ -49,6 +49,11 @@ updates:
       time: "09:00"
       timezone: "Asia/Tokyo"
     open-pull-requests-limit: 5
+    # npm と同じく、公開直後のタグは乗っ取りや差し替えに気づかれる前の可能性があるので待つ。
+    # 更新 PR では Dependabot が .github/workflows/actions.lock も同じ PR で作り直す
+    cooldown:
+      default-days: 7
+      semver-major-days: 30
     labels:
       - "dependencies"
     commit-message:
