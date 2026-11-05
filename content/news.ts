@@ -75,7 +75,7 @@ export const newsItems: NewsItem[] = [
     tagKey: 'plain',
     tag: TAG.talk,
     title: {
-      ja: 'ジェトロ千葉ほか主催のウェビナー「Born Global Startup Seminar ―起業前から考えるグローバル市場への挑戦―」（11月27日、オンライン）に小川良磨CEOが登壇します。',
+      ja: 'ジェトロ千葉・千葉市・千葉大学主催のウェビナー「Born Global Startup Seminar ―起業前から考えるグローバル市場への挑戦―」（11月27日、オンライン）に小川良磨CEOが登壇します。',
       en: 'CEO Ryoma Ogawa will speak at the webinar "Born Global Startup Seminar: Taking on Global Markets from Before Founding" (November 27, online), co-hosted by JETRO Chiba, Chiba City, and Chiba University.',
     },
     url: 'https://www.jetro.go.jp/events/chb/00d661e2c701ece5.html',
