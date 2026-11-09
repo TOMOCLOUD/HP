@@ -32,7 +32,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: anthropics/claude-code-action@v1.0.266
+      - uses: anthropics/claude-code-action@v1.0.269
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -45,7 +45,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7.0.1
-      - uses: anthropics/claude-code-action@v1.0.266
+      - uses: anthropics/claude-code-action@v1.0.269
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
