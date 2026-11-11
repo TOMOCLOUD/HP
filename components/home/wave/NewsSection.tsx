@@ -174,7 +174,7 @@ export default function NewsSection({
           <Row key={`${n.date}-${n.title}`} item={n} className="wv-news-row" pad={pads[i + 1]}>
             <Meta item={n} />
             <span className="wv-news-row-title">{n.title}</span>
-            <span className="wv-news-org wv-news-org-right">{n.org}</span>
+            {n.org ? <span className="wv-news-org wv-news-org-right">{n.org}</span> : null}
           </Row>
         ))}
       </div>

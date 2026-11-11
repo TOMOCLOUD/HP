@@ -43,7 +43,7 @@ export default function NewsArchivePage() {
                 <Row key={`${row.date}-${row.title}`} item={row} className="wv-news-row" pad={0}>
                   <Meta item={row} />
                   <span className="wv-news-row-title">{row.title}</span>
-                  <span className="wv-news-org wv-news-org-right">{row.org}</span>
+                  {row.org ? <span className="wv-news-org wv-news-org-right">{row.org}</span> : null}
                 </Row>
               );
             })}

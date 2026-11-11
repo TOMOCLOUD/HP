@@ -74,7 +74,6 @@ export const newsItems: NewsItem[] = [
     date: '2026-11-11',
     tagKey: 'media',
     tag: TAG.press,
-    org: { ja: 'UntroD', en: 'UntroD' },
     title: {
       ja: 'UntroDのインパクトストーリーに、小川良磨CEOのインタビューが掲載されました。',
       en: "An interview with CEO Ryoma Ogawa was published in UntroD's Impact Story series.",
