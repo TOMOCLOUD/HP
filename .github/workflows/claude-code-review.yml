@@ -36,7 +36,8 @@ jobs:
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          claude_args: --model ${{ env.CLAUDE_MODEL }}
+          # v1.0.273 から既定が auto mode になったため、従来の権限モードに固定する
+          claude_args: --model ${{ env.CLAUDE_MODEL }} --permission-mode acceptEdits
 
   # ドラフト解除時に自動レビュー（1回のみ）
   claude-review:
@@ -77,6 +78,9 @@ jobs:
             - ポジティブなフィードバックはインラインでは控えめにし、まとめコメントに集約してください。
 
             日本語で具体的で実行可能なフィードバックをしてください。
+          # v1.0.273 から既定が auto mode になり --allowedTools が厳密な許可リストでなくなったため、
+          # 従来の default モードに固定して許可リスト外のツールを拒否させる
           claude_args: |
             --model ${{ env.CLAUDE_MODEL }}
+            --permission-mode default
             --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr review:*),Read,Glob,Grep"
