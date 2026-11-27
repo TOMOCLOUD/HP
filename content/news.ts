@@ -71,6 +71,20 @@ const RESEARCH = { ja: '研究実績', en: 'Research record' };
 /** 新しい順。並びが崩れても表示側で date 降順に直す */
 export const newsItems: NewsItem[] = [
   {
+    date: '2026-11-27',
+    tagKey: 'award',
+    tag: TAG.award,
+    title: {
+      ja: '第25回「ベンチャー・カップCHIBA」ビジネスプラン部門でグランプリを受賞しました。',
+      en: 'TOMOCLOUD won the Grand Prix in the Business Plan category of the 25th Venture Cup CHIBA.',
+    },
+    text: {
+      ja: '千葉市産業振興財団が主催するビジネスプランコンテストで、千葉大学発のEIT技術によるリンパ浮腫の早期発見・重症化予防プラットフォームの事業計画が評価されました。千葉経済新聞でも報じられています。',
+      en: 'At this business plan contest hosted by the Chiba City Industrial Promotion Foundation, our plan for a platform for early detection and prevention of severe lymphedema, built on EIT technology from Chiba University, was recognized. The award was also covered by Chiba Keizai Shimbun.',
+    },
+    url: 'https://www.chibashi-sangyo.or.jp/info-all/14300/',
+  },
+  {
     date: '2026-11-11',
     tagKey: 'media',
     tag: TAG.press,
