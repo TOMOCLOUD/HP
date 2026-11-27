@@ -83,7 +83,6 @@ export const newsItems: NewsItem[] = [
       en: 'At this business plan contest hosted by the Chiba City Industrial Promotion Foundation, our plan for a platform for early detection and prevention of severe lymphedema, built on EIT technology from Chiba University, was recognized. The award was also covered by Chiba Keizai Shimbun.',
     },
     url: 'https://www.chibashi-sangyo.or.jp/info-all/14300/',
-    featured: true,
   },
   {
     date: '2026-11-11',
@@ -153,6 +152,7 @@ export const newsItems: NewsItem[] = [
       en: 'The project "R&D toward regulatory approval and market launch of an early-diagnosis device for lymphedema" (PI: Ryoma Ogawa) was selected.',
     },
     url: 'https://www.hosp.tsukuba.ac.jp/t-credo/1428',
+    featured: true,
   },
   {
     date: '2026-07-14',
