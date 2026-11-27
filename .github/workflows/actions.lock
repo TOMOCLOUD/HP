@@ -8,7 +8,7 @@ workflows:
         - 'actions/setup-node@v7.1.0'
     '.github/workflows/claude-code-review.yml':
         - 'actions/checkout@v7.0.1'
-        - 'anthropics/claude-code-action@v1.0.275'
+        - 'anthropics/claude-code-action@v1.0.284'
 dependencies:
     'actions/checkout@v7.0.1':
         ref: 'v7.0.1'
@@ -20,9 +20,9 @@ dependencies:
         commit: 'sha1-949feb2413d6458794dcd2491c4babbbce0c15c1'
         owner_id: 44036562
         repo_id: 189476904
-    'anthropics/claude-code-action@v1.0.275':
-        ref: 'v1.0.275'
-        commit: 'sha1-4d75e5f390ee76b2e09c1980ecc99ff3a2e088c8'
+    'anthropics/claude-code-action@v1.0.284':
+        ref: 'v1.0.284'
+        commit: 'sha1-c84e279f859e2591391e95bd309286eb111c345f'
         owner_id: 76263028
         repo_id: 986421638
         uses:
