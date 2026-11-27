@@ -71,7 +71,7 @@ const RESEARCH = { ja: '研究実績', en: 'Research record' };
 /** 新しい順。並びが崩れても表示側で date 降順に直す */
 export const newsItems: NewsItem[] = [
   {
-    date: '2026-11-24',
+    date: '2026-11-27',
     tagKey: 'award',
     tag: TAG.award,
     title: {
